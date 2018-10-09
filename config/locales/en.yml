@@ -1,33 +1,37 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  shared:
+      all:
+        action: 'Actions'
+        show: 'Show'
+        edit: 'Edit'
+        delete: 'Delete'
+        email: 'Email'
+        contact: 'Contact'
+        address: 'Address'
+        skill: 'Skills'
+        exp: 'Experience(years/months)'
+        hobby: 'Hobbies'
+        dob: 'Date of Birth'
+        plan: 'Long Term Plan'
+        personal_int: 'Personal Interest(s)'
+        keyword: 'Keywords'
+        refer: 'Referrals'
+        gender: 'Gender'
+        can_back: '<< Back to Candidate List <<'
+        file_up: 'Attachment(s)'
+
+  candidate:
+      can: 'Candidate List'
+      can_add: 'Add New Candidate(s)'
+      can_new: 'New Candidate Info'
+      can_delete: 'Remove as Candidate'
+      can_name: 'Candidate Name'
+      can_details: 'Candidate Details'
+      can_notice_create: 'Candidate created successfully!'
+      can_notice_edit: 'Candidate updated successfully!'
+      can_notice_delete: 'Candidate deleted successfully!'
+      can_delete_message: 'Are you sure you want to remove this candidate?'
+
+  layouts:
+    application:
+      title: 'Recruitment Management System'

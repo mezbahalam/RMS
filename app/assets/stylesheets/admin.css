@@ -14,34 +14,40 @@
  *= require_self
  */
 
-.simple_form {
-    float: none;
-    text-align: center;
-}
-
 .simple_form label {
-    float: none;
+    display: inline-block;
     width: 875px;
     text-align: right;
-    margin: 2px 10px 20px;
-}
+    margin: 10px;
 
+}
+.simple_form fieldset.form-group {
+    border: none;
+    margin-left: 800px;
+}
+.simple_form div.form-group.date {
+    display: inline;
+}
+.simple_form div.form-check {
+    margin-left: 10px;
+    display: inline;
+}
 .simple_form div.input {
     margin-bottom: 10px;
 }
-
-.simple_form input {
-    margin: 2px 10px;
+.simple_form div.d-flex.flex-row {
+    margin-left: 875px;
+    margin-bottom: 10px;
 }
-
 .simple_form div.boolean, .simple_form input[type='submit'] {
-    margin: 50px 100px;
+    margin-left: 875px;
 }
-
-.simple_form div.boolean label, .simple_form label.collection_radio {
-    margin: 0px;
+.simple_form div.boolean label, .simple_form label.collection_radio_buttons {
+    text-align: left;
+    width: 25px;
+    height: 10px;
+    display: inline;
 }
-
 .simple_form .error {
     clear: right;
     margin-left: 120px;
@@ -49,7 +55,6 @@
     color: #D00;
     display: block;
 }
-
 .simple_form .hint {
     clear: left;
     margin-left: 120px;

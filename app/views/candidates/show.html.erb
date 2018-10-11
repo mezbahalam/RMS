@@ -45,10 +45,10 @@
     <tr>
       <th><%= t('shared.all.file_up') %></th>
       <td>
-        <% if @candidate.avatar.present? %>
-        <%= link_to @candidate.avatar.filename, @candidate.avatar, download: '' %>
+        <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
+            <%= link_to @candidate.avatar.filename, @candidate.avatar, download: '' %>
         <% else %>
-        <%= link_to 'Nothing' %>
+            <%= t('shared.all.not_avail') %>
         <% end %>
       </td>
     </tr>

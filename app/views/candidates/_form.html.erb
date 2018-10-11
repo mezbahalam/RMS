@@ -1,6 +1,6 @@
 <%= f.error_notification %>
 <%= f.input :name, label: t('candidate.can_name') %>
-<%= f.input :gender, label: t('shared.all.gender'), as: :radio_buttons, collection: (Candidate::Gender), checked: 'Male' %>
+<%= f.input :gender, label: t('shared.all.gender'), as: :radio_buttons, collection: (Candidate::Gender), checked: 'Male'%>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :address, label: t('shared.all.address') %>
 <%= f.input :contact, label: t('shared.all.contact') %>
@@ -12,5 +12,5 @@
 <%= f.input :personal_interest, label: t('shared.all.personal_int') %>
 <%= f.input :keywords, label: t('shared.all.keyword')%>
 <%= f.input :referrals, label: t('shared.all.refer')%>
-<%= f.input :upload_file, label: t('shared.all.file_up'), as: :file %>
+<%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
 <%= f.button :submit %>

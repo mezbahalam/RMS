@@ -12,10 +12,12 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem "paperclip", "~> 6.0.0"
-gem 'attach', '~> 1.0.1'
 gem 'rails-i18n'
 gem 'simple_form'
+gem 'activestorage'
+gem 'aws-sdk-s3', require: false
+gem 'google-cloud-storage', '~> 1.11', require: false
+gem 'bootstrap', '~> 4.1.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

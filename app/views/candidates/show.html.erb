@@ -42,5 +42,15 @@
       <th><%= t('shared.all.keyword') %></th>
       <td><%= @candidate.keywords %></td>
     </tr>
+    <tr>
+      <th><%= t('shared.all.file_up') %></th>
+      <td>
+        <% if @candidate.avatar.present? %>
+        <%= link_to @candidate.avatar.filename, @candidate.avatar, download: '' %>
+        <% else %>
+        <%= link_to 'Nothing' %>
+        <% end %>
+      </td>
+    </tr>
   </table>
 </div>

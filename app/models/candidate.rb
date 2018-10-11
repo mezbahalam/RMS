@@ -1,6 +1,7 @@
 class Candidate < ApplicationRecord
+  has_one_attached :avatar
   Gender = %w[Male Female]
-  scope :sorted, lambda {order('dob ASC')}
+  scope :sorted, lambda {order('experience ASC')}
   validates :name, presence: true
   validates :email, presence: true,uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
   validates :skill,:experience,:personal_interest, presence: true

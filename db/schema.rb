@@ -10,29 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_083835) do
+ActiveRecord::Schema.define(version: 2018_10_10_044306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "candidates", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "gender"
     t.date "dob"
-    t.string "email"
+    t.string "email", null: false
     t.string "contact"
     t.text "address"
-    t.text "skill"
-    t.text "experience"
+    t.text "skill", null: false
+    t.text "experience", null: false
     t.text "hobbies"
     t.text "long_term_plan"
-    t.text "personal_interest"
+    t.text "personal_interest", null: false
     t.string "keywords"
     t.string "referrals"
-    t.string "upload_file_file_name"
-    t.string "upload_file_content_type"
-    t.integer "upload_file_file_size"
-    t.datetime "upload_file_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

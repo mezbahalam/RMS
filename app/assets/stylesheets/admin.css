@@ -14,22 +14,32 @@
  *= require_self
  */
 
+.simple_form {
+    float: none;
+    text-align: center;
+}
+
 .simple_form label {
+    float: none;
     width: 875px;
     text-align: right;
-    margin: 2px 10px;
+    margin: 2px 10px 20px;
 }
 
 .simple_form div.input {
     margin-bottom: 10px;
 }
 
+.simple_form input {
+    margin: 2px 10px;
+    display: inline-block;
+}
+
 .simple_form div.boolean, .simple_form input[type='submit'] {
-    margin-left: 875px;
+    margin: 50px 100px;
 }
 
 .simple_form div.boolean label, .simple_form label.collection_radio {
-    float: right;
     margin: 0px;
 }
 

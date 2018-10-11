@@ -14,7 +14,6 @@ class CreateCandidates < ActiveRecord::Migration[5.2]
       t.text :personal_interest, null: false
       t.string :keywords
       t.string :referrals
-      t.attachment :upload_file
       t.timestamps
     end
   end

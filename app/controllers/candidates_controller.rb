@@ -1,10 +1,10 @@
 class CandidatesController < ApplicationController
-  before_action :find_candidate, only: %i[show edit update delete destroy]
+  before_action :find_candidate, only: %i[show edit update delete destroy download]
   def index
     @candidates = Candidate.sorted
   end
 
-  def show ; end
+  def show; end
 
   def new
     @candidate = Candidate.new
@@ -12,6 +12,7 @@ class CandidatesController < ApplicationController
 
   def create
     @candidate = Candidate.new(candidate_params)
+    @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
       flash[:notice] = t('candidate.can_notice_create')
       redirect_to(candidates_path)
@@ -53,7 +54,7 @@ class CandidatesController < ApplicationController
                                       :long_term_plan,
                                       :keywords,
                                       :referrals,
-                                      :upload_file)
+                                      :avatar)
   end
   def find_candidate
     @candidate = Candidate.find(params[:id])

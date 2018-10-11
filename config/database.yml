@@ -1,4 +1,4 @@
-default: &default
+default: &defaults
   adapter: postgresql
   encoding: unicode
   username: FAR-wtag
@@ -8,13 +8,13 @@ default: &default
   host: <%= ENV['POSTGRES_HOST'] %>
 
 development:
-  <<: *default
+  <<: *defaults
   database: <%= ENV['POSTGRES_DB'] %>
 
 test:
-  <<: *default
+  <<: *defaults
   database: <%= ENV['POSTGRES_TEST_DB'] %>
 
 production:
-  <<: *default
+  <<: *defaults
   database: <%= ENV['POSTGRES_DB'] %>

@@ -9,7 +9,7 @@ en:
         contact: 'Contact'
         address: 'Address'
         skill: 'Skills'
-        exp: 'Experience(years/months)'
+        exp: 'Experience(years)'
         hobby: 'Hobbies'
         dob: 'Date of Birth'
         plan: 'Long Term Plan'
@@ -19,6 +19,7 @@ en:
         gender: 'Gender'
         can_back: '<< Back to Candidate List <<'
         file_up: 'Attachment(s)'
+        not_avail: 'Not available'
 
   candidate:
       can: 'Candidate List'

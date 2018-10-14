@@ -27,8 +27,19 @@ p, td, ul, ol, li, dl, dt, dd {
   font-family: $sans_serif;
 }
 
-img { border: none; }
+img { border: none;
+  float: left;
+}
+
 table { border-collapse: collapse; }
+
+textarea.form-control {
+  white-space: pre-line;
+}
+
+p.editfile {
+  display: inline-block;
+}
 
 table tr th, table tr td {
   vertical-align: top;

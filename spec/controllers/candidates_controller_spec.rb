@@ -183,19 +183,19 @@ RSpec.describe CandidatesController, type: :controller do
     context 'with invalid attributes' do
       let(:invalid_attributes) do
         attributes_for(:candidate,
-                       name: 'Tithi',
+                       name: nil,
                        dob: '2010-09-25'.to_date,
                        gender: 'Female',
                        email: nil,
-                       address: 'House 78, road 10, shahbag, dhaka',
-                       contact: '0175206968',
-                       skill: 'c++,c,c#',
-                       experience: '1.5',
-                       personal_interest: 'reading',
+                       address: 'House 8, road 180, nagpur, dhaka',
+                       contact: '01789658976',
+                       skill: 'c++,c,c#,ruby,java',
+                       experience: 'three years',
+                       personal_interest: nil,
                        hobbies: 'shopping',
-                       long_term_plan: 'PM of BD',
-                       keywords: 'software, engineer',
-                       referrals: 'Anjum Ara Begum')
+                       long_term_plan: 'CTO',
+                       keywords: 'frontend',
+                       referrals: 'Roksar')
       end
 
       it 'does not update the new school' do

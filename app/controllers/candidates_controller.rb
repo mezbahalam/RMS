@@ -1,5 +1,5 @@
 class CandidatesController < ApplicationController
-  before_action :find_candidate, only: %i[show edit update delete destroy download]
+  before_action :find_candidate, only: %i[show edit update delete destroy]
   def index
     @candidates = Candidate.sorted
   end
@@ -14,7 +14,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
-      flash[:notice] = t('candidate.can_notice_create')
+      flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
       redirect_to(candidates_path)
     else
       render :new
@@ -25,7 +25,7 @@ class CandidatesController < ApplicationController
 
   def update
     if @candidate.update_attributes(candidate_params)
-      flash[:notice] = t('candidate.can_notice_edit')
+      flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
       redirect_to(candidates_path(@candidate))
     else
       render :edit
@@ -36,7 +36,7 @@ class CandidatesController < ApplicationController
 
   def destroy
     @candidate.destroy
-    flash[:notice] = t('candidate.can_notice_delete')
+    flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
     redirect_to(candidates_path)
   end
 
@@ -54,7 +54,8 @@ class CandidatesController < ApplicationController
                                       :long_term_plan,
                                       :keywords,
                                       :referrals,
-                                      :avatar)
+                                      :avatar,
+                                      :delete_avatar)
   end
   def find_candidate
     @candidate = Candidate.find(params[:id])

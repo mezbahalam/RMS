@@ -43,6 +43,10 @@
       <td><%= @candidate.keywords %></td>
     </tr>
     <tr>
+      <th><%= t('shared.all.refer') %></th>
+      <td><%= @candidate.referrals %></td>
+    </tr>
+    <tr>
       <th><%= t('shared.all.file_up') %></th>
       <td>
         <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>

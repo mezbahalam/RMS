@@ -1,0 +1,30 @@
+<div class="school index">
+  <h2><%=t('candidate.can')%></h2>
+  <div class = "image">
+    <%= image_tag('add.png', size: '23x23', alt: '+')%>
+    <%= link_to t('candidate.can_add'), new_candidate_path %>
+  </div>
+  <br /><br />
+  <table class="listing" summary="Candidate List">
+    <tr class="header">
+      <th class="center"><%=t('candidate.can_name')%></th>
+      <th class="center"><%=t('shared.all.email')%></th>
+      <th class="center"><%=t('shared.all.contact')%></th>
+      <th class="center"><%=t('shared.all.exp')%></th>
+      <th class="center"><%=t('shared.all.action')%></th>
+    </tr>
+    <% @candidates.each do |candidate| %>
+        <tr>
+          <td><%= candidate.name %></td>
+          <td><%= candidate.email %></td>
+          <td><%= candidate.contact %></td>
+          <td><%= candidate.experience %></td>
+          <td class="actions">
+            <%= link_to t('shared.all.show'), candidate_path(candidate) %>
+            <%= link_to t('shared.all.edit'), edit_candidate_path(candidate) %>
+            <%= link_to t('shared.all.delete'), delete_candidate_path(candidate) %>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>

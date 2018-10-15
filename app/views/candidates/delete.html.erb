@@ -1,0 +1,9 @@
+<%= link_to t('shared.all.can_back'), candidates_path %>
+<div class ="candidate delete">
+  <h2><%= t('candidate.can_delete') %></h2>
+  <%= simple_form_for(@candidate, method: 'delete') do |f| %>
+      <p class="center"><%= t('candidate.can_delete_message') %></p>
+      <p class="reference-name, center" ><%= f.object.name %></p>
+      <%= f.submit t('candidate.can_btn_delete') %>
+  <% end %>
+</div>

@@ -1,0 +1,8 @@
+<% if signed_in? %>
+    Signed in as: <%= current_user.email %>
+    <%= link_to t('candidate.view_can'), candidates_path %>
+    <%= button_to 'Sign out', sign_out_path, method: :delete %>
+<% else %>
+    <%= link_to 'Log in', sign_in_path %>
+    <%= link_to 'Sign up', sign_up_path %>
+<% end %>

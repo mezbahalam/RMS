@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Clearance::Controller
   before_action :set_locale
   def set_locale
     locale = params[:locale].to_s.strip.to_sym

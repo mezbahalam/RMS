@@ -22,6 +22,7 @@ en:
         not_avail: 'Not available'
         delete_file: 'Remove this file'
   candidate:
+      view_can: 'View Candidate List'
       can: 'Candidate List'
       can_add: 'Add New Candidate(s)'
       can_new: 'New Candidate Info'

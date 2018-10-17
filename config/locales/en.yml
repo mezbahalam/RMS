@@ -21,6 +21,7 @@ en:
         file_up: 'Attachment(s)'
         not_avail: 'Not available'
         delete_file: 'Remove this file'
+        inv_email: 'Invalid Email input'
   candidate:
       view_can: 'View Candidate List'
       can: 'Candidate List'

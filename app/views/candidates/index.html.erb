@@ -1,4 +1,8 @@
 <div class="school index">
+  <% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+  <% end %>
   <h2><%=t('candidate.can')%></h2>
   <div class = "image">
     <%= image_tag('add.png', size: '23x23', alt: '+')%>

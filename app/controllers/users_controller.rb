@@ -1,14 +1,16 @@
 class UsersController < Clearance::UsersController
+  skip_before_action :check_if_email_confirmed
   def new
     @user = User.new
     render :new
   end
 
   def create
-    @user = params_to_create
+    @user = User.new(user_params)
     if @user.save
-      sign_in @user
-      redirect_to candidates_path
+      deliver_email(@user)
+      sign_in (@user)
+      redirect_to root_path
     else
       render :new
     end
@@ -16,10 +18,10 @@ class UsersController < Clearance::UsersController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password)
   end
 
-  def params_to_create
-    @created_params = user_from_params
+  def deliver_email(user)
+    ::UserMailer.sign_up_confirmation(user).deliver_now
   end
 end

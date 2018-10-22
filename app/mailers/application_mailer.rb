@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: Clearance.configuration.mailer_sender
   layout 'mailer'
 end

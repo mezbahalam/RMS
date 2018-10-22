@@ -19,6 +19,7 @@ en:
     failure_when_not_signed_in: Please sign in to continue.
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
+    same_email: The email is still the same as the previous one
   helpers:
     label:
       password:

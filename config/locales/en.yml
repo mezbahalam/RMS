@@ -1,41 +1,50 @@
 en:
   shared:
       all:
-        action: 'Actions'
-        show: 'Show'
-        edit: 'Edit'
-        delete: 'Delete'
-        email: 'Email'
-        contact: 'Contact'
-        address: 'Address'
-        skill: 'Skills'
-        exp: 'Experience(years)'
-        hobby: 'Hobbies'
-        dob: 'Date of Birth'
-        plan: 'Long Term Plan'
-        personal_int: 'Personal Interest(s)'
-        keyword: 'Keywords'
-        refer: 'Referrals'
-        gender: 'Gender'
-        can_back: '<< Back to Candidate List <<'
-        file_up: 'Attachment(s)'
-        not_avail: 'Not available'
-        delete_file: 'Remove this file'
-        inv_email: 'Invalid Email input'
+        action: Actions
+        show: Show
+        edit: Edit
+        delete: Delete
+        email: Email
+        contact: Contact
+        address: Address
+        skill: Skills
+        exp: Experience(years)
+        hobby: Hobbies
+        dob: Date of Birth
+        plan: Long Term Plan
+        personal_int: Personal Interest(s)
+        keyword: Keywords
+        refer: Referrals
+        gender: Gender
+        can_back: << Back to Candidate List <<
+        file_up: Attachment(s)
+        not_avail: Not available
+        delete_file: Remove this file
+        inv_email: Invalid Email input
   candidate:
-      view_can: 'View Candidate List'
-      can: 'Candidate List'
-      can_add: 'Add New Candidate(s)'
-      can_new: 'New Candidate Info'
-      can_update: 'Update Candidate Info'
-      can_delete: 'Candidate Deletion'
-      can_btn_delete: 'Remove Candidate'
-      can_name: 'Candidate Name'
-      can_details: 'Candidate Details'
+      view_can: View Candidate List
+      can: Candidate List
+      can_add: Add New Candidate(s)
+      can_new: New Candidate Info
+      can_update: Update Candidate Info
+      can_delete: Candidate Deletion
+      can_btn_delete: Remove Candidate
+      can_name: Candidate Name
+      can_details: Candidate Details
       can_notice_create: '%{candidate_name} created successfully!'
       can_notice_edit: '%{candidate_name} updated successfully!'
       can_notice_delete: '%{candidate_name} deleted successfully!'
-      can_delete_message: 'Are you sure you want to remove this candidate?'
+      can_delete_message: Are you sure you want to remove this candidate?
+  users:
+    mailer:
+      subject:
+        confirm_email: Confirm your Email
+  user_mailer:
+      sign_up_confirmation:
+        closing: If you didn't request this, ignore this email.
+        link_text: Confirm Sign Up !
+        opening: Someone, hopefully you, requested for sign up and the following link will confirm your email
   layouts:
     application:
-      title: 'Recruitment Management System'
+      title: Recruitment Management System

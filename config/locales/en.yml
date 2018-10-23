@@ -6,7 +6,7 @@ en:
         edit: Edit
         delete: Delete
         email: Email
-        contact: Contact
+        phone: Phone/Mobile No.
         address: Address
         skill: Skills
         exp: Experience(years)
@@ -17,11 +17,17 @@ en:
         keyword: Keywords
         refer: Referrals
         gender: Gender
+        first_name: First Name
+        middle_name: Middle Name
+        last_name: :Last Name
+        origin_country: Country of Origin
         can_back: << Back to Candidate List <<
         file_up: Attachment(s)
         not_avail: Not available
         delete_file: Remove this file
         inv_email: Invalid Email input
+        password: Password
+        sign_up_terms: By signing up, I accept the Terms & Privacy policies
   candidate:
       view_can: View Candidate List
       can: Candidate List

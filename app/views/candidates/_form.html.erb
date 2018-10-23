@@ -3,8 +3,9 @@
 <%= f.input :gender, label: t('shared.all.gender'), as: :radio_buttons, collection: (Candidate::Gender), checked: 'Male'%>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
-<%= f.input :contact, label: t('shared.all.contact') %>
-<%= f.input :dob, label: t('shared.all.dob')  %>
+<%= f.input :contact, label: t('shared.all.phone') %>
+<%= f.input :dob, label: t('shared.all.dob'), start_year: Date.today.year,
+            end_year: 1950, order: [:day, :month, :year] %>
 <%= f.input :skill, label: t('shared.all.skill'), input_html: {rows: 3}, separator: ',' %>
 <%= f.input :experience, label: t('shared.all.exp') %>
 <%= f.input :long_term_plan, label: t('shared.all.plan'), input_html: {rows: 3} %>

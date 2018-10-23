@@ -18,6 +18,7 @@ gem 'activestorage'
 gem 'aws-sdk-s3', require: false
 gem 'clearance'
 gem 'google-cloud-storage', require: false
+gem 'country_select'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-controller-testing'

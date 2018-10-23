@@ -1,22 +1,9 @@
-<%= form_for :session, url: session_path do |form| %>
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
-  </div>
-
-  <div class="password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="submit-field">
-    <%= form.submit %>
-  </div>
-
-  <div class="other-links">
-    <% if Clearance.configuration.allow_sign_up? %>
-      <%= link_to t('.sign_up'), sign_up_path %>
-    <% end %>
-    <%= link_to t('.forgot_password'), new_password_path %>
-  </div>
-<% end %>
+<%= f.error_notification %>
+<%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
+<%= f.input :password, label: t('shared.all.password')%>
+<%= f.button :submit %>
+<div class="other-links" style="margin: 10px 810px; width: 212px">
+  <% if Clearance.configuration.allow_sign_up? %><%= link_to t('.sign_up'), sign_up_path %>
+  <% end %>
+  <%= link_to t('.forgot_password'), new_password_path %>
+</div>

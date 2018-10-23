@@ -89,6 +89,17 @@ span.status {
   input { border: 2px solid red; }
 }
 
+.invalid-feedback {
+  text-align: center;
+  color: red;
+  display: block;
+}
+
+.alert.alert-danger {
+  text-align: center;
+  color: #AA0000;
+}
+
 .error_notification {
   text-align: center;
   margin-bottom: 10px;

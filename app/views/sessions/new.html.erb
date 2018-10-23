@@ -1,4 +1,6 @@
 <div id="clearance" class="sign-in">
   <h2><%= t('.title') %></h2>
-  <%= render partial: '/sessions/form' %>
+  <%= simple_form_for :session, url: session_path do |f| %>
+  <%= render 'sessions/form', f: f %>
+  <% end %>
 </div>

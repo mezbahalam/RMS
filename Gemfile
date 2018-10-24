@@ -12,6 +12,7 @@ gem 'coffee-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootsnap', require: false
+gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'activestorage'
@@ -23,13 +24,9 @@ gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
-
-group :development, :test do
-  gem "rspec-rails"
-  gem "factory_girl_rails"
-end
-
 
 group :development do
   gem 'web-console'
@@ -40,10 +37,6 @@ end
 
 group :test do
   gem 'faker'
-  gem 'capybara'
   gem 'database_cleaner'
-  gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'shoulda-matchers', require: false
 end

@@ -3,7 +3,7 @@ RSpec.describe CandidatesController, type: :controller do
   let!(:sample_1) do
     create(:candidate,
            name: 'Faiza',
-           gender: 'Female',
+           gender: :female,
            dob: '2010-09-25'.to_date,
            email: 'tithi@yahoo.com',
            address: 'House 78, road 10, shahbag, dhaka',
@@ -60,7 +60,7 @@ RSpec.describe CandidatesController, type: :controller do
       let(:valid_attributes) do
         attributes_for(:candidate,
                        name: 'Mariya',
-                       gender: 'Female',
+                       gender: :female,
                        dob: '2008-06-16',
                        email: 'mariya@gmail.com',
                        address: 'House 52, road 13, banasree, dhaka',
@@ -90,7 +90,7 @@ RSpec.describe CandidatesController, type: :controller do
       let(:invalid_attributes) do
         attributes_for(:candidate,
                        name: nil,
-                       gender: 'Female',
+                       gender: :female,
                        dob: '2008-06-16',
                        email: nil,
                        address: 'House 52, road 13, banasree, dhaka',
@@ -135,7 +135,7 @@ RSpec.describe CandidatesController, type: :controller do
         attributes_for(:candidate,
                        name: 'Noshin',
                        dob: '2010-09-06'.to_date,
-                       gender: 'Female',
+                       gender: 'female',
                        email: 'noshin@yahoo.com',
                        address: 'House 56, road 10, shahbag, dhaka',
                        contact: '0175205968',
@@ -160,7 +160,7 @@ RSpec.describe CandidatesController, type: :controller do
         sample_1.reload
         expect(sample_1.name).to eq('Noshin')
         expect(sample_1.dob).to eq('2010-09-06'.to_date)
-        expect(sample_1.gender).to eq('Female')
+        expect(sample_1.reload.gender).to eq('female')
         expect(sample_1.email).to eq('noshin@yahoo.com')
         expect(sample_1.address).to eq('House 56, road 10, shahbag, dhaka')
         expect(sample_1.contact).to eq('0175205968')
@@ -185,7 +185,7 @@ RSpec.describe CandidatesController, type: :controller do
         attributes_for(:candidate,
                        name: nil,
                        dob: '2010-09-25'.to_date,
-                       gender: 'Female',
+                       gender: 'female',
                        email: nil,
                        address: 'House 8, road 180, nagpur, dhaka',
                        contact: '01789658976',
@@ -198,13 +198,13 @@ RSpec.describe CandidatesController, type: :controller do
                        referrals: 'Roksar')
       end
 
-      it 'does not update the new school' do
+      it 'does not update the new candidate' do
         patch :update, params: { id: sample_1,
                                  candidate: invalid_attributes }
         sample_1.reload
         expect(sample_1.name).to eq('Faiza')
         expect(sample_1.dob).to eq('2010-09-25'.to_date)
-        expect(sample_1.gender).to eq('Female')
+        expect(sample_1.gender).to eq('female')
         expect(sample_1.email).to eq('tithi@yahoo.com')
         expect(sample_1.address).to eq('House 78, road 10, shahbag, dhaka')
         expect(sample_1.contact).to eq('0175206968')

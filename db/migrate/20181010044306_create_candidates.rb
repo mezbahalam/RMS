@@ -2,7 +2,7 @@ class CreateCandidates < ActiveRecord::Migration[5.2]
   def up
     create_table :candidates do |t|
       t.string :name, null: false
-      t.string :gender
+      t.integer :gender
       t.date :dob
       t.string :email, null: false
       t.string :contact

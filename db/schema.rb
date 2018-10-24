@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_044306) do
+ActiveRecord::Schema.define(version: 2018_10_23_052646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_044306) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name", null: false
-    t.string "gender"
+    t.integer "gender"
     t.date "dob"
     t.string "email", null: false
     t.string "contact"
@@ -52,6 +52,25 @@ ActiveRecord::Schema.define(version: 2018_10_10_044306) do
     t.string "referrals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", limit: 128, null: false
+    t.string "confirmation_token", limit: 128
+    t.string "remember_token", limit: 128, null: false
+    t.datetime "email_confirmed_at"
+    t.string "firstname"
+    t.string "middlename"
+    t.string "lastname"
+    t.string "contact"
+    t.text "address"
+    t.date "dob"
+    t.string "country"
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end

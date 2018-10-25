@@ -1,7 +1,10 @@
 class Candidate < ApplicationRecord
   has_one_attached :avatar
-  Gender = %w[Male Female]
-  scope :sorted, lambda {order('experience ASC')}
+
+  enum gender: [:male, :female]
+
+  scope :sorted, lambda { order('experience ASC') }
+
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true,
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
@@ -16,6 +19,6 @@ class Candidate < ApplicationRecord
   end
 
   def delete_avatar=(value)
-    @delete_avatar  = !value.to_i.zero?
+    @delete_avatar  = value.to_i.nonzero?
   end
 end

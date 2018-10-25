@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_052646) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name", null: false
-    t.string "gender"
+    t.integer "gender"
     t.date "dob"
     t.string "email", null: false
     t.string "contact"

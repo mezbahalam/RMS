@@ -9,5 +9,5 @@ describe Candidate, type: :model do
     create(:candidate)
     is_expected.to validate_uniqueness_of(:email)
   end
-  it { should validate_numericality_of(:experience) }
+  it { is_expected.to validate_numericality_of(:experience) }
 end

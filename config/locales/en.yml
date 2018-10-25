@@ -1,4 +1,9 @@
 en:
+  activerecord:
+     attributes:
+       candidate/gender:
+         female: Female
+         male: Male
   shared:
       all:
         action: Actions

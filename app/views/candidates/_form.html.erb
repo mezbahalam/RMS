@@ -1,6 +1,10 @@
 <%= f.error_notification %>
 <%= f.input :name, label: t('candidate.can_name') %>
-<%= f.input :gender, label: t('shared.all.gender'), as: :radio_buttons, collection: (Candidate::Gender), checked: 'Male'%>
+<%= f.label :gender %>
+<%= f.collection_radio_buttons :gender, human_attribute_genders,
+                               :first,
+                               :second,
+                               checked: human_attribute_genders.first %>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
 <%= f.input :contact, label: t('shared.all.phone') %>

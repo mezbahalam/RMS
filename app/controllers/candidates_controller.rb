@@ -15,7 +15,7 @@ class CandidatesController < ApplicationController
     @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
       flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
-      redirect_to(candidates_path)
+      redirect_to candidates_path
     else
       render :new
     end
@@ -26,7 +26,7 @@ class CandidatesController < ApplicationController
   def update
     if @candidate.update_attributes(candidate_params)
       flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
-      redirect_to(candidates_path(@candidate))
+      redirect_to candidates_path(@candidate)
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class CandidatesController < ApplicationController
   def destroy
     @candidate.destroy
     flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
-    redirect_to(candidates_path)
+    redirect_to candidates_path
   end
 
   private

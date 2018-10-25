@@ -18,13 +18,12 @@
 <%= f.input :referrals, label: t('shared.all.refer')%>
 
 <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
-    <%= f.label :avatar, label: t('shared.all.file_up') %>
-    <p class="editfile">
-      <%= @candidate.avatar.filename %>
-    </p>
-    <%= f.check_box :delete_avatar %><%= t('shared.all.delete_file') %><br/>
+<%= f.label :avatar, label: t('shared.all.file_up') %>
+<p class="editfile">
+<%= @candidate.avatar.filename %>
+</p>
+<%= f.check_box :delete_avatar %><%= t('shared.all.delete_file') %><br/>
 <% else %>
-    <%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
+<%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
 <% end %>
-
 <%= f.button :submit %>

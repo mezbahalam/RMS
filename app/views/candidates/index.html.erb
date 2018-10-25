@@ -22,7 +22,8 @@
           <td class="actions">
             <%= link_to t('shared.all.show'), candidate_path(candidate) %>
             <%= link_to t('shared.all.edit'), edit_candidate_path(candidate) %>
-            <%= link_to t('shared.all.delete'), delete_candidate_path(candidate) %>
+            <%= link_to t('shared.all.delete'), candidate_path(candidate), method: :delete,
+                        data: {confirm: I18n.t('shared.all.confirm_delete')} %>
           </td>
         </tr>
     <% end %>

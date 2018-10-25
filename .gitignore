@@ -23,3 +23,5 @@ config/sso.pem
 config/sso.key
 public/system/
 spec/examples.txt
+
+.byebug_history

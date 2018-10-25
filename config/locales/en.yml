@@ -1,44 +1,49 @@
+---
 en:
   activerecord:
-     attributes:
-       candidate/gender:
-         female: Female
-         male: Male
-  shared:
-      all:
-        action: Actions
-        show: Show
-        edit: Edit
-        delete: Delete
-        email: Email
-        contact: Contact
-        address: Address
-        skill: Skills
-        exp: Experience(years)
-        hobby: Hobbies
-        dob: Date of Birth
-        plan: Long Term Plan
-        personal_int: Personal Interest(s)
-        keyword: Keywords
-        refer: Referrals
-        gender: Gender
-        can_back: << Back to Candidate List <<
-        file_up: Attachment(s)
-        not_avail: Not available
-        delete_file: Remove this file
+    attributes:
+      candidate/gender:
+        female: FEMALE
+        male: MALE
   candidate:
-      can: Candidate List
-      can_add: Add New Candidate(s)
-      can_new: New Candidate Info
-      can_update: Update Candidate Info
-      can_delete: Candidate Deletion
-      can_btn_delete: Remove Candidate
-      can_name: Candidate Name
-      can_details: Candidate Details
-      can_notice_create: '%{candidate_name} created successfully!'
-      can_notice_edit: '%{candidate_name} updated successfully!'
-      can_notice_delete: '%{candidate_name} deleted successfully!'
-      can_delete_message: Are you sure you want to remove this candidate?
+    can: Candidate List
+    can_add: Add New Candidate(s)
+    can_details: Candidate Details
+    can_name: Candidate Name
+    can_new: New Candidate Info
+    can_notice_create: "%{candidate_name} created successfully!"
+    can_notice_create_fail: "%{candidate_name} record creation failed"
+    can_notice_delete: "%{candidate_name} deleted successfully!"
+    can_notice_delete_fail: "%{candidate_name} could not be deleted "
+    can_notice_edit: "%{candidate_name} updated successfully!"
+    can_notice_edit_fail: "%{candidate_name} could not be updated"
+    can_update: Update Candidate Info
+    flash:
+      danger: Record Creation Failed
   layouts:
     application:
+      footer: rms.com
       title: Recruitment Management System
+  shared:
+    all:
+      action: Actions
+      address: Address
+      can_back: "<< Back to Candidate List <<"
+      confirm_delete: Are you sure you want to delete this record ?
+      contact: Contact
+      delete: Delete
+      delete_file: Remove this file
+      dob: Date of Birth
+      edit: Edit
+      email: Email
+      exp: Experience(years)
+      file_up: Attachment(s)
+      gender: Gender
+      hobby: Hobbies
+      keyword: Keywords
+      not_avail: Not available
+      personal_int: Personal Interest(s)
+      plan: Long Term Plan
+      refer: Referrals
+      show: Show
+      skill: Skills

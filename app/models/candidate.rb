@@ -1,7 +1,7 @@
 class Candidate < ApplicationRecord
   has_one_attached :avatar
 
-  enum gender: [:male, :female]
+  enum gender: {male: 0, female: 1}
 
   scope :sorted, lambda { order('experience ASC') }
 

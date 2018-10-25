@@ -1,3 +1,4 @@
+require 'ffaker'
 FactoryBot.define do
   factory :candidate do
     name { 'Laila' }
@@ -12,6 +13,6 @@ FactoryBot.define do
     long_term_plan { 'CEO' }
     keywords { 'software' }
     referrals { 'Tanzim' }
-    email {Faker::Internet.email}
+    email {FFaker::Internet.email}
   end
 end

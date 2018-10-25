@@ -225,18 +225,6 @@ RSpec.describe CandidatesController, type: :controller do
     end
   end
 
-  describe 'GET #delete' do
-    it 'displays a delete message for @candidate' do
-      get :delete, params: { id: sample_1 }
-      expect(assigns(:candidate)).to eq sample_1
-    end
-
-    it 'renders the :delete template' do
-      get :delete, params: { id: sample_1 }
-      expect(response).to render_template :delete
-    end
-  end
-
   describe 'DELETE #destroy' do
     it 'deletes the candidate' do
       expect{ delete :destroy, params: { id: sample_1 }}.to change(Candidate, :count).by(-1)

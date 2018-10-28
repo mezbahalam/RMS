@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_10_23_052646) do
     t.string "contact"
     t.text "address"
     t.text "skill", null: false
-    t.text "experience", null: false
+    t.float "experience", null: false
     t.text "hobbies"
     t.text "long_term_plan"
     t.text "personal_interest", null: false

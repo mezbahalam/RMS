@@ -14,6 +14,7 @@ gem 'jbuilder'
 gem 'bootsnap', require: false
 gem 'bootstrap-sass'
 gem 'rails-i18n'
+gem 'i18n-tasks'
 gem 'simple_form'
 gem 'activestorage'
 gem 'aws-sdk-s3', require: false
@@ -39,7 +40,7 @@ group :development do
 end
 
 group :test do
-  gem 'faker'
+  gem 'ffaker'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
 end

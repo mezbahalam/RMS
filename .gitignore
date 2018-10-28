@@ -24,4 +24,4 @@ config/sso.key
 public/system/
 spec/examples.txt
 
-*.iml
+.byebug_history

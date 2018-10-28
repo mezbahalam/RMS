@@ -1,9 +1,10 @@
+---
 en:
   activerecord:
      attributes:
-       candidate/gender:
-         female: Female
-         male: Male
+           candidate/gender:
+             female: FEMALE
+             male: MALE
   shared:
       all:
         action: Actions
@@ -33,20 +34,9 @@ en:
         inv_email: Invalid Email input
         password: Password
         sign_up_terms: By signing up, I accept the Terms & Privacy policies
-  candidate:
-      view_can: View Candidate List
-      can: Candidate List
-      can_add: Add New Candidate(s)
-      can_new: New Candidate Info
-      can_update: Update Candidate Info
-      can_delete: Candidate Deletion
-      can_btn_delete: Remove Candidate
-      can_name: Candidate Name
-      can_details: Candidate Details
-      can_notice_create: '%{candidate_name} created successfully!'
-      can_notice_edit: '%{candidate_name} updated successfully!'
-      can_notice_delete: '%{candidate_name} deleted successfully!'
-      can_delete_message: Are you sure you want to remove this candidate?
+        confirm_delete: Are you sure you want to delete this record ?
+        delete: Delete
+        delete_file: Remove this file
   users:
     mailer:
       subject:
@@ -56,6 +46,22 @@ en:
         closing: If you didn't request this, ignore this email.
         link_text: Confirm Sign Up !
         opening: Someone, hopefully you, requested for sign up and the following link will confirm your email
+  candidate:
+    can: Candidate List
+    can_add: Add New Candidate(s)
+    can_details: Candidate Details
+    can_name: Candidate Name
+    can_new: New Candidate Info
+    can_notice_create: "%{candidate_name} created successfully!"
+    can_notice_create_fail: "%{candidate_name} record creation failed"
+    can_notice_delete: "%{candidate_name} deleted successfully!"
+    can_notice_delete_fail: "%{candidate_name} could not be deleted "
+    can_notice_edit: "%{candidate_name} updated successfully!"
+    can_notice_edit_fail: "%{candidate_name} could not be updated"
+    can_update: Update Candidate Info
+    flash:
+      danger: Record Creation Failed
   layouts:
     application:
+      footer: rms.com
       title: Recruitment Management System

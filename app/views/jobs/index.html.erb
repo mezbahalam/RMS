@@ -1,0 +1,30 @@
+<div class="school index">
+  <h2><%=t('job.job')%></h2>
+  <div class = "image">
+    <%#= image_tag('add.png', size: '23x23', alt: '+')%>
+    <%= link_to t('job.job_add'), new_job_path %>
+  </div>
+  <br /><br />
+  <table class="listing" summary="Candidate List">
+    <tr class="header">
+      <th class="center"><%=t('job.job_name')%></th>
+      <th class="center"><%=t('job.job_des')%></th>
+      <th class="center"><%=t('job.job_res')%></th>
+      <th class="center"><%=t('job.job_deadline')%></th>
+      <th class="center"><%=t('shared.all.action')%></th>
+    </tr>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.job_description %></td>
+        <td><%= job.responsibilities %></td>
+        <td><%= job.deadline %></td>
+        <td class="actions">
+          <%= link_to t('shared.all.show'), job_path(job) %>
+          <%= link_to t('shared.all.edit'), edit_job_path(job) %>
+          <%= link_to t('shared.all.delete'), delete_job_path(job) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

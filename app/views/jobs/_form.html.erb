@@ -1,0 +1,13 @@
+<%= f.error_notification %>
+<%= f.input :title, label: t('job.job_name') %>
+<%= f.input :job_description, label: t('job.job_des'), input_html: {rows: 3} %>
+<%= f.input :responsibilities, label: t('job.job_res') %>
+<%= f.input :requirements, label: t('job.job_req') %>
+<%= f.input :remuneration, label: t('job.job_rem') %>
+<%= f.input :location, label: t('job.job_loc') %>
+<%= f.input :deadline, label: t('job.job_deadline') %>
+<%= f.input :date_issue, label: t('job.job_date_issue') %>
+<%= f.input :status, label: t('job.job_status') %>
+<%= f.button :submit %>
+
+

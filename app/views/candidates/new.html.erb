@@ -1,0 +1,7 @@
+<%= link_to t('shared.all.can_back'), candidates_path %>
+<div class ="candidate new">
+  <h2><%= t('candidate.can_new') %></h2>
+  <%= simple_form_for @candidate do |f| %>
+  <%= render 'form', f: f %>
+  <% end %>
+</div>

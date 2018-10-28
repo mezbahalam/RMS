@@ -1,4 +1,3 @@
----
 en:
   activerecord:
     attributes:
@@ -20,6 +19,26 @@ en:
     can_update: Update Candidate Info
     flash:
       danger: Record Creation Failed
+
+  job:
+    job: Job list
+    job_add: Add New Job(s)
+    job_details: Job Details
+    job_name: Job Title
+    job_des: Job Description
+    job_res: Job Responsibilities
+    job_req: Job Requirements
+    job_rem: Remuneration
+    job_loc: Job Location
+    job_deadline: Deadline
+    job_date_issue: Date Issued
+    job_status: Status
+    job_notice_create: "%{job_name} created successfully!"
+    job_update: Update Job Info
+    job_notice_edit: "%{job_name} updated successfully!"
+    job_back: Back to Job List
+    job_notice_delete: "%{job_name} deleted successfully!"
+
   layouts:
     application:
       footer: rms.com

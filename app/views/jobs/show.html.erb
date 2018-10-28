@@ -1,60 +1,42 @@
-<%= link_to t('shared.all.can_back'), jobs_path %>
+<%= link_to t('job.job_back'), jobs_path %>
 <div class="schools show">
-  <h2><%= t('candidate.can_details') %></h2>
+  <h2><%= t('job.job_details') %></h2>
   <table summary="School detail view">
     <tr>
-      <th><%= t('candidate.can_name') %></th>
-      <td><%= @candidate.name %></td>
+      <th><%= t('job.job_name') %></th>
+      <td><%= @job.title %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.email') %></th>
-      <td><%= @candidate.email %></td>
+      <th><%= t('job.job_des') %></th>
+      <td><%= @job.job_description %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.contact') %></th>
-      <td><%= @candidate.contact %></td>
+      <th><%= t('job.job_res') %></th>
+      <td><%= @job.responsibilities %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.gender') %></th>
-      <td><%= @candidate.gender %></td>
+      <th><%= t('job.job_req') %></th>
+      <td><%= @job.requirements %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.address') %></th>
-      <td><%= @candidate.address %></td>
+      <th><%= t('job.job_rem') %></th>
+      <td><%= @job.remuneration %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.skill') %></th>
-      <td><%= @candidate.skill %></td>
+      <th><%= t('job.job_loc') %></th>
+      <td><%= @job.location %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.exp') %></th>
-      <td><%= @candidate.experience %></td>
+      <th><%= t('job.job_deadline') %></th>
+      <td><%= @job.deadline %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.hobby') %></th>
-      <td><%= @candidate.personal_interest %></td>
+      <th><%= t('job.job_date_issue') %></th>
+      <td><%= @job.date_issue %></td>
     </tr>
     <tr>
-      <th><%= t('shared.all.personal_int') %></th>
-      <td><%= @candidate.long_term_plan %></td>
-    </tr>
-    <tr>
-      <th><%= t('shared.all.keyword') %></th>
-      <td><%= @candidate.keywords %></td>
-    </tr>
-    <tr>
-      <th><%= t('shared.all.refer') %></th>
-      <td><%= @candidate.referrals %></td>
-    </tr>
-    <tr>
-      <th><%= t('shared.all.file_up') %></th>
-      <td>
-        <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
-          <%= link_to @candidate.avatar.filename, @candidate.avatar, download: '' %>
-        <% else %>
-          <%= t('shared.all.not_avail') %>
-        <% end %>
-      </td>
+      <th><%= t('job.job_status') %></th>
+      <td><%= @job.status %></td>
     </tr>
   </table>
 </div>

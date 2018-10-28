@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_10_25_102213) do
-=======
-ActiveRecord::Schema.define(version: 2018_10_23_052646) do
->>>>>>> ec4c381a7ce032c3f9ded95656acd3a5f004e43f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +54,6 @@ ActiveRecord::Schema.define(version: 2018_10_23_052646) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.text "job_description"
@@ -71,25 +66,6 @@ ActiveRecord::Schema.define(version: 2018_10_23_052646) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-=======
-  create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email", null: false
-    t.string "encrypted_password", limit: 128, null: false
-    t.string "confirmation_token", limit: 128
-    t.string "remember_token", limit: 128, null: false
-    t.datetime "email_confirmed_at"
-    t.string "firstname"
-    t.string "middlename"
-    t.string "lastname"
-    t.string "contact"
-    t.text "address"
-    t.date "dob"
-    t.string "country"
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["remember_token"], name: "index_users_on_remember_token"
->>>>>>> ec4c381a7ce032c3f9ded95656acd3a5f004e43f
   end
 
 end

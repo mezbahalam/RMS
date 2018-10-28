@@ -17,7 +17,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
       redirect_to candidates_path
     else
-      flash[:failure] = t('candidate.flash.danger', candidate_name: @candidate.name)
+      flash[:failure] = @candidate.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -29,7 +29,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
       redirect_to candidates_path(@candidate)
     else
-      flash[:failure] = t('candidate.can_notice_edit_fail', candidate_name: @candidate.name)
+      flash[:failure] = @candidate.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -41,7 +41,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
       redirect_to candidates_path
     else
-      flash[:failure] = t('candidate.can_notice_delete_fail', candidate_name: @candidate.name)
+      flash[:failure] = @candidate.errors.full_messages.to_sentence
     end
   end
 

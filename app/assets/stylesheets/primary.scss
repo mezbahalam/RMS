@@ -53,11 +53,25 @@ a:hover {}
 .center { text-align: center; }
 
 .alert.alert-failure.alert-note.main-alert{
-  color: tomato;
   text-align: center;
-  background: dimgrey;
-  height: 30px;
   position: relative;
+  height: 1.25em;
+  padding: 0.5em;
+  background: cornflowerblue;
+  color: #FFFFFF
+ }
+
+.alert.alert-notice.alert-note.main-alert{
+  text-align: center;
+  position: relative;
+  height: 1.25em;
+  padding: 0.5em;
+  background: cornflowerblue;
+  color: #FFFFFF
+}
+
+.invalid-feedback {
+  color: peachpuff;
 }
 
 #header {

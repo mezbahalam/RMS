@@ -9,7 +9,7 @@ RSpec.describe CandidatesController, type: :controller do
            address: 'House 78, road 10, shahbag, dhaka',
            contact: '0175206968',
            skill: 'c++,c,#',
-           experience: '1.5',
+           experience: 1.5,
            personal_interest: 'reading',
            hobbies: 'shopping',
            long_term_plan: 'PM of BD',
@@ -66,7 +66,7 @@ RSpec.describe CandidatesController, type: :controller do
                        address: 'House 52, road 13, banasree, dhaka',
                        contact: '01792780217',
                        skill: 'c++,c,java,ruby',
-                       experience: '4',
+                       experience: 4,
                        personal_interest: 'travelling',
                        hobbies: 'shopping',
                        long_term_plan: 'MD',
@@ -96,7 +96,7 @@ RSpec.describe CandidatesController, type: :controller do
                        address: 'House 52, road 13, banasree, dhaka',
                        contact: '01792780217',
                        skill: 'c++,c,java,ruby',
-                       experience: '4',
+                       experience: 4,
                        personal_interest: 'travelling',
                        hobbies: 'shopping',
                        long_term_plan: 'MD',
@@ -140,7 +140,7 @@ RSpec.describe CandidatesController, type: :controller do
                        address: 'House 56, road 10, shahbag, dhaka',
                        contact: '0175205968',
                        skill: 'c++,c',
-                       experience: '1',
+                       experience: 2,
                        personal_interest: 'reading',
                        hobbies: 'shopping',
                        long_term_plan: 'PM of BD',
@@ -165,7 +165,7 @@ RSpec.describe CandidatesController, type: :controller do
         expect(sample_1.address).to eq('House 56, road 10, shahbag, dhaka')
         expect(sample_1.contact).to eq('0175205968')
         expect(sample_1.skill).to eq('c++,c')
-        expect(sample_1.experience).to eq('1')
+        expect(sample_1.experience).to eq('2')
         expect(sample_1.personal_interest).to eq('reading')
         expect(sample_1.hobbies).to eq('shopping')
         expect(sample_1.long_term_plan).to eq('PM of BD')
@@ -190,7 +190,7 @@ RSpec.describe CandidatesController, type: :controller do
                        address: 'House 8, road 180, nagpur, dhaka',
                        contact: '01789658976',
                        skill: 'c++,c,c#,ruby,java',
-                       experience: 'three years',
+                       experience: '3',
                        personal_interest: nil,
                        hobbies: 'shopping',
                        long_term_plan: 'CTO',

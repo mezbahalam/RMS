@@ -114,3 +114,16 @@ span.status {
   ul { margin-top: 0; }
   ul li { list-style: square; }
 }
+
+.new {
+  .form-group {
+    margin: 0 0 10px 0;
+
+    textarea {
+      vertical-align: top;
+    }
+    label {
+      margin: 0 10px 10px;
+    }
+  }
+}

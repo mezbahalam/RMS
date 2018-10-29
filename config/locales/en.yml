@@ -4,6 +4,7 @@ en:
       candidate/gender:
         female: FEMALE
         male: MALE
+
   candidate:
     can: Candidate List
     can_add: Add New Candidate(s)
@@ -25,6 +26,7 @@ en:
     job_add: Add New Job(s)
     job_details: Job Details
     job_name: Job Title
+    job_new: New Job Info
     job_des: Job Description
     job_res: Job Responsibilities
     job_req: Job Requirements
@@ -66,3 +68,5 @@ en:
       refer: Referrals
       show: Show
       skill: Skills
+      open: Open
+      closed: Closed

@@ -11,7 +11,6 @@
       <th class="center"><%=t('job.job_date_issue')%></th>
       <th class="center"><%=t('job.job_deadline')%></th>
       <th class="center"><%=t('job.job_status')%></th>
-      <th class="center"><%=t('shared.all.action')%></th>
     </tr>
     <% @jobs.each do |job| %>
       <tr>
@@ -19,7 +18,7 @@
         <td><%= job.date_issue %></td>
         <td><%= job.deadline %></td>
         <td><%= job.status %></td>
-        <td class="actions">
+        <td>
           <%= link_to t('shared.all.show'), job_path(job) %>
           <%= link_to t('shared.all.edit'), edit_job_path(job) %>
           <%= link_to t('shared.all.delete'), job_path(job), method: :delete,

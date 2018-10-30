@@ -43,7 +43,7 @@ en:
 
   layouts:
     application:
-      footer: rms.com
+      footer: welldev.io
       title: Recruitment Management System
   shared:
     all:

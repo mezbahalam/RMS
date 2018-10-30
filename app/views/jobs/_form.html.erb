@@ -1,15 +1,31 @@
-<%= f.error_notification %>
-<%#= f.input :title, label: t('job.job_name') %>
-<%= f.input :title, label: t('job.job_name'), collection: Job::DESIGNATIONS, prompt: "Select from the options" %>
-<%= f.input :job_description, label: t('job.job_des'), input_html: {rows: 3} %>
-<%= f.input :responsibilities, label: t('job.job_res') %>
-<%= f.input :requirements, label: t('job.job_req') %>
-<%= f.input :remuneration, label: t('job.job_rem') %>
-<%= f.input :location, label: t('job.job_loc'), collection: Job::LOCATIONS, prompt: "Select job location"%>
-<%= f.input :deadline, label: t('job.job_deadline') %>
-<%= f.input :date_issue, label: t('job.job_date_issue') %>
-<%= f.label :status %>
-<%= f.collection_radio_buttons :status, [[t('shared.all.open'), 'Open'] ,[t('shared.all.closed'), 'Closed']],
-                               :first, :second%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          New Job Info
+        </div>
+        <div class="Panel-body">
+          <%= f.error_notification %>
+          <%= f.input :title,
+                      label: t('job.job_name'),
+                      collection: Job::DESIGNATIONS,
+                      option_html: { class: 'dropdown-item' },
+                      prompt: 'Select from the options' %>
+          <%= f.input :job_description, label: t('job.job_des'), input_html: {rows: 3} %>
+          <%= f.input :responsibilities, label: t('job.job_res') %>
+          <%= f.input :requirements, label: t('job.job_req') %>
+          <%= f.input :remuneration, label: t('job.job_rem') %>
+          <%= f.input :location, label: t('job.job_loc'), collection: Job::LOCATIONS, prompt: "Select job location"%>
+          <%= f.input :deadline, label: t('job.job_deadline') %>
+          <%= f.input :date_issue, label: t('job.job_date_issue') %>
+          <%= f.label :status %>
+          <%= f.collection_radio_buttons :status, [[t('shared.all.open'), 'Open'] ,[t('shared.all.closed'), 'Closed']],
+                                         :first, :second%>
 
-<%= f.button :submit %>
+          <%= f.button :submit %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

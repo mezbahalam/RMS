@@ -4,6 +4,7 @@
   h2 {
     width: 100%;
     text-align: center;
+    margin-bottom: 40px;
   }
 }
 
@@ -60,11 +61,17 @@ a {
 }
 
 .show {
+  margin: auto;
+  width: 900px;
+
   table {
-    clear: both; margin: 45px 350px; width: 900px;
-    &.wide { width: 600px; margin: 0 50px; }
-    tr th { white-space: nowrap; padding-right: 5px; text-align: center}
-    tr td { border: 1px solid black; text-align: center}
+    margin: auto;
+    width: 50%;
+
+    td,
+    th {
+      padding: 6px 10px;
+    }
   }
 }
 .section + .section {

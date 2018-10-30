@@ -21,6 +21,9 @@ gem 'aws-sdk-s3', require: false
 gem 'google-cloud-storage', require: false
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-controller-testing'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'selectize-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

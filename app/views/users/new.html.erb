@@ -1,9 +1,13 @@
 <div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
-  <%= simple_form_for @user do |f| %>
-    <%= render 'form', f: f %>
-    <div class="other-links" style="margin: 10px 875px">
-      <%= link_to t(".sign_in"), sign_in_path %>
+  <br /><br />
+  <div class="card">
+    <div class="container">
+      <br />
+      <h2><%= t('.title') %></h2>
+      <h3><%= t('layouts.application.dream_job') %></h3>
+      <%= simple_form_for @user do |f| %>
+          <%= render 'form', f: f %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

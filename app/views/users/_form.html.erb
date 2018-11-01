@@ -5,10 +5,10 @@
 <%= f.input :contact, label: t('shared.all.phone'), input_html: {} %>
 <%= f.input :address, label: t('shared.all.address') %>
 <%= f.input :dob, label: t('shared.all.dob'), start_year: Date.today.year,
-            end_year: 1950, order: [:day, :month, :year] %>
+            end_year: 1960, order: [:day, :month, :year] %>
 <%= f.country_select :country, { priority_countries: %w(BD),
                                  prompt: 'Select Country' } %>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :password, label: t('shared.all.password') %>
 <p class="sign_up"><%= t('shared.all.sign_up_terms') %></p>
-<%= f.button :submit %>
+<%= f.button :submit, t('shared.all.create_acc') %>

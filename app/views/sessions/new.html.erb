@@ -1,6 +1,13 @@
 <div id="clearance" class="sign-in">
+  <br /><br />
+  <div class="card">
+    <div class="container">
+      <br />
   <h2><%= t('.title') %></h2>
+  <br />
   <%= simple_form_for :session, url: session_path do |f| %>
   <%= render 'sessions/form', f: f %>
   <% end %>
+      </div>
+    </div>
 </div>

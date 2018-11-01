@@ -37,14 +37,16 @@ en:
         create: Sign up
   layouts:
     application:
-      sign_in: Sign in
+      sign_in: Login
       sign_out: Sign out
+      sign_up: Sign Up
+      dream_job: Find your dream job
   passwords:
     create:
       description: You will receive an email within the next few minutes. It
         contains instructions for changing your password.
     edit:
-      description: Your password has been reset. Choose a new password below.
+      description: Your password has been reset. Enter a new password below.
       title: Change your password
     new:
       description: To be emailed a link to reset your password, please enter
@@ -55,8 +57,8 @@ en:
       forgot_password: Forgot password?
       sign_up: Sign up
     new:
-      title: Sign in
+      title: Login
   users:
     new:
-      sign_in: Sign in
+      sign_in: Login
       title: Sign up

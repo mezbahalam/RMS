@@ -1,8 +1,4 @@
-<div class="school index">
-  <% if signed_in? %>
-      Signed in as: <%= current_user.email %>
-      <%= button_to 'Sign out', sign_out_path, method: :delete %>
-  <% end %>
+<div class="candidate index">
   <h2><%=t('candidate.can')%></h2>
   <div class = "image">
     <%= image_tag('add.png', size: '23x23', alt: '+')%>
@@ -15,21 +11,21 @@
       <th class="center"><%=t('shared.all.email')%></th>
       <th class="center"><%=t('shared.all.phone')%></th>
       <th class="center"><%=t('shared.all.exp')%></th>
-      <th class="center"><%=t('shared.all.action')%></th>
+      <th class="center"></th>
     </tr>
     <% @candidates.each do |candidate| %>
-        <tr>
-          <td><%= candidate.name %></td>
-          <td><%= candidate.email %></td>
-          <td><%= candidate.contact %></td>
-          <td><%= candidate.experience %></td>
-          <td class="actions">
-            <%= link_to t('shared.all.show'), candidate_path(candidate) %>
-            <%= link_to t('shared.all.edit'), edit_candidate_path(candidate) %>
-            <%= link_to t('shared.all.delete'), candidate_path(candidate), method: :delete,
+      <tr>
+        <td><%= candidate.name %></td>
+        <td><%= candidate.email %></td>
+        <td><%= candidate.contact %></td>
+        <td><%= candidate.experience %></td>
+        <td class="actions">
+          <%= link_to t('shared.all.show'), candidate_path(candidate) %>
+          <%= link_to t('shared.all.edit'), edit_candidate_path(candidate) %>
+          <%= link_to t('shared.all.delete'), candidate_path(candidate), method: :delete,
                         data: {confirm: I18n.t('shared.all.confirm_delete')} %>
-          </td>
-        </tr>
+       </td>
+     </tr>
     <% end %>
   </table>
 </div>

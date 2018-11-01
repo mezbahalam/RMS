@@ -25,3 +25,5 @@ public/system/
 spec/examples.txt
 
 .byebug_history
+
+*.iml

@@ -1,35 +1,12 @@
-#content {
-  padding-left: 100px;
-  padding-right: 100px;
-  h2 {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-.login form {
-  margin: 100px 250px;
-}
-
-.menu {
-  .identity { text-align: center; }
-  ul {
-    margin: 3em 250px;
-    list-style: none;
-    li { margin-bottom: 1em; }
-  }
-}
-
-a {
-  text-decoration: underline;
-  min-width: 3.5em;
-  padding: 1px 2px;
-  margin: 2px 5px;
-  font-size: 1.0em;
-}
-
 .actions {
   width: 335px;
+  a {
+    text-decoration: underline;
+    min-width: 3.5em;
+    padding: 1px 2px;
+    margin: 2px 5px;
+    font-size: 1.0em;
+  }
 }
 
 .back-link {
@@ -51,14 +28,6 @@ a {
   }
 }
 
-.show {
-  table {
-    clear: both; margin: 45px 350px; width: 900px;
-    &.wide { width: 600px; margin: 0 50px; }
-    tr th { white-space: nowrap; padding-right: 5px; text-align: center}
-    tr td { border: 1px solid black; text-align: center}
-  }
-}
 .section + .section {
   padding-top: 0.5em;
   margin-top: 0.5em;
@@ -71,20 +40,14 @@ span.status {
   width: 10px; height: 10px;
   margin: 0.25em auto; padding: 0;
   border: 1px solid #000000;
-  &.true { background: green; color: green; }
-  &.false { background: red; color: red; }
+  &.true { background: #008000; color: #008000; }
+  &.false { background: #FF0000; color: #FF0000; }
 }
 
 
 .field_with_errors {
   label { color: #AA0000; }
-  input { border: 2px solid red; }
-}
-
-.invalid-feedback {
-  text-align: center;
-  color: red;
-  display: block;
+  input { border: 2px solid #FF0000; }
 }
 
 .alert.alert-danger {
@@ -95,25 +58,4 @@ span.status {
 .error_notification {
   text-align: center;
   margin-bottom: 10px;
-}
-
-#error-explanation {
-  width: 400px;
-  padding: 0; margin: 0 auto 1.5em;
-  border: 1px solid #AA0000;
-  background-color: #FFFFFF;
-  font-size: 12px;
-  h2 {
-    font-weight: bold;
-    font-size: 12px;
-    padding: 5px 5px 5px 15px; margin: 0;
-    width: 380px;
-    background-color: #AA0000; color: #FFFFFF;
-  }
-  p {
-    color: #333333;
-    margin: 0; padding: 3px 0.5em;
-  }
-  ul { margin-top: 0; }
-  ul li { list-style: square; }
 }

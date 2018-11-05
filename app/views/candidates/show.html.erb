@@ -1,0 +1,60 @@
+<%= link_to t('shared.all.can_back'), candidates_path %>
+<div class="schools show">
+  <h2><%= t('candidate.can_details') %></h2>
+  <table summary="School detail view">
+    <tr>
+      <th><%= t('candidate.can_name') %></th>
+      <td><%= @candidate.name %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.email') %></th>
+      <td><%= @candidate.email %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.contact') %></th>
+      <td><%= @candidate.contact %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.gender') %></th>
+      <td><%= @candidate.gender %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.address') %></th>
+      <td><%= @candidate.address %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.skill') %></th>
+      <td><%= @candidate.skill %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.exp') %></th>
+      <td><%= @candidate.experience %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.hobby') %></th>
+      <td><%= @candidate.personal_interest %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.personal_int') %></th>
+      <td><%= @candidate.long_term_plan %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.keyword') %></th>
+      <td><%= @candidate.keywords %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.refer') %></th>
+      <td><%= @candidate.referrals %></td>
+    </tr>
+    <tr>
+      <th><%= t('shared.all.file_up') %></th>
+      <td>
+        <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
+        <%= link_to @candidate.avatar.filename, @candidate.avatar, download: '' %>
+        <% else %>
+        <%= t('shared.all.not_avail') %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

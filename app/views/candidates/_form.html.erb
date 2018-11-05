@@ -1,0 +1,29 @@
+<%= f.error_notification %>
+<%= f.input :name, label: t('candidate.can_name') %>
+<%= f.label :gender %>
+<%= f.collection_radio_buttons :gender, human_attribute_genders,
+                               :first,
+                               :second,
+                               checked: human_attribute_genders.first %>
+<%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
+<%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
+<%= f.input :contact, label: t('shared.all.contact') %>
+<%= f.input :dob, label: t('shared.all.dob')  %>
+<%= f.input :skill, label: t('shared.all.skill'), input_html: {rows: 3}, separator: ',' %>
+<%= f.input :experience, label: t('shared.all.exp') %>
+<%= f.input :long_term_plan, label: t('shared.all.plan'), input_html: {rows: 3} %>
+<%= f.input :hobbies, label: t('shared.all.hobby'), input_html: {rows: 3} %>
+<%= f.input :personal_interest, label: t('shared.all.personal_int'), input_html: {rows: 3} %>
+<%= f.input :keywords, label: t('shared.all.keyword')%>
+<%= f.input :referrals, label: t('shared.all.refer')%>
+
+<% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
+<%= f.label :avatar, label: t('shared.all.file_up') %>
+<p class="editfile">
+<%= @candidate.avatar.filename %>
+</p>
+<%= f.check_box :delete_avatar %><%= t('shared.all.delete_file') %><br/>
+<% else %>
+<%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
+<% end %>
+<%= f.button :submit %>

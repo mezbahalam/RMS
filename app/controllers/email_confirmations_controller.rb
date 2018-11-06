@@ -7,9 +7,11 @@ class EmailConfirmationsController < ApplicationController
     @user.confirm_email
     if @user.save
       @user.update(confirmation_token: nil)
-      redirect_to sign_in_path, flash: { success: t('flashes.confirmed_email') }
+      flash[:notice]= t('flashes.confirmed_email')
+      redirect_to sign_in_path
     else
-      redirect_to sign_in_path, flash: { danger: t('flashes.confirm_your_email') }
+      flash.now[:error]= t('flashes.confirm_your_email')
+      redirect_to sign_in_path
     end
   end
 
@@ -33,7 +35,7 @@ class EmailConfirmationsController < ApplicationController
   def find_user
     if params[:token]
     token = params[:token] || params[:user][:token]
-    @user ||= User.find_by!(confirmation_token: token)
+    @user = User.find_by!(confirmation_token: token)
     end
   end
 end

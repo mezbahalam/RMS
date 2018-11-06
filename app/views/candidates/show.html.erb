@@ -28,7 +28,13 @@
           </tr>
           <tr>
             <th><%= t('shared.all.gender') %></th>
-            <td><%= @candidate.gender %></td>
+            <td>
+              <% if @candidate.gender == 'female' %>
+                  <%= t('activerecord.attributes.candidate/gender.female') %>
+              <% else %>
+                  <%= t('activerecord.attributes.candidate/gender.male') %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th><%= t('shared.all.address') %></th>

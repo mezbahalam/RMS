@@ -1,10 +1,10 @@
+---
 en:
   activerecord:
     attributes:
       candidate/gender:
         female: FEMALE
         male: MALE
-
   candidate:
     can: Candidate List
     can_add: Add New Candidate(s)
@@ -20,27 +20,30 @@ en:
     can_update: Update Candidate Info
     flash:
       danger: Record Creation Failed
-
   job:
     job: Job list
     job_add: Add New Job(s)
+    job_back: Back to Job List
+    job_ben: Job Benefits
+    job_date_issue: Date Issued
+    job_deadline: Deadline
+    job_des: Job Description
     job_details: Job Details
+    job_edu_req: Educational Requirements
+    job_emp_notice: Employer Notice
+    job_emp_status: Employment Status
+    job_exp_req: Experience Requirements
+    job_loc: Job Location
     job_name: Job Title
     job_new: New Job Info
-    job_des: Job Description
-    job_res: Job Responsibilities
-    job_req: Job Requirements
-    job_rem: Remuneration
-    job_loc: Job Location
-    job_deadline: Deadline
-    job_date_issue: Date Issued
-    job_status: Status
     job_notice_create: "%{job_name} created successfully!"
-    job_update: Update Job Info
-    job_notice_edit: "%{job_name} updated successfully!"
-    job_back: Back to Job List
     job_notice_delete: "%{job_name} deleted successfully!"
-
+    job_notice_edit: "%{job_name} updated successfully!"
+    job_rem: Remuneration
+    job_res: Job Responsibilities
+    job_status: Status
+    job_update: Update Job Info
+    job_vacancy: Vacancy
   layouts:
     application:
       footer: welldev.io
@@ -50,6 +53,7 @@ en:
       action: Actions
       address: Address
       can_back: "<< Back to Candidate List <<"
+      closed: Closed
       confirm_delete: Are you sure you want to delete this record ?
       contact: Contact
       delete: Delete
@@ -63,10 +67,9 @@ en:
       hobby: Hobbies
       keyword: Keywords
       not_avail: Not available
+      open: Open
       personal_int: Personal Interest(s)
       plan: Long Term Plan
       refer: Referrals
       show: Show
       skill: Skills
-      open: Open
-      closed: Closed

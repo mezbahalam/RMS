@@ -41,5 +41,6 @@ end
 group :test do
   gem 'ffaker'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
 end

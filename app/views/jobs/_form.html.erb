@@ -1,31 +1,51 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          New Job Info
-        </div>
-        <div class="Panel-body">
-          <%= f.error_notification %>
-          <%= f.input :title,
-                      label: t('job.job_name'),
-                      collection: Job::DESIGNATIONS,
-                      option_html: { class: 'dropdown-item' },
-                      prompt: 'Select from the options' %>
-          <%= f.input :job_description, label: t('job.job_des'), input_html: {rows: 3} %>
-          <%= f.input :responsibilities, label: t('job.job_res') %>
-          <%= f.input :requirements, label: t('job.job_req') %>
-          <%= f.input :remuneration, label: t('job.job_rem') %>
-          <%= f.input :location, label: t('job.job_loc'), collection: Job::LOCATIONS, prompt: "Select job location"%>
-          <%= f.input :deadline, label: t('job.job_deadline') %>
-          <%= f.input :date_issue, label: t('job.job_date_issue') %>
-          <%= f.label :status %>
-          <%= f.collection_radio_buttons :status, [[t('shared.all.open'), 'Open'] ,[t('shared.all.closed'), 'Closed']],
-                                         :first, :second%>
+  <br>
+  <form>
+    <%= f.error_notification %>
+    <%= f.input :title,
+                label: t('job.job_name'),
+                collection: Job::DESIGNATIONS,
+                input_html: { class: 'selectize' },
+                prompt: 'Select job title'%>
 
-          <%= f.button :submit %>
-        </div>
-      </div>
-    </div>
-  </div>
+    <%= f.input :vacancy,
+                label: t('job.job_vacancy'),
+                collection: Job::VACANCIES,
+                input_html: { class: 'selectize' },
+                prompt: 'Select no of vacancies'%>
+    <%= f.input :job_description, label: t('job.job_des'), input_html: {rows: 3}%>
+    <%= f.input :responsibilities, label: t('job.job_res') %>
+    <%= f.input :employment_status,
+                label: t('job.job_emp_status'),
+                collection: Job::EMP_STATUS,
+                input_html: { class: 'selectize' },
+                prompt: 'Select employment status'%>
+    <%= f.input :edu_requirement, label: t('job.job_edu_req') %>
+    <%= f.input :exp_requirement, label: t('job.job_exp_req') %>
+    <%= f.input :location, label: t('job.job_loc'),
+                collection: Job::LOCATIONS,
+                input_html: { class: 'selectize' },
+                prompt: "Select job location"%>
+    <%= f.input :remuneration, label: t('job.job_rem') %>
+
+    <%= f.input :benefits, label: t('job.job_ben') %>
+    <%= f.input :date_issue, as: :date, html5: true, label: t('job.job_date_issue') %>
+    <%= f.input :deadline, as: :date, html5: true, label: t('job.job_deadline') %>
+
+
+    <%#= f.collection_radio_buttons :status, [[t('shared.all.open'), 'Open'] ,[t('shared.all.closed'), 'Closed']], :first, :second%>
+    <%#=f.radio_button :status, t('shared.all.open'), checked: true %>
+    <%#=f.label :status, t('shared.all.open'), value: 'Open' %>
+    <%#=f.radio_button :status, t('shared.all.closed')%>
+    <%#=f.label :status, t('shared.all.closed'), value: 'Closed' %>
+    <%#= f.label :status %>
+    <%#= f.input :status, label: t('job.job_status'), as: :radio_buttons, collection: Job::STATUS, wrapper: :vertical_collection %>
+    <%= f.label :status %>
+    <%=f.radio_button :job_status, t('shared.all.open'), checked: true %>
+    <%=f.label :status, t('shared.all.open'), value: 'Open' %>
+    <%=f.radio_button :job_status, t('shared.all.closed')%>
+    <%=f.label :status, t('shared.all.closed'), value: 'Closed' %>
+    <%= f.input :employer_notice, label: t('job.job_emp_notice') %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </form>
 </div>

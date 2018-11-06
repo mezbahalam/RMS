@@ -7,12 +7,15 @@ default: &defaults
 
 development:
   <<: *defaults
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: rms_development
 
 test:
+  adapter: postgresql
+  encoding: unicode
   <<: *defaults
-  database: <%= ENV['POSTGRES_TEST_DB'] %>
+  database: rms_test
+  pool: 5
 
 production:
   <<: *defaults
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: rms_production

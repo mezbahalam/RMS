@@ -1,22 +1,32 @@
-<%= link_to t('job.job_back'), jobs_path %>
-<div class="show">
+<div class="container">
+  <%= flash[:notice] %>
+  <h4><%= link_to t('job.job_back'), jobs_path %></h4>
   <h2><%= t('job.job_details') %></h2>
-  <table>
+  <br>
+  <table class="table table-striped">
+    <tbody>
     <tr>
       <th><%= t('job.job_name') %></th>
       <td><%= @job.title %></td>
     </tr>
     <tr>
       <th><%= t('job.job_des') %></th>
-      <td><%= @job.job_description %></td>
+      <td>
+          - <%=@job.job_description.split(",").join("<br> -").html_safe %>
+          <%#=@job.job_description[0] %>
+      </td>
     </tr>
     <tr>
       <th><%= t('job.job_res') %></th>
-      <td><%= @job.responsibilities %></td>
+      <td><%# @job.responsibilities.split(",").join("<br>").html_safe %></td>
     </tr>
     <tr>
-      <th><%= t('job.job_req') %></th>
-      <td><%= @job.requirements %></td>
+      <th><%= t('job.job_edu_req') %></th>
+      <td><%= @job.edu_requirement %></td>
+    </tr>
+    <tr>
+      <th><%= t('job.job_exp_req') %></th>
+      <td><%= @job.exp_requirement %></td>
     </tr>
     <tr>
       <th><%= t('job.job_rem') %></th>
@@ -26,6 +36,12 @@
       <th><%= t('job.job_loc') %></th>
       <td><%= @job.location %></td>
     </tr>
+
+    <tr>
+      <th><%= t('job.job_ben') %></th>
+      <td><%= @job.benefits %></td>
+    </tr>
+
     <tr>
       <th><%= t('job.job_deadline') %></th>
       <td><%= @job.deadline %></td>
@@ -36,7 +52,53 @@
     </tr>
     <tr>
       <th><%= t('job.job_status') %></th>
-      <td><%= @job.status %></td>
+      <td><%= @job.job_status %></td>
     </tr>
+    <tr>
+      <th><%= t('job.job_emp_notice') %></th>
+      <td><%= @job.employer_notice %></td>
+    </tr>
+    </tbody>
   </table>
 </div>
+
+<!--<div class="container">-->
+  <%#= flash[:notice] %>
+<!--  <h4><%#= link_to t('job.job_back'), jobs_path %></h4>-->
+<!--  <h2><%#= t('job.job_details') %></h2>-->
+<!--  <br>-->
+<!--  <div class="row">-->
+
+<!--    <div class="col-md-3">-->
+
+<!--      <h4> <%#= t('job.job_name') %></h4>-->
+<!--      <h4> <%#= t('job.job_des') %></h4>-->
+<!--      <h4> <%#= t('job.job_res') %></h4>-->
+<!--      <h4> <%#= t('job.job_edu_req') %> </h4>-->
+<!--      <h4> <%#= t('job.job_exp_req') %> </h4>-->
+<!--      <h4> <%#= t('job.job_rem') %></h4>-->
+<!--      <h4> <%#= t('job.job_loc') %></h4>-->
+<!--      <h4> <%#= t('job.job_ben') %> </h4>-->
+<!--      <h4> <%#= t('job.job_deadline') %></h4>-->
+<!--      <h4> <%#= t('job.job_date_issue') %></h4>-->
+<!--      <h4> <%#= t('job.job_status') %> </h4>-->
+<!--      <h4> <%#= t('job.job_emp_notice') %> </h4>-->
+
+<!--    </div>-->
+
+<!--    <div class="col-md-3">-->
+<!--      <h4> <%#= @job.title %></h4>-->
+<!--      <h4> <%#= @job.job_description %> </h4>-->
+<!--      <h4> <%#= @job.responsibilities %> </h4>-->
+<!--      <h4> <%#= @job.edu_requirement %></h4>-->
+<!--      <h4> <%#= @job.exp_requirement %></h4>-->
+<!--      <h4> <%#= @job.remuneration %></h4>-->
+<!--      <h4> <%#= @job.location %></h4>-->
+<!--      <h4> <%#= @job.benefits %></h4>-->
+<!--      <h4> <%#= @job.deadline %></h4>-->
+<!--      <h4> <%#= @job.date_issue %> </h4>-->
+<!--      <h4> <%#= @job.status %> </h4>-->
+<!--      <h4> <%#= @job.employer_notice %></h4>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

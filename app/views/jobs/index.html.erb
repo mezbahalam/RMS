@@ -1,23 +1,56 @@
-<div class="school index">
-  <h2><%=t('job.job')%></h2>
-  <div class = "image">
-    <%#= image_tag('add.png', size: '23x23', alt: '+')%>
-    <%= link_to t('job.job_add'), new_job_path %>
-  </div>
-  <br /><br />
-  <table class="listing" summary="Candidate List">
-    <tr class="header">
-      <th class="center"><%=t('job.job_name')%></th>
-      <th class="center"><%=t('job.job_date_issue')%></th>
-      <th class="center"><%=t('job.job_deadline')%></th>
-      <th class="center"><%=t('job.job_status')%></th>
+<!--<div class="school index">-->
+<!--  <h2><%#=t('job.job')%></h2>-->
+<!--  <div class = "image">-->
+<%#= image_tag('add.png', size: '23x23', alt: '+')%>
+<%#= link_to t('job.job_add'), new_job_path %>
+<!--  </div>-->
+<!--  <br /><br />-->
+<!--  <table class="listing" summary="Candidate List">-->
+<!--    <tr class="header">-->
+<!--      <th class="center"><%#=t('job.job_name')%></th>-->
+<!--      <th class="center"><%#=t('job.job_date_issue')%></th>-->
+<!--      <th class="center"><%#=t('job.job_deadline')%></th>-->
+<!--      <th class="center"><%#=t('job.job_status')%></th>-->
+<!--    </tr>-->
+<%# @jobs.each do |job| %>
+<!--      <tr>-->
+<!--        <td><%#= job.title %></td>-->
+<!--        <td><%#= job.date_issue %></td>-->
+<!--        <td><%#= job.deadline %></td>-->
+<!--        <td><%#= job.status %></td>-->
+<!--        <td>-->
+<%#= link_to t('shared.all.show'), job_path(job) %>
+<%#= link_to t('shared.all.edit'), edit_job_path(job) %>
+<%#= link_to t('shared.all.delete'), job_path(job), method: :delete,data: {confirm: 'Are you sure to delete this job?'} %>
+<!--        </td>-->
+<!--      </tr>-->
+<%# end %>
+<!--  </table>-->
+<!--</div>-->
+
+<div class="container">
+  <%= flash[:notice] %>
+  <h4><%= link_to t('job.job_add'), new_job_path %></h4>
+  <h2><%= t('job.job') %></h2>
+  <br>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><h4> <%= t('job.job_name') %></h4></th>
+      <th><h4> <%= t('job.job_date_issue') %></h4></th>
+      <th><h4> <%= t('job.job_deadline') %></h4></th>
+      <th><h4> <%= t('job.job_status') %></h4></th>
+      <th></th>
     </tr>
-    <% @jobs.each do |job| %>
+    </thead>
+
+    <tbody>
+    <%@jobs.each do |job| %>
       <tr>
-        <td><%= job.title %></td>
-        <td><%= job.date_issue %></td>
-        <td><%= job.deadline %></td>
-        <td><%= job.status %></td>
+        <td> <%= job.title %></td>
+        <td> <%= job.date_issue %></td>
+        <td> <%= job.deadline %></td>
+        <td> <%= job.job_status %></td>
         <td>
           <%= link_to t('shared.all.show'), job_path(job) %>
           <%= link_to t('shared.all.edit'), edit_job_path(job) %>
@@ -25,6 +58,8 @@
                       data: {confirm: 'Are you sure to delete this job?'} %>
         </td>
       </tr>
+
     <% end %>
+    </tbody>
   </table>
 </div>

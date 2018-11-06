@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--  <title><%#= t('layouts.application.title') %></title>-->
-  <h1 class="text-center font-weight-bold">
-    <%= t('layouts.application.title') %>
-  </h1>
+  <title><%= t('layouts.application.title') %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= favicon_link_tag 'logo.jpg' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
-<!--<div id="header">-->
-<!--  <h1><%#= t('layouts.application.title') %></h1>-->
-<!--</div>-->
+<div id="header">
+  <h1><%= t('layouts.application.title') %></h1>
+</div>
 
 <div id="main">
-  <%# flash.each do |key, value| %>
-<!--      <div class="alert alert-<%#= key %> alert-note main-alert">-->
-        <%#= value %>
-<!--      </div>-->
-  <%# end %>
-
-  <%# unless flash[:notice].blank? %>
-<!--      <div class="notice">-->
-        <%#= flash[:notice] %>
-<!--      </div>-->
-  <%# end %>
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> alert-note main-alert">
+        <%= value %>
+      </div>
+  <% end %>
 
   <div id="content">
     <%= yield %>
   </div>
 
-<!--  <div id="footer">-->
-<!--    <p id="copyright">&copy; <%#= t('layouts.application.footer') %> </p>-->
-<!--  </div>-->
-
-  <h5 class="text-center font-weight-bold">
+  <div id="footer">
     <p id="copyright">&copy; <%= t('layouts.application.footer') %> </p>
-  </h5>
-
+  </div>
 </div>
 </body>
 </html>

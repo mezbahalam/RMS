@@ -12,7 +12,11 @@ class Candidate < ApplicationRecord
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true
 
-  before_validation { avatar.delete if @delete_avatar }
+  before_validation :remove_avatar
+
+  def remove_avatar
+    avatar.delete if @delete_avatar
+  end
 
   def delete_avatar
     @delete_avatar ||= false

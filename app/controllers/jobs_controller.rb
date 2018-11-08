@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :find_job_id, only: [:show, :edit, :update, :destroy] #find_job_id will be called just before those methods
+  before_action :find_job_id, only: [:show, :edit, :update, :destroy] #find_job_id will be called just before these methods
 
   def index
     @jobs = Job.all

@@ -1,26 +1,18 @@
 require 'rails_helper'
 RSpec.describe EmailConfirmationsController, type: :controller do
-  let!(:user) { FactoryBot.create(:user,
-                                  firstname: 'Laila',
-                                  lastname: 'Nushrat',
-                                  contact: '0172050217',
-                                  dob: '17-08-1994',
-                                  email: 'laila1@gmail.com',
-                                  password: '000000',
-                                  confirmation_token: 'token',
-                                  email_confirmed_at: Time.now) }
+  let!(:user) { FactoryBot.create(:user)}
   describe '#confirm' do
     context 'with valid confirmation token' do
       before do
-        get :confirm, params: { user_id: @user.id }
+        get :confirm, params: { id: user.id, token: user.confirmation_token }
       end
 
-      it 'update email_confirmed_at field' do
+      it 'update email_confirmed_at field and confirmation token' do
         expect(user.reload.email_confirmed_at).not_to be_nil
       end
 
       it 'confirmation token set to be an empty string' do
-        expect(user.reload.confirmation_token).to eq('')
+        expect(user.reload.confirmation_token).to be_nil
       end
 
       it 'redirects to sign in path' do

@@ -15,27 +15,10 @@ class EmailConfirmationsController < ApplicationController
     end
   end
 
-  def update
-    user = User.find_by!(confirmation_token: params[:token])
-    user.confirm_email
-    sign_in (@user)
-    redirect_to root_path, notice: t('flashes.confirmed_email')
-  end
-
-  def resend_confirmation
-    @user.update(confirmation_token: Clearance::Token.new)
-    UserMailer.sign_up_confirmation(@user).deliver_now
-    respond_to do |format|
-      flash[:danger] = t('flashes.confirm_your_email')
-      format.html { redirect_to (sign_in_url) }
-    end
-  end
-
   private
+
   def find_user
-    if params[:token]
     token = params[:token] || params[:user][:token]
-    @user = User.find_by!(confirmation_token: token)
-    end
+    @user ||= User.find_by!(confirmation_token: token)
   end
 end

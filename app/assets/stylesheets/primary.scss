@@ -1,3 +1,4 @@
+@import 'variable.scss';
 $default_fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
 
 *,
@@ -15,7 +16,7 @@ html {
 body {
   font-size: 1.5rem;
   font-family: "Lucida Grande", $default_fonts ;
-  color: #2E2F30;
+  color: $bunker;
 }
 
 p, td, ul, ol, li, dl, dt, dd {
@@ -50,26 +51,26 @@ table tr td {
   position: relative;
   height: 3.25rem;
   padding: 0.5rem;
-  background: #6495ED;
-  color: #FFFFFF
+  background: $cornflowerblue;
+  color: $white;
  }
 
 .invalid-feedback {
-  color: #FF0000;
+  color: $red;
   display: block;
   padding-left: 1rem;
   font-style: italic;
 }
 
 .form-control.is-invalid {
-  border: 0.1rem solid #FF0000;
+  border: 0.1rem solid $red;
 }
 
 #header {
   height: 7rem;
   text-align: center;
-  background: #FFFFFF;
-  color: #000000;
+  background: $white;
+  color: $black;
   display: flex;
   align-items: center;
   padding: 2rem;
@@ -97,8 +98,8 @@ table tr td {
   width: 18rem;
   min-height: 48rem;
   padding: 1rem;
-  background: #D3D3D3;
-  color: #008080;
+  background: $lightgray;
+  color: $teal;
 }
 
 #footer {
@@ -111,7 +112,7 @@ table tr td {
     margin-right: 3rem;
     margin-bottom: 1rem;
     text-align: right;
-    color: #FFFFFF;
+    color: $white;
   }
 }
 
@@ -137,7 +138,7 @@ table tr td {
     padding: 1px 3px;
 
     &:hover {
-      background: #ff6347;
+      background: $tomato;
     }
   }
 }
@@ -145,7 +146,7 @@ table tr td {
 #showname {
 
   p {
-    color: #1f5a60 ;
+    color: $black ;
     font-size: 1.9em;
   }
 }
@@ -161,7 +162,7 @@ table tr td {
   text-align: center;
 
   a {
-    color: #000000;
+    color: $black;
     font-style: italic;
     text-decoration: none;
   }
@@ -184,7 +185,7 @@ table tr td {
   }
 
   h2 {
-    color: #000000;
+    color: $black;
   }
 
   h3 {
@@ -209,7 +210,7 @@ table tr td {
   }
 
   h2 {
-    color: #000000;
+    color: $black;
     padding-top: 2rem;
   }
 
@@ -255,18 +256,18 @@ table tr td {
     text-align: center;
     padding: 0.8rem;
     border: none;
-    border-bottom: 0.2rem solid #D3D3D3;
+    border-bottom: 0.2rem solid $lightgray;
   }
 
   td {
     text-align: center;
     padding: 0.8rem;
     border: none;
-    border-bottom: 0.2rem solid #D3D3D3;
+    border-bottom: 0.2rem solid $lightgray;
   }
 
   tr:hover {
-    background: #f5f5f5;
+    background: $whitesmoke1;
   }
 
   .tab {
@@ -294,24 +295,24 @@ table tr td {
 
   table {
     border-collapse: collapse;
-    color: #FFFFFF;
+    color: $white;
   }
 
   th,
   td {
-    color: #FFFFFF;
+    color: $white;
   }
 
   h2 {
     margin-top: 0;
     font-style: italic;
-    color: #8B0000;
+    color: $darkred;
     text-align: center;
     padding-top: 2rem;
   }
 
   a {
-    color: #FFFFFF;
+    color: $white;
   }
 
   .image {
@@ -347,7 +348,7 @@ table tr td {
   a {
     text-decoration: underline;
     margin: 2rem;
-    color: #EFEFEF;
+    color: $whitesmoke2;
   }
 }
 
@@ -375,7 +376,7 @@ table tr td {
   a {
     text-decoration: underline;
     margin: 2rem;
-    color: #EFEFEF;
+    color: $whitesmoke2;
   }
 }
 
@@ -400,11 +401,10 @@ table tr td {
   a {
     text-decoration: underline;
     margin: 2rem;
-    color: #000000;
+    color: $black;
   }
 }
 
-/* multi step form css */
 input[type=checkbox] {
   position: absolute;
   opacity: 0;
@@ -451,7 +451,7 @@ input[type=checkbox] {
 .btn-success_both {
   padding-top: 0.7rem;
   text-decoration: underline;
-  color: #DC143C;
+  color: $crimson;
   text-align: right;
   width: 22rem;
 }
@@ -459,7 +459,7 @@ input[type=checkbox] {
 .btn-success {
   padding-top: 0.7rem;
   text-decoration: underline;
-  color: #DC143C;
+  color: $crimson;
   text-align: right;
   width: 30rem;
 }
@@ -467,7 +467,7 @@ input[type=checkbox] {
 .btn-back {
   padding-top: 0.7rem;
   text-decoration: underline;
-  color: #DC143C;
+  color: $crimson;
   text-align: left;
 }
 
@@ -481,14 +481,12 @@ input[type=checkbox] {
   width: 32.5rem;
 }
 
-/* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: 1px solid $hexgray;
+  background-color: $hex2;
 }
 
-/* Style the buttons inside the tab */
 .tab button {
   background-color: inherit;
   float: left;
@@ -500,20 +498,17 @@ input[type=checkbox] {
   font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: $hex1;
 }
 
-/* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: $hexgray;
 }
 
-/* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
+  border: 1px solid $hexgray;
   border-top: none;
 }

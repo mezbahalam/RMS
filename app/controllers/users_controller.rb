@@ -30,6 +30,6 @@ class UsersController < Clearance::UsersController
   end
 
   def deliver_email(user)
-    ::UserMailer.sign_up_confirmation(user).deliver_now
+    ::UserMailer.sign_up_confirmation(user).deliver_later
   end
 end

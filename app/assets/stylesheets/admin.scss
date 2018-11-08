@@ -2,6 +2,9 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'variable.scss';
+
 .simple_form label {
   display: inline-block;
   width: 153px;
@@ -45,8 +48,8 @@
 }
 
 .simple_form div.boolean, .simple_form input[type='submit'] {
-  background-color: #FF5E1F;
-  color: #FFFFFF;
+  background-color: $outrageousorange;
+  color: $white;
   width: 150px;
   height: 40px;
   border-radius: 15px;

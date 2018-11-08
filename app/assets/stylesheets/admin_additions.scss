@@ -1,3 +1,5 @@
+@import 'variable.scss';
+
 .actions {
   width: 335px;
   a {
@@ -24,35 +26,25 @@
     clear: both;
     width: 100%;
     tr th { text-align: center}
-    tr td { border: 1px solid #666666; text-align: center}
+    tr td { border: 1px solid $gray40; text-align: center}
   }
 }
 
 .section + .section {
   padding-top: 0.5em;
   margin-top: 0.5em;
-  border-top: 1px dotted #666666;
-}
-
-
-span.status {
-  display: block;
-  width: 10px; height: 10px;
-  margin: 0.25em auto; padding: 0;
-  border: 1px solid #000000;
-  &.true { background: #008000; color: #008000; }
-  &.false { background: #FF0000; color: #FF0000; }
+  border-top: 1px dotted $gray40;
 }
 
 
 .field_with_errors {
-  label { color: #AA0000; }
-  input { border: 2px solid #FF0000; }
+  label { color: $darkred; }
+  input { border: 2px solid $red; }
 }
 
 .alert.alert-danger {
   text-align: center;
-  color: #AA0000;
+  color: $darkred;
 }
 
 .error_notification {

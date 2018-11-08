@@ -12,7 +12,7 @@ FactoryBot.define do
     contact { '01792052217' }
     address { 'house 48, block E, bashundhara' }
     dob { '17-08-1994' }
-    country { 'Bangladesh' }
+    country { 'BD' }
     confirmation_token { 'token' }
     email_confirmed_at { Time.now }
   end

@@ -6,7 +6,7 @@
       <h2><%= t('candidate.can_details') %></h2>
 
       <div class="tab">
-        <button class="tablinks" onclick="openCity(event,'Basic')"s><%=t('candidate.basic_info')%></button>
+        <button class="tablinks" onclick="openCity(event,'Basic')"><%=t('candidate.basic_info')%></button>
         <button class="tablinks" onclick="openCity(event,'Prof')"><%= t('candidate.prof_exp') %></button>
         <button class="tablinks" onclick="openCity(event,'Additional')"><%= t('candidate.additional_info') %></button>
       </div>
@@ -30,9 +30,9 @@
             <th><%= t('shared.all.gender') %></th>
             <td>
               <% if @candidate.gender == 'female' %>
-                  <%= t('activerecord.attributes.candidate/gender.female') %>
+                  <%= t('shared.all.female') %>
               <% else %>
-                  <%= t('activerecord.attributes.candidate/gender.male') %>
+                  <%= t('shared.all.male') %>
               <% end %>
             </td>
           </tr>

@@ -1,10 +1,5 @@
 ---
 en:
-  activerecord:
-    attributes:
-      candidate/gender:
-        female: Female
-        male: Male
   candidate:
     additional_info: Additional Information
     basic_info: Basic Information
@@ -17,16 +12,11 @@ en:
     can_notice_create: Record of '%{candidate_name}' created successfully!
     can_notice_create_fail: ALERT ! Record Creation Failed
     can_notice_delete: Record of '%{candidate_name}' deleted successfully!
-    can_notice_delete_fail: Record of ''%{candidate_name}'' could not be deleted!
     can_notice_edit: Record of '%{candidate_name}' updated successfully!
     can_notice_edit_fail: Record of '%{candidate_name}' could not be updated
     can_update: Update Candidate Information
     prof_exp: Professional Experience
   clearance:
-    controllers:
-      passwords:
-        blank_password: Password cannot be blank. Please enter a password !
-        forbidden: This password had been used by you before ! ALERT !
     models:
       clearance_mailer:
         change_password: Change your password
@@ -38,8 +28,6 @@ en:
   flashes:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
-    failure_after_update: Password can't be blank.
-    failure_when_forbidden: Please double check the URL or try submitting the form again.
   layouts:
     application:
       dream_job: Find your dream job
@@ -73,12 +61,14 @@ en:
       edit: Edit
       email: Email
       exp: Experience(years)
+      female: Female
       file_up: Attachment(s)
       first_name: First Name
       gender: Gender
       hobby: Hobbies
       keyword: Keywords
       last_name: Last Name
+      male: Male
       middle_name: Middle Name
       next: Next Page
       not_avail: Not available

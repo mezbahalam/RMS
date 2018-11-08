@@ -45,5 +45,13 @@ describe User, type: :model do
         expect(second_user.email_confirmed_at).to be_present
       end
     end
+
+    describe '#forgot_password!' do
+      it 'generates the confirmation token' do
+        user = create(:user, confirmation_token: nil)
+        user.forgot_password!
+        expect(user.confirmation_token).not_to be_nil
+      end
+    end
   end
 end

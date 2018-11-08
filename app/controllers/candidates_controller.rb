@@ -1,7 +1,14 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: %i[show edit update delete destroy]
+  skip_before_action :require_login
+  skip_before_action :check_if_email_confirmed
+
   def index
-    @candidates = Candidate.sorted
+    if current_user
+      @candidates = Candidate.sorted
+    else
+      render template: 'sessions/new'
+    end
   end
 
   def show; end
@@ -40,8 +47,6 @@ class CandidatesController < ApplicationController
     if @candidate.destroy
       flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
       redirect_to candidates_path
-    else
-      flash.now[:error] = t('candidate.can_notice_delete_fail', candidate_name: @candidate.name)
     end
   end
 

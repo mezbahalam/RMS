@@ -31,7 +31,7 @@ class Job < ApplicationRecord
       " Open",
       " Closed"
   ]
-
+  scope :sorted, lambda { order('vacancy ASC') }
   validates :title, presence: true
   validates :job_description, presence: true
   validates :employment_status, presence: true

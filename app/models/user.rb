@@ -13,7 +13,7 @@ class User < ApplicationRecord
     save validate: false
   end
 
-  def confirm_email
+  def set_confirm_email
     self.email_confirmed_at = Time.current
   end
 

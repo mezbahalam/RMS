@@ -1,10 +1,9 @@
 class EmailConfirmationsController < ApplicationController
   skip_before_action :require_login, only: :confirm
-  skip_before_action :check_if_email_confirmed
   before_action :find_user
 
   def confirm
-    @user.confirm_email
+    @user.set_confirm_email
     if @user.save
       @user.update(confirmation_token: nil)
       flash[:notice]= t('flashes.confirmed_email')

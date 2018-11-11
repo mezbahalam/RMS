@@ -28,29 +28,43 @@ RSpec.describe CandidatesController, type: :controller do
            referrals: 'Anjum Ara Begum')
   end
 
+  describe '#check_if_email_confirmed' do
+    context 'when email is not confirmed yet' do
+      before do
+        user.update(email_confirmed_at: nil)
+        sign_in_as user
+      end
+
+      it 'redirects to sign in path' do
+        post :create
+        expect(response).to redirect_to sign_in_path
+      end
+    end
+  end
+
+  before do
+    sign_in_as user
+  end
+
   describe 'GET #index' do
-    let!(:candidate_2) { create(:candidate,
-                                name: 'Lamiya',
+    let!(:candidate_2) { create(:candidate, name: 'Lamiya',
                                 email: 'lamiya@gmail.com',
                                 contact: '012345678977',
                                 skill:'c,c++',
                                 experience: 2.0,
                                 personal_interest:'shopping' ) }
-
-    context 'when current user exists' do
-      subject { get :index, params: { user_id: user.id }}
       it 'populates an array of all candidates' do
-        sign_in_as user
         get :index, params: { user_id: user.id }
         expect(assigns(:candidates)).to match_array [candidate_1, candidate_2]
       end
 
       it 'renders to sign in path template' do
+        sign_out
         get :index, params: { user_id: user.id }
-        expect(response).to render_template :'sessions/new'
+        expect(response).to redirect_to sign_in_path
       end
-    end
   end
+
 
   describe 'GET #show' do
     it 'displays the requested candidate to @candidate' do
@@ -209,7 +223,7 @@ RSpec.describe CandidatesController, type: :controller do
                        gender: 'female',
                        email: nil,
                        address: 'House 8, road 180, nagpur, dhaka',
-                       contact: '01789658976',
+                       contact: '01789658976fgffffg',
                        skill: 'c++,c,c#,ruby,java',
                        experience: 3,
                        personal_interest: nil,
@@ -223,19 +237,7 @@ RSpec.describe CandidatesController, type: :controller do
         patch :update, params: { id: candidate_1,
                                  candidate: invalid_attributes }
         candidate_1.reload
-        expect(candidate_1.name).to eq('Faiza')
-        expect(candidate_1.dob).to eq('2010-09-25'.to_date)
-        expect(candidate_1.gender).to eq('female')
-        expect(candidate_1.email).to eq('tithi@yahoo.com')
-        expect(candidate_1.address).to eq('House 78, road 10, shahbag, dhaka')
-        expect(candidate_1.contact).to eq('0175206968')
-        expect(candidate_1.skill).to eq('c++,c,#')
-        expect(candidate_1.experience).to eq(1.5)
-        expect(candidate_1.personal_interest).to eq('reading')
-        expect(candidate_1.hobbies).to eq('shopping')
-        expect(candidate_1.long_term_plan).to eq('PM of BD')
-        expect(candidate_1.keywords).to eq('software, engineer')
-        expect(candidate_1.referrals).to eq('Anjum Ara Begum')
+        expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
       end
 
       it 're-renders the :edit template' do

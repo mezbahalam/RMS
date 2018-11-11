@@ -10,10 +10,8 @@ en:
     can_name: Candidate Name
     can_new: New Candidate Information
     can_notice_create: Record of '%{candidate_name}' created successfully!
-    can_notice_create_fail: ALERT ! Record Creation Failed
     can_notice_delete: Record of '%{candidate_name}' deleted successfully!
     can_notice_edit: Record of '%{candidate_name}' updated successfully!
-    can_notice_edit_fail: Record of '%{candidate_name}' could not be updated
     can_update: Update Candidate Information
     prof_exp: Professional Experience
   clearance:
@@ -22,7 +20,7 @@ en:
         change_password: Change your password
   clearance_mailer:
     change_password:
-      closing: If you didn't request this, ignore this email. Your password has not been changed.
+      closing_html: "<b>If you didn't request this, ignore this email. Your password has not been changed.<b>"
       link_text: Change my password
       opening: 'Someone, hopefully you, requested we send you a link to change your password:'
   flashes:
@@ -83,7 +81,7 @@ en:
       skill: Skills
   user_mailer:
     sign_up_confirmation:
-      closing: If you didn't request this, ignore this email.
+      closing_html: "<b>If you didn't request this, ignore this email.<b>"
       link_text: Confirm Sign Up !
       opening: Someone, hopefully you, requested for sign up and the following link will confirm your email
   users:

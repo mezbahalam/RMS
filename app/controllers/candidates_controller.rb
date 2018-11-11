@@ -1,14 +1,9 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: %i[show edit update delete destroy]
-  skip_before_action :require_login
-  skip_before_action :check_if_email_confirmed
+  before_action :check_if_email_confirmed
 
   def index
-    if current_user
-      @candidates = Candidate.sorted
-    else
-      render template: 'sessions/new'
-    end
+    @candidates = Candidate.sorted
   end
 
   def show; end
@@ -24,7 +19,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
       redirect_to candidates_path
     else
-      flash.now[:error] = t('candidate.can_notice_create_fail')
+      flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -36,7 +31,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
       redirect_to candidates_path(@candidate)
     else
-      flash.now[:error] = t('candidate.can_notice_edit_fail', candidate_name: @candidate.name)
+      flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -70,5 +65,10 @@ class CandidatesController < ApplicationController
   end
   def find_candidate
     @candidate = Candidate.find(params[:id])
+  end
+
+  def check_if_email_confirmed
+    return unless current_user
+    redirect_to sign_in_path if current_user.email_confirmed_at.blank?
   end
 end

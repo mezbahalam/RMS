@@ -1,5 +1,4 @@
 class UsersController < Clearance::UsersController
-  skip_before_action :check_if_email_confirmed
   def new
     @user = User.new
     render :new
@@ -30,6 +29,6 @@ class UsersController < Clearance::UsersController
   end
 
   def deliver_email(user)
-    ::UserMailer.sign_up_confirmation(user).deliver_later
+    ::UserMailer.sign_up_confirmation(user).deliver
   end
 end

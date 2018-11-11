@@ -3,4 +3,4 @@
   <%= link_to t('.link_text', default: "Confirm Sign Up"),
               confirm_email_url(token: @user.confirmation_token) %>
 </p>
-<p><%= raw t('.closing') %></p>
+<p><%= t('user_mailer.sign_up_confirmation.closing_html') %></p>

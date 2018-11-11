@@ -26,14 +26,14 @@
     clear: both;
     width: 100%;
     tr th { text-align: center}
-    tr td { border: 1px solid $gray40; text-align: center}
+    tr td { border: 1px solid $darkgray; text-align: center}
   }
 }
 
 .section + .section {
   padding-top: 0.5em;
   margin-top: 0.5em;
-  border-top: 1px dotted $gray40;
+  border-top: 1px dotted $darkgray;
 }
 
 

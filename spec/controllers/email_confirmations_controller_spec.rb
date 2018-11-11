@@ -16,7 +16,6 @@ RSpec.describe EmailConfirmationsController, type: :controller do
       end
 
       it 'redirects to sign in path' do
-        user.reload
         expect(response).to redirect_to sign_in_path
       end
     end

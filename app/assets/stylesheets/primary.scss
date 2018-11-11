@@ -98,7 +98,7 @@ table tr td {
   width: 18rem;
   min-height: 48rem;
   padding: 1rem;
-  background: $lightgray;
+  background: $light-gray;
   color: $teal;
 }
 
@@ -225,6 +225,12 @@ table tr td {
   }
 }
 
+.other-links {
+  margin: 10px 200px;
+  width: 212px;
+  height: 30px;
+}
+
 .card {
   margin-left: 67rem;
   margin-right: 67rem;
@@ -256,14 +262,14 @@ table tr td {
     text-align: center;
     padding: 0.8rem;
     border: none;
-    border-bottom: 0.2rem solid $lightgray;
+    border-bottom: 0.2rem solid $light-gray;
   }
 
   td {
     text-align: center;
     padding: 0.8rem;
     border: none;
-    border-bottom: 0.2rem solid $lightgray;
+    border-bottom: 0.2rem solid $light-gray;
   }
 
   tr:hover {
@@ -483,8 +489,8 @@ input[type=checkbox] {
 
 .tab {
   overflow: hidden;
-  border: 1px solid $hexgray;
-  background-color: $hex2;
+  border: 0.5px solid $hexgray1;
+  background-color: $hexgray1;
 }
 
 .tab button {
@@ -499,16 +505,17 @@ input[type=checkbox] {
 }
 
 .tab button:hover {
-  background-color: $hex1;
+  background-color: $hexgray2;
 }
 
 .tab button.active {
-  background-color: $hexgray;
+  background-color: $hexgray2;
 }
 
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid $hexgray;
+  border: 1px solid $hexgray2;
   border-top: none;
+  border-radius: 25px;
 }

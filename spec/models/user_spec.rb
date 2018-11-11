@@ -41,7 +41,7 @@ describe User, type: :model do
     context '#confirm_email' do
       let(:second_user) { FactoryBot.create(:user, email_confirmed_at: nil) }
       it 'sets email_confirmed_at value' do
-        second_user.confirm_email
+        second_user.set_confirm_email
         expect(second_user.email_confirmed_at).to be_present
       end
     end

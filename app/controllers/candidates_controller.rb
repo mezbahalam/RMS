@@ -16,7 +16,7 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
-      flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_create', candidate_name: @candidate.name)
       redirect_to candidates_path
     else
       flash.now[:error] = @candidate.errors.full_messages.to_sentence
@@ -28,7 +28,7 @@ class CandidatesController < ApplicationController
 
   def update
     if @candidate.update(candidate_params)
-      flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_edit', candidate_name: @candidate.name)
       redirect_to candidates_path(@candidate)
     else
       flash.now[:error] = @candidate.errors.full_messages.to_sentence
@@ -40,7 +40,7 @@ class CandidatesController < ApplicationController
 
   def destroy
     if @candidate.destroy
-      flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_delete', candidate_name: @candidate.name)
       redirect_to candidates_path
     end
   end

@@ -2,8 +2,8 @@ require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
   let!(:user) do
     create(:user,
-           firstname: 'Laila',
-           lastname: 'Nushrat',
+           first_name: 'Laila',
+           last_name: 'Nushrat',
            contact: '0172050217',
            dob: '17-08-1994',
            email: 'laila1@gmail.com',
@@ -236,7 +236,6 @@ RSpec.describe CandidatesController, type: :controller do
       it 'does not update the new candidate' do
         patch :update, params: { id: candidate_1,
                                  candidate: invalid_attributes }
-        candidate_1.reload
         expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
       end
 

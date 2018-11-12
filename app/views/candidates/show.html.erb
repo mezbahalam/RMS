@@ -3,7 +3,7 @@
   <%= link_to t('shared.all.can_back'), candidates_path %>
   <div class="card-show">
     <div class="container-show">
-      <h2><%= t('candidate.can_details') %></h2>
+      <h2><%= t('candidate.details') %></h2>
 
       <div class="tab">
         <button class="tablinks" onclick="openCity(event,'Basic')"><%=t('candidate.basic_info')%></button>
@@ -15,7 +15,7 @@
         <h3><%= t('candidate.basic_info') %></h3>
         <table summary="School detail view">
           <tr>
-            <th><%= t('candidate.can_name') %></th>
+            <th><%= t('candidate.name') %></th>
             <td><%= @candidate.name %></td>
           </tr>
           <tr>

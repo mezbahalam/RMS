@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(version: 2018_10_23_052646) do
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
     t.datetime "email_confirmed_at"
-    t.string "firstname"
-    t.string "middlename"
-    t.string "lastname"
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
     t.string "contact"
     t.text "address"
     t.date "dob"

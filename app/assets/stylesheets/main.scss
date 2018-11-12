@@ -1,4 +1,6 @@
-@import 'variable.scss';
+@import "partials/variable";
+@import "admin";
+
 $default_fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
 
 *,
@@ -53,7 +55,7 @@ table tr td {
   padding: 0.5rem;
   background: $cornflowerblue;
   color: $white;
- }
+}
 
 .invalid-feedback {
   color: $red;
@@ -66,6 +68,59 @@ table tr td {
   border: 0.1rem solid $red;
 }
 
+.actions {
+  width: 335px;
+  a {
+    text-decoration: underline;
+    min-width: 3.5em;
+    padding: 1px 2px;
+    margin: 2px 5px;
+    font-size: 1.0em;
+  }
+}
+
+.back-link {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+.form-buttons {
+  text-align: center;
+}
+
+.index {
+  table {
+    clear: both;
+    width: 100%;
+    tr th { text-align: center}
+    tr td { border: 1px solid $darkgray; text-align: center}
+  }
+}
+
+.section + .section {
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+  border-top: 1px dotted $darkgray;
+}
+
+
+.field_with_errors {
+  label { color: $darkred; }
+  input { border: 2px solid $red; }
+}
+
+.alert.alert-danger {
+  text-align: center;
+  color: $darkred;
+}
+
+.error_notification {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
 #header {
   height: 7rem;
   text-align: center;
@@ -77,7 +132,7 @@ table tr td {
 
   h1 {
     margin-left: 54rem;
-    margin-right: 55rem;
+    margin-right: 45.5rem;
     font-size: 2rem;
     text-align: center;
   }
@@ -100,23 +155,6 @@ table tr td {
   padding: 1rem;
   background: $light-gray;
   color: $teal;
-}
-
-#footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-
-  p {
-    margin-right: 3rem;
-    margin-bottom: 1rem;
-    text-align: right;
-    color: $white;
-  }
-}
-
-#navigation {
 
   ul {
     list-style: none;
@@ -140,6 +178,20 @@ table tr td {
     &:hover {
       background: $tomato;
     }
+  }
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  p {
+    margin-right: 3rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    color: $white;
   }
 }
 
@@ -444,9 +496,9 @@ input[type=checkbox] {
 }
 
 #step3:checked ~ #part3 {
-   opacity: 1;
-   height: auto;
- }
+  opacity: 1;
+  height: auto;
+}
 
 #step3:checked ~ #part2 {
   opacity: 0;
@@ -489,8 +541,8 @@ input[type=checkbox] {
 
 .tab {
   overflow: hidden;
-  border: 0.5px solid $hexgray1;
-  background-color: $hexgray1;
+  border: 0.5px solid $slategray;
+  background-color: $slategray;
 }
 
 .tab button {
@@ -505,17 +557,17 @@ input[type=checkbox] {
 }
 
 .tab button:hover {
-  background-color: $hexgray2;
+  background-color: $ashgray;
 }
 
 .tab button.active {
-  background-color: $hexgray2;
+  background-color: $ashgray;
 }
 
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid $hexgray2;
+  border: 1px solid $ashgray;
   border-top: none;
   border-radius: 25px;
 }

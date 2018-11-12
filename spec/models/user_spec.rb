@@ -2,16 +2,16 @@ require 'rails_helper'
 describe User, type: :model do
 
   it { is_expected.to validate_presence_of(:email) }
-  it { is_expected.to validate_presence_of(:firstname) }
-  it { is_expected.to validate_presence_of(:lastname) }
+  it { is_expected.to validate_presence_of(:first_name) }
+  it { is_expected.to validate_presence_of(:last_name) }
   it { is_expected.to validate_presence_of(:contact) }
   it { is_expected.to validate_presence_of :password }
   it { is_expected.to validate_numericality_of(:contact) }
 
   describe 'validations' do
     before(:each) do
-      @user = User.new(firstname: 'Sara',
-                       lastname: 'Tabassum' ,
+      @user = User.new(first_name: 'Sara',
+                       last_name: 'Tabassum' ,
                        contact: '01792050217',
                        email: 'somename@gmail.com',
                        password:'000000')

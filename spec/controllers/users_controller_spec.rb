@@ -2,8 +2,8 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let!(:user) do
     create(:user,
-           firstname: 'Saila',
-           lastname: 'Annie',
+           first_name: 'Saila',
+           last_name: 'Annie',
            contact: '0172050217',
            dob: '14-10-1990',
            email: 'ishrat@gmail.com',
@@ -13,10 +13,8 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'GET #new' do
-    subject { get :new }
-
     it 'renders the :new template' do
-      subject
+      get :new
       expect(response).to render_template :new
     end
   end
@@ -41,8 +39,8 @@ RSpec.describe UsersController, type: :controller do
       let(:invalid_attributes) do
         {
             email: 'swakhar.me@gmail.com',
-            firstname: nil,
-            lastname: nil,
+            first_name: nil,
+            last_name: nil,
             contact: '01796325584',
             password: nil
         }

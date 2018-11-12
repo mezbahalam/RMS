@@ -1,7 +1,6 @@
 class UsersController < Clearance::UsersController
   def new
     @user = User.new
-    render :new
   end
 
   def create
@@ -19,9 +18,9 @@ class UsersController < Clearance::UsersController
   def user_params
     params.require(:user).permit(:email,
                                  :password,
-                                 :firstname,
-                                 :middlename,
-                                 :lastname,
+                                 :first_name,
+                                 :middle_name,
+                                 :last_name,
                                  :contact,
                                  :address,
                                  :dob,

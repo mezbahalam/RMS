@@ -6,14 +6,13 @@ FactoryBot.define do
   factory :user do
     email
     password { 'password' }
-    firstname { 'Laila' }
-    middlename { 'Nushrat' }
-    lastname { 'Raha' }
+    first_name { 'Laila' }
+    middle_name { 'Nushrat' }
+    last_name { 'Raha' }
     contact { '01792052217' }
     address { 'house 48, block E, bashundhara' }
     dob { '17-08-1994' }
     country { 'BD' }
-    confirmation_token { 'token' }
     email_confirmed_at { Time.now }
   end
 end

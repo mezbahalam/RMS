@@ -1,9 +1,4 @@
-/*
- *= require_tree .
- *= require_self
- */
-
-@import 'variable.scss';
+@import "partials/variable";
 
 .simple_form label {
   display: inline-block;

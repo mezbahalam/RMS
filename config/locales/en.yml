@@ -28,8 +28,9 @@ en:
     confirmed_email: Your email has been confirmed
   layouts:
     application:
+      copyright: Copyright
       dream_job: Find your dream job
-      footer: 2018 WellDev.io
+      footer: WellDev.io
       sign_in: Login
       sign_up: Sign Up
       title: Recruitment Management System

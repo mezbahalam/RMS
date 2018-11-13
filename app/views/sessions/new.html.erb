@@ -5,9 +5,7 @@
       <br />
   <h2><%= t('.title') %></h2>
   <br />
-  <%= simple_form_for :session, url: session_path do |f| %>
-  <%= render 'sessions/form', f: f %>
-  <% end %>
+      <%= render 'sessions/form' %>
       </div>
     </div>
 </div>

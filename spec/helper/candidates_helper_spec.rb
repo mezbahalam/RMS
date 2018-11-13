@@ -10,8 +10,8 @@ RSpec.describe CandidatesHelper, type: :helper do
       end
       let(:gender) do
         {
-         'female' => 'FEMALE',
-         'male' => 'MALE'
+         'female' => 'Female',
+         'male' => 'Male'
         }
       end
       it { is_expected.to eq(gender) }

@@ -18,7 +18,10 @@ gem 'i18n-tasks'
 gem 'simple_form'
 gem 'activestorage'
 gem 'aws-sdk-s3', require: false
+gem 'clearance'
 gem 'google-cloud-storage', require: false
+gem 'country_select'
+gem 'rubocop-rspec'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-controller-testing'
@@ -33,6 +36,7 @@ group :development do
   gem 'web-console'
   gem 'listen'
   gem 'spring'
+  gem 'letter_opener'
   gem 'spring-watcher-listen'
 end
 

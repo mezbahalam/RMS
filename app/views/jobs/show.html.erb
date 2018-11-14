@@ -6,7 +6,7 @@
   <form>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.title.title') %></label>
-      <%=render 'title', job: @job%>
+      <%= render 'title', job: @job %>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.vacancy') %></label>
@@ -16,14 +16,14 @@
       <label class="font-weight-bold"><%= t('job.description') %></label>
       <div>
         <%= '-' %>
-        <%=@job.job_description.split(",").join("<br> -").html_safe %>
+        <%= @job.job_description.split(",").join("<br> -").html_safe %>
       </div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.responsibilities') %></label>
       <div>
         <%= '-' %>
-        <%=@job.responsibilities.split(",").join("<br> -").html_safe %>
+        <%= @job.responsibilities.split(",").join("<br> -").html_safe %>
       </div>
     </div>
     <div class="form-group">

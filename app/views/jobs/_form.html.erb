@@ -1,22 +1,22 @@
 <%= f.error_notification %>
 <%= f.input :title,
-            collection: Job.titles.keys.map{|key|[I18n.t(key, scope: 'job.title.option'), key]},
+            collection: Job.titles.keys.map{ |key|[I18n.t(key, scope: 'job.title.option'), key] },
             input_html: { class: 'selectize' },
             prompt: :translate %>
 <%= f.input :vacancy,
             collection: 1..5,
             input_html: { class: 'selectize' },
             prompt: :translate %>
-<%= f.input :job_description, input_html: { rows: 3} %>
+<%= f.input :job_description, input_html: { rows: 3 } %>
 <%= f.input :responsibilities %>
 <%= f.input :employment_status,
-            collection: Job.employment_statuses.keys.map{|key|[I18n.t(key, scope: 'job.employment_status.option'), key]},
+            collection: Job.employment_statuses.keys.map{ |key|[I18n.t(key, scope: 'job.employment_status.option'), key] },
             input_html: { class: 'selectize' },
             prompt: :translate %>
 <%= f.input :edu_requirement %>
 <%= f.input :exp_requirement %>
 <%= f.input :location,
-            collection: Job.locations.keys.map{|key|[I18n.t(key, scope: 'job.location.option'), key]},
+            collection: Job.locations.keys.map{ |key|[I18n.t(key, scope: 'job.location.option'), key] },
             input_html: { class: 'selectize' },
             prompt: :translate %>
 <%= f.input :remuneration %>
@@ -26,7 +26,7 @@
 <%= f.label :status %>
 <%= f.radio_button :job_status, t('shared.all.open'), checked: true %>
 <%= f.label :job_status, t('shared.all.open'), value: 'Open' %>
-<%= f.radio_button :job_status, t('shared.all.closed')%>
+<%= f.radio_button :job_status, t('shared.all.closed') %>
 <%= f.label :job_status, t('shared.all.closed'), value: 'Closed' %>
 <%= f.input :employer_notice %>
 <%= f.button :submit, class: 'btn btn-primary' %>

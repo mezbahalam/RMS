@@ -62,7 +62,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'GET #show' do
     it 'displays the requested job to @job' do
       get :show, params: { id: sample_1 }
-      expect(assigns(:job)).to eq sample_1
+      expect(assigns :job).to eq sample_1
     end
 
     it 'renders the :show template' do
@@ -74,7 +74,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'GET #new' do
     it 'assigns a new Job to @job' do
       get :new
-      expect(assigns(:job)).to be_a_new(Job)
+      expect(assigns :job).to be_a_new(Job)
     end
 
     it 'renders the :new template' do
@@ -103,9 +103,9 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 'saves the new job in the database' do
-        expect {
+        expect do
           post :create, params: { job: valid_attributes }
-        }.to change(Job, :count).by(1)
+        end.to change(Job, :count).by(1)
       end
 
       it 'redirects to jobs#index' do
@@ -118,7 +118,7 @@ RSpec.describe JobsController, type: :controller do
       let(:invalid_attributes) do
         attributes_for(:candidate,
                        title: nil,
-                       vacancy:4,
+                       vacancy: 4,
                        job_description: 'work with rails',
                        responsibilities: ' lots of work',
                        employment_status: 'full_time',
@@ -133,9 +133,9 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 'does not save the new job in the database' do
-        expect {
+        expect do
           post :create, params: { job: invalid_attributes }
-        }.not_to change(Job, :count)
+        end.not_to change(Job, :count)
       end
 
       it 'renders the :new template' do
@@ -148,7 +148,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'GET #edit' do
     it 'assigns the requested job to @job' do
       get :edit, params: { id: sample_1 }
-      expect(assigns(:job)).to eq sample_1
+      expect(assigns :job).to eq sample_1
     end
 
     it 'renders the :edit template' do
@@ -177,14 +177,12 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 'locates the requested job' do
-        patch :update, params: { id: sample_1,
-                                 job: valid_attributes }
+        patch :update, params: { id: sample_1, job: valid_attributes }
         expect(assigns(:job)).to eq(sample_1)
       end
 
       it 'updates the new job in the database' do
-        patch :update, params: { id: sample_1,
-                                 job: valid_attributes }
+        patch :update, params: { id: sample_1, job: valid_attributes }
         sample_1.reload
         expect(sample_1.title).to eq('junior_software_engineer')
         expect(sample_1.vacancy).to eq(5)
@@ -202,8 +200,7 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 'redirects to the updated jobs#index' do
-        patch :update, params: { id: sample_1,
-                                 job: valid_attributes }
+        patch :update, params: { id: sample_1, job: valid_attributes }
         expect(response).to redirect_to jobs_path
       end
     end
@@ -227,8 +224,7 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 'does not update the new job' do
-        patch :update, params: { id: sample_1,
-                                 job: invalid_attributes }
+        patch :update, params: { id: sample_1, job: invalid_attributes }
         sample_1.reload
         expect(sample_1.title).to eq('junior_software_engineer')
         expect(sample_1.vacancy).to eq(5)
@@ -246,8 +242,7 @@ RSpec.describe JobsController, type: :controller do
       end
 
       it 're-renders the :edit template' do
-        patch :update, params: { id: sample_1,
-                                 job: invalid_attributes }
+        patch :update, params: { id: sample_1, job: invalid_attributes }
         expect(response).to render_template :edit
       end
     end

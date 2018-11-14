@@ -4,7 +4,7 @@ FactoryBot.define do
     vacancy { 2 }
     job_description { 'work work' }
     responsibilities { 'nothing'  }
-    employment_status {'full_time'}
+    employment_status { 'full_time' }
     edu_requirement { 'bsc in cse' }
     exp_requirement { 5 }
     location { 'dhaka' }

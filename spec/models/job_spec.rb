@@ -32,7 +32,7 @@ describe Job, type: :model do
 
     subject { described_class.sorted }
     context 'sorted by vacancy in ASC order' do
-      it { is_expected.to eq([job_two, job_one])}
+      it { is_expected.to eq([job_two, job_one]) }
     end
   end
 end

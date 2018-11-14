@@ -1,6 +1,16 @@
 require 'rails_helper'
-
 RSpec.describe JobsController, type: :controller do
+  let!(:user) do
+    create(:user,
+           first_name: 'rajib',
+           last_name: 'das',
+           contact: '123456789',
+           dob: '14-11-2018',
+           email: 'rajib@abc.com',
+           password: 'rajib',
+           confirmation_token: 'token',
+           email_confirmed_at: Time.now)
+  end
   let!(:sample_1) do
     create(:job,
            title: 'junior_software_engineer',
@@ -9,7 +19,7 @@ RSpec.describe JobsController, type: :controller do
            responsibilities: 'development',
            employment_status: 'full_time',
            edu_requirement: 'bsc in cse',
-           exp_requirement: '1',
+           exp_requirement: 1,
            location: 'dhaka',
            remuneration: 40000,
            benefits: 'yearly_bonus',
@@ -18,6 +28,23 @@ RSpec.describe JobsController, type: :controller do
            job_status: 'Open')
   end
 
+  describe '#check_if_email_confirmed' do
+    context 'when email is not confirmed yet' do
+      before do
+        user.update(email_confirmed_at: nil)
+        sign_in_as user
+      end
+
+      it 'redirects to sign in path' do
+        post :create
+        expect(response).to redirect_to sign_in_path
+      end
+    end
+  end
+
+  before do
+    sign_in_as user
+  end
   describe 'GET #index' do
     let!(:sample_2) { create(:job, title: 'junior_software_engineer') }
 
@@ -66,7 +93,7 @@ RSpec.describe JobsController, type: :controller do
                        responsibilities: ' lots of work',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
-                       exp_requirement: '15',
+                       exp_requirement: 15,
                        location: 'dhaka',
                        remuneration: 46546554,
                        benefits: 'nothing',
@@ -96,7 +123,7 @@ RSpec.describe JobsController, type: :controller do
                        responsibilities: ' lots of work',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
-                       exp_requirement: '15',
+                       exp_requirement: 15,
                        location: 'dhaka',
                        remuneration: 46546554,
                        benefits: 'nothing',
@@ -140,7 +167,7 @@ RSpec.describe JobsController, type: :controller do
                        responsibilities: 'development',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
-                       exp_requirement: '1',
+                       exp_requirement: 1,
                        location: 'dhaka',
                        remuneration: 40000,
                        benefits: 'yearly_bonus',
@@ -165,7 +192,7 @@ RSpec.describe JobsController, type: :controller do
         expect(sample_1.responsibilities).to eq('development')
         expect(sample_1.employment_status).to eq('full_time')
         expect(sample_1.edu_requirement).to eq('bsc in cse')
-        expect(sample_1.exp_requirement).to eq('1')
+        expect(sample_1.exp_requirement).to eq(1)
         expect(sample_1.location).to eq('dhaka')
         expect(sample_1.remuneration).to eq(40000)
         expect(sample_1.benefits).to eq('yearly_bonus')
@@ -190,7 +217,7 @@ RSpec.describe JobsController, type: :controller do
                        responsibilities: 'development',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
-                       exp_requirement: '1',
+                       exp_requirement: 1,
                        location: 'dhaka',
                        remuneration: 40000,
                        benefits: 'yearly bonus',
@@ -209,7 +236,7 @@ RSpec.describe JobsController, type: :controller do
         expect(sample_1.responsibilities).to eq('development')
         expect(sample_1.employment_status).to eq('full_time')
         expect(sample_1.edu_requirement).to eq('bsc in cse')
-        expect(sample_1.exp_requirement).to eq('1')
+        expect(sample_1.exp_requirement).to eq(1)
         expect(sample_1.location).to eq('dhaka')
         expect(sample_1.remuneration).to eq(40000)
         expect(sample_1.benefits).to eq('yearly_bonus')

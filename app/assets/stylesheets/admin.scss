@@ -1,54 +1,64 @@
-/*
- *= require_tree .
- *= require_self
- */
 .simple_form label {
   display: inline-block;
-  width: 875px;
+  width: 153px;
   text-align: right;
-  margin: 10px;
+  margin: 8px;
 }
+
 .simple_form fieldset.form-group {
   border: none;
   margin-left: 800px;
 }
+
 .simple_form div.form-group.date {
-  display: inline;
+  display: flex;
+  justify-content: center;
 }
+
 .simple_form div.form-check {
   margin-left: 10px;
   display: inline;
 }
+
 .simple_form div.input {
-  margin-bottom: 10px;
+  margin: 6px;
 }
+
 .simple_form div.d-flex.flex-row {
-  margin-top: -26px;
-  margin-left: 895px;
-  margin-bottom: 10px;
+  margin: auto;
 }
+
+.simple_form div.d-flex.flex-row.justify-content-between.align-items-center{
+  margin-left: 0;
+}
+
+.simple_form div.form-group.date.optional {
+
+}
+
+.simple_form label.date.form-control-label.optional {
+  width: 262px;
+}
+
 .simple_form div.boolean, .simple_form input[type='submit'] {
-  margin-top: 30px;
-  margin-left: 875px;
+  background-color: $outrageousorange;
+  color: $white;
+  width: 150px;
+  height: 40px;
+  border-radius: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0;
+  font-size: small;
 }
+
 .simple_form div.boolean label, .simple_form label.collection_radio_buttons {
   text-align: left;
   width: 25px;
   height: 10px;
   display: inline;
 }
-.simple_form .error {
-  clear: right;
-  margin-left: 120px;
-  font-size: 12px;
-  color: #D00;
-  display: block;
-}
-.simple_form .hint {
-  clear: left;
-  margin-left: 120px;
-  font-size: 12px;
-  color: #555;
-  display: block;
-  font-style: italic;
+
+.simple_form label.file.optional {
+  width: 210px;
 }

@@ -1,25 +1,31 @@
 ---
 en:
-  activerecord:
-    attributes:
-      candidate/gender:
-        female: FEMALE
-        male: MALE
   candidate:
-    can: Candidate List
-    can_add: Add New Candidate(s)
-    can_details: Candidate Details
-    can_name: Candidate Name
-    can_new: New Candidate Info
-    can_notice_create: "%{candidate_name} created successfully!"
-    can_notice_create_fail: "%{candidate_name} record creation failed"
-    can_notice_delete: "%{candidate_name} deleted successfully!"
-    can_notice_delete_fail: "%{candidate_name} could not be deleted "
-    can_notice_edit: "%{candidate_name} updated successfully!"
-    can_notice_edit_fail: "%{candidate_name} could not be updated"
-    can_update: Update Candidate Info
-    flash:
-      danger: Record Creation Failed
+    add: Add New Candidate(s)
+    additional_info: Additional Information
+    basic_info: Basic Information
+    candidate_list: Candidate List
+    details: Candidate Details
+    info: Fill out the form to create your profile
+    name: Candidate Name
+    new: New Candidate Information
+    notice_create: Record of '%{candidate_name}' created successfully!
+    notice_delete: Record of '%{candidate_name}' deleted successfully!
+    notice_edit: Record of '%{candidate_name}' updated successfully!
+    prof_exp: Professional Experience
+    update: Update Candidate Information
+  clearance:
+    models:
+      clearance_mailer:
+        change_password: Change your password
+  clearance_mailer:
+    change_password:
+      closing_html: "<b>If you didn't request this, ignore this email. Your password has not been changed.<b>"
+      link_text: Change my password
+      opening: 'Someone, hopefully you, requested we send you a link to change your password:'
+  flashes:
+    confirm_your_email: Please confirm your email
+    confirmed_email: Your email has been confirmed
   job:
     benefits: Job Benefits
     date_issue: Date Issued
@@ -65,32 +71,59 @@ en:
     vacancy: Vacancy
   layouts:
     application:
-      footer: welldev.io
+      copyright: Copyright
+      dream_job: Find your dream job
+      footer: WellDev.io
+      sign_in: Login
+      sign_up: Sign Up
       title: Recruitment Management System
+  passwords:
+    create:
+      description: You will receive an email within the next few minutes. It contains instructions for changing your password.
+    edit:
+      description: Your password has been reset. Enter a new password below.
+      title: Change your password
+    new:
+      description: To be emailed a link to reset your password, please enter your email address.
+      title: Reset your password
+  sessions:
+    form:
+      forgot_password: Forgot password?
+    new:
+      title: Login
   shared:
     all:
-      action: Actions
       address: Address
       can_back: "<< Back to Candidate List <<"
       closed: Closed
       confirm_delete: Are you sure you want to delete this record ?
-      contact: Contact
+      create_account: Create Your Account
       delete: Delete
       delete_file: Remove this file
       dob: Date of Birth
       edit: Edit
       email: Email
       exp: Experience(years)
+      female: Female
       file_up: Attachment(s)
+      first_name: First Name
       gender: Gender
       hobby: Hobbies
       keyword: Keywords
+      last_name: Last Name
+      male: Male
+      middle_name: Middle Name
+      next: Next Page
       not_avail: Not available
       open: Open
+      password: Password
       personal_int: Personal Interest(s)
+      phone: Phone/Mobile No.
       plan: Long Term Plan
+      prev: Previous Page
       refer: Referrals
-      show: Show
+      show: Show Details
+      sign_up_terms: By signing up, I accept the Terms & Privacy policies
       skill: Skills
   simple_form:
     labels:
@@ -119,3 +152,14 @@ en:
         location: Select job location
         title: Select job title
         vacancy: Select no of vacancies
+  user_mailer:
+    sign_up_confirmation:
+      closing_html: "<b>If you didn't request this, ignore this email.<b>"
+      link_text: Confirm Sign Up !
+      opening: Someone, hopefully you, requested for sign up and the following link will confirm your email
+  users:
+    mailer:
+      subject:
+        confirm_email: Confirm your Email
+    new:
+      sign_in: Login

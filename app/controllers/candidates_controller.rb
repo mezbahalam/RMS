@@ -1,5 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: %i[show edit update delete destroy]
+  before_action :check_if_email_confirmed
+
   def index
     @candidates = Candidate.sorted
   end
@@ -14,10 +16,10 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params)
     @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
-      flash[:notice] = t('candidate.can_notice_create', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_create', candidate_name: @candidate.name)
       redirect_to candidates_path
     else
-      flash[:failure] = @candidate.errors.full_messages.to_sentence
+      flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -26,10 +28,10 @@ class CandidatesController < ApplicationController
 
   def update
     if @candidate.update(candidate_params)
-      flash[:notice] = t('candidate.can_notice_edit', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_edit', candidate_name: @candidate.name)
       redirect_to candidates_path(@candidate)
     else
-      flash[:failure] = @candidate.errors.full_messages.to_sentence
+      flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -38,10 +40,8 @@ class CandidatesController < ApplicationController
 
   def destroy
     if @candidate.destroy
-      flash[:notice] = t('candidate.can_notice_delete', candidate_name: @candidate.name)
+      flash[:notice] = t('candidate.notice_delete', candidate_name: @candidate.name)
       redirect_to candidates_path
-    else
-      flash[:failure] = @candidate.errors.full_messages.to_sentence
     end
   end
 
@@ -57,6 +57,7 @@ class CandidatesController < ApplicationController
                                       :experience,
                                       :personal_interest,
                                       :long_term_plan,
+                                      :hobbies,
                                       :keywords,
                                       :referrals,
                                       :avatar,
@@ -64,5 +65,10 @@ class CandidatesController < ApplicationController
   end
   def find_candidate
     @candidate = Candidate.find(params[:id])
+  end
+
+  def check_if_email_confirmed
+    return unless current_user
+    redirect_to sign_in_path if current_user.email_confirmed_at.blank?
   end
 end

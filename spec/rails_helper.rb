@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'factory_bot_rails'
 require 'shoulda/matchers'
+require 'clearance/rspec'
 
 
 Shoulda::Matchers.configure do |config|

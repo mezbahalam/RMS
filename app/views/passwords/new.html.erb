@@ -1,0 +1,16 @@
+<div id="clearance" class="password-reset">
+  <br /><br />
+  <div class="card">
+    <div class="container">
+      <br />
+      <h2><%= t(".title") %></h2>
+      <p><%= t(".description") %></p>
+      <%= simple_form_for :password, url: passwords_path do |f| %>
+            <%= f.input :email %>
+          <div class="submit-field">
+            <%= f.submit %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

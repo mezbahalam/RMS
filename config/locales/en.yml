@@ -21,29 +21,48 @@ en:
     flash:
       danger: Record Creation Failed
   job:
-    job: Job list
-    job_add: Add New Job(s)
-    job_back: Back to Job List
-    job_ben: Job Benefits
-    job_date_issue: Date Issued
-    job_deadline: Deadline
-    job_des: Job Description
-    job_details: Job Details
-    job_edu_req: Educational Requirements
-    job_emp_notice: Employer Notice
-    job_emp_status: Employment Status
-    job_exp_req: Experience Requirements
-    job_loc: Job Location
-    job_name: Job Title
-    job_new: New Job Info
-    job_notice_create: "%{job_name} created successfully!"
-    job_notice_delete: "%{job_name} deleted successfully!"
-    job_notice_edit: "%{job_name} updated successfully!"
-    job_rem: Remuneration
-    job_res: Job Responsibilities
-    job_status: Status
-    job_update: Update Job Info
-    job_vacancy: Vacancy
+    benefits: Job Benefits
+    date_issue: Date Issued
+    deadline: Deadline
+    description: Job Description
+    details: Job Details
+    education_requirement: Educational Requirement
+    employer_notice: Employer Notice
+    employment_status:
+      option:
+        contractual: Contractual
+        full_time: Full Time
+        part_time: Part Time
+      title: Employment Status
+    experience_requirement: Experience Requirement
+    list: List of Jobs
+    location:
+      option:
+        dhaka: Dhaka
+        south_africa: South Africa
+        switzerland: Switzerland
+      title: Location
+    notice_create: Job created successfully!
+    notice_delete: Job deleted successfully
+    notice_edit: Job updated successfully!
+    position: Position
+    remuneration: Remuneration
+    responsibilities: Job Responsibilities
+    shared:
+      add: Add New Job(s)
+      back: Back to Job List
+      new: New Job Info
+      update: Update Job Info
+    status: Status
+    title:
+      option:
+        junior_software_engineer: Junior Software Engineer
+        managing_director: Managing Director
+        project_manager: Project Manager
+        senior_software_engineer: Senior Software Engineer
+        software_engineer: Software Engineer
+      title: Job Title
+    vacancy: Vacancy
   layouts:
     application:
       footer: welldev.io
@@ -73,3 +92,30 @@ en:
       refer: Referrals
       show: Show
       skill: Skills
+  simple_form:
+    labels:
+      job:
+        benefits: Job Benefits
+        date_issue: Date Issued
+        deadline: Deadline
+        edu_requirement: Educational Requirement
+        employer_notice: Employer Notice
+        employment_status: Employment Status
+        exp_requirement: Experience Requirement
+        job_description: Job Description
+        location: Job Location
+        remuneration: Remuneration
+        responsibilities: Job Responsibilities
+        status: Status
+        title: Job Title
+        vacancy: Vacancy
+    placeholders:
+      job:
+        job_description: Write job description here separated by comma
+        responsibilities: Write job responsibilities here separated by comma
+    prompts:
+      job:
+        employment_status: Select employment status
+        location: Select job location
+        title: Select job title
+        vacancy: Select no of vacancies

@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe JobsController, type: :controller do
   let!(:sample_1) do
     create(:job,
-           title: 'jse',
+           title: 'junior_software_engineer',
            vacancy: 5,
            job_description: 'work with rails',
            responsibilities: 'development',
-           employment_status: 'full time',
+           employment_status: 'full_time',
            edu_requirement: 'bsc in cse',
            exp_requirement: '1',
            location: 'dhaka',
@@ -19,7 +19,7 @@ RSpec.describe JobsController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:sample_2) { create(:job, title: 'ssw') }
+    let!(:sample_2) { create(:job, title: 'junior_software_engineer') }
 
     it 'populates an array of all jobs' do
       get :index
@@ -60,11 +60,11 @@ RSpec.describe JobsController, type: :controller do
     context 'with valid attributes' do
       let(:valid_attributes) do
         attributes_for(:job,
-                       title: 'sse',
+                       title: 'junior_software_engineer',
                        vacancy: 5,
                        job_description: 'work with rails',
                        responsibilities: ' lots of work',
-                       employment_status: 'full time',
+                       employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: '15',
                        location: 'dhaka',
@@ -90,11 +90,11 @@ RSpec.describe JobsController, type: :controller do
     context 'with invalid attributes' do
       let(:invalid_attributes) do
         attributes_for(:candidate,
-                       title: '',
+                       title: nil,
                        vacancy:4,
                        job_description: 'work with rails',
                        responsibilities: ' lots of work',
-                       employment_status: 'full time',
+                       employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: '15',
                        location: 'dhaka',
@@ -134,11 +134,11 @@ RSpec.describe JobsController, type: :controller do
     context 'with valid attributes' do
       let(:valid_attributes) do
         attributes_for(:job,
-                       title: 'jse',
+                       title: 'junior_software_engineer',
                        vacancy: 5,
                        job_description: 'work in rails',
                        responsibilities: 'development',
-                       employment_status: 'full time',
+                       employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: '1',
                        location: 'dhaka',
@@ -159,11 +159,11 @@ RSpec.describe JobsController, type: :controller do
         patch :update, params: { id: sample_1,
                                  job: valid_attributes }
         sample_1.reload
-        expect(sample_1.title).to eq('jse')
-        expect(sample_1.vacancy).to eq('5')
+        expect(sample_1.title).to eq('junior_software_engineer')
+        expect(sample_1.vacancy).to eq(5)
         expect(sample_1.job_description).to eq('work in rails')
         expect(sample_1.responsibilities).to eq('development')
-        expect(sample_1.employment_status).to eq('full time')
+        expect(sample_1.employment_status).to eq('full_time')
         expect(sample_1.edu_requirement).to eq('bsc in cse')
         expect(sample_1.exp_requirement).to eq('1')
         expect(sample_1.location).to eq('dhaka')
@@ -188,7 +188,7 @@ RSpec.describe JobsController, type: :controller do
                        vacancy: 5,
                        job_description: 'work in rails',
                        responsibilities: 'development',
-                       employment_status: 'full time',
+                       employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: '1',
                        location: 'dhaka',
@@ -203,11 +203,11 @@ RSpec.describe JobsController, type: :controller do
         patch :update, params: { id: sample_1,
                                  job: invalid_attributes }
         sample_1.reload
-        expect(sample_1.title).to eq('jse')
-        expect(sample_1.vacancy).to eq('5')
+        expect(sample_1.title).to eq('junior_software_engineer')
+        expect(sample_1.vacancy).to eq(5)
         expect(sample_1.job_description).to eq('work with rails')
         expect(sample_1.responsibilities).to eq('development')
-        expect(sample_1.employment_status).to eq('full time')
+        expect(sample_1.employment_status).to eq('full_time')
         expect(sample_1.edu_requirement).to eq('bsc in cse')
         expect(sample_1.exp_requirement).to eq('1')
         expect(sample_1.location).to eq('dhaka')

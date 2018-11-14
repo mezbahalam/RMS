@@ -1,14 +1,14 @@
 class CreateJobs < ActiveRecord::Migration[5.2]
   def change
     create_table :jobs do |t|
-      t.string :title, null: false
-      t.string :vacancy
+      t.integer :title, null: false
+      t.integer :vacancy
       t.text :job_description, null: false
       t.text :responsibilities
-      t.string :employment_status, null: false
+      t.integer :employment_status, null: false
       t.text :edu_requirement
-      t.text :exp_requirement, null: false, numerically: true
-      t.string :location
+      t.integer :exp_requirement, null: false, numerically: true
+      t.integer :location
       t.integer :remuneration, null: false, numerically: true
       t.text :benefits
       t.date :date_issue

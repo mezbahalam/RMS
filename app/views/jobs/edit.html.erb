@@ -1,17 +1,7 @@
-<%#= link_to t('job.job_back'), jobs_path %>
-<!--<div class = "job new">-->
-<!--  <h2><%#= t('job.job_update') %></h2>-->
-  <%#= simple_form_for @job do |f| %>
-    <%#= render 'form', f: f %>
-  <%# end %>
-<!--</div>-->
-
-
 <div class="container">
-  <h4><%= link_to t('job.job_back'), jobs_path %></h4>
-  <h2><%= t('job.job_update') %></h2>
+  <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
+  <h2><%= t('job.shared.update') %></h2>
   <%= simple_form_for @job do |f| %>
     <%= render 'form', f: f %>
-    <%#= this also works: render partial: 'form', locals: {f: f}%>
   <% end %>
 </div>

@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_102213) do
     t.string "contact"
     t.text "address"
     t.text "skill", null: false
-    t.text "experience", null: false
+    t.float "experience", null: false
     t.text "hobbies"
     t.text "long_term_plan"
     t.text "personal_interest", null: false
@@ -55,14 +55,14 @@ ActiveRecord::Schema.define(version: 2018_10_25_102213) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "vacancy"
+    t.integer "title", null: false
+    t.integer "vacancy"
     t.text "job_description", null: false
     t.text "responsibilities"
-    t.string "employment_status", null: false
+    t.integer "employment_status", null: false
     t.text "edu_requirement"
-    t.text "exp_requirement", null: false
-    t.string "location"
+    t.integer "exp_requirement", null: false
+    t.integer "location"
     t.integer "remuneration", null: false
     t.text "benefits"
     t.date "date_issue"

@@ -15,7 +15,7 @@
     <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%=render 'title', job: job %></td>
+        <td><%= render 'title', job: job %></td>
         <td><%= job.date_issue %></td>
         <td><%= job.deadline %></td>
         <td><%= job.job_status %></td>

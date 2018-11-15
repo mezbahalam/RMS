@@ -45,6 +45,7 @@ RSpec.describe JobsController, type: :controller do
   before do
     sign_in_as user
   end
+
   describe 'GET #index' do
     let!(:sample_2) { create(:job, title: 'junior_software_engineer') }
 
@@ -90,7 +91,7 @@ RSpec.describe JobsController, type: :controller do
                        title: 'junior_software_engineer',
                        vacancy: 5,
                        job_description: 'work with rails',
-                       responsibilities: ' lots of work',
+                       responsibilities: 'lots of work',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: 15,
@@ -120,7 +121,7 @@ RSpec.describe JobsController, type: :controller do
                        title: nil,
                        vacancy: 4,
                        job_description: 'work with rails',
-                       responsibilities: ' lots of work',
+                       responsibilities: 'lots of work',
                        employment_status: 'full_time',
                        edu_requirement: 'bsc in cse',
                        exp_requirement: 15,

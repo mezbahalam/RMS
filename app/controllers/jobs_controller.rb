@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_action :find_job_id, only: %i[show edit update destroy]
-  before_action :check_if_email_confirmed
 
   def index
     @jobs = Job.all
@@ -59,10 +58,5 @@ class JobsController < ApplicationController
 
   def find_job_id
     @job = Job.find(params[:id])
-  end
-
-  def check_if_email_confirmed
-    return unless current_user
-    redirect_to sign_in_path if current_user.email_confirmed_at.blank?
   end
 end

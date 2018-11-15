@@ -1,12 +1,11 @@
 <div class="container">
-  <%= flash[:notice] %>
   <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
   <h2><%= t('job.details') %></h2>
   <br>
   <form>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.title.title') %></label>
-      <%= render 'title', job: @job %>
+      <div><%= t(@job.title, scope: 'job.title.option') %></div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.vacancy') %></label>
@@ -15,34 +14,26 @@
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.description') %></label>
       <div>
-        <%= '-' %>
-        <%= @job.job_description.split(",").join("<br> -").html_safe %>
+        <% @job.job_description.split(/,\s*/).each do |description| %>
+          <li><%= description %></li>
+        <% end %>
       </div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.responsibilities') %></label>
       <div>
-        <%= '-' %>
-        <%= @job.responsibilities.split(",").join("<br> -").html_safe %>
+        <% @job.responsibilities.split(/,\s*/).each do |responsibilities| %>
+          <li><%= responsibilities %></li>
+        <% end %>
       </div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.employment_status.title') %></label>
-      <div>
-        <% if @job.employment_status == 'full_time' %>
-            <%= t('job.employment_status.option.full_time') %>
-        <% end %>
-        <% if @job.employment_status == 'part_time' %>
-            <%= t('job.employment_status.option.part_time') %>
-        <% end %>
-        <% if @job.employment_status == 'contractual' %>
-            <%= t('job.employment_status.option.contractual') %>
-        <% end %>
-      </div>
+      <div> <%= t(@job.employment_status, scope: 'job.employment_status.option') %></div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.education_requirement') %></label>
-      <td><%= @job.edu_requirement %></td>
+      <div><%= @job.edu_requirement %></div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.experience_requirement') %></label>
@@ -50,17 +41,7 @@
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.location.title') %></label>
-      <div>
-        <% if @job.location == 'dhaka' %>
-            <%= t('job.location.option.dhaka')%>
-        <% end %>
-        <% if @job.location == 'switzerland' %>
-            <%= t('job.location.option.switzerland')%>
-        <% end %>
-        <% if @job.location == 'south_africa' %>
-            <%= t('job.location.option.south_africa')%>
-        <% end %>
-      </div>
+      <div> <%= t(@job.location, scope: 'job.location.option') %></div>
     </div>
     <div class="form-group">
       <label class="font-weight-bold"><%= t('job.remuneration') %></label>

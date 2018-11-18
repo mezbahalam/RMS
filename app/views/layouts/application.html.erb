@@ -18,6 +18,11 @@
         <div class="sign_out">
           <%= image_tag('sign_out.png', size: '23x23', alt: '->') %>
           <%= link_to 'Sign out', sign_out_path, method: :delete %>
+          <% if current_user.admin? %>
+              <%= t('shared.all.admin') %>
+          <% else %>
+              <%= t('shared.all.candidate') %>
+          <% end %>
         </div>
     <% else %>
         <% if Clearance.configuration.allow_sign_up? %><%= link_to t('.sign_up'), sign_up_path %>

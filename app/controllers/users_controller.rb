@@ -23,6 +23,7 @@ class UsersController < Clearance::UsersController
                                  :last_name,
                                  :contact,
                                  :address,
+                                 :role,
                                  :dob,
                                  :country)
   end

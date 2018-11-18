@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: %i[show edit update delete destroy]
   before_action :check_if_email_confirmed
+  authorize_resource
 
   def index
     @candidates = Candidate.sorted
@@ -24,7 +25,7 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def edit ; end
+  def edit; end
 
   def update
     if @candidate.update(candidate_params)
@@ -36,7 +37,7 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def delete ; end
+  def delete; end
 
   def destroy
     if @candidate.destroy

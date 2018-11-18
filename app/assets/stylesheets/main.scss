@@ -463,6 +463,33 @@ table tr td {
   }
 }
 
+.page.index {
+  width: 192rem;
+  height: 82rem;
+  background: {
+    image: asset-url("page_index.jpeg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    color: $darkred;
+  }
+
+  .page_nav {
+    a {
+      color: $darkred;
+    }
+    text-align: right;
+    padding-right: 1rem;
+  }
+}
+
 input[type=checkbox] {
   position: absolute;
   opacity: 0;

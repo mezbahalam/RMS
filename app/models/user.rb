@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Clearance::User
   before_validation :generate_confirmation_token, on: %i(create)
+  enum role: {admin: 0, candidate: 1}.freeze
+
   validates :email,
             presence: true,
             uniqueness: true,

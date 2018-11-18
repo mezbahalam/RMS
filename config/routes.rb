@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/confirm_email/:token', to: 'email_confirmations#confirm', as: 'confirm_email'
   post '/resend_confirmation', to: 'email_confirmations#resend_confirmation', as: 'resend_confirmation'
 
-  root 'candidates#index'
+  root 'pages#index'
 
   resources :users
   resources :candidates do

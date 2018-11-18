@@ -11,6 +11,11 @@
                                  prompt: 'Select Country' } %>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :password, label: t('shared.all.password') %>
+<%= f.label :role %>
+<%= f.collection_radio_buttons :role, human_attribute_roles,
+                                   :first,
+                                   :second,
+                                   checked: human_attribute_roles.first %>
 <p class="sign_up"><%= t('shared.all.sign_up_terms') %></p>
 <%= f.button :submit, t('shared.all.create_account') %>
 <% end %>

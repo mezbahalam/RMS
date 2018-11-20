@@ -59,7 +59,11 @@ en:
       back: Back to Job List
       new: New Job Info
       update: Update Job Info
-    status: Status
+    status:
+      option:
+        closed: Closed
+        open: Open
+      title: Status
     title:
       option:
         junior_software_engineer: Junior Software Engineer
@@ -95,7 +99,6 @@ en:
     all:
       address: Address
       can_back: "<< Back to Candidate List <<"
-      closed: Closed
       confirm_delete: Are you sure you want to delete this record ?
       create_account: Create Your Account
       delete: Delete
@@ -115,7 +118,6 @@ en:
       middle_name: Middle Name
       next: Next Page
       not_avail: Not available
-      open: Open
       password: Password
       personal_int: Personal Interest(s)
       phone: Phone/Mobile No.
@@ -136,10 +138,10 @@ en:
         employment_status: Employment Status
         exp_requirement: Experience Requirement
         job_description: Job Description
+        job_status: Status
         location: Job Location
         remuneration: Remuneration
         responsibilities: Job Responsibilities
-        status: Status
         title: Job Title
         vacancy: Vacancy
     placeholders:

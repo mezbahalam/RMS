@@ -7,7 +7,6 @@ require 'factory_bot_rails'
 require 'shoulda/matchers'
 require 'clearance/rspec'
 
-
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec

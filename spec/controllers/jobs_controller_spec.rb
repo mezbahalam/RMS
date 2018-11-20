@@ -11,7 +11,7 @@ RSpec.describe JobsController, type: :controller do
            confirmation_token: 'token',
            email_confirmed_at: Time.now)
   end
-  let!(:sample_1) do
+  let!(:job_1) do
     create(:job,
            title: 'junior_software_engineer',
            vacancy: 5,
@@ -25,7 +25,8 @@ RSpec.describe JobsController, type: :controller do
            benefits: 'yearly_bonus',
            date_issue: '2018-11-08'.to_date,
            deadline: '2018-12-08'.to_date,
-           job_status: 'Open')
+           job_status: 'open',
+           employer_notice: 'send your resume to recruitment@welldev.io')
   end
 
   describe '#check_if_email_confirmed' do
@@ -47,11 +48,11 @@ RSpec.describe JobsController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:sample_2) { create(:job, title: 'junior_software_engineer') }
+    let!(:job_2) { create(:job, title: 'junior_software_engineer') }
 
     it 'populates an array of all jobs' do
       get :index
-      expect(assigns(:jobs)).to match_array [sample_1, sample_2]
+      expect(assigns(:jobs)).to match_array [job_1, job_2]
     end
 
     it 'renders the :index template' do
@@ -62,12 +63,12 @@ RSpec.describe JobsController, type: :controller do
 
   describe 'GET #show' do
     it 'displays the requested job to @job' do
-      get :show, params: { id: sample_1 }
-      expect(assigns :job).to eq sample_1
+      get :show, params: { id: job_1 }
+      expect(assigns :job).to eq job_1
     end
 
     it 'renders the :show template' do
-      get :show, params: { id: sample_1 }
+      get :show, params: { id: job_1 }
       expect(response).to render_template :show
     end
   end
@@ -100,7 +101,8 @@ RSpec.describe JobsController, type: :controller do
                        benefits: 'nothing',
                        date_issue: '2018-11-08'.to_date,
                        deadline: '2018-11-08'.to_date,
-                       job_status: 'open')
+                       job_status: 'open',
+                       employer_notice: 'send your resume to recruitment@welldev.io')
       end
 
       it 'saves the new job in the database' do
@@ -130,7 +132,8 @@ RSpec.describe JobsController, type: :controller do
                        benefits: 'nothing',
                        date_issue: '2018-11-08'.to_date,
                        deadline: '2018-11-08'.to_date,
-                       job_status: 'open')
+                       job_status: 'open',
+                       employer_notice: 'send your resume to recruitment@welldev.io')
       end
 
       it 'does not save the new job in the database' do
@@ -148,12 +151,12 @@ RSpec.describe JobsController, type: :controller do
 
   describe 'GET #edit' do
     it 'assigns the requested job to @job' do
-      get :edit, params: { id: sample_1 }
-      expect(assigns :job).to eq sample_1
+      get :edit, params: { id: job_1 }
+      expect(assigns :job).to eq job_1
     end
 
     it 'renders the :edit template' do
-      get :edit, params: { id: sample_1 }
+      get :edit, params: { id: job_1 }
       expect(response).to render_template :edit
     end
   end
@@ -174,34 +177,36 @@ RSpec.describe JobsController, type: :controller do
                        benefits: 'yearly_bonus',
                        date_issue: '2018-11-08'.to_date,
                        deadline: '2018-12-08'.to_date,
-                       job_status: 'Open')
+                       job_status: 'open',
+                       employer_notice: 'send your resume to recruitment@welldev.io')
       end
 
       it 'locates the requested job' do
-        patch :update, params: { id: sample_1, job: valid_attributes }
-        expect(assigns(:job)).to eq(sample_1)
+        patch :update, params: { id: job_1, job: valid_attributes }
+        expect(assigns(:job)).to eq(job_1)
       end
 
       it 'updates the new job in the database' do
-        patch :update, params: { id: sample_1, job: valid_attributes }
-        sample_1.reload
-        expect(sample_1.title).to eq('junior_software_engineer')
-        expect(sample_1.vacancy).to eq(5)
-        expect(sample_1.job_description).to eq('work in rails')
-        expect(sample_1.responsibilities).to eq('development')
-        expect(sample_1.employment_status).to eq('full_time')
-        expect(sample_1.edu_requirement).to eq('bsc in cse')
-        expect(sample_1.exp_requirement).to eq(1)
-        expect(sample_1.location).to eq('dhaka')
-        expect(sample_1.remuneration).to eq(40000)
-        expect(sample_1.benefits).to eq('yearly_bonus')
-        expect(sample_1.date_issue).to eq('2018-11-08'.to_date)
-        expect(sample_1.deadline).to eq('2018-12-08'.to_date)
-        expect(sample_1.job_status).to eq('Open')
+        put :update, params: { id: job_1.id, job: valid_attributes }
+        job_1.reload
+        expect(job_1.title).to eq('junior_software_engineer')
+        expect(job_1.vacancy).to eq(5)
+        expect(job_1.job_description).to eq('work in rails')
+        expect(job_1.responsibilities).to eq('development')
+        expect(job_1.employment_status).to eq('full_time')
+        expect(job_1.edu_requirement).to eq('bsc in cse')
+        expect(job_1.exp_requirement).to eq(1)
+        expect(job_1.location).to eq('dhaka')
+        expect(job_1.remuneration).to eq(40000)
+        expect(job_1.benefits).to eq('yearly_bonus')
+        expect(job_1.date_issue).to eq('2018-11-08'.to_date)
+        expect(job_1.deadline).to eq('2018-12-08'.to_date)
+        expect(job_1.job_status).to eq('open')
+        expect(job_1.employer_notice).to eq('send your resume to recruitment@welldev.io')
       end
 
       it 'redirects to the updated jobs#index' do
-        patch :update, params: { id: sample_1, job: valid_attributes }
+        patch :update, params: { id: job_1, job: valid_attributes }
         expect(response).to redirect_to jobs_path
       end
     end
@@ -221,29 +226,31 @@ RSpec.describe JobsController, type: :controller do
                        benefits: 'yearly bonus',
                        date_issue: '2018-11-08'.to_date,
                        deadline: '2018-12-08'.to_date,
-                       job_status: 'Open')
+                       job_status: 'open',
+                       employer_notice: 'send your resume to recruitment@welldev.io')
       end
 
       it 'does not update the new job' do
-        patch :update, params: { id: sample_1, job: invalid_attributes }
-        sample_1.reload
-        expect(sample_1.title).to eq('junior_software_engineer')
-        expect(sample_1.vacancy).to eq(5)
-        expect(sample_1.job_description).to eq('work with rails')
-        expect(sample_1.responsibilities).to eq('development')
-        expect(sample_1.employment_status).to eq('full_time')
-        expect(sample_1.edu_requirement).to eq('bsc in cse')
-        expect(sample_1.exp_requirement).to eq(1)
-        expect(sample_1.location).to eq('dhaka')
-        expect(sample_1.remuneration).to eq(40000)
-        expect(sample_1.benefits).to eq('yearly_bonus')
-        expect(sample_1.date_issue).to eq('2018-11-08'.to_date)
-        expect(sample_1.deadline).to eq('2018-12-08'.to_date)
-        expect(sample_1.job_status).to eq('Open')
+        patch :update, params: { id: job_1, job: invalid_attributes }
+        job_1.reload
+        expect(job_1.title).to eq('junior_software_engineer')
+        expect(job_1.vacancy).to eq(5)
+        expect(job_1.job_description).to eq('work with rails')
+        expect(job_1.responsibilities).to eq('development')
+        expect(job_1.employment_status).to eq('full_time')
+        expect(job_1.edu_requirement).to eq('bsc in cse')
+        expect(job_1.exp_requirement).to eq(1)
+        expect(job_1.location).to eq('dhaka')
+        expect(job_1.remuneration).to eq(40000)
+        expect(job_1.benefits).to eq('yearly_bonus')
+        expect(job_1.date_issue).to eq('2018-11-08'.to_date)
+        expect(job_1.deadline).to eq('2018-12-08'.to_date)
+        expect(job_1.job_status).to eq('open')
+        expect(job_1.employer_notice).to eq('send your resume to recruitment@welldev.io')
       end
 
       it 're-renders the :edit template' do
-        patch :update, params: { id: sample_1, job: invalid_attributes }
+        patch :update, params: { id: job_1, job: invalid_attributes }
         expect(response).to render_template :edit
       end
     end
@@ -251,11 +258,11 @@ RSpec.describe JobsController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'deletes the job' do
-      expect{ delete :destroy, params: { id: sample_1 }}.to change(Job, :count).by(-1)
+      expect{ delete :destroy, params: { id: job_1 }}.to change(Job, :count).by(-1)
     end
 
     it 'redirects to jobs#index' do
-      delete :destroy, params: { id: sample_1 }
+      delete :destroy, params: { id: job_1 }
       expect(response).to redirect_to jobs_path
     end
   end

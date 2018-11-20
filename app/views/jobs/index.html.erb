@@ -7,7 +7,7 @@
       <th><%= t('job.position') %></th>
       <th><%= t('job.date_issue') %></th>
       <th><%= t('job.deadline') %></th>
-      <th><%= t('job.status') %></th>
+      <th><%= t('job.status.title') %></th>
       <th></th>
     </tr>
     </thead>
@@ -17,7 +17,7 @@
         <td><%= t(job.title, scope: 'job.title.option') %></td>
         <td><%= job.date_issue %></td>
         <td><%= job.deadline %></td>
-        <td><%= job.job_status %></td>
+        <td><%= t(job.job_status, scope: 'job.status.option') %></td>
         <td>
           <%= link_to t('shared.all.show'), job_path(job) %>
           <%= link_to t('shared.all.edit'), edit_job_path(job) %>

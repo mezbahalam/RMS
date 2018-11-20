@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2018_10_25_102213) do
     t.text "benefits"
     t.date "date_issue"
     t.date "deadline"
-    t.string "job_status", null: false
+    t.integer "job_status", null: false
     t.text "employer_notice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

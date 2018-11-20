@@ -13,7 +13,7 @@ class CreateJobs < ActiveRecord::Migration[5.2]
       t.text :benefits
       t.date :date_issue
       t.date :deadline
-      t.string :job_status, null: false
+      t.integer :job_status, null: false
       t.text :employer_notice
 
       t.timestamps

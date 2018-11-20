@@ -1,11 +1,10 @@
 <%= simple_form_for @job do |f| %>
-    <%#= f.error_notification %>
     <%= f.input :title,
                 collection: Job.titles.keys.map{ |key|[I18n.t(key, scope: 'job.title.option'), key] },
                 input_html: { class: 'selectize' },
                 prompt: :translate %>
     <%= f.input :vacancy,
-                collection: 1..5,
+                collection: Job::VACANCY,
                 input_html: { class: 'selectize' },
                 prompt: :translate %>
     <%= f.input :job_description, input_html: { rows: 3 } %>
@@ -24,11 +23,9 @@
     <%= f.input :benefits %>
     <%= f.input :date_issue, as: :date, html5: true %>
     <%= f.input :deadline, as: :date, html5: true %>
-    <%= f.label :status %>
-    <%= f.radio_button :job_status, t('shared.all.open'), checked: true %>
-    <%= f.label :job_status, t('shared.all.open'), value: 'Open' %>
-    <%= f.radio_button :job_status, t('shared.all.closed') %>
-    <%= f.label :job_status, t('shared.all.closed'), value: 'Closed' %>
+    <%= f.input :job_status, as: :radio_buttons,
+                collection: Job.job_statuses.keys.map{ |key| [I18n.t(key, scope: 'job.status.option'), key] },
+                checked: Job.job_statuses.key(0) %>
     <%= f.input :employer_notice %>
     <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>

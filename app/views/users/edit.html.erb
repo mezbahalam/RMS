@@ -1,0 +1,20 @@
+<div id="clearance" class="sign-up">
+  <br /><br />
+  <div class="card">
+    <div class="container">
+      <br />
+      <h2><%= t('layouts.application.edit_signup') %></h2>
+      <p><%= t('layouts.application.edit_signup_content') %></p>
+      <%= simple_form_for @user do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :first_name, label: t('shared.all.first_name') %>
+          <%= f.input :middle_name, label: t('shared.all.middle_name') %>
+          <%= f.input :last_name, label: t('shared.all.last_name') %>
+          <%= f.country_select :country, { priority_countries: %w(BD),
+                                           prompt: 'Select Country' } %>
+          <p class="sign_up"><%= t('shared.all.sign_up_terms') %></p>
+          <%= f.button :submit, t('shared.all.edit_acc') %>
+      <% end %>
+    </div>
+  </div>
+</div>

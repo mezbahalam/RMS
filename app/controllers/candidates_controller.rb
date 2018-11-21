@@ -1,6 +1,7 @@
 class CandidatesController < ApplicationController
   before_action :find_candidate, only: %i[show edit update delete destroy]
   before_action :check_if_email_confirmed
+  skip_before_action :check_if_profile_filled?
   authorize_resource
 
   def index
@@ -14,11 +15,11 @@ class CandidatesController < ApplicationController
   end
 
   def create
-    @candidate = Candidate.new(candidate_params)
+    @candidate = current_user.build_candidate(candidate_params)
     @candidate.avatar.attach(candidate_params[:avatar])
     if @candidate.save
       flash[:notice] = t('candidate.notice_create', candidate_name: @candidate.name)
-      redirect_to candidates_path
+      redirect_to pages_path
     else
       flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :new
@@ -30,7 +31,7 @@ class CandidatesController < ApplicationController
   def update
     if @candidate.update(candidate_params)
       flash[:notice] = t('candidate.notice_edit', candidate_name: @candidate.name)
-      redirect_to candidates_path(@candidate)
+      redirect_to pages_path
     else
       flash.now[:error] = @candidate.errors.full_messages.to_sentence
       render :edit
@@ -62,8 +63,10 @@ class CandidatesController < ApplicationController
                                       :keywords,
                                       :referrals,
                                       :avatar,
-                                      :delete_avatar)
+                                      :delete_avatar,
+                                      :user_id)
   end
+
   def find_candidate
     @candidate = Candidate.find(params[:id])
   end

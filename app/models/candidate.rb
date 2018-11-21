@@ -1,5 +1,6 @@
 class Candidate < ApplicationRecord
   has_one_attached :avatar
+  belongs_to :user, optional: true
 
   enum gender: {male: 0, female: 1}
 
@@ -11,6 +12,7 @@ class Candidate < ApplicationRecord
   validates :skill,:personal_interest, presence: true
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true
+  validates :user_id, uniqueness: true
 
   before_validation :remove_avatar
 

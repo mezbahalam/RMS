@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_043125) do
+ActiveRecord::Schema.define(version: 2018_11_21_062805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_043125) do
     t.string "referrals"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,13 +67,11 @@ ActiveRecord::Schema.define(version: 2018_11_15_043125) do
     t.string "first_name"
     t.string "middle_name"
     t.string "last_name"
-    t.string "contact"
-    t.text "address"
-    t.date "dob"
     t.string "country"
     t.integer "role"
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "candidates", "users"
 end

@@ -1,6 +1,10 @@
 <div class="candidate show">
   <br />
-  <%= link_to t('shared.all.can_back'), candidates_path %>
+  <% if current_user.admin? %>
+      <%= link_to t('shared.all.back'), candidates_path %>
+  <% else %>
+      <%= link_to t('shared.all.back'), pages_path %>
+  <% end %>
   <div class="card-show">
     <div class="container-show">
       <h2><%= t('candidate.details') %></h2>

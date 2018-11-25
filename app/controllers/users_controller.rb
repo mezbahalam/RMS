@@ -24,10 +24,7 @@ class UsersController < Clearance::UsersController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = t('shared.all.user_success')
-      redirect_to sign_in_path
-    else
-      flash.now[:error] = @user.errors.full_messages.to_sentence
-      render :edit
+      redirect_to pages_path
     end
   end
 

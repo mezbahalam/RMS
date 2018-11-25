@@ -1,29 +1,80 @@
 require 'rails_helper'
 describe Candidate, type: :model do
   before{ Candidate.set_callback( :validation, :before, :remove_avatar)}
+  it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_presence_of(:skill) }
   it { is_expected.to validate_presence_of(:experience) }
+  it { is_expected.to validate_presence_of(:user_id) }
   it { is_expected.to validate_presence_of(:personal_interest) }
-
-  it 'is invalid with a duplicate email' do
-    create(:candidate)
-    is_expected.to validate_uniqueness_of(:email)
-  end
-
   it { is_expected.to define_enum_for(:gender).with([:male, :female])}
   it { is_expected.to validate_numericality_of(:experience) }
 
-  describe 'scope' do
+  describe 'user id duplication' do
+    let!(:user1) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
+    let!(:user2) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
     let!(:candidate_one) do
-      FactoryBot.create(:candidate,
-                        experience: 4)
+      FactoryBot.create(:candidate, name: 'kkkkkkkkk', user_id: user1.id)
     end
 
     let!(:candidate_two) do
-      FactoryBot.create(:candidate,
-                        experience: 2)
+      FactoryBot.create(:candidate, name: 'opopopopoop', user_id: user2.id)
+    end
+
+    it 'is invalid' do
+      is_expected.to validate_uniqueness_of(:user_id)
+    end
+  end
+
+  describe 'email duplication' do
+    let!(:user1) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
+    let!(:user2) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
+    let!(:candidate_one) do
+      FactoryBot.create(:candidate, name: 'kkkkkkkkk',
+                        email: 'candidate1@gmail.com', user_id: user1.id)
+    end
+
+    let!(:candidate_two) do
+      FactoryBot.create(:candidate, name: 'opopopopoop',
+                        email: 'candidate2@gmail.com', user_id: user2.id)
+    end
+
+    it 'is invalid' do
+      is_expected.to validate_uniqueness_of(:email)
+    end
+  end
+
+
+  describe 'scope' do
+    let!(:user1) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
+    let!(:user2) do
+      FactoryBot.create(:user, role: :candidate)
+    end
+
+    let!(:candidate_one) do
+      FactoryBot.create(:candidate, name: 'kkkkkkkkk',
+                        experience: 4, user_id: user1.id)
+    end
+
+    let!(:candidate_two) do
+      FactoryBot.create(:candidate, name: 'opopopopoop',
+                        experience: 1, user_id: user2.id)
     end
 
     subject { described_class.sorted }
@@ -33,13 +84,25 @@ describe Candidate, type: :model do
   end
 
   describe 'validations' do
+    let!(:user) do
+      create(:user,
+             first_name: 'Laila',
+             last_name: 'Nushrat',
+             email: 'laila1@gmail.com',
+             password: '000000',
+             confirmation_token: 'token',
+             email_confirmed_at: Time.now,
+             role: :candidate)
+    end
+
     before(:each) do
       @candidate = Candidate.new(name: 'Sara',
                                  contact: '01792050217',
                                  email: 'somename@gmail.com',
                                  skill: 'c',
                                  experience: 1.5,
-                                 personal_interest: 'reading')
+                                 personal_interest: 'reading',
+                                 user_id: user.id)
     end
 
     describe 'when email format is invalid' do

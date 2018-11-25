@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_062805) do
     t.string "middle_name"
     t.string "last_name"
     t.string "country"
-    t.integer "role"
+    t.integer "role", default: 1, null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end

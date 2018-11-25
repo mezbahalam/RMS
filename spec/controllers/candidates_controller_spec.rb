@@ -4,12 +4,21 @@ RSpec.describe CandidatesController, type: :controller do
     create(:user,
            first_name: 'Laila',
            last_name: 'Nushrat',
-           contact: '0172050217',
-           dob: '17-08-1994',
            email: 'laila1@gmail.com',
            password: '000000',
            confirmation_token: 'token',
-           email_confirmed_at: Time.now)
+           email_confirmed_at: Time.now,
+           role: :candidate)
+  end
+  let!(:user_1) do
+    create(:user,
+           first_name: 'Harry',
+           last_name: 'Potter',
+           email: 'harry@gmail.com',
+           password: '000000',
+           confirmation_token: 'token',
+           email_confirmed_at: Time.now,
+           role: :admin)
   end
   let!(:candidate_1) do
     create(:candidate,
@@ -25,7 +34,8 @@ RSpec.describe CandidatesController, type: :controller do
            hobbies: 'shopping',
            long_term_plan: 'PM of BD',
            keywords: 'software, engineer',
-           referrals: 'Anjum Ara Begum')
+           referrals: 'Anjum Ara Begum',
+           user_id: user.id)
   end
 
   describe '#check_if_email_confirmed' do
@@ -47,24 +57,22 @@ RSpec.describe CandidatesController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:candidate_2) { create(:candidate, name: 'Lamiya',
-                                email: 'lamiya@gmail.com',
-                                contact: '012345678977',
-                                skill:'c,c++',
-                                experience: 2.0,
-                                personal_interest:'shopping' ) }
-      it 'populates an array of all candidates' do
-        get :index, params: { user_id: user.id }
-        expect(assigns(:candidates)).to match_array [candidate_1, candidate_2]
-      end
+    before do
+      sign_in_as user_1
+    end
+    let!(:candidate_2) { FactoryBot.create(:candidate, user_id: user_1.id) }
 
-      it 'renders to sign in path template' do
-        sign_out
-        get :index, params: { user_id: user.id }
-        expect(response).to redirect_to sign_in_path
-      end
+    it 'populates an array of all candidates' do
+      get :index, params: { id: candidate_1 }
+      expect(assigns(:candidates)).to match_array [candidate_1, candidate_2]
+    end
+
+    it 'renders to sign in path template' do
+      sign_out
+      get :index, params: { user_id: user.id }
+      expect(response).to redirect_to sign_in_path
+    end
   end
-
 
   describe 'GET #show' do
     it 'displays the requested candidate to @candidate' do
@@ -91,6 +99,21 @@ RSpec.describe CandidatesController, type: :controller do
   end
 
   describe 'POST #create' do
+    let!(:user_3) do
+      create(:user,
+             first_name: 'Saila',
+             last_name: 'Annie',
+             email: 'ishrat123@gmail.com',
+             password: '000000',
+             confirmation_token: 'token',
+             email_confirmed_at: Time.now,
+             role: :candidate)
+    end
+
+     before do
+       sign_in_as user_3
+     end
+
     context 'with valid attributes' do
       let(:valid_attributes) do
         attributes_for(:candidate,
@@ -106,18 +129,21 @@ RSpec.describe CandidatesController, type: :controller do
                        hobbies: 'shopping',
                        long_term_plan: 'MD',
                        keywords: 'software, engineer',
-                       referrals: 'Raha')
+                       referrals: 'Raha',
+                       user_id: user_3.id)
       end
 
       it 'saves the new candidate in the database' do
         expect {
-          post :create, params: { candidate: valid_attributes }
+          post :create, params: { candidate: valid_attributes,
+                                  user_id: user_3.id }
         }.to change(Candidate, :count).by(1)
       end
 
-      it 'redirects to candidates#index' do
-        post :create, params: { candidate: valid_attributes }
-        expect(response).to redirect_to candidates_path
+      it 'redirects to pages#index' do
+        post :create, params: { candidate: valid_attributes,
+                                user_id: user_3.id }
+        expect(response).to redirect_to pages_path
       end
     end
 
@@ -125,18 +151,7 @@ RSpec.describe CandidatesController, type: :controller do
       let(:invalid_attributes) do
         attributes_for(:candidate,
                        name: nil,
-                       gender: :female,
-                       dob: '2008-06-16',
-                       email: nil,
-                       address: 'House 52, road 13, banasree, dhaka',
-                       contact: '01792780217',
-                       skill: 'c++,c,java,ruby',
-                       experience: 4,
-                       personal_interest: 'travelling',
-                       hobbies: 'shopping',
-                       long_term_plan: 'MD',
-                       keywords: 'software, engineer',
-                       referrals: 'Raha')
+                       email: nil )
       end
 
       it 'does not save the new candidate in the database' do
@@ -150,6 +165,7 @@ RSpec.describe CandidatesController, type: :controller do
         expect(response).to render_template :new
       end
     end
+
   end
 
   describe 'GET #edit' do
@@ -180,7 +196,8 @@ RSpec.describe CandidatesController, type: :controller do
                        hobbies: 'shopping',
                        long_term_plan: 'PM of BD',
                        keywords: 'software, engineer',
-                       referrals: 'Anjum Ara')
+                       referrals: 'Anjum Ara',
+                       user_id: user.id)
       end
 
       it 'locates the requested candidate' do
@@ -208,10 +225,10 @@ RSpec.describe CandidatesController, type: :controller do
         expect(candidate_1.referrals).to eq('Anjum Ara')
       end
 
-      it 'redirects to the updated candidates#index' do
+      it 'redirects to the updated pages#index' do
         patch :update, params: { id: candidate_1,
                                  candidate: valid_attributes }
-        expect(response).to redirect_to candidates_path(candidate_1)
+        expect(response).to redirect_to pages_path
       end
     end
 
@@ -248,6 +265,9 @@ RSpec.describe CandidatesController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    before do
+      sign_in_as user_1
+    end
     it 'deletes the candidate' do
       expect{ delete :destroy, params: { id: candidate_1 }}.to change(Candidate, :count).by(-1)
     end

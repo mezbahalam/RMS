@@ -12,7 +12,7 @@ class Candidate < ApplicationRecord
   validates :skill,:personal_interest, presence: true
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true
-  validates :user_id, uniqueness: true
+  validates :user_id, presence: true, uniqueness: true
 
   before_validation :remove_avatar
 

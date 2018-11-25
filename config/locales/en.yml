@@ -10,7 +10,6 @@ en:
     info: Fill out the form to create your profile
     name: Candidate Name
     new: New Candidate Information
-    notice_duplicate: ALERT ! Profile already is created. Cannot create another profile !
     notice_create: Record of '%{candidate_name}' created successfully!
     notice_delete: Record of '%{candidate_name}' deleted successfully!
     notice_edit: Record of '%{candidate_name}' updated successfully!

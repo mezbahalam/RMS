@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include Clearance::User
-  has_one :candidate
+  has_one :candidate, dependent: :destroy
   accepts_nested_attributes_for :candidate
 
   before_validation :generate_confirmation_token, on: %i(create)

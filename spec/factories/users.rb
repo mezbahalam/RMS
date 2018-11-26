@@ -11,6 +11,6 @@ FactoryBot.define do
     last_name { 'Rahman' }
     country { 'BD' }
     email_confirmed_at { Time.now }
-    role { 'candidate' }
+    role { 'applicant' }
   end
 end

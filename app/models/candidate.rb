@@ -1,15 +1,15 @@
 class Candidate < ApplicationRecord
   has_one_attached :avatar
-  belongs_to :user, optional: true
+  belongs_to :user
 
-  enum gender: {male: 0, female: 1}
+  enum gender: { male: 0, female: 1 }
 
   scope :sorted, lambda { order('experience ASC') }
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true,
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
-  validates :skill,:personal_interest, presence: true
+  validates :skill, :personal_interest, presence: true
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true
   validates :user_id, presence: true, uniqueness: true

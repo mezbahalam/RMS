@@ -8,7 +8,7 @@ RSpec.describe CandidatesController, type: :controller do
            password: '000000',
            confirmation_token: 'token',
            email_confirmed_at: Time.now,
-           role: :candidate)
+           role: :applicant)
   end
   let!(:user_1) do
     create(:user,
@@ -107,7 +107,7 @@ RSpec.describe CandidatesController, type: :controller do
              password: '000000',
              confirmation_token: 'token',
              email_confirmed_at: Time.now,
-             role: :candidate)
+             role: :applicant)
     end
 
      before do
@@ -253,7 +253,7 @@ RSpec.describe CandidatesController, type: :controller do
       it 'does not update the new candidate' do
         patch :update, params: { id: candidate_1,
                                  candidate: invalid_attributes }
-        expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
+        expect(flash[:error]).to eq("User must exist, Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
       end
 
       it 're-renders the :edit template' do

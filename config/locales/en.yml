@@ -35,7 +35,6 @@ en:
       edit_signup: Edit Sign up Information
       edit_signup_content: Please fill the empty fields to continue as a user (middle name can be blank)
       footer: WellDev.io
-      incomplete_signup: Incomplete user profile details
       sign_in: Login
       sign_up: Sign Up
       title: Recruitment Management System
@@ -57,9 +56,10 @@ en:
     all:
       address: Address
       admin: Admin
+      applicant: Applicant
       back: "<< Back <<"
-      candidate: Candidate
       confirm_delete: Are you sure you want to delete this record ?
+      country: Select Country
       create_account: Create Your Account
       delete: Delete
       delete_file: Remove this file

@@ -11,47 +11,29 @@ describe Candidate, type: :model do
   it { is_expected.to define_enum_for(:gender).with([:male, :female])}
   it { is_expected.to validate_numericality_of(:experience) }
 
+  let!(:user1) do
+    FactoryBot.create(:user, role: :applicant)
+  end
+
+  let!(:user2) do
+    FactoryBot.create(:user, role: :applicant)
+  end
+
+  let!(:candidate_one) do
+    FactoryBot.create(:candidate, name: 'kkkkkkkkk', experience: 4, user_id: user1.id)
+  end
+
+  let!(:candidate_two) do
+    FactoryBot.create(:candidate, name: 'opopopopoop', experience: 1, user_id: user2.id)
+  end
+
   describe 'user id duplication' do
-    let!(:user1) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:user2) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:candidate_one) do
-      FactoryBot.create(:candidate, name: 'kkkkkkkkk', user_id: user1.id)
-    end
-
-    let!(:candidate_two) do
-      FactoryBot.create(:candidate, name: 'opopopopoop', user_id: user2.id)
-    end
-
     it 'is invalid' do
       is_expected.to validate_uniqueness_of(:user_id)
     end
   end
 
   describe 'email duplication' do
-    let!(:user1) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:user2) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:candidate_one) do
-      FactoryBot.create(:candidate, name: 'kkkkkkkkk',
-                        email: 'candidate1@gmail.com', user_id: user1.id)
-    end
-
-    let!(:candidate_two) do
-      FactoryBot.create(:candidate, name: 'opopopopoop',
-                        email: 'candidate2@gmail.com', user_id: user2.id)
-    end
-
     it 'is invalid' do
       is_expected.to validate_uniqueness_of(:email)
     end
@@ -59,24 +41,6 @@ describe Candidate, type: :model do
 
 
   describe 'scope' do
-    let!(:user1) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:user2) do
-      FactoryBot.create(:user, role: :candidate)
-    end
-
-    let!(:candidate_one) do
-      FactoryBot.create(:candidate, name: 'kkkkkkkkk',
-                        experience: 4, user_id: user1.id)
-    end
-
-    let!(:candidate_two) do
-      FactoryBot.create(:candidate, name: 'opopopopoop',
-                        experience: 1, user_id: user2.id)
-    end
-
     subject { described_class.sorted }
     context 'sorted by experience in ASC order' do
       it { is_expected.to eq([candidate_two, candidate_one])}
@@ -92,7 +56,7 @@ describe Candidate, type: :model do
              password: '000000',
              confirmation_token: 'token',
              email_confirmed_at: Time.now,
-             role: :candidate)
+             role: :applicant)
     end
 
     before(:each) do

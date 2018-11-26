@@ -21,7 +21,7 @@ RSpec.describe PagesController, type: :controller do
            confirmation_token: 'token',
            email_confirmed_at: Time.now,
            country: 'BD',
-           role: :candidate)
+           role: :applicant)
   end
 
   let!(:user_2) do
@@ -33,7 +33,7 @@ RSpec.describe PagesController, type: :controller do
            confirmation_token: 'token',
            email_confirmed_at: Time.now,
            country: 'BD',
-           role: :candidate)
+           role: :applicant)
   end
 
   let!(:candidate) do

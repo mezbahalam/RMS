@@ -11,7 +11,7 @@ RSpec.describe UsersHelper, type: :helper do
       let(:role) do
         {
             'admin' => 'Admin',
-            'candidate' => 'Candidate'
+            'applicant' => 'Applicant'
         }
       end
       it { is_expected.to eq(role) }

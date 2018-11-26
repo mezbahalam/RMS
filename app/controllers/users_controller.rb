@@ -1,5 +1,6 @@
 class UsersController < Clearance::UsersController
   skip_before_action :check_if_profile_filled?, only: %i(edit update)
+  before_action :find_user, only: %i[ edit update ]
 
   def new
     @user = User.new
@@ -16,19 +17,23 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+  def edit ; end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = t('shared.all.user_success')
       redirect_to pages_path
+    else
+      flash.now[:error] = @user.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
   private
+
+  def find_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:email,

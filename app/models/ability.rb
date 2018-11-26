@@ -6,9 +6,9 @@ class Ability
 
     if user.admin?
       can :manage, :all
-      cannot [:edit, :create], Candidate
-    elsif user.candidate?
-      can [:create, :update, :show], Candidate
+      cannot %i(edit create), Candidate
+    else
+      can %i(create update show), Candidate
     end
   end
 end

@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   def check_if_profile_filled?
     return unless current_user
     return if current_user.profile_filled?
-    flash.now[:error] = t('layouts.application.incomplete_signup')
     redirect_to edit_user_path(current_user)
   end
 

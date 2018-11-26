@@ -4,7 +4,7 @@
 <%= f.input :middle_name, label: t('shared.all.middle_name') %>
 <%= f.input :last_name, label: t('shared.all.last_name') %>
 <%= f.country_select :country, { priority_countries: %w(BD),
-                                 prompt: 'Select Country' } %>
+                                 prompt: t('shared.all.country') } %>
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :password, label: t('shared.all.password') %>
 <%= f.label :role %>

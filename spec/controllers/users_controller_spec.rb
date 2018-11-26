@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
            password: '000000',
            confirmation_token: 'token',
            email_confirmed_at: Time.now,
-           role: :candidate,
+           role: :applicant,
            country: 'BD')
   end
 
@@ -72,7 +72,7 @@ RSpec.describe UsersController, type: :controller do
                        confirmation_token: 'token',
                        email_confirmed_at: Time.now,
                        country: 'BD',
-                       role: :candidate)
+                       role: :applicant)
       end
       it 'locates the requested user' do
         patch :update, params: { id: user, user: valid_attributes }
@@ -96,7 +96,7 @@ RSpec.describe UsersController, type: :controller do
                        confirmation_token: 'token',
                        email_confirmed_at: Time.now,
                        country: 'BD',
-                       role: :candidate)
+                       role: :applicant)
       end
 
       it 'locates the requested user' do

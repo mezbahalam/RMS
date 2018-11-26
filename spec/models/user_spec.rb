@@ -5,8 +5,7 @@ describe User, type: :model do
   it { is_expected.to validate_presence_of(:first_name) }
   it { is_expected.to validate_presence_of(:last_name) }
   it { is_expected.to validate_presence_of (:password)}
-  it { is_expected.to validate_presence_of (:role) }
-  it { is_expected.to define_enum_for(:role).with([:admin, :candidate])}
+  it { is_expected.to define_enum_for(:role).with([:admin, :applicant])}
 
   describe 'validations' do
     before(:each) do
@@ -14,7 +13,7 @@ describe User, type: :model do
                        last_name: 'Tabassum' ,
                        email: 'somename@gmail.com',
                        password:'000000',
-                       role: :candidate)
+                       role: :applicant)
     end
 
     describe 'when email format is invalid' do
@@ -57,6 +56,7 @@ describe User, type: :model do
     describe '#profile_filled?' do
       it 'checks if all info is filled when user is created' do
       user = create(:user)
+      user.profile_filled?
       expect(user.country).not_to be_nil
       end
     end

@@ -4,14 +4,13 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :candidate
 
   before_validation :generate_confirmation_token, on: %i(create)
-  enum role: {admin: 0, candidate: 1}.freeze
+  enum role: { admin: 0, applicant: 1 }.freeze
 
   validates :email,
             presence: true,
             uniqueness: true,
-            format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
+            format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
   validates :first_name, :last_name, presence: true
-  validates :role, presence: true
 
   def profile_filled?
     self.country?

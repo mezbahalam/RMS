@@ -1,8 +1,7 @@
 class CandidatesController < ApplicationController
-  before_action :find_candidate, only: %i[show edit update delete destroy]
   before_action :check_if_email_confirmed
   skip_before_action :check_if_profile_filled?
-  authorize_resource
+  load_and_authorize_resource
 
   def index
     @candidates = Candidate.sorted
@@ -65,10 +64,6 @@ class CandidatesController < ApplicationController
                                       :avatar,
                                       :delete_avatar,
                                       :user_id)
-  end
-
-  def find_candidate
-    @candidate = Candidate.find(params[:id])
   end
 
   def check_if_email_confirmed

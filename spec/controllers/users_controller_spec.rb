@@ -1,16 +1,7 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let!(:user) do
-    create(:user,
-           first_name: 'Saila',
-           middle_name: '',
-           last_name: 'Annie',
-           email: 'ishrat@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now,
-           role: :applicant,
-           country: 'BD')
+    FactoryBot.create(:user, role: :applicant, country: 'BD')
   end
 
   describe 'GET #new' do

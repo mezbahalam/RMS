@@ -1,26 +1,13 @@
 require 'rails_helper'
 RSpec.describe ApplicationController, type: :controller do
   let!(:user) do
-    create(:user,
-           first_name: 'Laila',
-           last_name: 'Nushrat',
-           email: 'laila1@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now,
+    FactoryBot.create(:user,
            country: 'BD',
            role: :applicant)
   end
 
   let!(:user_1) do
-    create(:user,
-           first_name: 'Mary',
-           last_name: 'Kom',
-           email: 'mary@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now,
-           role: :applicant)
+    FactoryBot.create(:user, role: :applicant)
   end
 
   describe '#check_if_profile_filled' do

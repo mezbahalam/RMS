@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe Candidate, type: :model do
-  before{ Candidate.set_callback( :validation, :before, :remove_avatar)}
+  before{ Candidate.set_callback( :validation, :before, :delete_avatar)}
   it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
@@ -20,11 +20,15 @@ describe Candidate, type: :model do
   end
 
   let!(:candidate_one) do
-    FactoryBot.create(:candidate, name: 'kkkkkkkkk', experience: 4, user_id: user1.id)
+    FactoryBot.create(:candidate,
+                      experience: 4.5,
+                      user_id: user1.id)
   end
 
   let!(:candidate_two) do
-    FactoryBot.create(:candidate, name: 'opopopopoop', experience: 1, user_id: user2.id)
+    FactoryBot.create(:candidate,
+                      experience: 2,
+                      user_id: user2.id)
   end
 
   describe 'user id duplication' do
@@ -49,14 +53,7 @@ describe Candidate, type: :model do
 
   describe 'validations' do
     let!(:user) do
-      create(:user,
-             first_name: 'Laila',
-             last_name: 'Nushrat',
-             email: 'laila1@gmail.com',
-             password: '000000',
-             confirmation_token: 'token',
-             email_confirmed_at: Time.now,
-             role: :applicant)
+      FactoryBot.create(:user, role: :applicant)
     end
 
     before(:each) do

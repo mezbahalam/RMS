@@ -14,11 +14,7 @@ class Candidate < ApplicationRecord
   validates :contact, numericality: true
   validates :user_id, presence: true, uniqueness: true
 
-  before_validation :remove_avatar
-
-  def remove_avatar
-    avatar.delete if @delete_avatar
-  end
+  before_validation { avatar.delete if @delete_avatar }
 
   def delete_avatar
     @delete_avatar ||= false

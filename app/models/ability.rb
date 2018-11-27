@@ -7,7 +7,8 @@ class Ability
     if user.admin?
       can :manage, :all
       cannot %i(edit create), Candidate
-    else
+    end
+    if user.applicant?
       can %i(create update show), Candidate
     end
   end

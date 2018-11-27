@@ -10,7 +10,7 @@ FactoryBot.define do
     name { 'Nushrat Raha' }
     gender { :female }
     dob { '1991-07-01'.to_date }
-    email {FFaker::Internet.email}
+    email { FFaker::Internet.email }
     contact { '017920517' }
     address { 'house 48, road 8, bashundhara' }
     skill { 'c++,c,ruby' }

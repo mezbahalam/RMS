@@ -1,42 +1,8 @@
 require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
-  let!(:user) do
-    create(:user,
-           first_name: 'Laila',
-           last_name: 'Nushrat',
-           email: 'laila1@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now,
-           role: :applicant)
-  end
-  let!(:user_1) do
-    create(:user,
-           first_name: 'Harry',
-           last_name: 'Potter',
-           email: 'harry@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now,
-           role: :admin)
-  end
-  let!(:candidate_1) do
-    create(:candidate,
-           name: 'Faiza',
-           gender: :female,
-           dob: '2010-09-25'.to_date,
-           email: 'tithi@yahoo.com',
-           address: 'House 78, road 10, shahbag, dhaka',
-           contact: '0175206968',
-           skill: 'c++,c,#',
-           experience: 1.5,
-           personal_interest: 'reading',
-           hobbies: 'shopping',
-           long_term_plan: 'PM of BD',
-           keywords: 'software, engineer',
-           referrals: 'Anjum Ara Begum',
-           user_id: user.id)
-  end
+  let!(:user) { FactoryBot.create(:user, role: :applicant) }
+  let!(:user_1) { FactoryBot.create(:user, role: :admin) }
+  let!(:candidate_1) { FactoryBot.create(:candidate, user_id: user.id) }
 
   describe '#check_if_email_confirmed' do
     context 'when email is not confirmed yet' do
@@ -99,16 +65,7 @@ RSpec.describe CandidatesController, type: :controller do
   end
 
   describe 'POST #create' do
-    let!(:user_3) do
-      create(:user,
-             first_name: 'Saila',
-             last_name: 'Annie',
-             email: 'ishrat123@gmail.com',
-             password: '000000',
-             confirmation_token: 'token',
-             email_confirmed_at: Time.now,
-             role: :applicant)
-    end
+    let!(:user_3) { FactoryBot.create(:user, role: :applicant) }
 
      before do
        sign_in_as user_3

@@ -4,7 +4,9 @@
 <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
     <%= f.label :avatar, label: t('shared.all.file_up') %><%= @candidate.avatar.filename %>
     <br />
-    <%= f.check_box :delete_avatar %><%= t('shared.all.delete_file') %>
+    <div class="checkbox_avatar">
+      <%= f.check_box :delete_avatar %><p><%= t('shared.all.delete_file') %></p>
+    </div>
 <% else %>
     <%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
 <% end %>

@@ -1,31 +1,6 @@
 <%= simple_form_for @job do |f| %>
-    <%= f.input :title,
-                collection: Job.titles.keys.map{ |key|[I18n.t(key, scope: 'job.title.option'), key] },
-                input_html: { class: 'selectize' },
-                prompt: :translate %>
-    <%= f.input :vacancy,
-                collection: Job::VACANCY,
-                input_html: { class: 'selectize' },
-                prompt: :translate %>
-    <%= f.input :job_description, input_html: { rows: 3 } %>
-    <%= f.input :responsibilities %>
-    <%= f.input :employment_status,
-                collection: Job.employment_statuses.keys.map{ |key|[I18n.t(key, scope: 'job.employment_status.option'), key] },
-                input_html: { class: 'selectize' },
-                prompt: :translate %>
-    <%= f.input :edu_requirement %>
-    <%= f.input :exp_requirement %>
-    <%= f.input :location,
-                collection: Job.locations.keys.map{ |key|[I18n.t(key, scope: 'job.location.option'), key] },
-                input_html: { class: 'selectize' },
-                prompt: :translate %>
-    <%= f.input :remuneration %>
-    <%= f.input :benefits %>
-    <%= f.input :date_issue, as: :date, html5: true %>
+    <%= f.input :title %>
+    <%= f.input :description, input_html: { id: 'wysiwyg' } %>
     <%= f.input :deadline, as: :date, html5: true %>
-    <%= f.input :job_status, as: :radio_buttons,
-                collection: Job.job_statuses.keys.map{ |key| [I18n.t(key, scope: 'job.status.option'), key] },
-                checked: Job.job_statuses.key(0) %>
-    <%= f.input :employer_notice %>
     <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>

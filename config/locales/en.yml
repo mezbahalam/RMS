@@ -27,52 +27,21 @@ en:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
   job:
-    benefits: Job Benefits
-    date_issue: Date Issued
+    date_issued: Date Issued
     deadline: Deadline
     description: Job Description
-    details: Job Details
-    education_requirement: Educational Requirement
-    employer_notice: Employer Notice
-    employment_status:
-      option:
-        contractual: Contractual
-        full_time: Full Time
-        part_time: Part Time
-      title: Employment Status
-    experience_requirement: Experience Requirement
-    list: List of Jobs
-    location:
-      option:
-        dhaka: Dhaka
-        south_africa: South Africa
-        switzerland: Switzerland
-      title: Location
+    details: Job details
+    list: Current Openings
     notice_create: Job created successfully!
     notice_delete: Job deleted successfully
     notice_edit: Job updated successfully!
     position: Position
-    remuneration: Remuneration
-    responsibilities: Job Responsibilities
     shared:
       add: Add New Job(s)
       back: Back to Job List
       new: New Job Info
       update: Update Job Info
-    status:
-      option:
-        closed: Closed
-        open: Open
-      title: Status
-    title:
-      option:
-        junior_software_engineer: Junior Software Engineer
-        managing_director: Managing Director
-        project_manager: Project Manager
-        senior_software_engineer: Senior Software Engineer
-        software_engineer: Software Engineer
-      title: Job Title
-    vacancy: Vacancy
+    title: Job Title
   layouts:
     application:
       copyright: Copyright
@@ -130,30 +99,9 @@ en:
   simple_form:
     labels:
       job:
-        benefits: Job Benefits
-        date_issue: Date Issued
         deadline: Deadline
-        edu_requirement: Educational Requirement
-        employer_notice: Employer Notice
-        employment_status: Employment Status
-        exp_requirement: Experience Requirement
-        job_description: Job Description
-        job_status: Status
-        location: Job Location
-        remuneration: Remuneration
-        responsibilities: Job Responsibilities
+        description: Description
         title: Job Title
-        vacancy: Vacancy
-    placeholders:
-      job:
-        job_description: Write job description here separated by comma
-        responsibilities: Write job responsibilities here separated by comma
-    prompts:
-      job:
-        employment_status: Select employment status
-        location: Select job location
-        title: Select job title
-        vacancy: Select no of vacancies
   user_mailer:
     sign_up_confirmation:
       closing_html: "<b>If you didn't request this, ignore this email.<b>"

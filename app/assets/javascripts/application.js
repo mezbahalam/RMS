@@ -2,7 +2,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
-//= require popper
 //= require bootstrap
-//= require selectize
+//= require froala_editor.min
+//= requier wysiwyg_plugins
 //= require_tree .

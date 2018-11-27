@@ -1,6 +1,9 @@
 @import 'partials/variable';
 @import 'admin';
 @import 'main';
+@import 'wysiwyg_plugins';
 @import 'bootstrap';
-@import 'selectize';
-@import 'selectize.bootstrap3';
+@import 'froala_editor.min';
+@import 'froala_style.min';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';

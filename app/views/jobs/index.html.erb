@@ -5,23 +5,21 @@
     <thead>
     <tr>
       <th><%= t('job.position') %></th>
-      <th><%= t('job.date_issue') %></th>
+      <th><%= t('job.date_issued') %></th>
       <th><%= t('job.deadline') %></th>
-      <th><%= t('job.status.title') %></th>
       <th></th>
     </tr>
     </thead>
     <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= t(job.title, scope: 'job.title.option') %></td>
-        <td><%= job.date_issue %></td>
-        <td><%= job.deadline %></td>
-        <td><%= t(job.job_status, scope: 'job.status.option') %></td>
+        <td><%= raw(job.title) %></td>
+        <td><%= job.created_at.strftime('%b %d, %Y') %></td>
+        <td><%= job.deadline.strftime('%b %d, %Y') %></td>
         <td>
-          <%= link_to t('shared.all.show'), job_path(job) %>
-          <%= link_to t('shared.all.edit'), edit_job_path(job) %>
-          <%= link_to t('shared.all.delete'), job_path(job), method: :delete,
+          <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
+          <%= link_to t('shared.all.edit'), edit_job_path(job), class: 'btn btn-default' %>
+          <%= link_to t('shared.all.delete'), job_path(job), class: 'btn btn-danger', method: :delete,
                       data: { confirm: t('shared.all.confirm_delete') } %>
         </td>
       </tr>

@@ -1,32 +1,21 @@
 require 'rails_helper'
 RSpec.describe JobsController, type: :controller do
   let!(:user) do
-    create(:user,
-           first_name: 'rajib',
-           last_name: 'das',
+    FactoryBot.create(:user,
+           first_name: 'first',
+           last_name: 'last',
            contact: '123456789',
            dob: '14-11-2018',
-           email: 'rajib@abc.com',
-           password: 'rajib',
+           email: 'email@abc.com',
+           password: 'abcde',
            confirmation_token: 'token',
            email_confirmed_at: Time.now)
   end
   let!(:job_1) do
-    create(:job,
+    FactoryBot.create(:job,
            title: 'junior_software_engineer',
-           vacancy: 5,
-           job_description: 'work with rails',
-           responsibilities: 'development',
-           employment_status: 'full_time',
-           edu_requirement: 'bsc in cse',
-           exp_requirement: 1,
-           location: 'dhaka',
-           remuneration: 40000,
-           benefits: 'yearly_bonus',
-           date_issue: '2018-11-08'.to_date,
-           deadline: '2018-12-08'.to_date,
-           job_status: 'open',
-           employer_notice: 'send your resume to recruitment@welldev.io')
+           description: 'work with rails',
+           deadline: '2018-11-25'.to_date)
   end
 
   describe '#check_if_email_confirmed' do
@@ -48,7 +37,10 @@ RSpec.describe JobsController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:job_2) { create(:job, title: 'junior_software_engineer') }
+    let!(:job_2) do
+      FactoryBot.create(:job,
+             title: 'junior_software_engineer')
+    end
 
     it 'populates an array of all jobs' do
       get :index
@@ -90,19 +82,8 @@ RSpec.describe JobsController, type: :controller do
       let(:valid_attributes) do
         attributes_for(:job,
                        title: 'junior_software_engineer',
-                       vacancy: 5,
-                       job_description: 'work with rails',
-                       responsibilities: 'lots of work',
-                       employment_status: 'full_time',
-                       edu_requirement: 'bsc in cse',
-                       exp_requirement: 15,
-                       location: 'dhaka',
-                       remuneration: 46546554,
-                       benefits: 'nothing',
-                       date_issue: '2018-11-08'.to_date,
-                       deadline: '2018-11-08'.to_date,
-                       job_status: 'open',
-                       employer_notice: 'send your resume to recruitment@welldev.io')
+                       description: 'work with rails',
+                       deadline: '2018-11-25'.to_date)
       end
 
       it 'saves the new job in the database' do
@@ -121,19 +102,8 @@ RSpec.describe JobsController, type: :controller do
       let(:invalid_attributes) do
         attributes_for(:candidate,
                        title: nil,
-                       vacancy: 4,
-                       job_description: 'work with rails',
-                       responsibilities: 'lots of work',
-                       employment_status: 'full_time',
-                       edu_requirement: 'bsc in cse',
-                       exp_requirement: 15,
-                       location: 'dhaka',
-                       remuneration: 46546554,
-                       benefits: 'nothing',
-                       date_issue: '2018-11-08'.to_date,
-                       deadline: '2018-11-08'.to_date,
-                       job_status: 'open',
-                       employer_notice: 'send your resume to recruitment@welldev.io')
+                       description: 'work with rails',
+                       deadline: '2018-11-25'.to_date)
       end
 
       it 'does not save the new job in the database' do
@@ -166,19 +136,8 @@ RSpec.describe JobsController, type: :controller do
       let(:valid_attributes) do
         attributes_for(:job,
                        title: 'junior_software_engineer',
-                       vacancy: 5,
-                       job_description: 'work in rails',
-                       responsibilities: 'development',
-                       employment_status: 'full_time',
-                       edu_requirement: 'bsc in cse',
-                       exp_requirement: 1,
-                       location: 'dhaka',
-                       remuneration: 40000,
-                       benefits: 'yearly_bonus',
-                       date_issue: '2018-11-08'.to_date,
-                       deadline: '2018-12-08'.to_date,
-                       job_status: 'open',
-                       employer_notice: 'send your resume to recruitment@welldev.io')
+                       description: 'work in rails',
+                       deadline: '2018-11-25'.to_date)
       end
 
       it 'locates the requested job' do
@@ -190,19 +149,8 @@ RSpec.describe JobsController, type: :controller do
         put :update, params: { id: job_1.id, job: valid_attributes }
         job_1.reload
         expect(job_1.title).to eq('junior_software_engineer')
-        expect(job_1.vacancy).to eq(5)
-        expect(job_1.job_description).to eq('work in rails')
-        expect(job_1.responsibilities).to eq('development')
-        expect(job_1.employment_status).to eq('full_time')
-        expect(job_1.edu_requirement).to eq('bsc in cse')
-        expect(job_1.exp_requirement).to eq(1)
-        expect(job_1.location).to eq('dhaka')
-        expect(job_1.remuneration).to eq(40000)
-        expect(job_1.benefits).to eq('yearly_bonus')
-        expect(job_1.date_issue).to eq('2018-11-08'.to_date)
-        expect(job_1.deadline).to eq('2018-12-08'.to_date)
-        expect(job_1.job_status).to eq('open')
-        expect(job_1.employer_notice).to eq('send your resume to recruitment@welldev.io')
+        expect(job_1.description).to eq('work in rails')
+        expect(job_1.deadline).to eq('2018-11-25'.to_date)
       end
 
       it 'redirects to the updated jobs#index' do
@@ -215,38 +163,16 @@ RSpec.describe JobsController, type: :controller do
       let(:invalid_attributes) do
         attributes_for(:job,
                        title: nil,
-                       vacancy: 5,
-                       job_description: 'work in rails',
-                       responsibilities: 'development',
-                       employment_status: 'full_time',
-                       edu_requirement: 'bsc in cse',
-                       exp_requirement: 1,
-                       location: 'dhaka',
-                       remuneration: 40000,
-                       benefits: 'yearly bonus',
-                       date_issue: '2018-11-08'.to_date,
-                       deadline: '2018-12-08'.to_date,
-                       job_status: 'open',
-                       employer_notice: 'send your resume to recruitment@welldev.io')
+                       description: 'work in rails',
+                       deadline: '2018-12-08'.to_date)
       end
 
       it 'does not update the new job' do
         patch :update, params: { id: job_1, job: invalid_attributes }
         job_1.reload
         expect(job_1.title).to eq('junior_software_engineer')
-        expect(job_1.vacancy).to eq(5)
-        expect(job_1.job_description).to eq('work with rails')
-        expect(job_1.responsibilities).to eq('development')
-        expect(job_1.employment_status).to eq('full_time')
-        expect(job_1.edu_requirement).to eq('bsc in cse')
-        expect(job_1.exp_requirement).to eq(1)
-        expect(job_1.location).to eq('dhaka')
-        expect(job_1.remuneration).to eq(40000)
-        expect(job_1.benefits).to eq('yearly_bonus')
-        expect(job_1.date_issue).to eq('2018-11-08'.to_date)
-        expect(job_1.deadline).to eq('2018-12-08'.to_date)
-        expect(job_1.job_status).to eq('open')
-        expect(job_1.employer_notice).to eq('send your resume to recruitment@welldev.io')
+        expect(job_1.description).to eq('work with rails')
+        expect(job_1.deadline).to eq('2018-11-25'.to_date)
       end
 
       it 're-renders the :edit template' do

@@ -55,20 +55,9 @@ ActiveRecord::Schema.define(version: 2018_10_25_102213) do
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "title", null: false
-    t.integer "vacancy"
-    t.text "job_description", null: false
-    t.text "responsibilities"
-    t.integer "employment_status", null: false
-    t.text "edu_requirement"
-    t.integer "exp_requirement", null: false
-    t.integer "location"
-    t.integer "remuneration", null: false
-    t.text "benefits"
-    t.date "date_issue"
+    t.string "title", null: false
+    t.text "description", null: false
     t.date "deadline"
-    t.integer "job_status", null: false
-    t.text "employer_notice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

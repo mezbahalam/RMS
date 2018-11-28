@@ -4,7 +4,6 @@ $default_fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
 *::before,
 *::after {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -154,7 +153,6 @@ table tr td {
   color: $teal;
 
   ul {
-    list-style: none;
     margin: 0;
     padding: 0;
 
@@ -292,7 +290,7 @@ table tr td {
 
 .container {
   border-radius: 2.5rem;
-  text-align: center;
+  text-align: left;
   background: rgba(255, 255, 255, 0.9);
 
   input[type=checkbox] {
@@ -392,6 +390,7 @@ table tr td {
     align-items: center;
   }
 }
+
 
 .candidate.new {
   width: 191rem;

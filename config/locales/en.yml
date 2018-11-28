@@ -28,6 +28,22 @@ en:
   flashes:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
+  job:
+    date_issued: Date Issued
+    deadline: Deadline
+    description: Job Description
+    details: Job details
+    list: Current Openings
+    notice_create: Job created successfully!
+    notice_delete: Job deleted successfully
+    notice_edit: Job updated successfully!
+    position: Position
+    shared:
+      add: Add New Job(s)
+      back: Back to Job List
+      new: New Job Info
+      update: Update Job Info
+    title: Job Title
   layouts:
     application:
       copyright: Copyright
@@ -90,6 +106,12 @@ en:
       skill: Skills
       user_success: User profile updated successfully
       welcome: Welcome
+  simple_form:
+    labels:
+      job:
+        deadline: Deadline
+        description: Description
+        title: Job Title
   user_mailer:
     sign_up_confirmation:
       closing_html: "<b>If you didn't request this, ignore this email.<b>"

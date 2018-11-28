@@ -22,9 +22,11 @@ gem 'clearance'
 gem 'google-cloud-storage', require: false
 gem 'country_select'
 gem 'rubocop-rspec'
-
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails-controller-testing'
+gem 'jquery-rails'
+gem 'wysiwyg-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -43,5 +45,6 @@ end
 group :test do
   gem 'ffaker'
   gem 'database_cleaner'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
 end

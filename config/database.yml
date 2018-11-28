@@ -1,20 +1,22 @@
 default: &defaults
   adapter: postgresql
   encoding: unicode
-  username: FAR-wtag
-  password: asd123
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   host: <%= ENV['POSTGRES_HOST'] %>
 
 development:
   <<: *defaults
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: rms_development
 
 test:
+  adapter: postgresql
+  encoding: unicode
   <<: *defaults
-  database: <%= ENV['POSTGRES_TEST_DB'] %>
+  database: rms_test
+  pool: 5
 
 production:
   <<: *defaults
-  database: <%= ENV['POSTGRES_DB'] %>
+  database: rms_production
+

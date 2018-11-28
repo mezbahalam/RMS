@@ -1,0 +1,29 @@
+<div class="container">
+  <h4><%= link_to t('job.shared.add'), new_job_path %></h4>
+  <h2><%= t('job.list') %></h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><%= t('job.position') %></th>
+      <th><%= t('job.date_issued') %></th>
+      <th><%= t('job.deadline') %></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= raw(job.title) %></td>
+        <td><%= job.created_at.strftime('%b %d, %Y') %></td>
+        <td><%= job.deadline.strftime('%b %d, %Y') %></td>
+        <td>
+          <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
+          <%= link_to t('shared.all.edit'), edit_job_path(job), class: 'btn btn-default' %>
+          <%= link_to t('shared.all.delete'), job_path(job), class: 'btn btn-danger', method: :delete,
+                      data: { confirm: t('shared.all.confirm_delete') } %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

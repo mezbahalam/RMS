@@ -1,5 +1,8 @@
 <div class="container">
+  <%= link_to t('shared.all.back'), admins_path %>
+  <% if can? :create, Job %>
   <h4><%= link_to t('job.shared.add'), new_job_path %></h4>
+  <% end %>
   <h2><%= t('job.list') %></h2>
   <table class="table table-striped">
     <thead>
@@ -17,10 +20,16 @@
         <td><%= job.created_at.strftime('%b %d, %Y') %></td>
         <td><%= job.deadline.strftime('%b %d, %Y') %></td>
         <td>
+          <% if can? :read, Job %>
           <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
+          <% end %>
+          <% if can? :edit, Job %>
           <%= link_to t('shared.all.edit'), edit_job_path(job), class: 'btn btn-default' %>
+          <% end %>
+          <% if can? :delete, Job %>
           <%= link_to t('shared.all.delete'), job_path(job), class: 'btn btn-danger', method: :delete,
                       data: { confirm: t('shared.all.confirm_delete') } %>
+          <% end %>
         </td>
       </tr>
     <% end %>

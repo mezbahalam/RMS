@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: %i(show edit update destroy)
+  load_and_authorize_resource
 
   def index
     @jobs = Job.all
@@ -43,9 +43,5 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title,
                                 :description,
                                 :deadline)
-  end
-
-  def find_job
-    @job = Job.find(params[:id])
   end
 end

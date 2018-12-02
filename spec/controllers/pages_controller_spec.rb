@@ -18,10 +18,10 @@ RSpec.describe PagesController, type: :controller do
 
   describe 'GET #index' do
     context 'when user is an admin' do
-      it 'redirects to candidates#index' do
+      it 'redirects to admins#index' do
         sign_in_as user
         get :index
-        expect(response).to redirect_to candidates_path
+        expect(response).to redirect_to admins_path
       end
     end
 

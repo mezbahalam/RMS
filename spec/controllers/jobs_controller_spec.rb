@@ -1,35 +1,13 @@
 require 'rails_helper'
 RSpec.describe JobsController, type: :controller do
   let!(:user) do
-    FactoryBot.create(:user,
-           first_name: 'first',
-           last_name: 'last',
-           contact: '123456789',
-           dob: '14-11-2018',
-           email: 'email@abc.com',
-           password: 'abcde',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now)
+    FactoryBot.create(:user, role: :admin)
   end
   let!(:job_1) do
     FactoryBot.create(:job,
            title: 'junior_software_engineer',
            description: 'work with rails',
            deadline: '2018-11-25'.to_date)
-  end
-
-  describe '#check_if_email_confirmed' do
-    context 'when email is not confirmed yet' do
-      before do
-        user.update(email_confirmed_at: nil)
-        sign_in_as user
-      end
-
-      it 'redirects to sign in path' do
-        post :create
-        expect(response).to redirect_to sign_in_path
-      end
-    end
   end
 
   before do

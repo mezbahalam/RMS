@@ -11,7 +11,7 @@
 
 <body>
 <div id="header">
-  <%= image_tag('welldevlogo.png', size: '250x40')  %>
+  <%= image_tag('welldevlogo.png', size: '250x40') %>
   <h1><%= t('layouts.application.title') %></h1>
   <div id="authentication_control">
     <% if signed_in? %>
@@ -39,7 +39,7 @@
       </div>
   <% end %>
 
-  <div id="content" class="container">
+  <div>
     <%= yield %>
   </div>
 

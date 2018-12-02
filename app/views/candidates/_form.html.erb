@@ -8,5 +8,4 @@
 <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
 <%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
 <%= f.input :contact, label: t('shared.all.phone') %>
-<%= f.input :dob, label: t('shared.all.dob'), start_year: Date.today.year,
-            end_year: 1960, order: [:day, :month, :year] %>
+<%= f.input :dob, label: t('shared.all.dob'), as: :date, html5: true %>

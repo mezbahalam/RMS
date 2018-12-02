@@ -16,6 +16,7 @@ en:
     prof_exp: Professional Experience
     update: Update Candidate Information
     view: View My Profile
+    view_candidates: View Candidate List
   clearance:
     models:
       clearance_mailer:
@@ -41,9 +42,11 @@ en:
     shared:
       add: Add New Job(s)
       back: Back to Job List
+      back_admin: Back to Admin Hompage
       new: New Job Info
       update: Update Job Info
     title: Job Title
+    view: View Job Posts
   layouts:
     application:
       copyright: Copyright

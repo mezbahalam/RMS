@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def index
     if current_user.admin?
-      redirect_to candidates_path
+      redirect_to admins_path
     else
       if current_user.candidate
         render :index

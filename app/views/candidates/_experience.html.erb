@@ -2,10 +2,10 @@
 <%= f.input :experience, label: t('shared.all.exp') %>
 <%= f.input :long_term_plan, label: t('shared.all.plan'), input_html: {rows: 3} %>
 <% if @candidate.avatar.attached? && @candidate.avatar.blob_id? %>
-    <%= f.label :avatar, label: t('shared.all.file_up') %><%= @candidate.avatar.filename %>
-    <div class="checkbox_avatar">
-      <%= f.check_box :delete_avatar %><p><%= t('shared.all.delete_file') %></p>
-    </div>
+  <%= f.label :avatar, label: t('shared.all.file_up') %><%= @candidate.avatar.filename %>
+  <div class="checkbox_avatar">
+    <%= f.check_box :delete_avatar %><p><%= t('shared.all.delete_file') %></p>
+  </div>
 <% else %>
-    <%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
+  <%= f.input :avatar, label: t('shared.all.file_up'), as: :file %>
 <% end %>

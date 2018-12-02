@@ -54,16 +54,7 @@ RSpec.describe UsersController, type: :controller do
     end
     context 'user profile incomplete details' do
       let(:valid_attributes) do
-        attributes_for(:user,
-                       first_name: 'KOL',
-                       middle_name: '',
-                       last_name: 'KOL',
-                       email: 'KOL@gmail.com',
-                       password: '000000',
-                       confirmation_token: 'token',
-                       email_confirmed_at: Time.now,
-                       country: 'BD',
-                       role: :applicant)
+        FactoryBot.attributes_for(:user, role: :applicant)
       end
       it 'locates the requested user' do
         patch :update, params: { id: user, user: valid_attributes }
@@ -78,16 +69,7 @@ RSpec.describe UsersController, type: :controller do
     end
     context 'user profile incomplete details' do
       let(:valid_attributes) do
-        attributes_for(:user,
-                       first_name: 'KOL',
-                       middle_name: '',
-                       last_name: 'KOL',
-                       email: 'KOL@gmail.com',
-                       password: '000000',
-                       confirmation_token: 'token',
-                       email_confirmed_at: Time.now,
-                       country: 'BD',
-                       role: :applicant)
+        FactoryBot.attributes_for(:user, role: :applicant)
       end
 
       it 'locates the requested user' do
@@ -97,14 +79,12 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'updates the new user in the database' do
-        patch :update, params: { id: user,
-                                 user: valid_attributes }
+        patch :update, params: { id: user, user: valid_attributes }
         expect(flash[:notice]).to eq("User profile updated successfully")
       end
 
       it 'redirects to the updated pages#index' do
-        patch :update, params: { id: user,
-                                 user: valid_attributes }
+        patch :update, params: { id: user, user: valid_attributes }
         expect(response).to redirect_to pages_path
       end
     end

@@ -1,11 +1,7 @@
 require 'ffaker'
 FactoryBot.define do
-  sequence :user_id do |n|
-    "#{n}"
-  end
-
   factory :candidate do
-    association :user
+    association :user, factory: :user
 
     name { 'Nushrat Raha' }
     gender { :female }
@@ -20,6 +16,5 @@ FactoryBot.define do
     long_term_plan { 'CEO' }
     keywords { 'software' }
     referrals { 'Tanzim' }
-    user_id
   end
 end

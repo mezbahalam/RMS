@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
   let!(:user) { FactoryBot.create(:user, role: :applicant) }
   let!(:user_1) { FactoryBot.create(:user, role: :admin) }
-  let!(:candidate_1) { FactoryBot.create(:candidate, user_id: user.id) }
+  let!(:candidate_1) { FactoryBot.create(:candidate) }
 
   describe '#check_if_email_confirmed' do
     context 'when email is not confirmed yet' do
@@ -26,7 +26,7 @@ RSpec.describe CandidatesController, type: :controller do
     before do
       sign_in_as user_1
     end
-    let!(:candidate_2) { FactoryBot.create(:candidate, user_id: user_1.id) }
+    let!(:candidate_2) { FactoryBot.create(:candidate) }
 
     it 'populates an array of all candidates' do
       get :index, params: { id: candidate_1 }
@@ -73,21 +73,7 @@ RSpec.describe CandidatesController, type: :controller do
 
     context 'with valid attributes' do
       let(:valid_attributes) do
-        attributes_for(:candidate,
-                       name: 'Mariya',
-                       gender: :female,
-                       dob: '2008-06-16',
-                       email: 'mariya@gmail.com',
-                       address: 'House 52, road 13, banasree, dhaka',
-                       contact: '01792780217',
-                       skill: 'c++,c,java,ruby',
-                       experience: 4,
-                       personal_interest: 'travelling',
-                       hobbies: 'shopping',
-                       long_term_plan: 'MD',
-                       keywords: 'software, engineer',
-                       referrals: 'Raha',
-                       user_id: user_3.id)
+        FactoryBot.attributes_for(:candidate)
       end
 
       it 'saves the new candidate in the database' do
@@ -106,7 +92,7 @@ RSpec.describe CandidatesController, type: :controller do
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
-        attributes_for(:candidate,
+        FactoryBot.attributes_for(:candidate,
                        name: nil,
                        email: nil )
       end
@@ -140,21 +126,8 @@ RSpec.describe CandidatesController, type: :controller do
   describe 'PATCH #update' do
     context 'with valid attributes' do
       let(:valid_attributes) do
-        attributes_for(:candidate,
-                       name: 'Noshin',
-                       dob: '2010-09-06'.to_date,
-                       gender: 'female',
-                       email: 'noshin@yahoo.com',
-                       address: 'House 56, road 10, shahbag, dhaka',
-                       contact: '0175205968',
-                       skill: 'c++,c',
-                       experience: 2,
-                       personal_interest: 'reading',
-                       hobbies: 'shopping',
-                       long_term_plan: 'PM of BD',
-                       keywords: 'software, engineer',
-                       referrals: 'Anjum Ara',
-                       user_id: user.id)
+        FactoryBot.attributes_for(:candidate,
+                                  contact: '0177789652')
       end
 
       it 'locates the requested candidate' do
@@ -167,20 +140,15 @@ RSpec.describe CandidatesController, type: :controller do
         patch :update, params: { id: candidate_1,
                                  candidate: valid_attributes }
         candidate_1.reload
-        expect(candidate_1.name).to eq('Noshin')
-        expect(candidate_1.dob).to eq('2010-09-06'.to_date)
-        expect(candidate_1.reload.gender).to eq('female')
-        expect(candidate_1.email).to eq('noshin@yahoo.com')
-        expect(candidate_1.address).to eq('House 56, road 10, shahbag, dhaka')
-        expect(candidate_1.contact).to eq('0175205968')
-        expect(candidate_1.skill).to eq('c++,c')
-        expect(candidate_1.experience).to eq(2)
-        expect(candidate_1.personal_interest).to eq('reading')
-        expect(candidate_1.hobbies).to eq('shopping')
-        expect(candidate_1.long_term_plan).to eq('PM of BD')
-        expect(candidate_1.keywords).to eq('software, engineer')
-        expect(candidate_1.referrals).to eq('Anjum Ara')
+        expect(candidate_1.contact).to eq('0177789652')
       end
+
+      it 'gives a flash message' do
+        patch :update, params: { id: candidate_1,
+                                 candidate: valid_attributes }
+        expect(flash[:notice]).to eq("Record of 'Nushrat Raha' updated successfully!")
+      end
+
 
       it 'redirects to the updated pages#index' do
         patch :update, params: { id: candidate_1,
@@ -191,26 +159,17 @@ RSpec.describe CandidatesController, type: :controller do
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
-        attributes_for(:candidate,
+        FactoryBot.attributes_for(:candidate,
                        name: nil,
-                       dob: '2010-09-25'.to_date,
-                       gender: 'female',
                        email: nil,
-                       address: 'House 8, road 180, nagpur, dhaka',
                        contact: '01789658976fgffffg',
-                       skill: 'c++,c,c#,ruby,java',
-                       experience: 3,
-                       personal_interest: nil,
-                       hobbies: 'shopping',
-                       long_term_plan: 'CTO',
-                       keywords: 'frontend',
-                       referrals: 'Roksar')
+                       personal_interest: nil)
       end
 
       it 'does not update the new candidate' do
         patch :update, params: { id: candidate_1,
                                  candidate: invalid_attributes }
-        expect(flash[:error]).to eq("User must exist, Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
+        expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
       end
 
       it 're-renders the :edit template' do

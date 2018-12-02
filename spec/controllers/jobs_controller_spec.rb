@@ -58,7 +58,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'POST #create' do
     context 'with valid attributes' do
       let(:valid_attributes) do
-        attributes_for(:job,
+        FactoryBot.attributes_for(:job,
                        title: 'junior_software_engineer',
                        description: 'work with rails',
                        deadline: '2018-11-25'.to_date)
@@ -78,7 +78,7 @@ RSpec.describe JobsController, type: :controller do
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
-        attributes_for(:candidate,
+        FactoryBot.attributes_for(:candidate,
                        title: nil,
                        description: 'work with rails',
                        deadline: '2018-11-25'.to_date)
@@ -112,7 +112,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'PATCH #update' do
     context 'with valid attributes' do
       let(:valid_attributes) do
-        attributes_for(:job,
+        FactoryBot.attributes_for(:job,
                        title: 'junior_software_engineer',
                        description: 'work in rails',
                        deadline: '2018-11-25'.to_date)
@@ -139,7 +139,7 @@ RSpec.describe JobsController, type: :controller do
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
-        attributes_for(:job,
+        FactoryBot.attributes_for(:job,
                        title: nil,
                        description: 'work in rails',
                        deadline: '2018-12-08'.to_date)

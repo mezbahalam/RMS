@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= t('layouts.application.title') %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-
-<body>
-<div id="header">
-  <%= image_tag('welldevlogo.png', size: '250x40') %>
-  <h1><%= t('layouts.application.title') %></h1>
-  <div id="authentication_control">
-    <% if signed_in? %>
-        <div class="sign_out">
-          <%= image_tag('sign_out.png', size: '23x23', alt: '->') %>
-          <%= link_to 'Sign out', sign_out_path, method: :delete %>
-          <% if current_user.admin? %>
-              <%= t('shared.all.admin') %>
-          <% else %>
-              <%= t('shared.all.applicant') %>
-          <% end %>
-        </div>
-    <% else %>
-        <% if Clearance.configuration.allow_sign_up? %><%= link_to t('.sign_up'), sign_up_path %>
-        <% end %> |
-        <%= link_to t(".sign_in"), sign_in_path %>
-    <% end %>
-  </div>
-</div>
-
-<div id="main">
-  <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %> alert-note main-alert">
-        <%= value %>
+  <head>
+    <title><%= t('layouts.application.title') %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div id="header">
+      <%= image_tag('welldevlogo.png', size: '250x40') %>
+      <h1><%= t('layouts.application.title') %></h1>
+      <div id="authentication_control">
+        <% if signed_in? %>
+          <div class="sign_out">
+            <%= image_tag('sign_out.png', size: '23x23', alt: '->') %>
+            <%= link_to 'Sign out', sign_out_path, method: :delete %>
+            <% if current_user.admin? %>
+                <%= t('shared.all.admin') %>
+            <% else %>
+                <%= t('shared.all.applicant') %>
+            <% end %>
+          </div>
+        <% else %>
+          <% if Clearance.configuration.allow_sign_up? %><%= link_to t('.sign_up'), sign_up_path %>
+          <% end %> |
+          <%= link_to t(".sign_in"), sign_in_path %>
+        <% end %>
       </div>
-  <% end %>
+    </div>
+    <div id="main">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %> alert-note main-alert">
+          <%= value %>
+        </div>
+      <% end %>
 
-  <div>
-    <%= yield %>
-  </div>
+      <div>
+        <%= yield %>
+      </div>
 
-  <div id="footer">
-    <p id="copyright">
-      <%= t('layouts.application.copyright') %> &copy; <%= Time.current.year %> <%= t('layouts.application.footer') %>
-    </p>
-  </div>
-</div>
-</body>
+      <div id="footer">
+        <p id="copyright">
+          <%= t('layouts.application.copyright') %> &copy; <%= Time.current.year %> <%= t('layouts.application.footer') %>
+        </p>
+      </div>
+    </div>
+  </body>
 </html>

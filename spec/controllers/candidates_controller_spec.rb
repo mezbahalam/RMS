@@ -78,14 +78,12 @@ RSpec.describe CandidatesController, type: :controller do
 
       it 'saves the new candidate in the database' do
         expect {
-          post :create, params: { candidate: valid_attributes,
-                                  user_id: user_3.id }
+          post :create, params: { candidate: valid_attributes, user_id: user_3.id }
         }.to change(Candidate, :count).by(1)
       end
 
       it 'redirects to pages#index' do
-        post :create, params: { candidate: valid_attributes,
-                                user_id: user_3.id }
+        post :create, params: { candidate: valid_attributes, user_id: user_3.id }
         expect(response).to redirect_to pages_path
       end
     end
@@ -93,8 +91,8 @@ RSpec.describe CandidatesController, type: :controller do
     context 'with invalid attributes' do
       let(:invalid_attributes) do
         FactoryBot.attributes_for(:candidate,
-                       name: nil,
-                       email: nil )
+                                  name: nil,
+                                  email: nil )
       end
 
       it 'does not save the new candidate in the database' do
@@ -126,33 +124,28 @@ RSpec.describe CandidatesController, type: :controller do
   describe 'PATCH #update' do
     context 'with valid attributes' do
       let(:valid_attributes) do
-        FactoryBot.attributes_for(:candidate,
-                                  contact: '0177789652')
+        FactoryBot.attributes_for(:candidate, contact: '0177789652')
       end
 
       it 'locates the requested candidate' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: valid_attributes }
+        patch :update, params: { id: candidate_1, candidate: valid_attributes }
         expect(assigns(:candidate)).to eq(candidate_1)
       end
 
       it 'updates the new candidate in the database' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: valid_attributes }
+        patch :update, params: { id: candidate_1, candidate: valid_attributes }
         candidate_1.reload
         expect(candidate_1.contact).to eq('0177789652')
       end
 
       it 'gives a flash message' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: valid_attributes }
+        patch :update, params: { id: candidate_1, candidate: valid_attributes }
         expect(flash[:notice]).to eq("Record of 'Nushrat Raha' updated successfully!")
       end
 
 
       it 'redirects to the updated pages#index' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: valid_attributes }
+        patch :update, params: { id: candidate_1, candidate: valid_attributes }
         expect(response).to redirect_to pages_path
       end
     end
@@ -167,14 +160,12 @@ RSpec.describe CandidatesController, type: :controller do
       end
 
       it 'does not update the new candidate' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: invalid_attributes }
+        patch :update, params: { id: candidate_1, candidate: invalid_attributes }
         expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, Email is invalid, Personal interest can't be blank, and Contact is not a number")
       end
 
       it 're-renders the :edit template' do
-        patch :update, params: { id: candidate_1,
-                                 candidate: invalid_attributes }
+        patch :update, params: { id: candidate_1, candidate: invalid_attributes }
         expect(response).to render_template :edit
       end
     end

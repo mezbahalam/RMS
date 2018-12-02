@@ -6,10 +6,10 @@
       <h2><%= t(".title") %></h2>
       <p><%= t(".description") %></p>
       <%= simple_form_for :password, url: passwords_path do |f| %>
-          <%= f.input :email %>
-          <div class="submit-field">
-            <%= f.submit %>
-          </div>
+        <%= f.input :email %>
+        <div class="submit-field">
+          <%= f.submit %>
+        </div>
       <% end %>
     </div>
   </div>

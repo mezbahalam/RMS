@@ -9,10 +9,7 @@ RSpec.describe CandidatesHelper, type: :helper do
         FactoryBot.create(:candidate)
       end
       let(:gender) do
-        {
-         'female' => 'Female',
-         'male' => 'Male'
-        }
+        { 'female' => 'Female', 'male' => 'Male' }
       end
       it { is_expected.to eq(gender) }
     end

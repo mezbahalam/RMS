@@ -9,10 +9,7 @@ RSpec.describe UsersHelper, type: :helper do
         FactoryBot.create(:user)
       end
       let(:role) do
-        {
-            'admin' => 'Admin',
-            'applicant' => 'Applicant'
-        }
+        { 'admin' => 'Admin', 'applicant' => 'Applicant' }
       end
       it { is_expected.to eq(role) }
     end

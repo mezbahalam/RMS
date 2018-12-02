@@ -30,7 +30,7 @@
           <% end %>
           <% if can? :delete, Candidate %>
           <%= link_to t('shared.all.delete'), candidate_path(candidate), method: :delete,
-                        data: {confirm: I18n.t('shared.all.confirm_delete')} %>
+                      data: {confirm: I18n.t('shared.all.confirm_delete')} %>
           <% end %>
        </td>
      </tr>

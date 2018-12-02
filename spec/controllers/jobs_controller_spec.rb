@@ -5,9 +5,9 @@ RSpec.describe JobsController, type: :controller do
   end
   let!(:job_1) do
     FactoryBot.create(:job,
-           title: 'junior_software_engineer',
-           description: 'work with rails',
-           deadline: '2018-11-25'.to_date)
+                      title: 'junior_software_engineer',
+                      description: 'work with rails',
+                      deadline: '2018-11-25'.to_date )
   end
 
   before do
@@ -16,8 +16,7 @@ RSpec.describe JobsController, type: :controller do
 
   describe 'GET #index' do
     let!(:job_2) do
-      FactoryBot.create(:job,
-             title: 'junior_software_engineer')
+      FactoryBot.create(:job, title: 'junior_software_engineer')
     end
 
     it 'populates an array of all jobs' do
@@ -59,9 +58,9 @@ RSpec.describe JobsController, type: :controller do
     context 'with valid attributes' do
       let(:valid_attributes) do
         FactoryBot.attributes_for(:job,
-                       title: 'junior_software_engineer',
-                       description: 'work with rails',
-                       deadline: '2018-11-25'.to_date)
+                                  title: 'junior_software_engineer',
+                                  description: 'work with rails',
+                                  deadline: '2018-11-25'.to_date )
       end
 
       it 'saves the new job in the database' do
@@ -78,10 +77,7 @@ RSpec.describe JobsController, type: :controller do
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
-        FactoryBot.attributes_for(:candidate,
-                       title: nil,
-                       description: 'work with rails',
-                       deadline: '2018-11-25'.to_date)
+        FactoryBot.attributes_for(:candidate, title: nil )
       end
 
       it 'does not save the new job in the database' do
@@ -112,10 +108,7 @@ RSpec.describe JobsController, type: :controller do
   describe 'PATCH #update' do
     context 'with valid attributes' do
       let(:valid_attributes) do
-        FactoryBot.attributes_for(:job,
-                       title: 'junior_software_engineer',
-                       description: 'work in rails',
-                       deadline: '2018-11-25'.to_date)
+        FactoryBot.attributes_for(:job, description: 'work in rails')
       end
 
       it 'locates the requested job' do
@@ -126,9 +119,7 @@ RSpec.describe JobsController, type: :controller do
       it 'updates the new job in the database' do
         put :update, params: { id: job_1.id, job: valid_attributes }
         job_1.reload
-        expect(job_1.title).to eq('junior_software_engineer')
         expect(job_1.description).to eq('work in rails')
-        expect(job_1.deadline).to eq('2018-11-25'.to_date)
       end
 
       it 'redirects to the updated jobs#index' do
@@ -140,9 +131,7 @@ RSpec.describe JobsController, type: :controller do
     context 'with invalid attributes' do
       let(:invalid_attributes) do
         FactoryBot.attributes_for(:job,
-                       title: nil,
-                       description: 'work in rails',
-                       deadline: '2018-12-08'.to_date)
+                                  title: nil )
       end
 
       it 'does not update the new job' do

@@ -7,12 +7,12 @@
       <%= simple_form_for :password_reset,
                    url: user_password_path(@user, token: @user.confirmation_token),
                    html: { method: :put } do |f| %>
-          <div class="password-field">
-            <%= f.input :password %>
-          </div>
-          <div class="submit-field">
-            <%= f.submit %>
-          </div>
+        <div class="password-field">
+          <%= f.input :password %>
+        </div>
+        <div class="submit-field">
+          <%= f.submit %>
+        </div>
       <% end %>
     </div>
       <br />

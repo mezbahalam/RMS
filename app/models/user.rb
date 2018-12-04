@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   def profile_filled?
-    self.country?
+    country?
   end
 
   def forgot_password!

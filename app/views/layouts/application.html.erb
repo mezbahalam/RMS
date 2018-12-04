@@ -16,7 +16,7 @@
         <% if signed_in? %>
           <div class="sign_out">
             <%= image_tag('sign_out.png', size: '23x23', alt: '->') %>
-            <%= link_to 'Sign out', sign_out_path, method: :delete %>
+            <%= link_to t('layouts.application.sign_out'), sign_out_path, method: :delete %>
             <% if current_user.admin? %>
                 <%= t('shared.all.admin') %>
             <% else %>

@@ -55,6 +55,7 @@ en:
       edit_signup_content: Please fill the empty fields to continue as a user (middle name can be blank)
       footer: WellDev.io
       sign_in: Login
+      sign_out: Sign Out
       sign_up: Sign Up
       title: Recruitment Management System
   passwords:

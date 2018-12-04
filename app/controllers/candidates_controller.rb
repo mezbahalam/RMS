@@ -7,8 +7,6 @@ class CandidatesController < ApplicationController
     @candidates = Candidate.sorted
   end
 
-  def show; end
-
   def new
     @candidate = Candidate.new
   end
@@ -24,8 +22,6 @@ class CandidatesController < ApplicationController
       render :new
     end
   end
-
-  def edit; end
 
   def update
     if @candidate.update(candidate_params)

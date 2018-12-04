@@ -1,6 +1,6 @@
 class UsersController < Clearance::UsersController
   skip_before_action :check_if_profile_filled?, only: %i(edit update)
-  before_action :find_user, only: %i[ edit update ]
+  load_resource
 
   def new
     @user = User.new
@@ -30,11 +30,6 @@ class UsersController < Clearance::UsersController
   end
 
   private
-
-  def find_user
-    @user = User.find(params[:id])
-  end
-
   def user_params
     params.require(:user).permit(:email,
                                  :password,

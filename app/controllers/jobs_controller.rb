@@ -19,6 +19,7 @@ class JobsController < ApplicationController
       flash[:notice] = t('job.notice_create')
       redirect_to jobs_path
     else
+      flash.now[:error] = @job.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -28,6 +29,7 @@ class JobsController < ApplicationController
       flash[:notice] = t('job.notice_edit')
       redirect_to jobs_path
     else
+      flash.now[:error] = @job.errors.full_messages.to_sentence
       render :edit
     end
   end

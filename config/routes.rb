@@ -7,11 +7,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :pages
-  resources :candidates do
-    member do
-      get :delete
-    end
-  end
+  resources :candidates
   resources :jobs
   resources :admins
 end

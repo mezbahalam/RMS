@@ -76,10 +76,11 @@ RSpec.describe CandidatesController, type: :controller do
         FactoryBot.attributes_for(:candidate)
       end
 
-      it 'saves the new candidate in the database' do
+      it 'saves the new candidate in the database and gives a flash message' do
         expect {
           post :create, params: { candidate: valid_attributes, user_id: user_3.id }
         }.to change(Candidate, :count).by(1)
+        expect(flash[:notice]).to eq("Record of 'Nushrat Raha' created successfully!")
       end
 
       it 'redirects to pages#index' do
@@ -99,6 +100,7 @@ RSpec.describe CandidatesController, type: :controller do
         expect {
           post :create, params: { candidate: invalid_attributes }
         }.not_to change(Candidate, :count)
+        expect(flash[:error]).to eq("Name can't be blank, Email can't be blank, and Email is invalid")
       end
 
       it 'renders the :new template' do
@@ -106,7 +108,6 @@ RSpec.describe CandidatesController, type: :controller do
         expect(response).to render_template :new
       end
     end
-
   end
 
   describe 'GET #edit' do

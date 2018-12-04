@@ -37,8 +37,6 @@ class CandidatesController < ApplicationController
     end
   end
 
-  def delete; end
-
   def destroy
     if @candidate.destroy
       flash[:notice] = t('candidate.notice_delete', candidate_name: @candidate.name)

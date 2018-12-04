@@ -5,13 +5,9 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
-  def show; end
-
   def new
     @job = Job.new
   end
-
-  def edit ; end
 
   def create
     @job = Job.new(job_params)

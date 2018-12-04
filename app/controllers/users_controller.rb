@@ -17,8 +17,6 @@ class UsersController < Clearance::UsersController
     end
   end
 
-  def edit ; end
-
   def update
     if @user.update(user_params)
       flash[:notice] = t('shared.all.user_success')

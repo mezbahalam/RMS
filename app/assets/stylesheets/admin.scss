@@ -1,12 +1,5 @@
-.simple_form label {
-  display: inline-block;
-  width: 153px;
-  margin: 8px;
-}
-
 .simple_form fieldset.form-group {
   border: none;
-  margin-left: 800px;
 }
 
 .simple_form div.form-group.date {
@@ -31,23 +24,15 @@
   margin-left: 0;
 }
 
-.simple_form div.form-group.date.optional {
-
-}
-
-.simple_form label.date.form-control-label.optional {
-  width: 262px;
-}
-
 .simple_form div.boolean, .simple_form input[type='submit'] {
   background-color: $outrageousorange;
   color: $white;
-  width: 150px;
-  height: 40px;
-  border-radius: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 0;
+  width: 15rem;
+  height: 4rem;
+  border-radius: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+  margin-left: 5.5rem;
   font-size: small;
 }
 
@@ -56,8 +41,4 @@
   width: 25px;
   height: 10px;
   display: inline;
-}
-
-.simple_form label.file.optional {
-  width: 210px;
 }

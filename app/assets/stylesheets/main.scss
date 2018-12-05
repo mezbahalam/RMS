@@ -45,6 +45,7 @@ table tr td {
 
 .alert.alert-error.alert-note.main-alert,
 .alert.alert-notice.alert-note.main-alert {
+  margin-bottom: 0;
   text-align: center;
   position: relative;
   height: 3.25rem;
@@ -55,7 +56,7 @@ table tr td {
 
 .invalid-feedback {
   color: $red;
-  display: block;
+  display: inline;
   padding-left: 1rem;
   font-style: italic;
 }
@@ -65,7 +66,7 @@ table tr td {
 }
 
 .actions {
-  width: 335px;
+  width: 330px;
   a {
     text-decoration: underline;
     min-width: 3.5em;
@@ -100,7 +101,6 @@ table tr td {
   border-top: 1px dotted $darkgray;
 }
 
-
 .field_with_errors {
   label { color: $darkred; }
   input { border: 2px solid $red; }
@@ -116,7 +116,6 @@ table tr td {
   margin-bottom: 10px;
 }
 
-
 #header {
   height: 7rem;
   text-align: center;
@@ -128,13 +127,14 @@ table tr td {
 
   h1 {
     margin-left: 54rem;
-    margin-right: 45.5rem;
+    margin-right: 58rem;
     font-size: 2rem;
     text-align: center;
   }
 
   a {
     padding: 1rem;
+    font-size: 1.5rem;
   }
 
   div.sign_out {
@@ -199,9 +199,9 @@ table tr td {
 }
 
 #user_country {
-  height: 2rem;
-  width: 30rem;
-  margin-left: 8rem;
+  height: 3.5rem;
+  width: 35rem;
+  margin-bottom: 1rem;
 }
 
 #authentication_control {
@@ -217,8 +217,8 @@ table tr td {
 
 #clearance.sign-up,
 #clearance.sign-in {
-  width: 192rem;
-  height: 83rem;
+  width: 100%;
+  height: 93rem;
   background: {
     image: asset-url("sign_in.jpg");
     size: cover;
@@ -227,23 +227,79 @@ table tr td {
     position: center;
   }
 
-  p {
-    margin: 2rem auto 1rem auto;
+  .form-control {
+    display: block;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
 
-  h2 {
-    color: $black;
-  }
+  .container {
+    width: 65rem;
+    padding-left: 14.5rem;
+    padding-right: 9rem;
+    padding-bottom: 2rem;
+    border-radius: 2.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
 
-  h3 {
-    font-style: italic;
-    margin-bottom: 2rem;
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .form-control {
+      width: 35rem;
+    }
+
+    p {
+      margin: 2rem auto 1rem auto;
+      padding-left: 0;
+    }
+
+    h2 {
+      color: $black;
+      text-align: center;
+    }
+
+    h3 {
+      font-style: italic;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .collection_radio_buttons{
+      width: 6.5rem;
+      padding-left: 1rem;
+      padding-right: 5rem;
+    }
+
+    input[type=submit] {
+      margin-left: 10rem;
+      width: 15rem;
+      height: 4rem;
+      border-radius: 1.5rem;
+      color: $white;
+      background-color: $outrageousorange;
+    }
+
+    label {
+      padding-right: 2rem;
+    }
+
+    .other-links {
+      a {
+        margin: auto;
+        height: 3rem;
+        padding-left: 13rem;
+        text-decoration: underline;
+      }
+    }
   }
 }
 
 #clearance.password-reset {
-  width: 192rem;
-  height: 83rem;
+  height: 82rem;
   background: {
     image: asset-url("sign_in.jpg");
     size: cover;
@@ -251,19 +307,38 @@ table tr td {
     attachment: scroll;
     position: center;
   }
+  .container {
+    width: 65rem;
+    padding-left: 14.5rem;
+    padding-right: 9rem;
+    padding-bottom: 4rem;
+    border-radius: 2.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
 
-  p {
-    margin: 3rem auto 1rem auto;
-  }
+    p {
+      margin: 3rem auto 1rem auto;
+    }
 
-  h2 {
-    color: $black;
-    padding-top: 2rem;
-  }
+    h2 {
+      color: $black;
+      padding-top: 2rem;
+      text-align: center;
+    }
 
-  h3 {
-    font-style: italic;
-    margin-bottom: 2rem;
+    h3 {
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    input[type=submit] {
+      margin-left: 12rem;
+      width: 15rem;
+      height: 4rem;
+      border-radius: 1.5rem;
+      color: $white;
+      background-color: $outrageousorange;
+    }
   }
 
   .submit-field {
@@ -272,21 +347,285 @@ table tr td {
   }
 }
 
-.other-links {
-  margin: 10px 200px;
-  width: 212px;
-  height: 30px;
+.candidate.new {
+  height: 85rem;
+  background: {
+    image: asset-url("can_new.jpg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
+
+  a {
+    text-decoration: underline;
+    margin: 2rem;
+    color: $whitesmoke2;
+  }
+
+  .form-control {
+    display: block;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .container {
+    width: 65rem;
+    height: 70rem;
+    padding-left: 14.5rem;
+    padding-right: 9rem;
+    border-radius: 2.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
+
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .collection_radio_buttons{
+      width: 6.5rem;
+      padding-left: 1rem;
+    }
+
+    label {
+      padding-right: 2rem;
+      width: 40rem;
+    }
+
+    label.integer.optional {
+      width: 6rem
+    }
+
+    label.form-control-label.date.optional {
+      width: 10.6rem
+    }
+
+    .form-control.mx-1 {
+      width: 22.5rem;
+    }
+
+    .form-control {
+      width: 35rem;
+    }
+
+    .btn-success {
+      padding-top: 6rem;
+      background-color: unset;
+      border-color: unset;
+      text-decoration: underline;
+      color: $crimson;
+      text-align: right;
+      width: 34rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      padding-top: 3rem;
+    }
+
+    h3 {
+      font-style: italic;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type=submit] {
+      margin-left: 10rem;
+      width: 15rem;
+      height: 4rem;
+      border-radius: 1.5rem;
+      color: $white;
+      background-color: $outrageousorange;
+    }
+  }
 }
 
-.card {
-  margin-left: 67rem;
-  margin-right: 67rem;
+.candidate.edit {
+  height: 95rem;
+  background: {
+    image: asset-url("can_new.jpg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
+
+  a {
+    text-decoration: underline;
+    margin: 2rem;
+    color: $whitesmoke2;
+  }
+
+  .form-control {
+    display: block;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .container {
+    width: 65rem;
+    height: 63rem;
+    padding-left: 14.5rem;
+    padding-right: 9rem;
+    border-radius: 2.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
+
+    input[type=checkbox] {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .collection_radio_buttons{
+      width: 6.5rem;
+      padding-left: 1rem;
+    }
+
+    label {
+      padding-right: 2rem;
+      width: 40rem;
+    }
+
+    label.integer.optional {
+      width: 6rem
+    }
+
+    label.form-control-label.date.optional {
+      width: 10.6rem
+    }
+
+    .form-control.mx-1 {
+      width: 22.5rem;
+    }
+
+    .form-control {
+      width: 35rem;
+    }
+
+    .btn-success {
+      padding-top: 6rem;
+      background-color: unset;
+      border-color: unset;
+      text-decoration: underline;
+      color: $crimson;
+      text-align: right;
+      width: 34rem;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      padding-top: 3rem;
+      text-align: center;
+    }
+
+    h3 {
+      font-style: italic;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    input[type=submit] {
+      margin-left: 10rem;
+      width: 15rem;
+      height: 4rem;
+      border-radius: 1.5rem;
+      color: $white;
+      background-color: $outrageousorange;
+    }
+
+    .checkbox_avatar {
+      input[type=checkbox] {
+        opacity: 1;
+      }
+
+      p {
+        padding-left: 2rem;
+      }
+
+      input#candidate_delete_avatar {
+        height: 1.6rem;
+      }
+    }
+  }
 }
 
-.container {
-  border-radius: 2.5rem;
+#part1,
+#part2,
+#part3 {
+  z-index: 2;
+  display: block;
+  height: auto;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+#part2,
+#part3 {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#step2:checked ~ #part2 {
+  opacity: 1;
+  height: auto;
+}
+#step2:checked ~ #part1 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+#step3:checked ~ #part3 {
+  opacity: 1;
+  height: auto;
+}
+
+#step3:checked ~ #part2 {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.btn-success_both {
+  padding-top: 0.7rem;
+  text-decoration: underline;
+  color: $crimson;
+  text-align: right;
+  width: 26rem;
+}
+
+.btn-back {
+  padding-top: 0.7rem;
+  text-decoration: underline;
+  color: $crimson;
   text-align: left;
-  background: rgba(255, 255, 255, 0.9);
+}
+
+.nav_btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#back-step2.back {
+  width: 32.5rem;
+  padding-left: 8rem;
+}
+
+#back-step3.back {
+  width: 32.5rem;
+}
+
+.checkbox {
+  display: inline;
 }
 
 .card-show {
@@ -336,7 +675,6 @@ table tr td {
 }
 
 .candidate.index {
-  width: 100%;
   height: 82rem;
   background: {
     image: asset-url("can_index.jpeg");
@@ -349,6 +687,7 @@ table tr td {
   table {
     border-collapse: collapse;
     color: $white;
+    padding-left: 2rem;
   }
 
   th {
@@ -369,73 +708,10 @@ table tr td {
 
   a {
     color: $white;
-  }
-
-  .image {
-    padding-left: 2rem;
-    padding-top: 1rem;
-    display: flex;
-    align-items: center;
+    margin-left: 2rem;
   }
 }
 
-
-.candidate.new {
-  width: 191rem;
-  height: 83rem;
-  background: {
-    image: asset-url("can_new.jpg");
-    size: cover;
-    repeat: no-repeat;
-    attachment: scroll;
-    position: center;
-  }
-
-  h2 {
-    margin-top: 5rem;
-    margin-bottom: 1rem;
-    padding-top: 3rem;
-  }
-
-  h3 {
-    font-style: italic;
-    margin-bottom: 2rem;
-  }
-
-  a {
-    text-decoration: underline;
-    margin: 2rem;
-    color: $whitesmoke2;
-  }
-}
-
-.candidate.edit {
-  width: 191rem;
-  height: 83rem;
-  background: {
-    image: asset-url("can_edit.jpeg");
-    size: cover;
-    repeat: no-repeat;
-    attachment: scroll;
-    position: center;
-  }
-
-  h2 {
-    margin-top: 5rem;
-    margin-bottom: 4rem;
-    padding-top: 3rem;
-  }
-
-  h3 {
-    margin-bottom: 1rem;
-  }
-
-  a {
-    text-decoration: underline;
-    margin: 2rem;
-    color: $whitesmoke2;
-  }
-}
 
 .candidate.show {
   width: 191rem;
@@ -462,80 +738,55 @@ table tr td {
   }
 }
 
-input[type=checkbox] {
-  position: absolute;
-  opacity: 0;
+.page.index {
+  height: 82rem;
+  background: {
+    image: asset-url("page_index.jpeg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    color: $darkred;
+  }
+
+  .page_nav {
+    a {
+      color: $darkred;
+    }
+    text-align: right;
+    padding-right: 1rem;
+  }
 }
 
-#part1,
-#part2,
-#part3 {
-  z-index: 2;
-  display: block;
-  height: auto;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
+.admin.index {
+  height: 82rem;
+  text-align: center;
+  background: {
+    image: asset-url("admin.jpeg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
 
-#part2,
-#part3 {
-  opacity: 0;
-  height: 0;
-  overflow: hidden;
-}
+  h2 {
+    text-align: center;
+    margin-top: 0;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+  }
 
-#step2:checked ~ #part2 {
-  opacity: 1;
-  height: auto;
-}
-#step2:checked ~ #part1 {
-  opacity: 0;
-  height: 0;
-  display: none;
-}
-
-#step3:checked ~ #part3 {
-  opacity: 1;
-  height: auto;
-}
-
-#step3:checked ~ #part2 {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.btn-success_both {
-  padding-top: 0.7rem;
-  text-decoration: underline;
-  color: $crimson;
-  text-align: right;
-  width: 22rem;
-}
-
-.btn-success {
-  padding-top: 0.7rem;
-  text-decoration: underline;
-  color: $crimson;
-  text-align: right;
-  width: 30rem;
-}
-
-.btn-back {
-  padding-top: 0.7rem;
-  text-decoration: underline;
-  color: $crimson;
-  text-align: left;
-}
-
-.nav_btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#back-step3.back {
-  width: 32.5rem;
+  a {
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
 }
 
 .tab {

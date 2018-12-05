@@ -4,17 +4,16 @@ describe User, type: :model do
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_presence_of(:first_name) }
   it { is_expected.to validate_presence_of(:last_name) }
-  it { is_expected.to validate_presence_of(:contact) }
-  it { is_expected.to validate_presence_of :password }
-  it { is_expected.to validate_numericality_of(:contact) }
+  it { is_expected.to validate_presence_of (:password)}
+  it { is_expected.to define_enum_for(:role).with([:admin, :applicant])}
 
   describe 'validations' do
     before(:each) do
       @user = User.new(first_name: 'Sara',
                        last_name: 'Tabassum' ,
-                       contact: '01792050217',
                        email: 'somename@gmail.com',
-                       password:'000000')
+                       password:'000000',
+                       role: :applicant)
     end
 
     describe 'when email format is invalid' do
@@ -51,6 +50,14 @@ describe User, type: :model do
         user = create(:user, confirmation_token: nil)
         user.forgot_password!
         expect(user.confirmation_token).not_to be_nil
+      end
+    end
+
+    describe '#profile_filled?' do
+      it 'checks if all info is filled when user is created' do
+      user = create(:user)
+      user.profile_filled?
+      expect(user.country).not_to be_nil
       end
     end
   end

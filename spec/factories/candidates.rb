@@ -1,11 +1,14 @@
 require 'ffaker'
 FactoryBot.define do
   factory :candidate do
-    name { 'Laila' }
+    association :user, factory: :user
+
+    name { 'Nushrat Raha' }
     gender { :female }
-    dob { '17 Aug 1994' }
-    contact { '01792050217' }
-    address { 'house 48, road 4, bashundhara' }
+    dob { '1991-07-01'.to_date }
+    email { FFaker::Internet.email }
+    contact { '017920517' }
+    address { 'house 48, road 8, bashundhara' }
     skill { 'c++,c,ruby' }
     experience { 2.5 }
     personal_interest { 'shopping' }
@@ -13,6 +16,5 @@ FactoryBot.define do
     long_term_plan { 'CEO' }
     keywords { 'software' }
     referrals { 'Tanzim' }
-    email {FFaker::Internet.email}
   end
 end

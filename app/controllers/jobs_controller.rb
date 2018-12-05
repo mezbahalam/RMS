@@ -1,17 +1,13 @@
 class JobsController < ApplicationController
-  before_action :find_job, only: %i(show edit update destroy)
+  load_and_authorize_resource
 
   def index
     @jobs = Job.all
   end
 
-  def show; end
-
   def new
     @job = Job.new
   end
-
-  def edit ; end
 
   def create
     @job = Job.new(job_params)
@@ -19,6 +15,7 @@ class JobsController < ApplicationController
       flash[:notice] = t('job.notice_create')
       redirect_to jobs_path
     else
+      flash.now[:error] = @job.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -28,6 +25,7 @@ class JobsController < ApplicationController
       flash[:notice] = t('job.notice_edit')
       redirect_to jobs_path
     else
+      flash.now[:error] = @job.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -43,9 +41,5 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title,
                                 :description,
                                 :deadline)
-  end
-
-  def find_job
-    @job = Job.find(params[:id])
   end
 end

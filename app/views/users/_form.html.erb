@@ -1,16 +1,13 @@
 <%= simple_form_for @user do |f| %>
-<%= f.error_notification %>
-<%= f.input :first_name, label: t('shared.all.first_name') %>
-<%= f.input :middle_name, label: t('shared.all.middle_name') %>
-<%= f.input :last_name, label: t('shared.all.last_name') %>
-<%= f.input :contact, label: t('shared.all.phone'), input_html: {} %>
-<%= f.input :address, label: t('shared.all.address') %>
-<%= f.input :dob, label: t('shared.all.dob'), start_year: Date.today.year,
-            end_year: 1960, order: [:day, :month, :year] %>
-<%= f.country_select :country, { priority_countries: %w(BD),
-                                 prompt: 'Select Country' } %>
-<%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
-<%= f.input :password, label: t('shared.all.password') %>
-<p class="sign_up"><%= t('shared.all.sign_up_terms') %></p>
-<%= f.button :submit, t('shared.all.create_account') %>
+  <%= f.error_notification %>
+  <%= f.input :first_name, label: t('shared.all.first_name') %>
+  <%= f.input :middle_name, label: t('shared.all.middle_name') %>
+  <%= f.input :last_name, label: t('shared.all.last_name') %>
+  <%= f.country_select :country, { priority_countries: %w(BD), prompt: t('shared.all.country') } %>
+  <%= f.input :email, placeholder: 'userdomain.com', label: t('shared.all.email') %>
+  <%= f.input :password, label: t('shared.all.password') %>
+  <%= f.label :role %>
+  <%= f.collection_radio_buttons :role, human_attribute_roles, :first, :second %>
+  <p class="sign_up"><%= t('shared.all.sign_up_terms') %></p>
+  <%= f.button :submit, t('shared.all.create_account') %>
 <% end %>

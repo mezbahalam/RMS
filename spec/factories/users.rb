@@ -5,14 +5,12 @@ FactoryBot.define do
 
   factory :user do
     email
-    password { 'password' }
-    first_name { 'Laila' }
+    password  { 'password' }
+    first_name { 'Munira' }
     middle_name { 'Nushrat' }
-    last_name { 'Raha' }
-    contact { '01792052217' }
-    address { 'house 48, block E, bashundhara' }
-    dob { '17-08-1994' }
+    last_name { 'Rahman' }
     country { 'BD' }
     email_confirmed_at { Time.now }
+    role { 'applicant' }
   end
 end

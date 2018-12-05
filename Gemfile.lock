@@ -72,6 +72,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (10.0.2)
+    cancancan (2.3.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     clearance (1.16.1)
@@ -366,6 +367,7 @@ DEPENDENCIES
   bootsnap
   bootstrap-sass
   byebug
+  cancancan
   clearance
   coffee-rails
   country_select

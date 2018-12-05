@@ -9,7 +9,7 @@ RSpec.describe UserMailer, type: :mailer do
     end
 
     it 'renders the receiver email' do
-      expect(mail.to).to eq(['user6@example.com'])
+      expect(mail.to).to eq(['user121@example.com'])
     end
   end
 end

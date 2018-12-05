@@ -1,8 +1,10 @@
 <div class="candidate index">
   <h2><%=t('candidate.candidate_list')%></h2>
+  <%= link_to t('shared.all.back'), admins_path %>
   <div class = "image">
-    <%= image_tag('add.png', size: '23x23', alt: '+')%>
+    <% if can? :create, Candidate %>
     <%= link_to t('candidate.add'), new_candidate_path %>
+    <% end %>
   </div>
   <br /><br />
   <table class="listing" summary="Candidate List">
@@ -20,10 +22,16 @@
         <td><%= candidate.contact %></td>
         <td><%= candidate.experience %></td>
         <td class="actions">
+          <% if can? :read, Candidate %>
           <%= link_to t('shared.all.show'), candidate_path(candidate) %>
+          <% end %>
+          <% if can? :edit, Candidate %>
           <%= link_to t('shared.all.edit'), edit_candidate_path(candidate) %>
+          <% end %>
+          <% if can? :delete, Candidate %>
           <%= link_to t('shared.all.delete'), candidate_path(candidate), method: :delete,
-                        data: {confirm: I18n.t('shared.all.confirm_delete')} %>
+                      data: {confirm: I18n.t('shared.all.confirm_delete')} %>
+          <% end %>
        </td>
      </tr>
     <% end %>

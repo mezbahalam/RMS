@@ -1,0 +1,6 @@
+<div class="admin index">
+  <h2><%= t('shared.all.welcome') %><%= ' ' %><%= current_user.first_name %></h2>
+  <%= link_to t('candidate.view_candidates'), candidates_path %> |
+  <%= link_to t('job.view'), jobs_path %> |
+  <%= link_to t('job.shared.add'), new_job_path %>
+</div>

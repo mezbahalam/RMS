@@ -1,31 +1,50 @@
 require 'rails_helper'
 describe Candidate, type: :model do
-  before{ Candidate.set_callback( :validation, :before, :remove_avatar)}
+  before{ Candidate.set_callback( :validation, :before, :delete_avatar)}
+  it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_presence_of(:skill) }
   it { is_expected.to validate_presence_of(:experience) }
+  it { is_expected.to validate_presence_of(:user_id) }
   it { is_expected.to validate_presence_of(:personal_interest) }
-
-  it 'is invalid with a duplicate email' do
-    create(:candidate)
-    is_expected.to validate_uniqueness_of(:email)
-  end
-
   it { is_expected.to define_enum_for(:gender).with([:male, :female])}
   it { is_expected.to validate_numericality_of(:experience) }
 
+  let!(:user1) do
+    FactoryBot.create(:user, role: :applicant)
+  end
+
+  let!(:user2) do
+    FactoryBot.create(:user, role: :applicant)
+  end
+
+  let!(:candidate_one) do
+    FactoryBot.create(:candidate,
+                      experience: 4.5,
+                      user_id: user1.id)
+  end
+
+  let!(:candidate_two) do
+    FactoryBot.create(:candidate,
+                      experience: 2,
+                      user_id: user2.id)
+  end
+
+  describe 'user id duplication' do
+    it 'is invalid' do
+      is_expected.to validate_uniqueness_of(:user_id)
+    end
+  end
+
+  describe 'email duplication' do
+    it 'is invalid' do
+      is_expected.to validate_uniqueness_of(:email)
+    end
+  end
+
+
   describe 'scope' do
-    let!(:candidate_one) do
-      FactoryBot.create(:candidate,
-                        experience: 4)
-    end
-
-    let!(:candidate_two) do
-      FactoryBot.create(:candidate,
-                        experience: 2)
-    end
-
     subject { described_class.sorted }
     context 'sorted by experience in ASC order' do
       it { is_expected.to eq([candidate_two, candidate_one])}
@@ -33,13 +52,18 @@ describe Candidate, type: :model do
   end
 
   describe 'validations' do
+    let!(:user) do
+      FactoryBot.create(:user, role: :applicant)
+    end
+
     before(:each) do
       @candidate = Candidate.new(name: 'Sara',
                                  contact: '01792050217',
                                  email: 'somename@gmail.com',
                                  skill: 'c',
                                  experience: 1.5,
-                                 personal_interest: 'reading')
+                                 personal_interest: 'reading',
+                                 user_id: user.id)
     end
 
     describe 'when email format is invalid' do

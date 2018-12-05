@@ -1,15 +1,7 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let!(:user) do
-    create(:user,
-           first_name: 'Saila',
-           last_name: 'Annie',
-           contact: '0172050217',
-           dob: '14-10-1990',
-           email: 'ishrat@gmail.com',
-           password: '000000',
-           confirmation_token: 'token',
-           email_confirmed_at: Time.now )
+    FactoryBot.create(:user, role: :applicant, country: 'BD')
   end
 
   describe 'GET #new' do
@@ -41,7 +33,6 @@ RSpec.describe UsersController, type: :controller do
             email: 'swakhar.me@gmail.com',
             first_name: nil,
             last_name: nil,
-            contact: '01796325584',
             password: nil
         }
       end
@@ -53,6 +44,48 @@ RSpec.describe UsersController, type: :controller do
       it 're-renders the :new template' do
         post :create, params: { user: invalid_attributes }
         expect(response).to render_template(:new)
+      end
+    end
+  end
+
+  describe 'GET #edit' do
+    before do
+      sign_in_as user
+    end
+    context 'user profile incomplete details' do
+      let(:valid_attributes) do
+        FactoryBot.attributes_for(:user, role: :applicant)
+      end
+      it 'locates the requested user' do
+        patch :update, params: { id: user, user: valid_attributes }
+        expect(assigns(:user)).to eq(user)
+      end
+    end
+  end
+
+  describe 'PATCH #update' do
+    before do
+      sign_in_as user
+    end
+    context 'user profile incomplete details' do
+      let(:valid_attributes) do
+        FactoryBot.attributes_for(:user, role: :applicant)
+      end
+
+      it 'locates the requested user' do
+        patch :update, params: { id: user,
+                                 user: valid_attributes }
+        expect(assigns(:user)).to eq(user)
+      end
+
+      it 'updates the new user in the database' do
+        patch :update, params: { id: user, user: valid_attributes }
+        expect(flash[:notice]).to eq("User profile updated successfully")
+      end
+
+      it 'redirects to the updated pages#index' do
+        patch :update, params: { id: user, user: valid_attributes }
+        expect(response).to redirect_to pages_path
       end
     end
   end

@@ -1,6 +1,6 @@
 <%= simple_form_for @job do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description, input_html: { id: 'wysiwyg' } %>
-    <%= f.input :deadline, as: :date, html5: true %>
-    <%= f.button :submit, class: 'btn btn-primary' %>
+  <%= f.input :title %>
+  <%= f.input :description, input_html: { id: 'wysiwyg' } %>
+  <%= f.input :deadline, as: :date, html5: true %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
 <% end %>

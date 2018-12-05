@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
-  resources :jobs
   get '/sign_up' => 'users#new', :as => 'register'
 
   get '/confirm_email/:token', to: 'email_confirmations#confirm', as: 'confirm_email'
-  post '/resend_confirmation', to: 'email_confirmations#resend_confirmation', as: 'resend_confirmation'
 
-  root 'candidates#index'
+  root 'pages#index'
 
   resources :users
-  resources :candidates do
-    member do
-      get :delete
-    end
-  end
+  resources :pages
+  resources :candidates
+  resources :jobs
+  resources :admins
 end

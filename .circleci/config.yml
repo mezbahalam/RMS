@@ -86,3 +86,4 @@ workflows:
   test_and_pronto:
     jobs:
       - test
+      - pronto

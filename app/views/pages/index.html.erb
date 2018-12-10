@@ -3,8 +3,22 @@
   <% if current_user.candidate %>
     <% @candidate = current_user.candidate %>
     <div class="page_nav">
-      <%= link_to t('candidate.view'), candidate_path(@candidate)%>
+      <%= link_to t('candidate.view'), candidate_path(@candidate)%>  |
       <%= link_to t('candidate.edit'), edit_candidate_path(@candidate) %>
     </div>
   <% end %>
+    <% @jobs = Job.all %>
+    <h3><%= t('job.list') %></h3>
+    <% @jobs.each do |job| %>
+      <div class="card">
+        <div class="card-header"><%= raw(job.title) %></td></div>
+        <div class="card-body">
+          <p class="card-text">
+            <%= t('job.deadline') %>: <%= job.deadline.strftime('%b %d, %Y') %><br/>
+            <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
+            <%= link_to t('shared.all.apply'), class: 'btn btn-primary' %>
+          </p>
+        </div>
+      </div>
+    <% end %>
 </div>

@@ -1,5 +1,9 @@
 <div class="container">
-  <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
+  <% if current_user.admin? %>
+    <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
+  <% else %>
+      <h4><%= link_to t('shared.all.back'), pages_path %></h4>
+  <% end %>
   <h2><%= t('job.details') %></h2>
   <br>
   <form>

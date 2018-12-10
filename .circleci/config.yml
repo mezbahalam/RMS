@@ -80,7 +80,6 @@ jobs:
               fi
               PRONTO_GITHUB_ACCESS_TOKEN=$GITHUB_ACCESS_TOKEN PRONTO_PULL_REQUEST_ID=$(echo $CIRCLE_PULL_REQUEST | grep -o -E '[0-9]+$') bundle exec pronto run -f github_status github_pr -c origin/master
 
-
 workflows:
   version: 2
   test_and_pronto:

@@ -40,6 +40,16 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def test
+
+
+
+
+
+
+    
+  end
+
   private
   def candidate_params
     params.require(:candidate).permit(:name,

@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     if current_user.admin?
       redirect_to admins_path
     elsif current_user.applicant? && current_user.candidate
-      render :index
+      redirect_to candidate_jobs_path(candidate_id: current_user.candidate.id)
     else
       redirect_to new_candidate_path
     end

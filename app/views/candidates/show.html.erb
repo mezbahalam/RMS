@@ -3,7 +3,7 @@
   <% if current_user.admin? %>
       <%= link_to t('shared.all.back'), candidates_path %>
   <% else %>
-      <%= link_to t('shared.all.back'), pages_path %>
+      <%= link_to t('shared.all.back'), candidate_jobs_path %>
   <% end %>
   <div class="card-show">
     <div class="container-show">

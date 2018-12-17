@@ -738,7 +738,7 @@ table tr td {
   }
 }
 
-.page.index {
+.candidatejob.index {
   height: 82rem;
   background: {
     image: asset-url("page_index.jpeg");
@@ -784,6 +784,7 @@ table tr td {
       font-weight: bold;
     }
 
+    button.btn.btn-primary,
     a.btn.btn-primary {
       color: $black;
       background-color: unset;
@@ -814,6 +815,69 @@ table tr td {
   a {
     font-size: 1.6rem;
     text-decoration: underline;
+  }
+}
+
+.apply.page {
+  height: 83rem;
+  text-align: left;
+
+  background: {
+    image: asset-url("apply.jpeg");
+    size: cover;
+    repeat: no-repeat;
+    attachment: scroll;
+    position: center;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form-control {
+    display: inline-flex;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .container {
+    width: 65rem;
+    height: 28rem;
+    margin-top: 10rem;
+    padding-top: 2rem;
+    padding-left: 8.5rem;
+    padding-right: 9rem;
+    border-radius: 2.5rem;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.9);
+
+    h2 {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    input[type=submit] {
+      margin-left: 17rem;
+      width: 15rem;
+      height: 4rem;
+      border-radius: 1.5rem;
+      color: $white;
+      background-color: $outrageousorange;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  a {
+    color: $white;
+    font-size: 1.6rem;
+    text-decoration: underline;
+    padding-left: 2rem;
   }
 }
 

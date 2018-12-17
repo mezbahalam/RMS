@@ -1,6 +1,8 @@
 class Candidate < ApplicationRecord
   has_one_attached :avatar
   belongs_to :user
+  has_many :candidate_jobs
+  has_many :jobs, through: :candidate_jobs, dependent: :destroy
 
   enum gender: { male: 0, female: 1 }
 

@@ -3,6 +3,7 @@ en:
   candidate:
     add: Create My Profile
     additional_info: Additional Information
+    applicant: Applicant Name
     basic_info: Basic Information
     candidate_list: Candidate List
     details: Candidate Details
@@ -30,6 +31,7 @@ en:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
   job:
+    cannot_apply: Cannot Apply
     date_issued: Date Issued
     deadline: Deadline
     description: Job Description
@@ -100,6 +102,7 @@ en:
       middle_name: Middle Name
       next: Next Page
       not_avail: Not available
+      online_app: Online Application
       password: Password
       personal_int: Personal Interest(s)
       phone: Phone/Mobile No.
@@ -112,6 +115,8 @@ en:
       user_success: User profile updated successfully
       welcome: Welcome
   simple_form:
+    error_notification:
+      default_message: "Please review the problems below:"
     labels:
       job:
         deadline: Deadline

@@ -2,15 +2,15 @@
   <h2>Show page</h2>
   <table summary="Course detail view">
     <tr>
-      <th>Col 1</th>
+      <th><%= t('candidate.applicant') %></th>
       <td><%= @candidate_job.candidate.name %></td>
     </tr>
     <tr>
-      <th>Col 2</th>
+      <th><%= t('job.title') %></th>
       <td><%= @candidate_job.job.title %></td>
     </tr>
     <tr>
-      <th>Col 3</th>
+      <th><%= t('candidate_job.expected_salary') %></th>
       <td><%= @candidate_job.expected_salary %></td>
     </tr>
   </table>

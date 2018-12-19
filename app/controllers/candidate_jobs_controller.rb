@@ -11,18 +11,18 @@ class CandidateJobsController < ApplicationController
   def show; end
 
   def new
-    @candidate_job = CandidateJob.new(candidate_id: current_user.candidate.id, job_id: @job.id)
+    @candidate_job = CandidateJob.new(candidate_id: current_user.candidate.id,
+                                      job_id: @job.id)
   end
 
   def create
     @candidate_job = CandidateJob.new(candidate_job_params)
     if @candidate_job.save
       flash[:notice] = t('job.applied')
-      redirect_to candidate_jobs_path(candidate_id: current_user.candidate.id)
     else
       flash[:error] = @candidate_job.errors.full_messages.to_sentence
-      redirect_to candidate_jobs_path(candidate_id: current_user.candidate.id)
     end
+    redirect_to candidate_jobs_path(candidate_id: current_user.candidate.id)
   end
 
   private
@@ -46,5 +46,4 @@ class CandidateJobsController < ApplicationController
       @job = Job.find(params[:job_id])
     end
   end
-
 end

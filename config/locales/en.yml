@@ -18,6 +18,9 @@ en:
     update: Update Candidate Information
     view: View My Profile
     view_candidates: View Candidate List
+  candidate_job:
+    currency: BDT
+    expected_salary: Salary Expectation
   clearance:
     models:
       clearance_mailer:

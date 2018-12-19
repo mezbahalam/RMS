@@ -3,7 +3,7 @@
     <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
   <% else %>
       <h4><%= link_to t('shared.all.back'), candidate_jobs_path %></h4>
-      <%= link_to t('shared.all.apply'), new_candidate_job_path(candidate_id: current_user.candidate.id, job_id: @job.id) %>
+      <%= link_to t('job.apply'), new_candidate_job_path(candidate_id: current_user.candidate.id, job_id: @job.id) %>
   <% end %>
   <h2><%= t('job.details') %></h2>
   <br>

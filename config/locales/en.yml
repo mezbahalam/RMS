@@ -31,7 +31,9 @@ en:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
   job:
-    cannot_apply: Cannot Apply
+    already_apply: Applied Already
+    applied: Job Applied
+    apply: Apply Now
     date_issued: Date Issued
     deadline: Deadline
     description: Job Description
@@ -79,7 +81,6 @@ en:
       address: Address
       admin: Admin
       applicant: Applicant
-      apply: Apply Now
       back: "<< Back <<"
       confirm_delete: Are you sure you want to delete this record ?
       country: Select Country
@@ -116,7 +117,7 @@ en:
       welcome: Welcome
   simple_form:
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: 'Please review the problems below:'
     labels:
       job:
         deadline: Deadline

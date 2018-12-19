@@ -10,7 +10,11 @@
         <%= f.input :expected_salary, placeholder: 'BDT' %>
         <%= f.hidden_field :candidate_id, candidate_id: current_user.candidate.id %>
         <%= f.hidden_field :job_id, job_id: @job.id %>
-        <%= f.submit t('shared.all.apply') %>
+        <% if @candidate_job.job_applied?(current_user.candidate.id, @job.id) %>
+          <%= f.button :submit, t('job.already_apply'), disabled: true %>
+        <% else %>
+          <%= f.button :submit, t('job.apply') %>
+        <% end %>
       <% end %>
     </div>
   </div>

@@ -10,6 +10,10 @@ RSpec.describe Ability, type: :model do
   let(:job) { FactoryBot.create(:job, title: 'junior_software_engineer',
                                   description: 'work on rails',
                                   deadline: '2018-11-28'.to_date) }
+  let(:candidate_job) { FactoryBot.create(:candidate_job,
+                                          candidate_id: candidate.id,
+                                          job_id: job.id,
+                                          expected_salary: '20000') }
   let(:instance) { Ability.new(user) }
   subject { instance }
 
@@ -18,9 +22,10 @@ RSpec.describe Ability, type: :model do
       it 'admin can manage all' do
         is_expected.to be_able_to(:manage, :all)
       end
-      it 'should not able to create and edit an existing candidate' do
+      it 'should not able to create, edit an existing candidate and cannot manage in applying' do
         is_expected.not_to be_able_to(:create, candidate)
         is_expected.not_to be_able_to(:edit, candidate)
+        is_expected.not_to be_able_to(:manage, candidate_job)
       end
     end
 
@@ -33,6 +38,7 @@ RSpec.describe Ability, type: :model do
         is_expected.to be_able_to(:show, candidate)
         is_expected.to be_able_to(:create, candidate)
         is_expected.to be_able_to(:update, candidate)
+        is_expected.to be_able_to(:manage, candidate_job)
       end
       it 'should not able to view the candidate list, delete an existing candidate and cannot manipulate job model' do
         is_expected.not_to be_able_to(:index, candidate)

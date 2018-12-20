@@ -18,9 +18,11 @@
           <% if CandidateJob.exists?(candidate_id: current_user.candidate.id, job_id: job.id) %>
             <%= t('job.already_apply') %>
           <% else %>
+            <% if can? :create, CandidateJob %>
             <%= link_to t('job.apply'),
                       new_candidate_job_path(job_id: job.id, candidate_id: current_user.candidate.id),
                       class: 'btn btn-primary' %>
+            <% end %>
           <% end %>
         </p>
       </div>

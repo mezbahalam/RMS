@@ -88,5 +88,4 @@ RSpec.describe CandidateJobsController, type: :controller do
       end
     end
   end
-
 end

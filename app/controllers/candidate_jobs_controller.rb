@@ -1,6 +1,7 @@
 class CandidateJobsController < ApplicationController
   before_action :find_candidate
   before_action :find_job
+  authorize_resource
 
   def index
     @jobs = Job.all

@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe Candidate, type: :model do
+RSpec.describe Candidate, type: :model do
   before{ Candidate.set_callback( :validation, :before, :delete_avatar)}
   it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }

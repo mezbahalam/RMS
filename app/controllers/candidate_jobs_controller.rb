@@ -1,14 +1,10 @@
 class CandidateJobsController < ApplicationController
   before_action :find_candidate
   before_action :find_job
-  before_action :find_candidate_job, only: [:show]
 
   def index
-    @candidate_jobs = CandidateJob.all
     @jobs = Job.all
   end
-
-  def show; end
 
   def new
     @candidate_job = CandidateJob.new(candidate_id: current_user.candidate.id,
@@ -29,10 +25,6 @@ class CandidateJobsController < ApplicationController
 
   def candidate_job_params
     params.require(:candidate_job).permit(:candidate_id, :job_id, :expected_salary)
-  end
-
-  def find_candidate_job
-    @candidate_job = CandidateJob.find(params[:id])
   end
 
   def find_candidate

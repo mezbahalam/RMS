@@ -8,7 +8,7 @@ class CandidateJob < ApplicationRecord
 
   def job_applied?(candidateid, jobid)
     if CandidateJob.exists?(candidate_id: candidateid, job_id: jobid)
-      return true
+      true
     end
   end
 end

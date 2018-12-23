@@ -6,7 +6,7 @@ RSpec.describe CandidateJobsController, type: :controller do
     FactoryBot.create(:job,
                       title: 'junior_software_engineer',
                       description: 'work with rails',
-                      deadline: '2018-11-25'.to_date )
+                      deadline: '2018-11-25'.to_date)
   end
 
   before do
@@ -51,16 +51,17 @@ RSpec.describe CandidateJobsController, type: :controller do
       end
 
       it 'saves the new application in the database and gives a flash message' do
-        expect {
-          post :create, params: { candidate_job: valid_attributes,
+        expect { post :create, params: { candidate_job: valid_attributes,
                                   candidate_id: candidate_2.id,
                                   job_id: job_1.id }
         }.to change(CandidateJob, :count).by(1)
-        expect(flash[:notice]).to eq("Job Applied")
+        expect(flash[:notice]).to eq('Job Applied')
       end
 
       it 'redirects to candidate_jobs#index' do
-        post :create, params: { candidate_job: valid_attributes, candidate_id: candidate_1.id, job_id: job_1.id }
+        post :create, params: { candidate_job: valid_attributes,
+                                candidate_id: candidate_1.id,
+                                job_id: job_1.id }
         expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate_1.id)
       end
     end
@@ -69,21 +70,22 @@ RSpec.describe CandidateJobsController, type: :controller do
       let(:invalid_attributes) do
         FactoryBot.attributes_for(:candidate_job,
                                   candidate_id: nil,
-                                  job_id: job_1.id,
-                                  expected_salary: nil )
+                                  job_id: job_1.id)
       end
 
       it 'does not save the new candidate in the database' do
         expect {
           post :create, params: { candidate_job: invalid_attributes,
                                   candidate_id: candidate_2.id,
-                                  job_id: job_1.id  }
+                                  job_id: job_1.id }
         }.not_to change(CandidateJob, :count)
-        expect(flash[:error]).to eq("Candidate must exist, Candidate can't be blank, Expected salary can't be blank, and Expected salary is not a number")
+        expect(flash[:error]).to eq("Candidate must exist and Candidate can't be blank")
       end
 
       it 'redirects to candidate_jobs#index' do
-        post :create, params: { candidate_job: invalid_attributes, candidate_id: candidate_1.id, job_id: job_1.id }
+        post :create, params: { candidate_job: invalid_attributes,
+                                candidate_id: candidate_1.id,
+                                job_id: job_1.id }
         expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate_1.id)
       end
     end

@@ -6,6 +6,5 @@ FactoryBot.define do
     candidate_id { '31' }
     job_id { '5' }
     expected_salary { '20000' }
-
   end
 end

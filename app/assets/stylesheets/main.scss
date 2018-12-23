@@ -35,7 +35,7 @@ p.editfile {
 
 table tr th,
 table tr td {
-  padding: 0.3rem;
+  padding: .3rem;
   text-align: left;
   vertical-align: top;
 
@@ -50,7 +50,7 @@ table tr td {
   color: $white;
   height: 3.25rem;
   margin-bottom: 0;
-  padding: 0.5rem;
+  padding: .5rem;
   position: relative;
   text-align: center;
 }
@@ -63,13 +63,13 @@ table tr td {
 }
 
 .form-control.is-invalid {
-  border: 0.1rem solid $red;
+  border: .1rem solid $red;
 }
 
 .actions {
   width: 330px;
   a {
-    font-size: 1.0em;
+    font-size: 1em;
     margin: 2px 5px;
     min-width: 3.5em;
     padding: 1px 2px;
@@ -78,7 +78,7 @@ table tr td {
 }
 
 .back-link {
-  font-size: 0.8em;
+  font-size: .8em;
   margin-bottom: 1em;
   text-decoration: underline;
 }
@@ -152,12 +152,12 @@ table tr td {
     padding: 0;
 
     li {
-      margin-bottom: 0.5em;
+      margin-bottom: .5em;
     }
 
     ul {
-      font-size: 0.9em;
-      margin: 0.5em 0 0 1em;
+      font-size: .9em;
+      margin: .5em 0 0 1em;
     }
   }
 
@@ -217,21 +217,21 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("sign_in.jpg");
+    image: asset-url('sign_in.jpg');
     position: center;
     repeat: no-repeat;
     size: cover;
   }
 
   .form-control {
-    border: 1px solid #ccc;
+    border: 1px solid $ashgray;
     border-radius: 4px;
     display: block;
     height: 34px;
   }
 
   .container {
-    background: rgba(255, 255, 255, .9);
+    background: $offwhite ;
     border-radius: 2.5rem;
     padding-bottom: 2rem;
     padding-left: 14.5rem;
@@ -299,7 +299,7 @@ table tr td {
   height: 82rem;
 
   background: {
-    image: asset-url("sign_in.jpg");
+    image: asset-url('sign_in.jpg');
     size: cover;
     repeat: no-repeat;
     attachment: scroll;
@@ -307,13 +307,13 @@ table tr td {
   }
 
   .container {
-    width: 65rem;
+    background: $offwhite;
+    border-radius: 2.5rem;
+    padding-bottom: 4rem;
     padding-left: 14.5rem;
     padding-right: 9rem;
-    padding-bottom: 4rem;
-    border-radius: 2.5rem;
     text-align: left;
-    background: rgba(255, 255, 255, .9);
+    width: 65rem;
 
     p {
       margin: 3rem auto 1rem auto;
@@ -351,7 +351,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("can_new.jpg");
+    image: asset-url('can_new.jpg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -364,14 +364,14 @@ table tr td {
   }
 
   .form-control {
-    border: 1px solid #ccc;
+    border: 1px solid $ashgray;
     border-radius: 4px;
     display: block;
     height: 34px;
   }
 
   .container {
-    background: rgba(255, 255, 255, .9);
+    background: $offwhite;
     border-radius: 2.5rem;
     height: 70rem;
     padding-left: 14.5rem;
@@ -449,7 +449,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("can_new.jpg");
+    image: asset-url('can_new.jpg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -462,14 +462,14 @@ table tr td {
   }
 
   .form-control {
-    border: 1px solid #ccc;
+    border: 1px solid $ashgray;
     border-radius: 4px;
     display: block;
     height: 34px;
   }
 
   .container {
-    background: rgba(255, 255, 255, .9);
+    background: $offwhite;
     border-radius: 2.5rem;
     height: 63rem;
     padding-left: 14.5rem;
@@ -591,6 +591,7 @@ table tr td {
   height: auto;
   opacity: 1;
 }
+
 #step3:checked ~ #part2 {
   display: none;
   height: 0;
@@ -610,7 +611,7 @@ table tr td {
 
 .btn-success_both {
   color: $crimson;
-  padding-top: 0.7rem;
+  padding-top: .7rem;
   text-align: right;
   text-decoration: underline;
   width: 26rem;
@@ -618,7 +619,7 @@ table tr td {
 
 .btn-back {
   color: $crimson;
-  padding-top: 0.7rem;
+  padding-top: .7rem;
   text-align: left;
   text-decoration: underline;
 }
@@ -649,7 +650,7 @@ table tr td {
 }
 
 .container-show {
-  background: rgba(255, 255, 255, .1);
+  background: $light-offwhite;
   border-radius: 2.5rem;
   text-align: center;
 
@@ -659,10 +660,11 @@ table tr td {
     width: 100%;
   }
 
-  th, td {
+  th,
+  td {
     border: none;
-    border-bottom: 0.2rem solid $light-gray;
-    padding: 0.8rem;
+    border-bottom: .2rem solid $light-gray;
+    padding: .8rem;
     text-align: center;
   }
 
@@ -687,7 +689,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("can_index.jpeg");
+    image: asset-url('can_index.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -728,7 +730,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("can_show.jpeg");
+    image: asset-url('can_show.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -753,7 +755,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("page_index.jpeg");
+    image: asset-url('page_index.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -786,7 +788,7 @@ table tr td {
   }
 
   .card {
-    background: rgba(255, 255, 255, .6);
+    background: $card-offwhite;
     color: $black;
     text-align: center;
 
@@ -797,9 +799,9 @@ table tr td {
 
     button.btn.btn-primary,
     a.btn.btn-primary {
-      color: $black;
       background-color: unset;
       border: unset;
+      color: $black;
       text-decoration: underline;
     }
   }
@@ -811,7 +813,7 @@ table tr td {
 
   background: {
     attachment: scroll;
-    image: asset-url("admin.jpeg");
+    image: asset-url('admin.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -831,16 +833,24 @@ table tr td {
 }
 
 .apply.page {
-  height: 83rem;
-  text-align: left;
 
   background: {
     attachment: scroll;
-    image: asset-url("apply.jpeg");
+    image: asset-url('apply.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
   }
+
+  .form-control {
+    border: 1px solid $ashgray;
+    border-radius: 4px;
+    display: inline-flex;
+    height: 34px;
+  }
+
+  height: 83rem;
+  text-align: left;
 
   .form-group {
     align-items: center;
@@ -848,15 +858,8 @@ table tr td {
     justify-content: center;
   }
 
-  .form-control {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: inline-flex;
-    height: 34px;
-  }
-
   .container {
-    background: rgba(255, 255, 255, 0.9);
+    background: $offwhite;
     border-radius: 2.5rem;
     height: 28rem;
     margin-top: 10rem;
@@ -895,7 +898,7 @@ table tr td {
 
 .tab {
   background-color: $slategray;
-  border: 0.5px solid $slategray;
+  border: .5px solid $slategray;
   overflow: hidden;
 }
 
@@ -907,7 +910,7 @@ table tr td {
   font-size: 17px;
   outline: none;
   padding: 14px 16px;
-  transition: 0.3s;
+  transition: .3s;
 }
 
 .tab button:hover {
@@ -921,7 +924,7 @@ table tr td {
 .tabcontent {
   border: 1px solid $ashgray;
   border-radius: 25px;
-  border-top: none;
+  border-top: 0;
   display: none;
   padding: 6px 12px;
 }

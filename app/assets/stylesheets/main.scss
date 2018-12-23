@@ -3,8 +3,8 @@ $default_fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
 *,
 *::before,
 *::after {
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
 }
 
 html {
@@ -12,9 +12,9 @@ html {
 }
 
 body {
-  font-size: 1.5rem;
-  font-family: "Lucida Grande", $default_fonts ;
   color: $bunker;
+  font-family: "Lucida Grande", $default_fonts ;
+  font-size: 1.5rem;
 }
 
 p, td, ul, ol, li, dl, dt, dd {
@@ -68,6 +68,7 @@ table tr td {
 
 .actions {
   width: 330px;
+
   a {
     font-size: 1em;
     margin: 2px 5px;
@@ -91,6 +92,7 @@ table tr td {
   table {
     clear: both;
     width: 100%;
+
     tr th { text-align: center}
     tr td { border: 1px solid $darkgray; text-align: center}
   }
@@ -384,7 +386,7 @@ table tr td {
       position: absolute;
     }
 
-    .collection_radio_buttons{
+    .collection_radio_buttons {
       padding-left: 1rem;
       width: 6.5rem;
     }

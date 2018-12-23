@@ -7,13 +7,18 @@ RSpec.describe Ability, type: :model do
   end
 
   let(:candidate) { FactoryBot.create(:candidate, user_id: user.id) }
-  let(:job) { FactoryBot.create(:job, title: 'junior_software_engineer',
-                                  description: 'work on rails',
-                                  deadline: '2018-11-28'.to_date) }
-  let(:candidate_job) { FactoryBot.create(:candidate_job,
-                                          candidate_id: candidate.id,
-                                          job_id: job.id,
-                                          expected_salary: '20000') }
+  let(:job) do
+    FactoryBot.create(:job, title: 'junior_software_engineer',
+                      description: 'work on rails',
+                      deadline: '2018-11-28'.to_date)
+  end
+
+  let(:candidate_job) do
+    FactoryBot.create(:candidate_job, candidate_id: candidate.id,
+                      job_id: job.id,
+                      expected_salary: '20000')
+  end
+
   let(:instance) { Ability.new(user) }
   subject { instance }
 

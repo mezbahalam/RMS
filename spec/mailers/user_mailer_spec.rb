@@ -8,8 +8,8 @@ RSpec.describe UserMailer, type: :mailer do
       expect(mail.subject).to eq('Confirm your Email')
     end
 
-    # it 'renders the receiver email' do
-    #   expect(mail.to).to eq(['user108@example.com'])
-    # end
+    it 'renders the receiver email' do
+      expect(mail.to).to eq(['user108@example.com'])
+    end
   end
 end

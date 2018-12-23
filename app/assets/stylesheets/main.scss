@@ -231,7 +231,7 @@ table tr td {
   }
 
   .container {
-    background: $offwhite ;
+    background: $offwhite;
     border-radius: 2.5rem;
     padding-bottom: 2rem;
     padding-left: 14.5rem;
@@ -299,11 +299,11 @@ table tr td {
   height: 82rem;
 
   background: {
-    image: asset-url('sign_in.jpg');
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url('sign_in.jpg');
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   .container {
@@ -833,6 +833,8 @@ table tr td {
 }
 
 .apply.page {
+  height: 83rem;
+  text-align: left;
 
   background: {
     attachment: scroll;
@@ -848,9 +850,6 @@ table tr td {
     display: inline-flex;
     height: 34px;
   }
-
-  height: 83rem;
-  text-align: left;
 
   .form-group {
     align-items: center;

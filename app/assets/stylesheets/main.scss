@@ -1,4 +1,4 @@
-$default_fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
+$default-fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
 
 *,
 *::before,
@@ -13,12 +13,12 @@ html {
 
 body {
   color: $bunker;
-  font-family: "Lucida Grande", $default_fonts ;
+  font-family: "Lucida Grande", $default-fonts;
   font-size: 1.5rem;
 }
 
 p, td, ul, ol, li, dl, dt, dd {
-  font-family: $default_fonts;
+  font-family: $default-fonts;
 }
 
 table {

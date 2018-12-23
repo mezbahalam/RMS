@@ -35,9 +35,10 @@ p.editfile {
 
 table tr th,
 table tr td {
-  vertical-align: top;
-  text-align: left;
   padding: 0.3rem;
+  text-align: left;
+  vertical-align: top;
+
 }
 
 .clear { clear: both; }
@@ -45,20 +46,20 @@ table tr td {
 
 .alert.alert-error.alert-note.main-alert,
 .alert.alert-notice.alert-note.main-alert {
-  margin-bottom: 0;
-  text-align: center;
-  position: relative;
-  height: 3.25rem;
-  padding: 0.5rem;
   background: $cornflowerblue;
   color: $white;
+  height: 3.25rem;
+  margin-bottom: 0;
+  padding: 0.5rem;
+  position: relative;
+  text-align: center;
 }
 
 .invalid-feedback {
   color: $red;
   display: inline;
-  padding-left: 1rem;
   font-style: italic;
+  padding-left: 1rem;
 }
 
 .form-control.is-invalid {
@@ -68,11 +69,11 @@ table tr td {
 .actions {
   width: 330px;
   a {
-    text-decoration: underline;
+    font-size: 1.0em;
+    margin: 2px 5px;
     min-width: 3.5em;
     padding: 1px 2px;
-    margin: 2px 5px;
-    font-size: 1.0em;
+    text-decoration: underline;
   }
 }
 
@@ -95,62 +96,56 @@ table tr td {
   }
 }
 
-.section + .section {
-  padding-top: 0.5em;
-  margin-top: 0.5em;
-  border-top: 1px dotted $darkgray;
-}
-
 .field_with_errors {
-  label { color: $darkred; }
   input { border: 2px solid $red; }
+  label { color: $darkred; }
 }
 
 .alert.alert-danger {
-  text-align: center;
   color: $darkred;
+  text-align: center;
 }
 
 .error_notification {
-  text-align: center;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 #header {
-  height: 7rem;
-  text-align: center;
+  align-items: center;
   background: $white;
   color: $black;
   display: flex;
-  align-items: center;
+  height: 7rem;
   padding: 2rem;
-
-  h1 {
-    margin-left: 54rem;
-    margin-right: 58rem;
-    font-size: 2rem;
-    text-align: center;
-  }
+  text-align: center;
 
   a {
-    padding: 1rem;
     font-size: 1.5rem;
+    padding: 1rem;
   }
 
   div.sign_out {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-left: 54rem;
+    margin-right: 58rem;
+    text-align: center;
   }
 }
 
 #navigation {
-  float: left;
-  width: 18rem;
-  min-height: 48rem;
-  padding: 1rem;
   background: $light-gray;
   color: $teal;
+  float: left;
+  min-height: 48rem;
+  padding: 1rem;
+  width: 18rem;
 
   ul {
     margin: 0;
@@ -161,8 +156,8 @@ table tr td {
     }
 
     ul {
-      margin: 0.5em 0 0 1em;
       font-size: 0.9em;
+      margin: 0.5em 0 0 1em;
     }
   }
 
@@ -177,16 +172,16 @@ table tr td {
 }
 
 #footer {
-  position: fixed;
-  left: 0;
   bottom: 0;
+  left: 0;
+  position: fixed;
   width: 100%;
 
   p {
-    margin-right: 3rem;
-    margin-bottom: 1rem;
-    text-align: right;
     color: $white;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+    text-align: right;
   }
 }
 
@@ -200,8 +195,8 @@ table tr td {
 
 #user_country {
   height: 3.5rem;
-  width: 35rem;
   margin-bottom: 1rem;
+  width: 35rem;
 }
 
 #authentication_control {
@@ -217,35 +212,36 @@ table tr td {
 
 #clearance.sign-up,
 #clearance.sign-in {
-  width: 100%;
   height: 93rem;
+  width: 100%;
+
   background: {
-    image: asset-url("sign_in.jpg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("sign_in.jpg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   .form-control {
-    display: block;
-    height: 34px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: block;
+    height: 34px;
   }
 
   .container {
-    width: 65rem;
+    background: rgba(255, 255, 255, .9);
+    border-radius: 2.5rem;
+    padding-bottom: 2rem;
     padding-left: 14.5rem;
     padding-right: 9rem;
-    padding-bottom: 2rem;
-    border-radius: 2.5rem;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9);
+    width: 65rem;
 
     input[type=checkbox] {
-      position: absolute;
       opacity: 0;
+      position: absolute;
     }
 
     .form-control {
@@ -264,23 +260,24 @@ table tr td {
 
     h3 {
       font-style: italic;
-      margin-top: 1rem;
       margin-bottom: 2rem;
+      margin-top: 1rem;
       text-align: center;
     }
+
     .collection_radio_buttons{
-      width: 6.5rem;
       padding-left: 1rem;
       padding-right: 5rem;
+      width: 6.5rem;
     }
 
     input[type=submit] {
-      margin-left: 10rem;
-      width: 15rem;
-      height: 4rem;
+      background-color: $outrageousorange;
       border-radius: 1.5rem;
       color: $white;
-      background-color: $outrageousorange;
+      height: 4rem;
+      margin-left: 10rem;
+      width: 15rem;
     }
 
     label {
@@ -300,6 +297,7 @@ table tr td {
 
 #clearance.password-reset {
   height: 82rem;
+
   background: {
     image: asset-url("sign_in.jpg");
     size: cover;
@@ -307,6 +305,7 @@ table tr td {
     attachment: scroll;
     position: center;
   }
+
   .container {
     width: 65rem;
     padding-left: 14.5rem;
@@ -314,7 +313,7 @@ table tr td {
     padding-bottom: 4rem;
     border-radius: 2.5rem;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, .9);
 
     p {
       margin: 3rem auto 1rem auto;
@@ -332,66 +331,67 @@ table tr td {
     }
 
     input[type=submit] {
-      margin-left: 12rem;
-      width: 15rem;
-      height: 4rem;
+      background-color: $outrageousorange;
       border-radius: 1.5rem;
       color: $white;
-      background-color: $outrageousorange;
+      height: 4rem;
+      margin-left: 12rem;
+      width: 15rem;
     }
   }
 
   .submit-field {
-    padding-top: 20px;
     padding-bottom: 10px;
+    padding-top: 20px;
   }
 }
 
 .candidate.new {
   height: 85rem;
+
   background: {
-    image: asset-url("can_new.jpg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("can_new.jpg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   a {
-    text-decoration: underline;
-    margin: 2rem;
     color: $whitesmoke2;
+    margin: 2rem;
+    text-decoration: underline;
   }
 
   .form-control {
-    display: block;
-    height: 34px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: block;
+    height: 34px;
   }
 
   .container {
-    width: 65rem;
+    background: rgba(255, 255, 255, .9);
+    border-radius: 2.5rem;
     height: 70rem;
     padding-left: 14.5rem;
     padding-right: 9rem;
-    border-radius: 2.5rem;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9);
+    width: 65rem;
 
     input[type=checkbox] {
-      position: absolute;
       opacity: 0;
+      position: absolute;
     }
 
     .collection_radio_buttons{
-      width: 6.5rem;
       padding-left: 1rem;
+      width: 6.5rem;
     }
 
     label {
-      padding-right: 2rem;
       width: 40rem;
+      padding-right: 2rem;
     }
 
     label.integer.optional {
@@ -411,12 +411,12 @@ table tr td {
     }
 
     .btn-success {
-      padding-top: 6rem;
       background-color: unset;
       border-color: unset;
-      text-decoration: underline;
       color: $crimson;
+      padding-top: 6rem;
       text-align: right;
+      text-decoration: underline;
       width: 34rem;
     }
 
@@ -426,59 +426,60 @@ table tr td {
     }
 
     h3 {
-      font-style: italic;
-      text-align: center;
       font-size: 1.8rem;
-      margin-top: 1rem;
+      font-style: italic;
       margin-bottom: 1rem;
+      margin-top: 1rem;
+      text-align: center;
     }
 
     input[type=submit] {
-      margin-left: 10rem;
-      width: 15rem;
-      height: 4rem;
+      background-color: $outrageousorange;
       border-radius: 1.5rem;
       color: $white;
-      background-color: $outrageousorange;
+      height: 4rem;
+      margin-left: 10rem;
+      width: 15rem;
     }
   }
 }
 
 .candidate.edit {
   height: 95rem;
+
   background: {
-    image: asset-url("can_new.jpg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("can_new.jpg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   a {
-    text-decoration: underline;
-    margin: 2rem;
     color: $whitesmoke2;
+    margin: 2rem;
+    text-decoration: underline;
   }
 
   .form-control {
-    display: block;
-    height: 34px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: block;
+    height: 34px;
   }
 
   .container {
-    width: 65rem;
+    background: rgba(255, 255, 255, .9);
+    border-radius: 2.5rem;
     height: 63rem;
     padding-left: 14.5rem;
     padding-right: 9rem;
-    border-radius: 2.5rem;
+    width: 65rem;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9);
 
     input[type=checkbox] {
-      position: absolute;
       opacity: 0;
+      position: absolute;
     }
 
     .collection_radio_buttons{
@@ -487,8 +488,8 @@ table tr td {
     }
 
     label {
-      padding-right: 2rem;
       width: 40rem;
+      padding-right: 2rem;
     }
 
     label.integer.optional {
@@ -508,12 +509,12 @@ table tr td {
     }
 
     .btn-success {
-      padding-top: 6rem;
       background-color: unset;
       border-color: unset;
-      text-decoration: underline;
       color: $crimson;
+      padding-top: 6rem;
       text-align: right;
+      text-decoration: underline;
       width: 34rem;
     }
 
@@ -524,20 +525,20 @@ table tr td {
     }
 
     h3 {
-      font-style: italic;
-      text-align: center;
       font-size: 1.8rem;
-      margin-top: 1rem;
+      font-style: italic;
       margin-bottom: 1rem;
+      margin-top: 1rem;
+      text-align: center;
     }
 
     input[type=submit] {
-      margin-left: 10rem;
-      width: 15rem;
-      height: 4rem;
+      background-color: $outrageousorange;
       border-radius: 1.5rem;
       color: $white;
-      background-color: $outrageousorange;
+      height: 4rem;
+      margin-left: 10rem;
+      width: 15rem;
     }
 
     .checkbox_avatar {
@@ -560,81 +561,78 @@ table tr td {
 #part2,
 #part3,
 #part4 {
-  z-index: 2;
   display: block;
   height: auto;
   opacity: 1;
   transition: opacity 1s ease-in-out;
+  z-index: 2;
 }
 
 #part2,
 #part3,
 #part4 {
-  opacity: 0;
   height: 0;
+  opacity: 0;
   overflow: hidden;
 }
 
 #step2:checked ~ #part2 {
-  opacity: 1;
   height: auto;
+  opacity: 1;
 }
+
 #step2:checked ~ #part1 {
-  opacity: 0;
-  height: 0;
   display: none;
+  height: 0;
+  opacity: 0;
 }
 
 #step3:checked ~ #part3 {
-  opacity: 1;
   height: auto;
+  opacity: 1;
 }
 #step3:checked ~ #part2 {
-  opacity: 0;
-  height: 0;
   display: none;
+  height: 0;
+  opacity: 0;
 }
 
 #step4:checked ~ #part4 {
-  opacity: 1;
   height: auto;
+  opacity: 1;
 }
 
 #step4:checked ~ #part3 {
+  height: 0;
   opacity: 0;
   width: 0;
-  height: 0;
 }
 
 .btn-success_both {
-  padding-top: 0.7rem;
-  text-decoration: underline;
   color: $crimson;
+  padding-top: 0.7rem;
   text-align: right;
+  text-decoration: underline;
   width: 26rem;
 }
 
 .btn-back {
-  padding-top: 0.7rem;
-  text-decoration: underline;
   color: $crimson;
+  padding-top: 0.7rem;
   text-align: left;
+  text-decoration: underline;
 }
 
 .nav_btn {
+  align-items: center;
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 
-#back-step2.back {
-  width: 32.5rem;
-  padding-left: 8rem;
-}
-
+#back-step2.back,
 #back-step3.back {
-  width: 32.5rem;
   padding-left: 8rem;
+  width: 32.5rem;
 }
 
 #back-step4.back {
@@ -651,9 +649,9 @@ table tr td {
 }
 
 .container-show {
+  background: rgba(255, 255, 255, .1);
   border-radius: 2.5rem;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
 
   table {
     border-collapse: collapse;
@@ -661,18 +659,11 @@ table tr td {
     width: 100%;
   }
 
-  th {
-    text-align: center;
-    padding: 0.8rem;
+  th, td {
     border: none;
     border-bottom: 0.2rem solid $light-gray;
-  }
-
-  td {
-    text-align: center;
     padding: 0.8rem;
-    border: none;
-    border-bottom: 0.2rem solid $light-gray;
+    text-align: center;
   }
 
   tr:hover {
@@ -680,25 +671,26 @@ table tr td {
   }
 
   .tab {
+    align-items: center;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   h3 {
-    padding-top: 3rem;
     padding-bottom: 3rem;
+    padding-top: 3rem;
   }
 }
 
 .candidate.index {
   height: 82rem;
+
   background: {
-    image: asset-url("can_index.jpeg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("can_index.jpeg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   table {
@@ -716,11 +708,11 @@ table tr td {
   }
 
   h2 {
-    margin-top: 0;
-    font-style: italic;
     color: $darkred;
-    text-align: center;
+    font-style: italic;
+    margin-top: 0;
     padding-top: 2rem;
+    text-align: center;
   }
 
   a {
@@ -731,55 +723,57 @@ table tr td {
 
 
 .candidate.show {
-  width: 191rem;
   height: 83rem;
+  width: 191rem;
+
   background: {
-    image: asset-url("can_show.jpeg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("can_show.jpeg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   h2 {
-    text-align: center;
-    margin-top: 2rem;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     padding-top: 4rem;
+    text-align: center;
   }
 
   a {
-    text-decoration: underline;
-    margin: 2rem;
     color: $black;
+    margin: 2rem;
+    text-decoration: underline;
   }
 }
 
 .candidatejob.index {
   height: 82rem;
+
   background: {
-    image: asset-url("page_index.jpeg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("page_index.jpeg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   h2 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding-top: 2rem;
     color: $darkred;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
   }
 
   h3 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    padding-top: 2rem;
     color: $darkred;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
   }
 
   .page_nav {
@@ -792,13 +786,13 @@ table tr td {
   }
 
   .card {
-    text-align: center;
+    background: rgba(255, 255, 255, .6);
     color: $black;
-    background: rgba(255, 255, 255, 0.6);
+    text-align: center;
 
     .card-header {
-      padding-top: 1rem;
       font-weight: bold;
+      padding-top: 1rem;
     }
 
     button.btn.btn-primary,
@@ -814,19 +808,20 @@ table tr td {
 .admin.index {
   height: 82rem;
   text-align: center;
+
   background: {
-    image: asset-url("admin.jpeg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("admin.jpeg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   h2 {
-    text-align: center;
+    margin-bottom: 1rem;
     margin-top: 0;
     padding-top: 2rem;
-    margin-bottom: 1rem;
+    text-align: center;
   }
 
   a {
@@ -840,36 +835,36 @@ table tr td {
   text-align: left;
 
   background: {
-    image: asset-url("apply.jpeg");
-    size: cover;
-    repeat: no-repeat;
     attachment: scroll;
+    image: asset-url("apply.jpeg");
     position: center;
+    repeat: no-repeat;
+    size: cover;
   }
 
   .form-group {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
   }
 
   .form-control {
-    display: inline-flex;
-    height: 34px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    display: inline-flex;
+    height: 34px;
   }
 
   .container {
-    width: 65rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 2.5rem;
     height: 28rem;
     margin-top: 10rem;
-    padding-top: 2rem;
     padding-left: 8.5rem;
     padding-right: 9rem;
-    border-radius: 2.5rem;
+    padding-top: 2rem;
     text-align: left;
-    background: rgba(255, 255, 255, 0.9);
+    width: 65rem;
 
     h2 {
       margin-bottom: 2rem;
@@ -877,12 +872,12 @@ table tr td {
     }
 
     input[type=submit] {
-      margin-left: 17rem;
-      width: 15rem;
-      height: 4rem;
+      background-color: $outrageousorange;
       border-radius: 1.5rem;
       color: $white;
-      background-color: $outrageousorange;
+      height: 4rem;
+      margin-left: 17rem;
+      width: 15rem;
     }
 
     p {
@@ -893,26 +888,26 @@ table tr td {
   a {
     color: $white;
     font-size: 1.6rem;
-    text-decoration: underline;
     padding-left: 2rem;
+    text-decoration: underline;
   }
 }
 
 .tab {
-  overflow: hidden;
-  border: 0.5px solid $slategray;
   background-color: $slategray;
+  border: 0.5px solid $slategray;
+  overflow: hidden;
 }
 
 .tab button {
   background-color: inherit;
-  float: left;
   border: none;
-  outline: none;
   cursor: pointer;
+  float: left;
+  font-size: 17px;
+  outline: none;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 17px;
 }
 
 .tab button:hover {
@@ -924,9 +919,9 @@ table tr td {
 }
 
 .tabcontent {
+  border: 1px solid $ashgray;
+  border-radius: 25px;
+  border-top: none;
   display: none;
   padding: 6px 12px;
-  border: 1px solid $ashgray;
-  border-top: none;
-  border-radius: 25px;
 }

@@ -11,6 +11,7 @@ class Candidate < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true,
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
+  validates :cgpa, :passing_year, presence: true
   validates :skill, :personal_interest, presence: true
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true

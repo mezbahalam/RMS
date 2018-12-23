@@ -558,7 +558,8 @@ table tr td {
 
 #part1,
 #part2,
-#part3 {
+#part3,
+#part4 {
   z-index: 2;
   display: block;
   height: auto;
@@ -567,7 +568,8 @@ table tr td {
 }
 
 #part2,
-#part3 {
+#part3,
+#part4 {
   opacity: 0;
   height: 0;
   overflow: hidden;
@@ -587,8 +589,18 @@ table tr td {
   opacity: 1;
   height: auto;
 }
-
 #step3:checked ~ #part2 {
+  opacity: 0;
+  height: 0;
+  display: none;
+}
+
+#step4:checked ~ #part4 {
+  opacity: 1;
+  height: auto;
+}
+
+#step4:checked ~ #part3 {
   opacity: 0;
   width: 0;
   height: 0;
@@ -621,6 +633,11 @@ table tr td {
 }
 
 #back-step3.back {
+  width: 32.5rem;
+  padding-left: 8rem;
+}
+
+#back-step4.back {
   width: 32.5rem;
 }
 

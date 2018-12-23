@@ -9,6 +9,11 @@ FactoryBot.define do
     email { FFaker::Internet.email }
     contact { '017920517' }
     address { 'house 48, road 8, bashundhara' }
+    university_name { 'Dhaka University' }
+    major { 'Computer Science and Engineering' }
+    minor { 'Computational Mathematics' }
+    cgpa { '3.89' }
+    passing_year { '2017' }
     skill { 'c++,c,ruby' }
     experience { 2.5 }
     personal_interest { 'shopping' }

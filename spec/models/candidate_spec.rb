@@ -4,6 +4,8 @@ RSpec.describe Candidate, type: :model do
   it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:cgpa) }
+  it { is_expected.to validate_presence_of(:passing_year) }
   it { is_expected.to validate_presence_of(:skill) }
   it { is_expected.to validate_presence_of(:experience) }
   it { is_expected.to validate_presence_of(:user_id) }
@@ -60,6 +62,8 @@ RSpec.describe Candidate, type: :model do
       @candidate = Candidate.new(name: 'Sara',
                                  contact: '01792050217',
                                  email: 'somename@gmail.com',
+                                 cgpa: 2.96,
+                                 passing_year: '2016',
                                  skill: 'c',
                                  experience: 1.5,
                                  personal_interest: 'reading',

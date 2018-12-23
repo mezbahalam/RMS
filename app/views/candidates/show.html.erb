@@ -11,6 +11,7 @@
 
       <div class="tab">
         <button class="tablinks" onclick="openCity(event,'Basic')"><%=t('candidate.basic_info')%></button>
+        <button class="tablinks" onclick="openCity(event,'Educ')"><%= t('candidate.edu_profile') %></button>
         <button class="tablinks" onclick="openCity(event,'Prof')"><%= t('candidate.prof_exp') %></button>
         <button class="tablinks" onclick="openCity(event,'Additional')"><%= t('candidate.additional_info') %></button>
       </div>
@@ -43,6 +44,34 @@
           <tr>
             <th><%= t('shared.all.address') %></th>
             <td><%= @candidate.address %></td>
+          </tr>
+        </table>
+      </div>
+
+      <div id="Educ" class="tabcontent">
+        <h3><%= t('candidate.edu_profile') %></h3>
+        <table summary="School detail view">
+          <tr>
+            <th><%= t('candidate.uni_name') %></th>
+            <td><%= @candidate.university_name %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.major') %></th>
+            <td><%= @candidate.major %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.minor') %></th>
+            <td><%= @candidate.minor %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.cgpa') %></th>
+            <td><%= @candidate.cgpa %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.passing_year') %></th>
+            <td><%= @candidate.passing_year %></td>
+          </tr>
+          <tr>
           </tr>
         </table>
       </div>

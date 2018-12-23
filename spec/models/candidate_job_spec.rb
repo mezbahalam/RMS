@@ -15,9 +15,7 @@ RSpec.describe CandidateJob, type: :model do
     end
 
     let!(:candidate_one) do
-      FactoryBot.create(:candidate,
-                        experience: 4.5,
-                        user_id: user1.id)
+      FactoryBot.create(:candidate, user_id: user1.id)
     end
 
     let!(:job_one) do

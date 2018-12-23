@@ -51,17 +51,20 @@ RSpec.describe CandidateJobsController, type: :controller do
       end
 
       it 'saves the new application in the database and gives a flash message' do
-        expect { post :create, params: { candidate_job: valid_attributes,
-                                  candidate_id: candidate_2.id,
-                                  job_id: job_1.id }
+        expect {
+          post :create,
+            params: { candidate_job: valid_attributes,
+                      candidate_id: candidate_2.id,
+                      job_id: job_1.id }
         }.to change(CandidateJob, :count).by(1)
         expect(flash[:notice]).to eq('Job Applied')
       end
 
       it 'redirects to candidate_jobs#index' do
-        post :create, params: { candidate_job: valid_attributes,
-                                candidate_id: candidate_1.id,
-                                job_id: job_1.id }
+        post :create,
+          params: { candidate_job: valid_attributes,
+                    candidate_id: candidate_1.id,
+                    job_id: job_1.id }
         expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate_1.id)
       end
     end

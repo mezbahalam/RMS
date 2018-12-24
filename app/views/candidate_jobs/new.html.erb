@@ -4,13 +4,13 @@
     <div class="container">
       <h2><%= t('shared.all.online_app') %></h2>
       <p><%= t('candidate.applicant') %>: <%= current_user.candidate.name %></p>
-      <p><%= t('job.title') %>: <%= @job.title %></p>
-      <%= simple_form_for @candidate_job, url: candidate_jobs_path(candidate_id: current_user.candidate.id) do |f| %>
+      <p><%= t('job.title') %>: <%= @candidate_job.job.title %></p>
+      <%= simple_form_for @candidate_job, url: candidate_jobs_path(candidate_id: @candidate.id) do |f| %>
         <%= f.error_notification %>
         <%= f.input :expected_salary, label: t('candidate_job.expected_salary'), placeholder: t('candidate_job.currency') %>
-        <%= f.hidden_field :candidate_id, candidate_id: current_user.candidate.id %>
-        <%= f.hidden_field :job_id, job_id: @job.id %>
-        <% if @candidate_job.job_applied?(current_user.candidate.id, @job.id) %>
+        <%= f.hidden_field :candidate_id, candidate_id: @candidate.id %>
+        <%= f.hidden_field :job_id, job_id: @candidate_job.job.id %>
+        <% if @candidate_job.job_applied?(@candidate.id, @candidate_job.job.id) %>
           <%= f.button :submit, t('job.already_apply'), disabled: true %>
         <% else %>
           <%= f.button :submit, t('job.apply') %>

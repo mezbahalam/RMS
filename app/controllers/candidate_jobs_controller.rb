@@ -1,25 +1,24 @@
 class CandidateJobsController < ApplicationController
-  before_action :find_candidate
-  before_action :find_job
-  authorize_resource
+  before_action :find_candidate, :find_job
+  load_and_authorize_resource
 
   def index
     @jobs = Job.all
   end
 
   def new
-    @candidate_job = CandidateJob.new(candidate_id: current_user.candidate.id,
+    @candidate_job = CandidateJob.new(candidate_id: @candidate.id,
                                       job_id: @job.id)
   end
 
   def create
-    @candidate_job = CandidateJob.new(candidate_job_params)
     if @candidate_job.save
       flash[:notice] = t('job.applied')
+      redirect_to candidate_jobs_path(candidate_id: @candidate.id)
     else
       flash[:error] = @candidate_job.errors.full_messages.to_sentence
+      render :new
     end
-    redirect_to candidate_jobs_path(candidate_id: current_user.candidate.id)
   end
 
   private
@@ -29,14 +28,11 @@ class CandidateJobsController < ApplicationController
   end
 
   def find_candidate
-    if params[:candidate_id]
-      @candidate = Candidate.find(params[:candidate_id])
-    end
+    @candidate = current_user.candidate
   end
 
   def find_job
-    if params[:job_id]
-      @job = Job.find(params[:job_id])
-    end
+    return unless params[:job_id]
+    @job = Job.find(params[:job_id])
   end
 end

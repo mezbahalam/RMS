@@ -13,7 +13,6 @@ class Ability
       can :read, Job
       cannot %i(index edit create delete), Job
       cannot :index, AdminsController
-      can %i(new create), CandidateJob
       can :manage, CandidateJob
     end
   end

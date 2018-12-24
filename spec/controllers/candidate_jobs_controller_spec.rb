@@ -84,11 +84,11 @@ RSpec.describe CandidateJobsController, type: :controller do
         expect(flash[:error]).to eq("Candidate must exist and Candidate can't be blank")
       end
 
-      it 'redirects to candidate_jobs#index' do
+      it 'renders the new template' do
         post :create, params: { candidate_job: invalid_attributes,
                                 candidate_id: candidate_1.id,
                                 job_id: job_1.id }
-        expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate_1.id)
+        expect(response).to render_template :new
       end
     end
   end

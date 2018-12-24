@@ -16,7 +16,7 @@ class CandidateJobsController < ApplicationController
       flash[:notice] = t('job.applied')
       redirect_to candidate_jobs_path(candidate_id: @candidate.id)
     else
-      flash[:error] = @candidate_job.errors.full_messages.to_sentence
+      flash.now[:error] = @candidate_job.errors.full_messages.to_sentence
       render :new
     end
   end

@@ -1,24 +1,26 @@
-<div class="container">
-  <% if current_user.admin? %>
-    <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
-  <% else %>
+<div class="job_show">
+  <div class="container">
+    <% if current_user.admin? %>
+      <h4><%= link_to t('job.shared.back'), jobs_path %></h4>
+    <% else %>
       <h4><%= link_to t('shared.all.back'), candidate_jobs_path %></h4>
       <%= link_to t('job.apply'), new_candidate_job_path(candidate_id: current_user.candidate.id, job_id: @job.id) %>
-  <% end %>
-  <h2><%= t('job.details') %></h2>
-  <br>
-  <form>
-    <div class="form-group">
-      <label class="font-weight-bold"><%= t('job.title') %></label>
-      <div><%= @job.title %></div>
-    </div>
-    <div class="form-group">
-      <label class="font-weight-bold fr-view"><%= t('job.description') %></label>
-      <div><%= raw@job.description%></div>
-    </div>
-    <div class="form-group">
-      <label class="font-weight-bold"><%= t('job.deadline') %></label>
-      <div><%= @job.deadline %></div>
-    </div>
-  </form>
+    <% end %>
+    <h2><%= t('job.details') %></h2>
+    <br>
+    <form>
+      <div class="form-group">
+        <label class="font-weight-bold"><%= t('job.title') %></label>
+        <div><%= @job.title %></div>
+      </div>
+      <div class="form-group">
+        <label class="font-weight-bold fr-view"><%= t('job.description') %></label>
+        <div><%= raw@job.description%></div>
+      </div>
+      <div class="form-group">
+        <label class="font-weight-bold"><%= t('job.deadline') %></label>
+        <div><%= @job.deadline %></div>
+      </div>
+    </form>
+  </div>
 </div>

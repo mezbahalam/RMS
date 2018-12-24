@@ -10,4 +10,5 @@ class CandidateJob < ApplicationRecord
     return unless CandidateJob.exists?(candidate_id: candidateid, job_id: jobid)
     true
   end
+
 end

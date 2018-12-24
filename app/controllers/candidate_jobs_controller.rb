@@ -35,4 +35,5 @@ class CandidateJobsController < ApplicationController
     return unless params[:job_id]
     @job = Job.find(params[:job_id])
   end
+
 end

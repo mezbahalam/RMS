@@ -77,10 +77,9 @@ RSpec.describe CandidateJobsController, type: :controller do
 
       it 'does not save the new candidate in the database' do
         expect {
-          post :create,
-            params: { candidate_job: invalid_attributes,
-                      candidate_id: candidate_2.id,
-                      job_id: job_1.id }
+          post :create, params: { candidate_job: invalid_attributes,
+                                  candidate_id: candidate_2.id,
+                                  job_id: job_1.id }
         }.not_to change(CandidateJob, :count)
         expect(flash[:error]).to eq("Candidate must exist and Candidate can't be blank")
       end

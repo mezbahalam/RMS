@@ -3,7 +3,7 @@ class CandidateJobsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @jobs = Job.all
+    @jobs = Job.sorted
   end
 
   def new

@@ -51,12 +51,12 @@ RSpec.describe CandidateJobsController, type: :controller do
       end
 
       it 'saves the new application in the database and gives a flash message' do
-        expect {
+        expect do
           post :create,
             params: { candidate_job: valid_attributes,
                       candidate_id: candidate_2.id,
                       job_id: job_1.id }
-        }.to change(CandidateJob, :count).by(1)
+        end.to change(CandidateJob, :count).by(1)
         expect(flash[:notice]).to eq('Job Applied')
       end
 
@@ -76,11 +76,11 @@ RSpec.describe CandidateJobsController, type: :controller do
       end
 
       it 'does not save the new candidate in the database' do
-        expect {
+        expect do
           post :create, params: { candidate_job: invalid_attributes,
                                   candidate_id: candidate_2.id,
                                   job_id: job_1.id }
-        }.not_to change(CandidateJob, :count)
+        end.not_to change(CandidateJob, :count)
         expect(flash[:error]).to eq("Candidate must exist and Candidate can't be blank")
       end
 

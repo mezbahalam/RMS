@@ -873,8 +873,8 @@ table tr td {
     width: 65rem;
 
     h2 {
-      padding-top: 4rem;
       margin-bottom: 2rem;
+      padding-top: 4rem;
       text-align: center;
     }
 
@@ -889,11 +889,11 @@ table tr td {
     }
 
     label {
-      margin-right: 1.5rem;
       display: inline-block;
-      max-width: 100%;
-      margin-bottom: 5px;
       font-weight: bold;
+      margin-bottom: 5px;
+      margin-right: 1.5rem;
+      max-width: 100%;
     }
 
     p {
@@ -909,9 +909,7 @@ table tr td {
   }
 }
 
-.job_show {
-  height: 100rem;
-  text-align: left;
+.job-show {
 
   background: {
     attachment: scroll;
@@ -920,6 +918,9 @@ table tr td {
     repeat: repeat;
     size: cover;
   }
+
+  height: 100rem;
+  text-align: left;
 }
 
 .tab {

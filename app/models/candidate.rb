@@ -6,7 +6,7 @@ class Candidate < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
-  scope :sorted, lambda { order('experience ASC') }
+  scope :sorted, -> { order('experience ASC') }
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true,

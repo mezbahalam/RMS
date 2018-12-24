@@ -33,7 +33,7 @@ class CandidateJobsController < ApplicationController
 
   def find_job
     return unless params[:job_id]
+
     @job = Job.find(params[:job_id])
   end
-
 end

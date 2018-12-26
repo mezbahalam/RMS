@@ -50,7 +50,7 @@ class CandidatesController < ApplicationController
                                       :dob,
                                       :university_name,
                                       :major,
-                                      :minor,
+                                      :degree,
                                       :cgpa,
                                       :passing_year,
                                       :skill,

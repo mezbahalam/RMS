@@ -42,6 +42,16 @@
             </td>
           </tr>
           <tr>
+            <th><%= t('candidate.age') %></th>
+            <% dob = @candidate.dob %>
+            <% applicant_age =  @candidate.age(dob) %>
+            <% if applicant_age < 1 %>
+              <td><%= t('candidate.approriate_dob') %></td>
+            <% else %>
+              <td><%= applicant_age %> <%= t('shared.all.years') %></td>
+            <% end %>
+          </tr>
+          <tr>
             <th><%= t('shared.all.address') %></th>
             <td><%= @candidate.address %></td>
           </tr>
@@ -56,12 +66,12 @@
             <td><%= @candidate.university_name %></td>
           </tr>
           <tr>
-            <th><%= t('candidate.major') %></th>
-            <td><%= @candidate.major %></td>
+            <th><%= t('candidate.degree') %></th>
+            <td><%= @candidate.degree %></td>
           </tr>
           <tr>
-            <th><%= t('candidate.minor') %></th>
-            <td><%= @candidate.minor %></td>
+            <th><%= t('candidate.major') %></th>
+            <td><%= @candidate.major %></td>
           </tr>
           <tr>
             <th><%= t('candidate.cgpa') %></th>

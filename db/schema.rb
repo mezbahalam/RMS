@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2018_12_23_042826) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "university_name"
+    t.string "degree"
     t.string "major"
-    t.string "minor"
     t.float "cgpa"
     t.string "passing_year"
     t.index ["user_id"], name: "index_candidates_on_user_id"

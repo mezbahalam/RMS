@@ -10,8 +10,8 @@ FactoryBot.define do
     contact { '017920517' }
     address { 'house 48, road 8, bashundhara' }
     university_name { 'Dhaka University' }
+    degree { 'B.Sc in Computer Science' }
     major { 'Computer Science and Engineering' }
-    minor { 'Computational Mathematics' }
     cgpa { '3.89' }
     passing_year { '2017' }
     skill { 'c++,c,ruby' }

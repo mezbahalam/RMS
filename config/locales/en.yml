@@ -3,16 +3,18 @@ en:
   candidate:
     add: Create My Profile
     additional_info: Additional Information
+    age: Age
     applicant: Applicant Name
+    approriate_dob: Give an appropriate Date of Birth
     basic_info: Basic Information
     candidate_list: Candidate List
     cgpa: CGPA
+    degree: Degree
     details: Candidate Details
     edit: Edit My Profile
     edu_profile: Educational Background
     info: Fill out the form to create your profile
     major: Major
-    minor: Minor
     name: Candidate Name
     new: New Candidate Information
     notice_create: Record of '%{candidate_name}' created successfully!
@@ -124,6 +126,7 @@ en:
       skill: Skills
       user_success: User profile updated successfully
       welcome: Welcome
+      years: years old
   simple_form:
     error_notification:
       default_message: 'Please review the problems below:'
@@ -132,6 +135,9 @@ en:
         deadline: Deadline
         description: Description
         title: Job Title
+    placeholders:
+      candidate:
+        email: userdomain.com
   user_mailer:
     sign_up_confirmation:
       closing_html: "<b>If you didn't request this, ignore this email.<b>"

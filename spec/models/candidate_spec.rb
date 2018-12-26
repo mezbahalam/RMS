@@ -62,6 +62,7 @@ RSpec.describe Candidate, type: :model do
       @candidate = Candidate.new(name: 'Sara',
                                  contact: '01792050217',
                                  email: 'somename@gmail.com',
+                                 dob: '1991-07-01'.to_date,
                                  cgpa: 2.96,
                                  passing_year: '2016',
                                  skill: 'c',

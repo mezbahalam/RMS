@@ -16,6 +16,7 @@ class Candidate < ApplicationRecord
   validates :experience, presence: true, numericality: true
   validates :contact, numericality: true
   validates :user_id, presence: true, uniqueness: true
+  validates :dob, presence: true
 
   before_validation { avatar.delete if @delete_avatar }
 
@@ -25,5 +26,12 @@ class Candidate < ApplicationRecord
 
   def delete_avatar=(value)
     @delete_avatar  = value.to_i.nonzero?
+  end
+
+  def age(dob)
+    today = Date.today
+    age = today.year - dob.year
+    age -= 1 if dob.strftime("%m%d").to_i > today.strftime("%m%d").to_i
+    age
   end
 end

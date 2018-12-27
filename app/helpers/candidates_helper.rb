@@ -9,5 +9,4 @@ module CandidatesHelper
     age -= 1 if dob.strftime('%m%d').to_i > today.strftime('%m%d').to_i
     age
   end
-
 end

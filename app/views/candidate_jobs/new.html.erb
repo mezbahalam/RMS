@@ -7,7 +7,9 @@
       <p><%= t('job.title') %>: <%= @candidate_job.job.title %></p>
       <%= simple_form_for @candidate_job, url: candidate_jobs_path(candidate_id: @candidate.id) do |f| %>
         <%= f.error_notification %>
-        <%= f.input :expected_salary, label: t('candidate_job.expected_salary'), placeholder: t('candidate_job.currency') %>
+        <%= f.input :expected_salary,
+                    label: t('candidate_job.expected_salary'),
+                    placeholder: t('candidate_job.currency') %>
         <%= f.input :candidate_id, as: :hidden, input_html: { value: @candidate.id }  %>
         <%= f.input :job_id, as: :hidden, input_html: { value: @candidate_job.job.id } %>
         <% if @candidate_job.job_applied?(@candidate.id, @candidate_job.job.id) %>

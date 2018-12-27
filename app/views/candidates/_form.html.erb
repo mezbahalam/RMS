@@ -8,4 +8,9 @@
 <%= f.input :email, placeholder: t('simple_form.placeholders.candidate.email'), label: t('shared.all.email') %>
 <%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
 <%= f.input :contact, label: t('shared.all.phone') %>
-<%= f.input :dob, label: t('shared.all.dob'), as: :date, html5: true %>
+<%= f.input :dob,
+            label: t('shared.all.dob'),
+            as: :date,
+            html5: true,
+            input_html: { value: Date.today },
+            :order => [ :day, :month, :year] %>

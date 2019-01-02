@@ -15,7 +15,7 @@ class User < ApplicationRecord
   before_save :set_name
 
   def set_name
-    self.first_name + self.middle_name + self.last_name
+    first_name + middle_name + last_name
   end
 
   def profile_filled?

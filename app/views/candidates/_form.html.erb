@@ -1,5 +1,5 @@
 <%= f.error_notification %>
-<%= f.input :name, label: t('candidate.name') %>
+<%= f.input :name, label: t('candidate.name'), input_html: { value: current_user.set_name } %>
 <%= f.label :gender %>
 <%= f.collection_radio_buttons :gender, human_attribute_genders,
                                :first,

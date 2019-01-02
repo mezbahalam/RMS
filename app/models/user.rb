@@ -12,6 +12,12 @@ class User < ApplicationRecord
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
   validates :first_name, :last_name, presence: true
 
+  before_save :set_name
+
+  def set_name
+    self.first_name + self.middle_name + self.last_name
+  end
+
   def profile_filled?
     country?
   end

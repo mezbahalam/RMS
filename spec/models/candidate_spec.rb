@@ -47,7 +47,7 @@ RSpec.describe Candidate, type: :model do
 
 
   describe 'scope' do
-    subject { described_class.sorted }
+    subject { described_class.sorted_by_experience }
     context 'sorted by experience in ASC order' do
       it { is_expected.to eq([candidate_two, candidate_one])}
     end

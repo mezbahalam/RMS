@@ -30,7 +30,7 @@ RSpec.describe PagesController, type: :controller do
         it 'will redirect to candidate jobs path' do
           sign_in_as user_1
           get :index, params: { id: candidate }
-          expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate.id)
+          expect(response).to redirect_to candidate_jobs_path
         end
       end
 

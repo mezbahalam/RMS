@@ -8,7 +8,10 @@ Rails.application.routes.draw do
   resources :users
   resources :pages
   resources :candidates
-  resources :jobs
+  resources :jobs do
+    resources :candidate_jobs, except: [:index]
+  end
   resources :admins
-  resources :candidate_jobs
+
+  get '/candidate_jobs', controller: :candidate_jobs, action: :index
 end

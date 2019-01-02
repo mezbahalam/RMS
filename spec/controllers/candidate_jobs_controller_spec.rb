@@ -64,15 +64,14 @@ RSpec.describe CandidateJobsController, type: :controller do
         post :create, params: { candidate_job: valid_attributes,
                                 candidate_id: candidate_1.id,
                                 job_id: job_1.id }
-        expect(response).to redirect_to candidate_jobs_path(candidate_id: candidate_1.id)
+        expect(response).to redirect_to candidate_jobs_path
       end
     end
 
     context 'with invalid attributes' do
       let(:invalid_attributes) do
         FactoryBot.attributes_for(:candidate_job,
-                                  candidate_id: nil,
-                                  job_id: job_1.id)
+                                  expected_salary: nil)
       end
 
       it 'does not save the new candidate in the database' do
@@ -81,7 +80,7 @@ RSpec.describe CandidateJobsController, type: :controller do
                                   candidate_id: candidate_2.id,
                                   job_id: job_1.id }
         end.not_to change(CandidateJob, :count)
-        expect(flash[:error]).to eq("Candidate must exist and Candidate can't be blank")
+        expect(flash[:error]).to eq("Expected salary can't be blank and Expected salary is not a number")
       end
 
       it 'renders the new template' do

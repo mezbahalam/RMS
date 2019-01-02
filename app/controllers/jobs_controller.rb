@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @jobs = Job.sorted
+    @jobs = Job.sorted_by_deadline
   end
 
   def new
@@ -41,5 +41,9 @@ class JobsController < ApplicationController
     params.require(:job).permit(:title,
                                 :description,
                                 :deadline)
+  end
+
+  def find_candidate
+    @candidate = Candidate.find(params[:candidate_id])
   end
 end

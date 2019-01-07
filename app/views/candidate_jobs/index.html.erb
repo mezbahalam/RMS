@@ -9,7 +9,7 @@
   <% end %>
   <h3><%= t('job.list') %></h3>
   <% @jobs.each do |job| %>
-    <% if job.deadline > Date.today %>
+    <% if job.deadline >= Date.today %>
       <div class="card">
         <div class="card-header"><%= raw(job.title) %></div>
         <div class="card-body">

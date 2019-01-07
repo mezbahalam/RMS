@@ -29,9 +29,12 @@ RSpec.describe Ability, type: :model do
       it 'admin can manage all' do
         is_expected.to be_able_to(:manage, :all)
       end
-      it 'should not able to create, edit an existing candidate and cannot manage in applying' do
+      it 'cannot be able to create, edit an existing candidate' do
         is_expected.not_to be_able_to(:create, candidate)
         is_expected.not_to be_able_to(:edit, candidate)
+      end
+
+      it 'cannot manage in applying job posts' do
         is_expected.not_to be_able_to(:manage, candidate_job)
       end
     end
@@ -45,11 +48,18 @@ RSpec.describe Ability, type: :model do
         is_expected.to be_able_to(:show, candidate)
         is_expected.to be_able_to(:create, candidate)
         is_expected.to be_able_to(:update, candidate)
+      end
+
+      it 'can be able to apply for job posts' do
         is_expected.to be_able_to(:manage, candidate_job)
       end
-      it 'should not able to view the candidate list, delete an existing candidate and cannot manipulate job model' do
+
+      it 'cannot be able to view the candidate list and delete an existing candidate' do
         is_expected.not_to be_able_to(:index, candidate)
         is_expected.not_to be_able_to(:delete, candidate)
+      end
+
+      it 'cannot manipulate job model' do
         is_expected.not_to be_able_to(:manage, job)
       end
     end

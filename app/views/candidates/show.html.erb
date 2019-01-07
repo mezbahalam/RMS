@@ -44,12 +44,13 @@
           <tr>
             <th><%= t('candidate.age') %></th>
             <% dob = @candidate.dob %>
-            <% applicant_age =  age(dob) %>
-            <% if applicant_age < 12 %>
-              <td><%= t('candidate.approriate_dob') %></td>
-            <% else %>
-              <td><%= applicant_age %> <%= t('shared.all.years') %></td>
-            <% end %>
+            <td>
+              <% if valid_age?(dob) %>
+                <%= age(dob) %> <%= t('shared.all.years') %>
+              <% else %>
+                <%= t('candidate.inapproriate_dob') %>
+              <% end %>
+            </td>
           </tr>
           <tr>
             <th><%= t('shared.all.address') %></th>

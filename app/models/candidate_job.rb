@@ -7,8 +7,6 @@ class CandidateJob < ApplicationRecord
   validates :expected_salary, presence: true, numericality: true
 
   def job_applied?(candidateid, jobid)
-    return unless CandidateJob.exists?(candidate_id: candidateid, job_id: jobid)
-
-    true
+    CandidateJob.exists?(candidate_id: candidateid, job_id: jobid)
   end
 end

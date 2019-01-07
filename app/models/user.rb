@@ -15,7 +15,7 @@ class User < ApplicationRecord
   before_save :set_name
 
   def set_name
-    first_name + middle_name + last_name
+    "#{first_name} #{middle_name} #{last_name}".split.join(' ')
   end
 
   def profile_filled?

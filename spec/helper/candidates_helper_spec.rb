@@ -18,9 +18,11 @@ RSpec.describe CandidatesHelper, type: :helper do
   describe '#age' do
     let(:candidate) { FactoryBot.create(:candidate, dob: '12-12-1996'.to_date) }
 
-    it 'calculates the age' do
-      dob = candidate.dob
-      expect(age(dob)).to eql(22)
+    context 'when date is valid' do
+      it 'calculates the age' do
+        dob = candidate.dob
+        expect(age(dob)).to eql(22)
+      end
     end
   end
 end

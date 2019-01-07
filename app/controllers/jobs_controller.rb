@@ -42,8 +42,4 @@ class JobsController < ApplicationController
                                 :description,
                                 :deadline)
   end
-
-  def find_candidate
-    @candidate = Candidate.find(params[:candidate_id])
-  end
 end

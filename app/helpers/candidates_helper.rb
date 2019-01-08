@@ -14,8 +14,6 @@ module CandidatesHelper
     end
   end
 
-  
-
   def valid_age?(dob)
     applicant_age = age(dob)
     if applicant_age > 15

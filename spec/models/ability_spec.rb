@@ -7,9 +7,20 @@ RSpec.describe Ability, type: :model do
   end
 
   let(:candidate) { FactoryBot.create(:candidate, user_id: user.id) }
-  let(:job) { FactoryBot.create(:job, title: 'junior_software_engineer',
-                                  description: 'work on rails',
-                                  deadline: '2018-11-28'.to_date) }
+  let(:job) do
+    FactoryBot.create(:job,
+                      title: 'junior_software_engineer',
+                      description: 'work on rails',
+                      deadline: '2018-11-28'.to_date)
+  end
+
+  let(:candidate_job) do
+    FactoryBot.create(:candidate_job,
+                      candidate_id: candidate.id,
+                      job_id: job.id,
+                      expected_salary: '20000')
+  end
+
   let(:instance) { Ability.new(user) }
   subject { instance }
 
@@ -18,9 +29,13 @@ RSpec.describe Ability, type: :model do
       it 'admin can manage all' do
         is_expected.to be_able_to(:manage, :all)
       end
-      it 'should not able to create and edit an existing candidate' do
+      it 'cannot be able to create, edit an existing candidate' do
         is_expected.not_to be_able_to(:create, candidate)
         is_expected.not_to be_able_to(:edit, candidate)
+      end
+
+      it 'cannot manage in applying job posts' do
+        is_expected.not_to be_able_to(:manage, candidate_job)
       end
     end
 
@@ -34,9 +49,17 @@ RSpec.describe Ability, type: :model do
         is_expected.to be_able_to(:create, candidate)
         is_expected.to be_able_to(:update, candidate)
       end
-      it 'should not able to view the candidate list, delete an existing candidate and cannot manipulate job model' do
+
+      it 'can be able to apply for job posts' do
+        is_expected.to be_able_to(:manage, candidate_job)
+      end
+
+      it 'cannot be able to view the candidate list and delete an existing candidate' do
         is_expected.not_to be_able_to(:index, candidate)
         is_expected.not_to be_able_to(:delete, candidate)
+      end
+
+      it 'cannot manipulate job model' do
         is_expected.not_to be_able_to(:manage, job)
       end
     end

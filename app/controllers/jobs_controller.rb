@@ -2,7 +2,7 @@ class JobsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @jobs = Job.all
+    @jobs = Job.sorted_by_deadline
   end
 
   def new

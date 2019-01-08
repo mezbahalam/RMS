@@ -27,10 +27,10 @@ RSpec.describe PagesController, type: :controller do
 
     context 'when user is a candidate' do
       context 'and already has a profile created' do
-        it 'will render the index template' do
+        it 'will redirect to candidate jobs path' do
           sign_in_as user_1
           get :index, params: { id: candidate }
-          expect(response).to render_template :index
+          expect(response).to redirect_to candidate_jobs_path
         end
       end
 

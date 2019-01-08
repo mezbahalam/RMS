@@ -1,0 +1,21 @@
+<div class="apply page">
+  <%= link_to t('shared.all.back'), candidate_jobs_path %>
+  <div class="form-group">
+    <div class="container">
+      <h2><%= t('shared.all.online_app') %></h2>
+      <p><%= t('candidate.applicant') %>: <%= current_user.candidate.name %></p>
+      <p><%= t('job.title') %>: <%= @job.title %></p>
+      <%= simple_form_for @candidate_job, url: job_candidate_jobs_path do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :expected_salary,
+                    label: t('candidate_job.expected_salary'),
+                    placeholder: t('candidate_job.currency') %>
+          <% if @candidate_job.job_applied?(@candidate.id, @job.id) %>
+              <%= f.button :submit, t('job.already_apply'), disabled: true %>
+          <% else %>
+              <%= f.button :submit, t('job.apply') %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

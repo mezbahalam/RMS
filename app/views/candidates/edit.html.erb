@@ -1,48 +1,66 @@
 <div class ="candidate edit">
   <br />
-  <%= link_to t('shared.all.back'), pages_path %>
+  <%= link_to t('shared.all.back'), candidate_jobs_path %>
   <div class="form-group">
     <div class="container">
       <h2><%= t('candidate.update') %></h2>
       <%= simple_form_for @candidate do |f| %>
         <input id='step2' type='checkbox'>
         <input id='step3' type='checkbox'>
-        <div id="part1" class="form-group">
-          <h3><%= t('candidate.basic_info') %></h3>
-          <%= render 'form', f: f %>
-          <div class="nav_con_btn">
-            <div>
-              <label for='step2' id="continue-step2" class="continue">
-                <div class="btn-success"><%= t('shared.all.next') %></div>
-              </label>
+          <input id='step4' type='checkbox'>
+          <div id="part1" class="form-group">
+            <h3><%= t('candidate.basic_info') %></h3>
+            <%= render 'form', f: f %>
+            <div class="nav_con_btn">
+              <div>
+                <label for='step2' id="continue-step2" class="continue">
+                  <div class="btn-success"><%= t('shared.all.next') %></div>
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="part2" class="form-group">
-          <h3><%= t('candidate.prof_exp') %></h3>
-          <%= render 'experience', f: f %>
-          <div class="nav_btn">
-            <label for='step2' id="back-step2" class="back">
-              <div class="btn-back"><%= t('shared.all.prev') %></div>
-            </label>
-            <div>
-              <label for='step3' id="continue-step3" class="continue">
-                <div class="btn-success_both"><%= t('shared.all.next') %></div>
+
+          <div id="part2" class="form-group">
+            <h3><%= t('candidate.edu_profile') %></h3>
+            <%= render 'education', f: f %>
+            <div class="nav_btn">
+              <label for='step2' id="back-step2" class="back">
+                <div class="btn-back"><%= t('shared.all.prev') %></div>
               </label>
+              <div>
+                <label for='step3' id="continue-step3" class="continue">
+                  <div class="btn-success_both"><%= t('shared.all.next') %></div>
+                </label>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="part3" class="form-group">
-          <h3><%= t('candidate.additional_info') %></h3>
-          <%= render 'additionalinfo', f: f %>
-          <div class="nav_back_btn">
-            <div>
+
+          <div id="part3" class="form-group">
+            <h3><%= t('candidate.prof_exp') %></h3>
+            <%= render 'experience', f: f %>
+            <div class="nav_btn">
               <label for='step3' id="back-step3" class="back">
                 <div class="btn-back"><%= t('shared.all.prev') %></div>
               </label>
+              <div>
+                <label for='step4' id="continue-step4" class="continue">
+                  <div class="btn-success_both"><%= t('shared.all.next') %></div>
+                </label>
+              </div>
             </div>
           </div>
-        </div>
+
+          <div id="part4" class="form-group">
+            <h3><%= t('candidate.additional_info') %></h3>
+            <%= render 'additionalinfo', f: f %>
+            <div class="nav_back_btn">
+              <div>
+                <label for='step4' id="back-step4" class="back">
+                  <div class="btn-back"><%= t('shared.all.prev') %></div>
+                </label>
+              </div>
+            </div>
+          </div>
       <% end %>
     </div>
   </div>

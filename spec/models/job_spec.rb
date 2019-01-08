@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe Job, type: :model do
+RSpec.describe Job, type: :model do
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:description) }
 
@@ -18,7 +18,7 @@ describe Job, type: :model do
                         deadline: '2018-11-30'.to_date)
     end
 
-    subject { described_class.sorted }
+    subject { described_class.sorted_by_deadline }
     context 'sorted by deadline in ASC order' do
       it { is_expected.to eq([job_one, job_two]) }
     end

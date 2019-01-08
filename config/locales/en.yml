@@ -3,20 +3,32 @@ en:
   candidate:
     add: Create My Profile
     additional_info: Additional Information
+    age: Age
+    applicant: Applicant Name
     basic_info: Basic Information
     candidate_list: Candidate List
+    cgpa: CGPA
+    degree: Degree
     details: Candidate Details
     edit: Edit My Profile
+    edu_profile: Educational Background
+    inapproriate_dob: Inappropriate Date of Birth
     info: Fill out the form to create your profile
+    major: Major
     name: Candidate Name
     new: New Candidate Information
     notice_create: Record of '%{candidate_name}' created successfully!
     notice_delete: Record of '%{candidate_name}' deleted successfully!
     notice_edit: Record of '%{candidate_name}' updated successfully!
+    passing_year: Passing Year
     prof_exp: Professional Experience
+    uni_name: University Name
     update: Update Candidate Information
     view: View My Profile
     view_candidates: View Candidate List
+  candidate_job:
+    currency: BDT
+    expected_salary: Salary Expectation
   clearance:
     models:
       clearance_mailer:
@@ -30,11 +42,14 @@ en:
     confirm_your_email: Please confirm your email
     confirmed_email: Your email has been confirmed
   job:
+    already_apply: Applied Already
+    applied: Job Applied
+    apply: Apply Now
     date_issued: Date Issued
     deadline: Deadline
     description: Job Description
     details: Job details
-    list: Current Openings
+    list: Open Positions
     notice_create: Job created successfully!
     notice_delete: Job deleted successfully
     notice_edit: Job updated successfully!
@@ -99,6 +114,7 @@ en:
       middle_name: Middle Name
       next: Next Page
       not_avail: Not available
+      online_app: Online Application
       password: Password
       personal_int: Personal Interest(s)
       phone: Phone/Mobile No.
@@ -110,12 +126,18 @@ en:
       skill: Skills
       user_success: User profile updated successfully
       welcome: Welcome
+      years: years old
   simple_form:
+    error_notification:
+      default_message: 'Please review the problems below:'
     labels:
       job:
         deadline: Deadline
         description: Description
         title: Job Title
+    placeholders:
+      candidate:
+        email: userdomain.com
   user_mailer:
     sign_up_confirmation:
       closing_html: "<b>If you didn't request this, ignore this email.<b>"

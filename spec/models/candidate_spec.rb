@@ -1,9 +1,11 @@
 require 'rails_helper'
-describe Candidate, type: :model do
+RSpec.describe Candidate, type: :model do
   before{ Candidate.set_callback( :validation, :before, :delete_avatar)}
   it { is_expected.to belong_to(:user) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:email) }
+  it { is_expected.to validate_presence_of(:cgpa) }
+  it { is_expected.to validate_presence_of(:passing_year) }
   it { is_expected.to validate_presence_of(:skill) }
   it { is_expected.to validate_presence_of(:experience) }
   it { is_expected.to validate_presence_of(:user_id) }
@@ -45,7 +47,7 @@ describe Candidate, type: :model do
 
 
   describe 'scope' do
-    subject { described_class.sorted }
+    subject { described_class.sorted_by_experience }
     context 'sorted by experience in ASC order' do
       it { is_expected.to eq([candidate_two, candidate_one])}
     end
@@ -60,6 +62,9 @@ describe Candidate, type: :model do
       @candidate = Candidate.new(name: 'Sara',
                                  contact: '01792050217',
                                  email: 'somename@gmail.com',
+                                 dob: '1991-07-01'.to_date,
+                                 cgpa: 2.96,
+                                 passing_year: '2016',
                                  skill: 'c',
                                  experience: 1.5,
                                  personal_interest: 'reading',

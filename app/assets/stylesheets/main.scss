@@ -756,7 +756,7 @@ table tr td {
   }
 }
 
-.candidatejob.index {
+.candidatejob.index.applicant {
   height: 87rem;
 
   background: {
@@ -813,13 +813,93 @@ table tr td {
   }
 }
 
+.candidatejob.index.admin {
+  height: 78rem;
+
+  background: {
+    attachment: scroll;
+    image: asset-url('admin1.jpeg');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  h2 {
+    color: $darkred;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    color: $darkred;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 4rem;
+    text-align: center;
+  }
+
+
+  a {
+    padding-top: 2rem;
+    color: $darkred;
+    text-decoration: underline;
+    text-align: left;
+  }
+
+}
+
+.show_request.page {
+  height: 78rem;
+
+  background: {
+    attachment: scroll;
+    image: asset-url('show_request.jpeg');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  tr:hover {
+    background-color:$whitesmoke1;
+  }
+
+  h2 {
+    color: $darkred;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  a {
+    padding-top: 2rem;
+    color: $darkred;
+    text-decoration: underline;
+    text-align: left;
+  }
+}
+
 .admin.index {
-  height: 82rem;
+  height: 87rem;
   text-align: center;
 
   background: {
     attachment: scroll;
-    image: asset-url('admin.jpeg');
+    image: asset-url('admin2.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
@@ -835,6 +915,10 @@ table tr td {
   a {
     font-size: 1.6rem;
     text-decoration: underline;
+  }
+
+  .card {
+    padding-top: 2rem;
   }
 }
 

@@ -25,10 +25,15 @@ en:
     uni_name: University Name
     update: Update Candidate Information
     view: View My Profile
-    view_candidates: View Candidate List
+    view_candidates: View Applicant List
+    view_candidates_desc: This link will show you a list of all the applicants registered into the system
   candidate_job:
+    application: View Job Applications
+    application_desc: This link will show you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
+    number_applicants: No. of Applicants Applied
+    view_applicants: View Applicants
   clearance:
     models:
       clearance_mailer:
@@ -56,12 +61,14 @@ en:
     position: Position
     shared:
       add: Add New Job(s)
+      add_desc: This link will help you to add a new job application
       back: Back to Job List
-      back_admin: Back to Admin Hompage
+      back_admin: Back to Admin Homepage
       new: New Job Info
       update: Update Job Info
     title: Job Title
     view: View Job Posts
+    view_desc: This link will show you all job posts (old and new)
   layouts:
     application:
       copyright: Copyright

@@ -34,8 +34,8 @@ RSpec.describe Ability, type: :model do
         is_expected.not_to be_able_to(:edit, candidate)
       end
 
-      it 'cannot manage in applying job posts' do
-        is_expected.not_to be_able_to(:manage, candidate_job)
+      it 'cannot apply for any job posts' do
+        is_expected.not_to be_able_to(:create, candidate_job)
       end
     end
 
@@ -51,7 +51,8 @@ RSpec.describe Ability, type: :model do
       end
 
       it 'can be able to apply for job posts' do
-        is_expected.to be_able_to(:manage, candidate_job)
+        is_expected.to be_able_to(:index, candidate_job)
+        is_expected.to be_able_to(:create, candidate_job)
       end
 
       it 'cannot be able to view the candidate list and delete an existing candidate' do

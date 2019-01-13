@@ -1,8 +1,5 @@
 <div class="container">
 <%= link_to t('shared.all.back'), admins_path %>
-<% if can? :create, Job %>
-<h4><%= link_to t('job.shared.add'), new_job_path %></h4>
-<% end %>
 <h2><%= t('job.list') %></h2>
   <table class="table table-striped">
     <thead>

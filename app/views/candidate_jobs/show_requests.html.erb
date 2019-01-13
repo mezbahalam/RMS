@@ -1,0 +1,28 @@
+<div class="show_request page">
+  <br /><br />
+  <%= link_to t('shared.all.back'), candidate_jobs_path %>
+  <div id= "showname">
+    <h2><%= @job.title %></h2>
+  </div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th><%= t('candidate.applicant') %></th>
+      <th><%= t('candidate_job.expected_salary') %></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @candidate_jobs.each do |candidate_job| %>
+      <tr>
+        <td><%= candidate_job.candidate.name %>
+        <td><%= candidate_job.expected_salary %>
+        </td>
+        <td class="actions">
+          <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

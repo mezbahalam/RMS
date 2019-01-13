@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   resources :pages
   resources :candidates
   resources :jobs do
-    resources :candidate_jobs, except: [:index]
+    resources :candidate_jobs, except: [:index] do
+      collection do
+        get :show_requests
+      end
+    end
   end
   resources :admins
 

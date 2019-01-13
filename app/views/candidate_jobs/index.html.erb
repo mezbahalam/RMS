@@ -1,33 +1,54 @@
-<div class="candidatejob index">
-  <h2><%= t('shared.all.welcome') %><%= ' ' %><%= current_user.candidate.name %></h2>
-  <% @candidate = current_user.candidate %>
-  <% if current_user.candidate %>
-  <div class="page_nav">
-    <%= link_to t('candidate.view'), candidate_path(@candidate)%>  |
-    <%= link_to t('candidate.edit'), edit_candidate_path(@candidate) %>
-  </div>
-  <% end %>
-  <h3><%= t('job.list') %></h3>
-  <% @jobs.each do |job| %>
-    <% if job.deadline >= Date.today %>
-      <div class="card">
-        <div class="card-header"><%= raw(job.title) %></div>
-        <div class="card-body">
-          <p class="card-text">
-            <%= t('job.deadline') %>: <%= job.deadline.strftime('%b %d, %Y') %><br/>
-            <%= link_to t('shared.all.show'), job_path(job, candidate_id: @candidate.id), class: 'btn btn-primary' %>
-            <% if CandidateJob.exists?(candidate_id: @candidate.id, job_id: job.id) %>
-                <%= t('job.already_apply') %>
-            <% else %>
-                <% if can? :create, CandidateJob %>
-                    <%= link_to t('job.apply'),
-                                new_job_candidate_job_path(job_id: job.id),
-                                class: 'btn btn-primary' %>
-                <% end %>
-            <% end %>
-          </p>
-        </div>
-      </div>
+<% if current_user.applicant? %>
+  <div class="candidatejob index applicant">
+    <h2><%= t('shared.all.welcome') %><%= ' ' %><%= current_user.candidate.name %></h2>
+    <% @candidate = current_user.candidate %>
+    <% if current_user.candidate %>
+    <div class="page_nav">
+      <%= link_to t('candidate.view'), candidate_path(@candidate)%>  |
+      <%= link_to t('candidate.edit'), edit_candidate_path(@candidate) %>
+    </div>
     <% end %>
-  <% end %>
-</div>
+    <h3><%= t('job.list') %></h3>
+    <% @jobs.each do |job| %>
+      <% if job.deadline >= Date.today %>
+        <div class="card">
+          <div class="card-header"><%= raw(job.title) %></div>
+          <div class="card-body">
+            <p class="card-text">
+              <%= t('job.deadline') %>: <%= job.deadline.strftime('%b %d, %Y') %><br/>
+              <%= link_to t('shared.all.show'), job_path(job, candidate_id: @candidate.id), class: 'btn btn-primary' %>
+              <% if CandidateJob.exists?(candidate_id: @candidate.id, job_id: job.id) %>
+                  <%= t('job.already_apply') %>
+              <% else %>
+                  <% if can? :create, CandidateJob %>
+                      <%= link_to t('job.apply'),
+                                  new_job_candidate_job_path(job_id: job.id),
+                                  class: 'btn btn-primary' %>
+                  <% end %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <div class="candidatejob index admin">
+    <h4><%= link_to t('job.shared.back_admin'), admins_path %></h4>
+    <table class="listing" summary="Candidate List">
+      <tr class="header">
+        <th class="center"><%=t('job.title')%></th>
+        <th class="center"><%=t('candidate_job.number_applicants')%></th>
+      </tr>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= job.title %></td>
+          <td><%= job.candidates.size %></td>
+          <td class="actions">
+            <%= link_to t('candidate_job.view_applicants'), show_requests_job_candidate_jobs_path(job.id) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

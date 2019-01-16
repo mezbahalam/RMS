@@ -18,7 +18,7 @@
       <div class="card-body">
         <h5 class="card-title">
           <% if can? :create, Job %>
-              <%= link_to t('job.shared.add'), new_job_path %>
+            <%= link_to t('job.shared.add'), new_job_path %>
           <% end %>
         </h5>
         <p class="card-text"><%= t('job.shared.add_desc') %></p>

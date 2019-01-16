@@ -843,15 +843,15 @@ table tr td {
 
 
   a {
-    padding-top: 2rem;
     color: $darkred;
-    text-decoration: underline;
+    padding-top: 2rem;
     text-align: left;
+    text-decoration: underline;
   }
 
 }
 
-.show_request.page {
+.show-request.page {
   height: 78rem;
 
   background: {
@@ -867,14 +867,15 @@ table tr td {
     width: 100%;
   }
 
-  th, td {
-    border-bottom: 1px solid #ddd;
+  th,
+  td {
+    border-bottom: 1px solid $light-gray;
     padding: 1rem;
     text-align: center;
   }
 
   tr:hover {
-    background-color:$whitesmoke1;
+    background-color: $whitesmoke1;
   }
 
   h2 {
@@ -886,10 +887,10 @@ table tr td {
   }
 
   a {
-    padding-top: 2rem;
     color: $darkred;
-    text-decoration: underline;
+    padding-top: 2rem;
     text-align: left;
+    text-decoration: underline;
   }
 }
 

@@ -814,8 +814,6 @@ table tr td {
 }
 
 .candidatejob.index.admin {
-  height: 78rem;
-
   background: {
     attachment: scroll;
     image: asset-url('admin1.jpeg');
@@ -823,6 +821,8 @@ table tr td {
     repeat: no-repeat;
     size: cover;
   }
+
+  height: 78rem;
 
   h2 {
     color: $darkred;
@@ -852,8 +852,6 @@ table tr td {
 }
 
 .show-request.page {
-  height: 78rem;
-
   background: {
     attachment: scroll;
     image: asset-url('show_request.jpeg');
@@ -861,6 +859,8 @@ table tr td {
     repeat: no-repeat;
     size: cover;
   }
+
+  height: 78rem;
 
   table {
     border-collapse: collapse;
@@ -895,9 +895,6 @@ table tr td {
 }
 
 .admin.index {
-  height: 87rem;
-  text-align: center;
-
   background: {
     attachment: scroll;
     image: asset-url('admin2.jpeg');
@@ -905,6 +902,9 @@ table tr td {
     repeat: no-repeat;
     size: cover;
   }
+
+  height: 87rem;
+  text-align: center;
 
   h2 {
     margin-bottom: 1rem;

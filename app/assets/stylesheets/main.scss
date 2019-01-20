@@ -1030,12 +1030,6 @@ table tr td {
     repeat: repeat;
     size: cover;
   }
-
-  a {
-    color: $white;
-    text-decoration: underline;
-  }
-
   color: $white;
   font-size: 1.6rem;
   height: 100rem;
@@ -1049,6 +1043,11 @@ table tr td {
   }
 
   text-align: left;
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
 }
 
 .tab {

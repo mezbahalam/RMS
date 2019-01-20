@@ -1023,18 +1023,17 @@ table tr td {
 }
 
 .job-new {
-
-  a {
-    color: $white;
-    text-decoration: underline;
-  }
-
   background: {
     attachment: scroll;
     image: asset-url('new_job.jpeg');
     position: center;
     repeat: repeat;
     size: cover;
+  }
+
+  a {
+    color: $white;
+    text-decoration: underline;
   }
 
   color: $white;

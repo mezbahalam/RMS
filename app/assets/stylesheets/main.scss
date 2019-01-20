@@ -996,6 +996,18 @@ table tr td {
   }
 }
 
+.job-index {
+  background: {
+    attachment: scroll;
+    image: asset-url('job_index.jpeg');
+    position: center;
+    repeat: repeat;
+    size: cover;
+  }
+
+  height: 82rem;
+}
+
 .job-show {
 
   background: {
@@ -1007,6 +1019,36 @@ table tr td {
   }
 
   height: 100rem;
+  text-align: left;
+}
+
+.job-new {
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
+
+  background: {
+    attachment: scroll;
+    image: asset-url('new_job.jpeg');
+    position: center;
+    repeat: repeat;
+    size: cover;
+  }
+
+  color: $white;
+  font-size: 1.6rem;
+  height: 100rem;
+
+  input.btn.btn-primary {
+    margin-left: 50rem;
+  }
+
+  label {
+    padding-right: 2rem;
+  }
+
   text-align: left;
 }
 

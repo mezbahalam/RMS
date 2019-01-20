@@ -1,6 +1,6 @@
 <div class="candidate index">
   <h2><%=t('candidate.candidate_list')%></h2>
-  <%= link_to t('shared.all.back'), admins_path %>
+  <%= link_to t('job.shared.back_admin'), admins_path %>
   <div class = "image">
     <% if can? :create, Candidate %>
     <%= link_to t('candidate.add'), new_candidate_path %>

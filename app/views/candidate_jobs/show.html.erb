@@ -14,14 +14,14 @@
     </thead>
     <tbody>
     <% @candidate_jobs.each do |candidate_job| %>
-      <tr>
-        <td><%= candidate_job.candidate.name %>
-        <td><%= candidate_job.expected_salary %>
-        </td>
-        <td class="actions">
-          <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %>
-        </td>
-      </tr>
+        <tr>
+          <td><%= candidate_job.candidate.name %>
+          <td><%= candidate_job.expected_salary %>
+          </td>
+          <td class="actions">
+            <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %>
+          </td>
+        </tr>
     <% end %>
     </tbody>
   </table>

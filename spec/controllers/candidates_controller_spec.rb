@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe CandidatesController, type: :controller do
   let!(:user) { FactoryBot.create(:user, role: :applicant) }
   let!(:user_1) { FactoryBot.create(:user, role: :admin) }
-  let!(:candidate_1) { FactoryBot.create(:candidate) }
+  let!(:candidate_1) { FactoryBot.create(:candidate, user_id: user.id) }
 
   describe '#check_if_email_confirmed' do
     context 'when email is not confirmed yet' do

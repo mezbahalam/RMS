@@ -13,8 +13,9 @@ class Ability
       can :read, Job
       cannot %i(index edit create delete), Job
       cannot :index, AdminsController
-      can %i(index create), CandidateJob
-      cannot :show_requests, CandidateJob
+      can :index, CandidateJob
+      can :create, CandidateJob, candidate: user.candidate
+      cannot :show, CandidateJob
     end
   end
 end

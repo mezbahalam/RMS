@@ -45,7 +45,7 @@
           <td><%= job.title %></td>
           <td><%= job.candidates.size %></td>
           <td class="actions">
-            <%= link_to t('candidate_job.view_applicants'), show_requests_job_candidate_jobs_path(job.id) %>
+            <%= link_to t('candidate_job.view_applicants'), show_requests_path(job.id) %>
           </td>
         </tr>
       <% end %>

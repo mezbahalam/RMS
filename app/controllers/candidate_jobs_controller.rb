@@ -7,7 +7,7 @@ class CandidateJobsController < ApplicationController
     @jobs = Job.sorted_by_deadline
   end
 
-  def show_requests
+  def show
     @candidate_jobs = @job.candidate_jobs
   end
 

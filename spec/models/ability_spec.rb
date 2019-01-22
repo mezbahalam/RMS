@@ -79,9 +79,15 @@ RSpec.describe Ability, type: :model do
     context 'Candidate Job' do
       subject { instance }
 
+      let(:second_user) do
+        FactoryBot.create(:user, role: :applicant)
+      end
+
+      let(:second_candidate) { FactoryBot.create(:candidate, user_id: second_user.id) }
+
       let(:another_candidate_job) do
         FactoryBot.build(:candidate_job,
-                         candidate: other_candidate )
+                         id: candidate_job.id, candidate: second_candidate)
       end
 
       it { is_expected.to be_able_to(:index, candidate_job) }

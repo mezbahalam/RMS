@@ -44,11 +44,8 @@ RSpec.describe Ability, type: :model do
       FactoryBot.create(:user, role: :applicant)
     end
 
-    subject { described_class.new(user) }
-
     let(:first_candidate) { FactoryBot.create(:candidate, user_id: user.id) }
-    let(:second_candidate) { FactoryBot.create(:candidate,
-                                               id: first_candidate.id + 1) }
+    let(:second_candidate) { FactoryBot.create(:candidate, id: first_candidate.id + 1) }
 
     let(:candidate_job) do
       FactoryBot.build(:candidate_job,
@@ -58,8 +55,11 @@ RSpec.describe Ability, type: :model do
 
     let(:another_candidate_job) do
       FactoryBot.build(:candidate_job,
-                       id: candidate_job.id, candidate: second_candidate)
+                       id: candidate_job.id,
+                       candidate: second_candidate)
     end
+
+    subject { described_class.new(user) }
 
     context 'Candidate' do
       it { is_expected.to be_able_to(:show, first_candidate) }

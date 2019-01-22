@@ -2,6 +2,10 @@ require 'spec_helper'
 require 'cancan/matchers'
 
 RSpec.describe Ability, type: :model do
+  let(:user) do
+    FactoryBot.create(:user, role: :admin)
+  end
+
   let(:job) do
     FactoryBot.create(:job,
                       title: 'junior_software_engineer',
@@ -10,12 +14,7 @@ RSpec.describe Ability, type: :model do
   end
 
   describe 'Admin Abilities' do
-    let(:instance) { Ability.new(user) }
-    subject { instance }
-
-    let(:user) do
-      FactoryBot.create(:user, role: :admin)
-    end
+    subject { described_class.new(user) }
 
     let(:candidate) { FactoryBot.create(:candidate, user_id: user.id) }
 
@@ -41,18 +40,15 @@ RSpec.describe Ability, type: :model do
   end
 
   describe 'Applicant Abilities' do
-    let(:instance) { Ability.new(first_user) }
-
-    let(:first_user) do
+    let(:user) do
       FactoryBot.create(:user, role: :applicant)
     end
 
-    let(:first_candidate) { FactoryBot.create(:candidate, user_id: first_user.id) }
+    subject { described_class.new(user) }
 
-    let(:other_candidate) do
-      FactoryBot.create(:candidate,
-                        id: first_candidate.id + 1)
-    end
+    let(:first_candidate) { FactoryBot.create(:candidate, user_id: user.id) }
+    let(:second_candidate) { FactoryBot.create(:candidate,
+                                               id: first_candidate.id + 1) }
 
     let(:candidate_job) do
       FactoryBot.build(:candidate_job,
@@ -60,36 +56,26 @@ RSpec.describe Ability, type: :model do
                        expected_salary: '40000')
     end
 
+    let(:another_candidate_job) do
+      FactoryBot.build(:candidate_job,
+                       id: candidate_job.id, candidate: second_candidate)
+    end
+
     context 'Candidate' do
-      subject { instance }
       it { is_expected.to be_able_to(:show, first_candidate) }
       it { is_expected.to be_able_to(:create, first_candidate) }
       it { is_expected.to be_able_to(:update, first_candidate) }
-      it { is_expected.not_to be_able_to(:show, other_candidate) }
-      it { is_expected.not_to be_able_to(:update, other_candidate) }
+      it { is_expected.not_to be_able_to(:show, second_candidate) }
+      it { is_expected.not_to be_able_to(:update, second_candidate) }
       it { is_expected.not_to be_able_to(:index, first_candidate) }
       it { is_expected.not_to be_able_to(:delete, first_candidate) }
     end
 
     context 'Job' do
-      subject { instance }
       it { is_expected.not_to be_able_to(:manage, job) }
     end
 
     context 'Candidate Job' do
-      subject { instance }
-
-      let(:second_user) do
-        FactoryBot.create(:user, role: :applicant)
-      end
-
-      let(:second_candidate) { FactoryBot.create(:candidate, user_id: second_user.id) }
-
-      let(:another_candidate_job) do
-        FactoryBot.build(:candidate_job,
-                         id: candidate_job.id, candidate: second_candidate)
-      end
-
       it { is_expected.to be_able_to(:index, candidate_job) }
       it { is_expected.to be_able_to(:create, candidate_job) }
       it { is_expected.not_to be_able_to(:create, another_candidate_job) }

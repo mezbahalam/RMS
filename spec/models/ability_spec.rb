@@ -52,9 +52,9 @@ RSpec.describe Ability, type: :model do
 
       let(:another_candidate_job) do
         FactoryBot.build(:candidate_job,
-                          candidate_id: candidate1.id,
-                          job_id: job.id,
-                          expected_salary: '20000')
+                         candidate_id: candidate1.id,
+                         job_id: job.id,
+                         expected_salary: '20000')
       end
 
       it 'Applicant can create, edit, and view details of ones profile' do

@@ -1,38 +1,37 @@
-<div class="container">
-<%= link_to t('shared.all.back'), admins_path %>
-<% if can? :create, Job %>
-<h4><%= link_to t('job.shared.add'), new_job_path %></h4>
-<% end %>
-<h2><%= t('job.list') %></h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th><%= t('job.position') %></th>
-      <th><%= t('job.date_issued') %></th>
-      <th><%= t('job.deadline') %></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @jobs.each do |job| %>
+<div class="job-index">
+  <div class="container">
+    <%= link_to t('job.shared.back_admin'), admins_path %>
+    <h2><%= t('job.list') %></h2>
+    <table class="table table-striped">
+      <thead>
       <tr>
-        <td><%= raw(job.title) %></td>
-        <td><%= job.created_at.strftime('%b %d, %Y') %></td>
-        <td><%= job.deadline.strftime('%b %d, %Y') %></td>
-        <td>
-          <% if can? :read, Job %>
-          <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
-          <% end %>
-          <% if can? :edit, Job %>
-          <%= link_to t('shared.all.edit'), edit_job_path(job), class: 'btn btn-default' %>
-          <% end %>
-          <% if can? :delete, Job %>
-          <%= link_to t('shared.all.delete'), job_path(job), class: 'btn btn-danger', method: :delete,
-                      data: { confirm: t('shared.all.confirm_delete') } %>
-          <% end %>
-        </td>
+        <th><%= t('job.position') %></th>
+        <th><%= t('job.date_issued') %></th>
+        <th><%= t('job.deadline') %></th>
+        <th></th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <% @jobs.each do |job| %>
+        <tr>
+          <td><%= raw(job.title) %></td>
+          <td><%= job.created_at.strftime('%b %d, %Y') %></td>
+          <td><%= job.deadline.strftime('%b %d, %Y') %></td>
+          <td>
+            <% if can? :read, Job %>
+                <%= link_to t('shared.all.show'), job_path(job), class: 'btn btn-primary' %>
+            <% end %>
+            <% if can? :edit, Job %>
+                <%= link_to t('shared.all.edit'), edit_job_path(job), class: 'btn btn-default' %>
+            <% end %>
+            <% if can? :delete, Job %>
+                <%= link_to t('shared.all.delete'), job_path(job), class: 'btn btn-danger', method: :delete,
+                            data: { confirm: t('shared.all.confirm_delete') } %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

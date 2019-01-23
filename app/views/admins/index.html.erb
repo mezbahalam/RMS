@@ -1,6 +1,34 @@
 <div class="admin index">
-  <h2><%= t('shared.all.welcome') %><%= ' ' %><%= current_user.first_name %></h2>
-  <%= link_to t('candidate.view_candidates'), candidates_path %> |
-  <%= link_to t('job.view'), jobs_path %> |
-  <%= link_to t('job.shared.add'), new_job_path %>
+  <h2><%= t('shared.all.welcome') %><%= ' ' %><%= current_user.first_name %> <%= current_user.last_name %></h2>
+  <br /><br/>
+  <div class="card-deck">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to t('candidate.view_candidates'), candidates_path %></h5>
+        <p class="card-text"><%=  t('candidate.view_candidates_desc') %></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to t('job.view'), jobs_path %></h5>
+        <p class="card-text"><%= t('job.view_desc') %></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">
+          <% if can? :create, Job %>
+            <%= link_to t('job.shared.add'), new_job_path %>
+          <% end %>
+        </h5>
+        <p class="card-text"><%= t('job.shared.add_desc') %></p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to t('candidate_job.application'), candidate_jobs_path %></h5>
+        <p class="card-text"><%= t('candidate_job.application_desc') %></p>
+      </div>
+    </div>
+  </div>
 </div>

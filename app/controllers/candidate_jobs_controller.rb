@@ -7,6 +7,10 @@ class CandidateJobsController < ApplicationController
     @jobs = Job.sorted_by_deadline
   end
 
+  def show
+    @candidate_jobs = @job.candidate_jobs
+  end
+
   def new; end
 
   def create

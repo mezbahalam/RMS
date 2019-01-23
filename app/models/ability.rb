@@ -7,13 +7,15 @@ class Ability
     if user.admin?
       can :manage, :all
       cannot %i(edit create), Candidate
-      cannot :manage, CandidateJob
+      cannot :create, CandidateJob
     elsif user.applicant?
-      can %i(create update show), Candidate
+      can %i(create update show), Candidate, user_id: user.id
       can :read, Job
       cannot %i(index edit create delete), Job
       cannot :index, AdminsController
-      can :manage, CandidateJob
+      can :index, CandidateJob
+      can :create, CandidateJob, candidate: user.candidate
+      cannot :show, CandidateJob
     end
   end
 end

@@ -726,6 +726,7 @@ table tr td {
   a {
     color: $white;
     margin-left: 2rem;
+    text-decoration: underline;
   }
 }
 
@@ -756,7 +757,7 @@ table tr td {
   }
 }
 
-.candidatejob.index {
+.candidatejob.index.applicant {
   height: 87rem;
 
   background: {
@@ -813,17 +814,98 @@ table tr td {
   }
 }
 
-.admin.index {
-  height: 82rem;
-  text-align: center;
-
+.candidatejob.index.admin {
   background: {
     attachment: scroll;
-    image: asset-url('admin.jpeg');
+    image: asset-url('admin1.jpeg');
     position: center;
     repeat: no-repeat;
     size: cover;
   }
+
+  height: 78rem;
+
+  h2 {
+    color: $darkred;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  h3 {
+    color: $darkred;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 4rem;
+    text-align: center;
+  }
+
+
+  a {
+    color: $darkred;
+    padding-top: 2rem;
+    text-align: left;
+    text-decoration: underline;
+  }
+
+}
+
+.show-request.page {
+  background: {
+    attachment: scroll;
+    image: asset-url('show_request.jpeg');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  height: 78rem;
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $light-gray;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  tr:hover {
+    background-color: $whitesmoke1;
+  }
+
+  h2 {
+    color: $darkred;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  a {
+    color: $darkred;
+    padding-top: 2rem;
+    text-align: left;
+    text-decoration: underline;
+  }
+}
+
+.admin.index {
+  background: {
+    attachment: scroll;
+    image: asset-url('admin2.jpeg');
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+  }
+
+  height: 87rem;
+  text-align: center;
 
   h2 {
     margin-bottom: 1rem;
@@ -835,6 +917,10 @@ table tr td {
   a {
     font-size: 1.6rem;
     text-decoration: underline;
+  }
+
+  .card {
+    padding-top: 2rem;
   }
 }
 
@@ -911,6 +997,18 @@ table tr td {
   }
 }
 
+.job-index {
+  background: {
+    attachment: scroll;
+    image: asset-url('job_index.jpeg');
+    position: center;
+    repeat: repeat;
+    size: cover;
+  }
+
+  height: 82rem;
+}
+
 .job-show {
 
   background: {
@@ -923,6 +1021,34 @@ table tr td {
 
   height: 100rem;
   text-align: left;
+}
+
+.job-new {
+  background: {
+    attachment: scroll;
+    image: asset-url('new_job.jpeg');
+    position: center;
+    repeat: repeat;
+    size: cover;
+  }
+
+  color: $white;
+  font-size: 1.6rem;
+  height: 100rem;
+  text-align: left;
+
+  input.btn.btn-primary {
+    margin-left: 50rem;
+  }
+
+  label {
+    padding-right: 2rem;
+  }
+
+  a {
+    color: $white;
+    text-decoration: underline;
+  }
 }
 
 .tab {

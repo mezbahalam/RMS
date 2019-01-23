@@ -6,7 +6,6 @@ RSpec.describe Ability, type: :model do
     FactoryBot.create(:user, role: :admin)
   end
 
-  let(:candidate) { FactoryBot.create(:candidate, user_id: user.id) }
   let(:job) do
     FactoryBot.create(:job,
                       title: 'junior_software_engineer',
@@ -14,54 +13,73 @@ RSpec.describe Ability, type: :model do
                       deadline: '2018-11-28'.to_date)
   end
 
-  let(:candidate_job) do
-    FactoryBot.create(:candidate_job,
-                      candidate_id: candidate.id,
-                      job_id: job.id,
-                      expected_salary: '20000')
-  end
+  describe 'Admin Abilities' do
+    subject { described_class.new(user) }
 
-  let(:instance) { Ability.new(user) }
-  subject { instance }
+    let(:candidate) { FactoryBot.create(:candidate, user_id: user.id) }
 
-  describe 'Abilities' do
-    context 'Admin Abilities' do
-      it 'admin can manage all' do
-        is_expected.to be_able_to(:manage, :all)
-      end
-      it 'cannot be able to create, edit an existing candidate' do
-        is_expected.not_to be_able_to(:create, candidate)
-        is_expected.not_to be_able_to(:edit, candidate)
-      end
-
-      it 'cannot manage in applying job posts' do
-        is_expected.not_to be_able_to(:manage, candidate_job)
-      end
+    let(:candidate_job) do
+      FactoryBot.create(:candidate_job,
+                        candidate_id: candidate.id,
+                        job_id: job.id,
+                        expected_salary: '20000')
     end
 
-    context 'Applicant Abilities' do
-      let(:user) do
-        FactoryBot.create(:user, role: :applicant)
-      end
+    context 'Manage all' do
+      it { is_expected.to be_able_to(:manage, :all) }
+    end
 
-      it 'Applicant can create, edit, and view details of ones profile' do
-        is_expected.to be_able_to(:show, candidate)
-        is_expected.to be_able_to(:create, candidate)
-        is_expected.to be_able_to(:update, candidate)
-      end
+    context 'Candidate' do
+      it { is_expected.not_to be_able_to(:create, candidate) }
+      it { is_expected.not_to be_able_to(:edit, candidate) }
+    end
 
-      it 'can be able to apply for job posts' do
-        is_expected.to be_able_to(:manage, candidate_job)
-      end
+    context 'Candidate Job' do
+      it { is_expected.not_to be_able_to(:create, candidate_job) }
+    end
+  end
 
-      it 'cannot be able to view the candidate list and delete an existing candidate' do
-        is_expected.not_to be_able_to(:index, candidate)
-        is_expected.not_to be_able_to(:delete, candidate)
-      end
+  describe 'Applicant Abilities' do
+    let(:user) do
+      FactoryBot.create(:user, role: :applicant)
+    end
 
-      it 'cannot manipulate job model' do
-        is_expected.not_to be_able_to(:manage, job)
-      end
+    let(:first_candidate) { FactoryBot.create(:candidate, user_id: user.id) }
+    let(:second_candidate) { FactoryBot.create(:candidate, id: first_candidate.id + 1) }
+
+    let(:candidate_job) do
+      FactoryBot.build(:candidate_job,
+                       job_id: job.id,
+                       expected_salary: '40000')
+    end
+
+    let(:another_candidate_job) do
+      FactoryBot.build(:candidate_job,
+                       id: candidate_job.id,
+                       candidate: second_candidate)
+    end
+
+    subject { described_class.new(user) }
+
+    context 'Candidate' do
+      it { is_expected.to be_able_to(:show, first_candidate) }
+      it { is_expected.to be_able_to(:create, first_candidate) }
+      it { is_expected.to be_able_to(:update, first_candidate) }
+      it { is_expected.not_to be_able_to(:show, second_candidate) }
+      it { is_expected.not_to be_able_to(:update, second_candidate) }
+      it { is_expected.not_to be_able_to(:index, first_candidate) }
+      it { is_expected.not_to be_able_to(:delete, first_candidate) }
+    end
+
+    context 'Job' do
+      it { is_expected.not_to be_able_to(:manage, job) }
+    end
+
+    context 'Candidate Job' do
+      it { is_expected.to be_able_to(:index, candidate_job) }
+      it { is_expected.to be_able_to(:create, candidate_job) }
+      it { is_expected.not_to be_able_to(:create, another_candidate_job) }
+      it { is_expected.not_to be_able_to(:show, candidate_job) }
     end
   end
 end

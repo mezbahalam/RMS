@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   resources :pages
   resources :candidates
   resources :jobs do
-    resources :candidate_jobs, except: [:index]
+    resources :candidate_jobs, except: %i(index show) do
+    end
   end
   resources :admins
 
   get '/candidate_jobs', controller: :candidate_jobs, action: :index
+  get '/candidate_jobs/show/:job_id' => 'candidate_jobs#show', :as => :show_requests
 end

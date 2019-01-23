@@ -1035,6 +1035,7 @@ table tr td {
   color: $white;
   font-size: 1.6rem;
   height: 100rem;
+  text-align: left;
 
   input.btn.btn-primary {
     margin-left: 50rem;
@@ -1043,8 +1044,6 @@ table tr td {
   label {
     padding-right: 2rem;
   }
-
-  text-align: left;
 
   a {
     color: $white;

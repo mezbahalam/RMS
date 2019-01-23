@@ -45,7 +45,7 @@ RSpec.describe Ability, type: :model do
     end
 
     let(:first_candidate) { FactoryBot.create(:candidate, user_id: user.id) }
-    let(:second_candidate) { FactoryBot.create(:candidate, id: first_candidate.id + 1)}
+    let(:second_candidate) { FactoryBot.create(:candidate, id: first_candidate.id + 1) }
 
     let(:candidate_job) do
       FactoryBot.build(:candidate_job,

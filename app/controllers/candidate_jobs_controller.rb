@@ -8,7 +8,7 @@ class CandidateJobsController < ApplicationController
   end
 
   def show
-    @candidate_jobs = @job.candidate_jobs
+    @candidate_jobs = @job.candidate_jobs.page(params[:page])
   end
 
   def new; end

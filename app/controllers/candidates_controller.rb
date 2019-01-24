@@ -4,7 +4,7 @@ class CandidatesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @candidates = Candidate.sorted_by_experience
+    @candidates = Candidate.sorted_by_experience.page(params[:page])
   end
 
   def new

@@ -4,20 +4,36 @@
   <div id= "showname">
     <h2><%= @job.title %></h2>
   </div>
-  <table class="table table-hover">
+  <div class="filters">
+    <h5><%= t('shared.all.search_filter') %></h5>
+    <i class="fas fa-filter"></i><input type="text" id="myInput1" onkeyup="SkillSearch()" placeholder="Search for skills.." >
+    <i class="fas fa-filter"></i><input type="number" id="myInput2" step=".01" onkeyup="CGPASearch()" placeholder="Search for cgpa.." >
+    <i class="fas fa-filter"></i><input type="text" id="myInput4" onkeyup="UniSearch()" placeholder="Search for University.." >
+    <i class="fas fa-filter"></i><input type="number" id="myInput5" onkeyup="SalarySearch()" placeholder="Search for Expected Salary.." >
+    <br /><br />
+    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min" onkeyup="MinExpSearch()" placeholder="Enter min experience..">
+    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max" onkeyup="MaxExpSearch()" placeholder="Enter max experience.">
+  </div>
+  <table class="table table-hover" id="myTable">
     <thead>
     <tr>
       <th><%= t('candidate.applicant') %></th>
+      <th><%= t('candidate.cgpa') %></th>
+      <th><%= t('candidate.uni_name') %></th>
+      <th><%= t('candidate.prof_exp') %></th>
+      <th><%= t('shared.all.skill') %></th>
       <th><%= t('candidate_job.expected_salary') %></th>
-      <th></th>
     </tr>
     </thead>
     <tbody>
     <% @candidate_jobs.each do |candidate_job| %>
       <tr>
-        <td><%= candidate_job.candidate.name %>
-        <td><%= candidate_job.expected_salary %>
-        </td>
+        <td><%= candidate_job.candidate.name %></td>
+        <td><%= candidate_job.candidate.cgpa %></td>
+        <td><%= candidate_job.candidate.university_name %></td>
+        <td><%= candidate_job.candidate.experience %></td>
+        <td><%= candidate_job.candidate.skill %></td>
+        <td><%= candidate_job.expected_salary %></td>
         <td class="actions">
           <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %>
         </td>
@@ -26,4 +42,5 @@
     </tbody>
     <%= paginate @candidate_jobs %>
   </table>
+  <br />
 </div>

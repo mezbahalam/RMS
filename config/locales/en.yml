@@ -33,6 +33,9 @@ en:
     application_desc: This link will show you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
+    filter: Filter Now
+    max: To
+    min: From
     number_applicants: No. of Applicants Applied
     view_applicants: View Applicants
   clearance:
@@ -129,6 +132,7 @@ en:
       plan: Long Term Plan
       prev: Previous Page
       refer: Referrals
+      search_filter: Use Filters to narrow your search
       show: Show Details
       sign_up_terms: By signing up, I accept the Terms & Privacy policies
       skill: Skills

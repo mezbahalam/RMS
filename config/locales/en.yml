@@ -33,7 +33,6 @@ en:
     application_desc: This link will show you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
-    filter: Filter Now
     max: To
     min: From
     number_applicants: No. of Applicants Applied

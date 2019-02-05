@@ -123,7 +123,7 @@ function UniSearch() {
     }
 }
 
-function SalarySearch() {
+function MinSalarySearch() {
     var input, firstInput, filter, table, rows, k;
     input = parseInt(document.getElementById("myInput5").value);
     firstInput = document.getElementById("myInput2");
@@ -137,6 +137,35 @@ function SalarySearch() {
         if (cell)
         {
             if (input > cell) {
+                rows[k].style.display = "none";
+            } else {
+                rows[k].style.display = "";
+            }
+        } else {
+            var txtValue = td.textContent || td.innerText;
+            if (txtValue.indexOf(filter) > -1) {
+                rows[k].style.display = "";
+            } else {
+                rows[k].style.display = "none";
+            }
+        }
+    }
+}
+
+function MaxSalarySearch() {
+    var maxInput, minInput, firstInput, filter, table, rows, k;
+    maxInput = parseInt(document.getElementById("myInput6").value);
+    firstInput = document.getElementById("myInput2");
+    filter = firstInput.value;
+    table = document.getElementById("myTable");
+    rows = table.rows;
+    var tr = table.getElementsByTagName("tr");
+    for ( k = 1; k< rows.length; k++) {
+        var cell = rows[k].cells[5].innerText;
+        var td = tr[k].getElementsByTagName("td")[5];
+        if (cell)
+        {
+            if (maxInput < cell) {
                 rows[k].style.display = "none";
             } else {
                 rows[k].style.display = "";

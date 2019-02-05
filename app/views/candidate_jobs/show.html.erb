@@ -9,7 +9,8 @@
     <i class="fas fa-filter"></i><input type="text" id="myInput1" onkeyup="SkillSearch()" placeholder="Search for skills.." >
     <i class="fas fa-filter"></i><input type="number" id="myInput2" step=".01" onkeyup="CGPASearch()" placeholder="Search for cgpa.." >
     <i class="fas fa-filter"></i><input type="text" id="myInput4" onkeyup="UniSearch()" placeholder="Search for University.." >
-    <i class="fas fa-filter"></i><input type="number" id="myInput5" onkeyup="SalarySearch()" placeholder="Search for Expected Salary.." >
+    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" id="myInput5" onkeyup="MinSalarySearch()" placeholder="Search for Min Expected Salary.." >
+    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" id="myInput6" onkeyup="MaxSalarySearch()" placeholder="Search for Max Expected Salary.." >
     <br /><br />
     <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min" onkeyup="MinExpSearch()" placeholder="Enter min experience..">
     <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max" onkeyup="MaxExpSearch()" placeholder="Enter max experience.">

@@ -148,9 +148,8 @@ function MinSalarySearch() {
 }
 
 function MaxSalarySearch() {
-    var maxInput, minInput, firstInput, filter, table, rows, k;
+    var maxInput, firstInput, filter, table, rows, k;
     maxInput = parseInt(document.getElementById("myInput6").value);
-    minInput = parseInt(document.getElementById("myInput5").value);
     firstInput = document.getElementById("myInput2");
     filter = firstInput.value;
     table = document.getElementById("myTable");

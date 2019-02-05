@@ -34,7 +34,11 @@ en:
     currency: BDT
     expected_salary: Salary Expectation
     max: To
+    max_exp: Max-Experience
+    max_salary: Max-Salary
     min: From
+    min_exp: Min-Experience
+    min_salary: Min-Salary
     number_applicants: No. of Applicants Applied
     view_applicants: View Applicants
   clearance:

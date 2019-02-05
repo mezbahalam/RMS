@@ -1,18 +1,17 @@
 function SkillSearch() {
-    var input, filter, table, tr, td, i, txtValue;
+    var input, filter, table, row, cell, i, txtValue;
     input = document.getElementById("myInput1");
     filter = input.value.toUpperCase();
-    console.log(filter);
     table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[4];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
+    row = table.getElementsByTagName("tr");
+    for (i = 0; i < row.length; i++) {
+        cell = row[i].getElementsByTagName("td")[4];
+        if (cell) {
+            txtValue = cell.textContent;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
+                row[i].style.display = "";
             } else {
-                tr[i].style.display = "none";
+                row[i].style.display = "none";
             }
         }
     }
@@ -25,10 +24,9 @@ function CGPASearch() {
     filter = firstInput.value;
     table = document.getElementById("myTable");
     rows = table.rows;
-    var tr = table.getElementsByTagName("tr");
-    for (k = 1; k < tr.length; k++) {
-        var cell = rows[k].cells[1].innerText;
-        var td = tr[k].getElementsByTagName("td")[1];
+    for (k = 1; k < rows.length; k++) {
+        var cell = rows[k].cells[1].textContent;
+        var column = rows[k].getElementsByTagName("td")[1];
         if (filter.length >= 4) {
             if (input < cell) {
                 rows[k].style.display = "";
@@ -36,7 +34,7 @@ function CGPASearch() {
                 rows[k].style.display = "none";
             }
         } else {
-            var txtValue = td.textContent || td.innerText;
+            var txtValue = column.textContent;
             if (txtValue.indexOf(filter) > -1) {
                 rows[k].style.display = "";
             } else {
@@ -53,10 +51,9 @@ function MinExpSearch() {
     filter = firstInput.value;
     table = document.getElementById("myTable");
     rows = table.rows;
-    var tr = table.getElementsByTagName("tr");
     for (k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[3].innerText;
-        var td = tr[k].getElementsByTagName("td")[3];
+        var cell = rows[k].cells[3].textContent;
+        var column = rows[k].getElementsByTagName("td")[3];
         if (cell)
         {
             if (input > cell) {
@@ -65,7 +62,7 @@ function MinExpSearch() {
                 rows[k].style.display = "";
             }
         } else {
-            var txtValue = td.textContent || td.innerText;
+            var txtValue = column.textContent;
             if (txtValue.indexOf(filter) > -1) {
                 rows[k].style.display = "";
             } else {
@@ -82,10 +79,9 @@ function MaxExpSearch() {
     filter = firstInput.value;
     table = document.getElementById("myTable");
     rows = table.rows;
-    var tr = table.getElementsByTagName("tr");
     for (k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[3].innerText;
-        var td = tr[k].getElementsByTagName("td")[3];
+        var cell = rows[k].cells[3].textContent;
+        var column = rows[k].getElementsByTagName("td")[3];
         if (cell)
         {
             if (cell > input) {
@@ -94,7 +90,7 @@ function MaxExpSearch() {
                 rows[k].style.display = "";
             }
         } else {
-            var txtValue = td.textContent || td.innerText;
+            var txtValue = column.textContent;
             if (txtValue.indexOf(filter) > -1) {
                 rows[k].style.display = "";
             } else {
@@ -105,19 +101,19 @@ function MaxExpSearch() {
 }
 
 function UniSearch() {
-    var input, filter, table, tr, td, i, txtValue;
+    var input, filter, table, row, cell, i, txtValue;
     input = document.getElementById("myInput4");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[2];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
+    row = table.getElementsByTagName("tr");
+    for (i = 0; i < row.length; i++) {
+        cell = row[i].getElementsByTagName("td")[2];
+        if (cell) {
+            txtValue = cell.textContent;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
+                row[i].style.display = "";
             } else {
-                tr[i].style.display = "none";
+                row[i].style.display = "none";
             }
         }
     }
@@ -130,10 +126,9 @@ function MinSalarySearch() {
     filter = firstInput.value;
     table = document.getElementById("myTable");
     rows = table.rows;
-    var tr = table.getElementsByTagName("tr");
     for ( k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[5].innerText;
-        var td = tr[k].getElementsByTagName("td")[5];
+        var cell = rows[k].cells[5].textContent;
+        var column = rows[k].getElementsByTagName("td")[5];
         if (cell)
         {
             if (input > cell) {
@@ -142,7 +137,7 @@ function MinSalarySearch() {
                 rows[k].style.display = "";
             }
         } else {
-            var txtValue = td.textContent || td.innerText;
+            var txtValue = column.textContent;
             if (txtValue.indexOf(filter) > -1) {
                 rows[k].style.display = "";
             } else {
@@ -155,23 +150,23 @@ function MinSalarySearch() {
 function MaxSalarySearch() {
     var maxInput, minInput, firstInput, filter, table, rows, k;
     maxInput = parseInt(document.getElementById("myInput6").value);
+    minInput = parseInt(document.getElementById("myInput5").value);
     firstInput = document.getElementById("myInput2");
     filter = firstInput.value;
     table = document.getElementById("myTable");
     rows = table.rows;
-    var tr = table.getElementsByTagName("tr");
     for ( k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[5].innerText;
-        var td = tr[k].getElementsByTagName("td")[5];
+        var cell = rows[k].cells[5].textContent;
+        var column = rows[k].getElementsByTagName("td")[5];
         if (cell)
         {
-            if (maxInput < cell) {
+            if ((maxInput < cell)) {
                 rows[k].style.display = "none";
             } else {
                 rows[k].style.display = "";
             }
         } else {
-            var txtValue = td.textContent || td.innerText;
+            var txtValue = column.textContent;
             if (txtValue.indexOf(filter) > -1) {
                 rows[k].style.display = "";
             } else {

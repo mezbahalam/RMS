@@ -62,10 +62,9 @@ RSpec.describe Ability, type: :model do
     subject { described_class.new(user) }
 
     context 'Candidate' do
-      it { is_expected.to be_able_to(:show, first_candidate) }
       it { is_expected.to be_able_to(:create, first_candidate) }
       it { is_expected.to be_able_to(:update, first_candidate) }
-      it { is_expected.not_to be_able_to(:show, second_candidate) }
+      it { is_expected.not_to be_able_to(:help, second_candidate) }
       it { is_expected.not_to be_able_to(:update, second_candidate) }
       it { is_expected.not_to be_able_to(:index, first_candidate) }
       it { is_expected.not_to be_able_to(:delete, first_candidate) }
@@ -79,7 +78,7 @@ RSpec.describe Ability, type: :model do
       it { is_expected.to be_able_to(:index, candidate_job) }
       it { is_expected.to be_able_to(:create, candidate_job) }
       it { is_expected.not_to be_able_to(:create, another_candidate_job) }
-      it { is_expected.not_to be_able_to(:show, candidate_job) }
+      it { is_expected.not_to be_able_to(:help, candidate_job) }
     end
   end
 end

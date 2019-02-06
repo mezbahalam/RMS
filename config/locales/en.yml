@@ -12,6 +12,26 @@ en:
     details: Candidate Details
     edit: Edit My Profile
     edu_profile: Educational Background
+    help_page:
+      address: House# 111, Road# 9, Block# F, Bashundhara R/A
+      cgpa: 2.4
+      contact: "+8801XXXXXXXXX"
+      degree: Bachelor of Computer Science and Engineering
+      dob: 02/29/1992
+      email: johnsmith@yahoo.com
+      exp: 2
+      help: Information Help Page
+      help_info: This is help page to create your profile
+      hobby: Travel and sleep
+      key: Thinker
+      major: Data Mining
+      name: John Smith
+      pass_year: 2013
+      personal_interest: I dont know
+      plan: I want become a full stack developer
+      refer: Gavin Belson
+      skill: C, C++, Java, Ruby
+      uni: University Of People
     inapproriate_dob: Inappropriate Date of Birth
     info: Fill out the form to create your profile
     major: Major
@@ -26,11 +46,11 @@ en:
     update: Update Candidate Information
     view: View My Profile
     view_candidates: View Applicant List
-    view_candidates_desc: This link will show you a list of all the applicants registered into the system
+    view_candidates_desc: This link will help you a list of all the applicants registered into the system
     welcome: Welcome %{candidate_name}
   candidate_job:
     application: View Job Applications
-    application_desc: This link will show you all the applicants that have applied for the open job applications
+    application_desc: This link will help you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
     number_applicants: No. of Applicants Applied
@@ -69,7 +89,7 @@ en:
       update: Update Job Info
     title: Job Title
     view: View Job Posts
-    view_desc: This link will show you all job posts (old and new)
+    view_desc: This link will help you all job posts (old and new)
   layouts:
     application:
       copyright: Copyright

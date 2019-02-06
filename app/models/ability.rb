@@ -15,7 +15,7 @@ class Ability
       cannot :index, AdminsController
       can :index, CandidateJob
       can :create, CandidateJob, candidate: user.candidate
-      cannot :show, CandidateJob
+      cannot :help, CandidateJob
     end
   end
 end

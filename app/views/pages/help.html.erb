@@ -1,0 +1,86 @@
+<div class="candidate new">
+  <br/>
+<div class="form-group">
+  <%= link_to t('shared.all.back'), pages_path %>
+  <div class="container">
+    <h2 class="information-headline"><%= t('candidate.help_page.help') %></h2>
+    <h3><%= t('candidate.help_page.help_info') %></h3>
+
+    <%= simple_form_for :help_page do |f| %>
+      <input id='step2' type='checkbox'>
+      <input id='step3' type='checkbox'>
+      <input id='step4' type='checkbox'>
+      <div id="part1" class="form-group">
+        <h3><%= t('candidate.basic_info') %></h3>
+          <%= f.input :name, label: t('candidate.name'), input_html: {value: t('candidate.help_page.name')}, readonly: true %>
+          <div class="gender_issue">
+            <%= f.label :gender %>
+            <%= f.collection_radio_buttons :gender, human_attribute_genders, :first, :second,  checked: human_attribute_genders.first, disabled: true %>
+          </div>
+          <%= f.input :email, label: t('shared.all.email'), input_html: {value: t('candidate.help_page.email'),readonly: true} %>
+          <%= f.input :address, label: t('shared.all.address'), input_html: {value: t('candidate.help_page.address'), readonly: true} %>
+          <%= f.input :contact, label: t('shared.all.phone'), input_html: {value: t('candidate.help_page.contact')}, readonly: true %>
+          <%= f.input :dob, label: t('shared.all.dob'), input_html: {value: t('candidate.help_page.dob')}, readonly: true %>
+          <div class="nav_con_btn">
+            <div>
+              <label for='step2' id="continue-step2" class="continue">
+                <div class="btn-success"><%= t('shared.all.next') %></div>
+              </label>
+            </div>
+          </div>
+      </div>
+      <div id="part2" class="form-group">
+        <h3><%= t('candidate.edu_profile') %></h3>
+          <%= f.input :university_name, label: t('candidate.uni_name'), input_html: {value: t('candidate.help_page.uni') }, readonly: true%>
+          <%= f.input :degree, label: t('candidate.degree'), input_html: {value: t('candidate.help_page.degree')}, readonly: true %>
+          <%= f.input :major, label: t('candidate.major'), input_html: {value: t('candidate.help_page.major')}, readonly: true  %>
+          <%= f.input :cgpa, label: t('candidate.cgpa') , input_html: {value: t('candidate.help_page.cgpa')}, readonly: true %>
+          <%= f.input :passing_year, label: t('candidate.passing_year'), input_html: {value: t('candidate.help_page.pass_year')}, readonly: true  %>
+          <div class="nav_btn">
+            <label for='step2' id="back-step2" class="back">
+              <div class="btn-back"><%= t('shared.all.prev') %></div>
+            </label>
+          <div>
+            <label for='step3' id="continue-step3" class="continue">
+              <div class="btn-success_both"><%= t('shared.all.next') %></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="part3" class="form-group">
+        <h3><%= t('candidate.prof_exp') %></h3>
+          <%= f.input :skill, label: t('shared.all.skill'), input_html: {value: t('candidate.help_page.skill')}, readonly: true %>
+          <%= f.input :experience, label: t('shared.all.exp'), input_html: {value: t('candidate.help_page.exp')}, readonly: true %>
+          <%= f.input :long_term_plan, label: t('shared.all.plan'), input_html: {value: t('candidate.help_page.plan')}, readonly: true %>
+          <%= f.input :avatar, label: t('shared.all.file_up'), as: :file, disabled: true %>
+
+          <div class="nav_btn">
+            <label for='step3' id="back-step3" class="back">
+              <div class="btn-back"><%= t('shared.all.prev') %></div>
+            </label>
+          <div>
+            <label for='step4' id="continue-step4" class="continue">
+              <div class="btn-success_both"><%= t('shared.all.next') %></div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="part4" class="form-group">
+        <h3><%= t('candidate.additional_info') %></h3>
+          <%= f.input :hobbies, label: t('shared.all.hobby'), input_html: {value: t('candidate.help_page.hobby')}, readonly: true%>
+          <%= f.input :personal_interest, label: t('shared.all.personal_int'), input_html: {value: t('candidate.help_page.personal_interest')}, readonly: true%>
+          <%= f.input :keywords, label: t('shared.all.keyword'), input_html: {value: t('candidate.help_page.key')}, readonly: true%>
+          <%= f.input :referrals, label: t('shared.all.refer'), input_html: {value: t('candidate.help_page.refer')}, readonly: true%>
+        <%= f.button :submit, disabled: true %>
+          <div class="nav_back_btn">
+            <div>
+              <label for='step4' id="back-step4" class="back">
+                <div class="btn-back"><%= t('shared.all.prev') %></div>
+              </label>
+            </div>
+          </div>
+      </div>
+          <% end %>
+  </div>
+ </div>
+</div>

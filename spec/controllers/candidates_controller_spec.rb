@@ -40,18 +40,6 @@ RSpec.describe CandidatesController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
-    it 'displays the requested candidate to @candidate' do
-      get :show, params: { id: candidate_1 }
-      expect(assigns(:candidate)).to eq candidate_1
-    end
-
-    it 'renders the :show template' do
-      get :show, params: { id: candidate_1 }
-      expect(response).to render_template :show
-    end
-  end
-
   describe 'GET #new' do
     it 'assigns a new Candidate to @candidate' do
       get :new

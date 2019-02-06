@@ -1083,3 +1083,30 @@ table tr td {
   display: none;
   padding: 6px 12px;
 }
+
+.help_link{
+  width: 50px;
+  height: 50px;
+  float: right;
+  margin-right: 50px;
+  img {
+    width: 100%;
+  }
+}
+
+.container {
+  .information-headline {
+    text-align: center;
+  }
+}
+
+.candidate.new {
+    .gender_issue
+      label {
+        width: 8rem;
+        padding-bottom: 1rem;
+    }
+  }
+
+
+

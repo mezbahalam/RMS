@@ -30,6 +30,18 @@ RSpec.describe JobsController, type: :controller do
     end
   end
 
+  describe 'GET #show' do
+    it 'displays the requested job to @job' do
+      get :show, params: { id: job_1 }
+      expect(assigns :job).to eq job_1
+    end
+
+    it 'renders the :show template' do
+      get :show, params: { id: job_1 }
+      expect(response).to render_template :show
+    end
+  end
+
   describe 'GET #new' do
     it 'assigns a new Job to @job' do
       get :new

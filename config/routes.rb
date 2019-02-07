@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :users
   resources :pages do
-    get 'help', on: :collection
+    collection do
+      get 'help'
+    end
   end
   resources :candidates
   resources :jobs do
@@ -17,5 +19,5 @@ Rails.application.routes.draw do
   resources :admins
 
   get '/candidate_jobs', controller: :candidate_jobs, action: :index
-  get '/candidate_jobs/help/:job_id' => 'candidate_jobs#help', :as => :show_requests
+  get '/candidate_jobs/show/:job_id' => 'candidate_jobs#show', :as => :show_requests
 end

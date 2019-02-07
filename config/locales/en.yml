@@ -46,11 +46,11 @@ en:
     update: Update Candidate Information
     view: View My Profile
     view_candidates: View Applicant List
-    view_candidates_desc: This link will help you a list of all the applicants registered into the system
+    view_candidates_desc: This link will show you a list of all the applicants registered into the system
     welcome: Welcome %{candidate_name}
   candidate_job:
     application: View Job Applications
-    application_desc: This link will help you all the applicants that have applied for the open job applications
+    application_desc: This link will show you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
     number_applicants: No. of Applicants Applied

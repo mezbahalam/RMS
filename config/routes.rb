@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'pages#index'
 
   resources :users
-  resources :pages do
+  resources :pages, only: %i(index help) do
     collection do
       get 'help'
     end

@@ -20,7 +20,7 @@ en:
       dob: 02/29/1992
       email: johnsmith@yahoo.com
       exp: 2
-      help: Information Help Page
+      help: Candidate Info Help Page
       help_info: This is help page to create your profile
       hobby: Travel and sleep
       key: Thinker
@@ -89,7 +89,7 @@ en:
       update: Update Job Info
     title: Job Title
     view: View Job Posts
-    view_desc: This link will help you all job posts (old and new)
+    view_desc: This link will show you all job posts
   layouts:
     application:
       copyright: Copyright

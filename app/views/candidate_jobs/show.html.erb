@@ -6,14 +6,13 @@
   </div>
   <div class="filters">
     <h5><%= t('shared.all.search_filter') %></h5>
-    <i class="fas fa-filter"></i><input type="text" id="myInput1" onkeyup="SkillSearch()" placeholder=<%= I18n.t('shared.all.skill') %>>
-    <i class="fas fa-filter"></i><input type="number" id="myInput2" step=".01" onkeyup="CGPASearch()" placeholder=<%= I18n.t('candidate.cgpa') %>>
-    <i class="fas fa-filter"></i><input type="text" id="myInput4" onkeyup="UniSearch()" placeholder=<%= I18n.t('candidate.uni_name') %>>
-    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" id="myInput5" onkeyup="MinSalarySearch()" placeholder=<%= I18n.t('candidate_job.min_salary') %>>
-    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" id="myInput6" onkeyup="MaxSalarySearch()" placeholder=<%= I18n.t('candidate_job.max_salary') %>>
-    <br /><br />
-    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min" onkeyup="MinExpSearch()" placeholder=<%= I18n.t('candidate_job.min_exp') %>>
-    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max" onkeyup="MaxExpSearch()" placeholder=<%= I18n.t('candidate_job.max_exp') %>>
+    <i class="fas fa-filter"></i><input type="text" id="skill" onkeyup="skill_search()" placeholder=<%= I18n.t('shared.all.skill') %>>
+    <i class="fas fa-filter"></i><input type="number" id="cgpa" step=".01" onkeyup="cgpa_search()" placeholder=<%= I18n.t('candidate.cgpa') %>>
+    <i class="fas fa-filter"></i><input type="text" id="uni_name" onkeyup="uni_search()" placeholder=<%= I18n.t('candidate.uni_name') %>>
+    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min_exp" onkeyup="experience_range_search()" placeholder=<%= I18n.t('candidate_job.min_exp') %>>
+    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max_exp" onkeyup="experience_range_search()" placeholder=<%= I18n.t('candidate_job.max_exp') %>>
+    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min_salary" onkeyup="salary_range_search()" placeholder=<%= I18n.t('candidate_job.min_salary') %>>
+    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max_salary" onkeyup="salary_range_search()"  placeholder=<%= I18n.t('candidate_job.max_salary') %>>
   </div>
   <table class="table table-hover" id="myTable">
     <thead>

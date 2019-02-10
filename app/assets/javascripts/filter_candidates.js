@@ -1,41 +1,46 @@
-function SkillSearch() {
-    var input, filter, table, row, cell, i, txtValue;
-    input = document.getElementById("myInput1");
-    filter = input.value.toUpperCase();
+var input = "global";
+var table = "global";
+var rows = "global";
+var k = "global";
+var cell = "global";
+var txtValue = "global";
+var column = "global";
+var firstInput = "global";
+
+function skill_search() {
+    input = document.getElementById("skill").value.toUpperCase();
     table = document.getElementById("myTable");
-    row = table.getElementsByTagName("tr");
-    for (i = 0; i < row.length; i++) {
-        cell = row[i].getElementsByTagName("td")[4];
+    rows = table.getElementsByTagName("tr");
+    for (k = 0; k < rows.length; k++) {
+        cell = rows[k].getElementsByTagName("td")[4];
         if (cell) {
             txtValue = cell.textContent;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                row[i].style.display = "";
+            if (txtValue.toUpperCase().indexOf(input) > -1) {
+                rows[k].style.display = "";
             } else {
-                row[i].style.display = "none";
+                rows[k].style.display = "none";
             }
         }
     }
 }
 
-function CGPASearch() {
-    var input, firstInput, filter, table, rows, k;
-    input = parseFloat(document.getElementById("myInput2").value);
-    firstInput = document.getElementById("myInput2");
-    filter = firstInput.value;
+function cgpa_search() {
+    input = parseFloat(document.getElementById("cgpa").value);
+    firstInput = document.getElementById("cgpa").value;
     table = document.getElementById("myTable");
     rows = table.rows;
     for (k = 1; k < rows.length; k++) {
-        var cell = rows[k].cells[1].textContent;
-        var column = rows[k].getElementsByTagName("td")[1];
-        if (filter.length >= 4) {
+        cell = rows[k].cells[1].textContent;
+        column = rows[k].getElementsByTagName("td")[1];
+        if (firstInput.length >= 4) {
             if (input < cell) {
                 rows[k].style.display = "";
             } else {
                 rows[k].style.display = "none";
             }
         } else {
-            var txtValue = column.textContent;
-            if (txtValue.indexOf(filter) > -1) {
+            txtValue = column.textContent;
+            if (txtValue.indexOf(firstInput) > -1) {
                 rows[k].style.display = "";
             } else {
                 rows[k].style.display = "none";
@@ -44,101 +49,15 @@ function CGPASearch() {
     }
 }
 
-function MinExpSearch() {
-    var input, firstInput, filter, table, rows, k;
-    input = parseInt(document.getElementById("min").value);
-    firstInput = document.getElementById("myInput2");
-    filter = firstInput.value;
+function uni_search() {
+    input = document.getElementById("uni_name").value.toUpperCase();
     table = document.getElementById("myTable");
-    rows = table.rows;
-    for (k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[3].textContent;
-        var column = rows[k].getElementsByTagName("td")[3];
-        if (cell)
-        {
-            if (input > cell) {
-                rows[k].style.display = "none";
-            } else {
-                rows[k].style.display = "";
-            }
-        } else {
-            var txtValue = column.textContent;
-            if (txtValue.indexOf(filter) > -1) {
-                rows[k].style.display = "";
-            } else {
-                rows[k].style.display = "none";
-            }
-        }
-    }
-}
-
-function MaxExpSearch() {
-    var input, firstInput, filter, table, rows, k;
-    input = parseInt(document.getElementById("max").value);
-    firstInput = document.getElementById("myInput2");
-    filter = firstInput.value;
-    table = document.getElementById("myTable");
-    rows = table.rows;
-    for (k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[3].textContent;
-        var column = rows[k].getElementsByTagName("td")[3];
-        if (cell)
-        {
-            if (cell > input) {
-                rows[k].style.display = "none";
-            } else {
-                rows[k].style.display = "";
-            }
-        } else {
-            var txtValue = column.textContent;
-            if (txtValue.indexOf(filter) > -1) {
-                rows[k].style.display = "";
-            } else {
-                rows[k].style.display = "none";
-            }
-        }
-    }
-}
-
-function UniSearch() {
-    var input, filter, table, row, cell, i, txtValue;
-    input = document.getElementById("myInput4");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    row = table.getElementsByTagName("tr");
-    for (i = 0; i < row.length; i++) {
-        cell = row[i].getElementsByTagName("td")[2];
+    rows = table.getElementsByTagName("tr");
+    for (k = 0; k < rows.length; k++) {
+        cell = rows[k].getElementsByTagName("td")[2];
         if (cell) {
             txtValue = cell.textContent;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                row[i].style.display = "";
-            } else {
-                row[i].style.display = "none";
-            }
-        }
-    }
-}
-
-function MinSalarySearch() {
-    var input, firstInput, filter, table, rows, k;
-    input = parseInt(document.getElementById("myInput5").value);
-    firstInput = document.getElementById("myInput2");
-    filter = firstInput.value;
-    table = document.getElementById("myTable");
-    rows = table.rows;
-    for ( k = 1; k< rows.length; k++) {
-        var cell = rows[k].cells[5].textContent;
-        var column = rows[k].getElementsByTagName("td")[5];
-        if (cell)
-        {
-            if (input > cell) {
-                rows[k].style.display = "none";
-            } else {
-                rows[k].style.display = "";
-            }
-        } else {
-            var txtValue = column.textContent;
-            if (txtValue.indexOf(filter) > -1) {
+            if (txtValue.toUpperCase().indexOf(input) > -1) {
                 rows[k].style.display = "";
             } else {
                 rows[k].style.display = "none";
@@ -147,30 +66,42 @@ function MinSalarySearch() {
     }
 }
 
-function MaxSalarySearch() {
-    var maxInput, firstInput, filter, table, rows, k;
-    maxInput = parseInt(document.getElementById("myInput6").value);
-    firstInput = document.getElementById("myInput2");
-    filter = firstInput.value;
+function salary_range_search() {
+    var min_salary = parseInt(document.getElementById("min_salary").value);
+    var max_salary = parseInt(document.getElementById("max_salary").value);
     table = document.getElementById("myTable");
     rows = table.rows;
-    for ( k = 1; k< rows.length; k++) {
+    for (k = 1; k< rows.length; k++) {
         var cell = rows[k].cells[5].textContent;
-        var column = rows[k].getElementsByTagName("td")[5];
-        if (cell)
-        {
-            if ((maxInput < cell)) {
-                rows[k].style.display = "none";
-            } else {
-                rows[k].style.display = "";
-            }
+        if (
+            (cell>=min_salary)&&(max_salary>=cell) ||
+            (isNaN(min_salary)&&(max_salary>=cell)) ||
+            ((cell>=min_salary)&&isNaN(max_salary)) ||
+            (isNaN(min_salary))&&isNaN(max_salary)
+        ) {
+            rows[k].style.display = "";
         } else {
-            var txtValue = column.textContent;
-            if (txtValue.indexOf(filter) > -1) {
-                rows[k].style.display = "";
-            } else {
-                rows[k].style.display = "none";
-            }
+            rows[k].style.display = "none";
+        }
+    }
+}
+
+function experience_range_search() {
+    var min_exp = parseInt(document.getElementById("min_exp").value);
+    var max_exp = parseInt(document.getElementById("max_exp").value);
+    table = document.getElementById("myTable");
+    rows = table.rows;
+    for (k = 1; k< rows.length; k++) {
+        var cell = rows[k].cells[3].textContent;
+        if (
+            (cell>=min_exp)&&(max_exp>=cell) ||
+            (isNaN(min_exp)&&(max_exp>=cell)) ||
+            ((cell>=min_exp)&&isNaN(max_exp)) ||
+            (isNaN(min_exp))&&isNaN(max_exp)
+        ) {
+            rows[k].style.display = "";
+        } else {
+            rows[k].style.display = "none";
         }
     }
 }

@@ -14,9 +14,9 @@ en:
     edu_profile: Educational Background
     help_page:
       address: House# 111, Road# 9, Block# F, Bashundhara R/A
-      cgpa: 2.4
+      cgpa: 2.40
       contact: "+8801XXXXXXXXX"
-      degree: Bachelor of Computer Science and Engineering
+      degree: B.Sc in CSE
       dob: 02/29/1992
       email: johnsmith@yahoo.com
       exp: 2
@@ -89,7 +89,7 @@ en:
       update: Update Job Info
     title: Job Title
     view: View Job Posts
-    view_desc: This link will show you all job posts
+    view_desc: This link will show you all job posts(old and new posts)
   layouts:
     application:
       copyright: Copyright

@@ -14,7 +14,7 @@ en:
     edu_profile: Educational Background
     help_page:
       address: House# 111, Road# 9, Block# F, Bashundhara R/A
-      cgpa: 2.40
+      cgpa: '2.40'
       contact: "+8801XXXXXXXXX"
       degree: B.Sc in CSE
       dob: 02/29/1992

@@ -1067,6 +1067,17 @@ table tr td {
   overflow: hidden;
 }
 
+.help-link {
+  float: right;
+  height: 50px;
+  margin-right: 50px;
+  width: 50px;
+
+  img {
+    width: 100%;
+  }
+}
+
 .tab button {
   background-color: inherit;
   border: none;
@@ -1094,13 +1105,4 @@ table tr td {
   padding: 6px 12px;
 }
 
-.help-link {
-  float: right;
-  height: 50px;
-  margin-right: 50px;
-  width: 50px;
 
-  img {
-    width: 100%;
-  }
-}

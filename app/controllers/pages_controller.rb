@@ -10,5 +10,5 @@ class PagesController < ApplicationController
     end
   end
 
-  def help; end
+  def show; end
 end

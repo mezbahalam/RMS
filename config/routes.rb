@@ -5,12 +5,10 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  get 'pages/show', as: 'help'
+
   resources :users
-  resources :pages, only: %i(index help) do
-    collection do
-      get 'help'
-    end
-  end
+  resources :pages
   resources :candidates
   resources :jobs do
     resources :candidate_jobs, except: %i(index show) do

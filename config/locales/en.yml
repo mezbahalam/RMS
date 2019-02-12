@@ -28,9 +28,12 @@ en:
       name: John Smith
       pass_year: 2013
       personal_interest: I dont know
-      plan: I want become a full stack developer
+      plan: I want become a full stack Backend Developer
       refer: Gavin Belson
-      skill: C, C++, Java, Ruby
+      skill: |
+        Programming Languages: C, C++, Java, Ruby, Python
+        Framework: Spring, Boot, JSP
+        Database: MySQL, Postgres
       uni: University Of People
     inapproriate_dob: Inappropriate Date of Birth
     info: Fill out the form to create your profile

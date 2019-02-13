@@ -33,12 +33,6 @@ en:
     application_desc: This link will show you all the applicants that have applied for the open job applications
     currency: BDT
     expected_salary: Salary Expectation
-    max: To
-    max_exp: Max-Experience
-    max_salary: Max-Salary
-    min: From
-    min_exp: Min-Experience
-    min_salary: Min-Salary
     number_applicants: No. of Applicants Applied
     view_applicants: View Applicants
   clearance:
@@ -103,6 +97,7 @@ en:
       title: Login
   shared:
     all:
+      actions: View Action
       address: Address
       admin: Admin
       applicant: Applicant
@@ -120,6 +115,7 @@ en:
       female: Female
       file_up: Attachment(s)
       first_name: First Name
+      from: From
       gender: Gender
       hobby: Hobbies
       keyword: Keywords
@@ -135,10 +131,12 @@ en:
       plan: Long Term Plan
       prev: Previous Page
       refer: Referrals
+      search: Search
       search_filter: Use Filters to narrow your search
       show: Show Details
       sign_up_terms: By signing up, I accept the Terms & Privacy policies
       skill: Skills
+      to: To
       user_success: User profile updated successfully
       welcome: Welcome
       years: years old

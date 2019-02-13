@@ -1,6 +1,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
 //= require bootstrap
 //= require froala_editor.min
 //= requier wysiwyg_plugins

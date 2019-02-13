@@ -5,35 +5,36 @@
     <h2><%= @job.title %></h2>
   </div>
   <div class="filters">
-    <h5><%= t('shared.all.search_filter') %></h5>
-    <i class="fas fa-filter"></i><input type="text" id="skill" onkeyup="skill_search()" placeholder=<%= I18n.t('shared.all.skill') %>>
-    <i class="fas fa-filter"></i><input type="number" id="cgpa" step=".01" onkeyup="cgpa_search()" placeholder=<%= I18n.t('candidate.cgpa') %>>
-    <i class="fas fa-filter"></i><input type="text" id="uni_name" onkeyup="uni_search()" placeholder=<%= I18n.t('candidate.uni_name') %>>
-    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min_exp" onkeyup="experience_range_search()" placeholder=<%= I18n.t('candidate_job.min_exp') %>>
-    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max_exp" onkeyup="experience_range_search()" placeholder=<%= I18n.t('candidate_job.max_exp') %>>
-    <i class="fas fa-filter"></i><%= t('candidate_job.min') %> <input type="number" step=".1" id="min_salary" onkeyup="salary_range_search()" placeholder=<%= I18n.t('candidate_job.min_salary') %>>
-    <i class="fas fa-filter"></i> <%= t('candidate_job.max') %> <input type="number" step=".1" id="max_salary" onkeyup="salary_range_search()"  placeholder=<%= I18n.t('candidate_job.max_salary') %>>
+    <%= t('shared.all.search_filter')%><br/>
+    <i class="fas fa-filter"></i><%= t('shared.all.skill') %>/<%= t('candidate.uni_name') %>: <input id="text_input" type="text" placeholder=<%= I18n.t('shared.all.search') %>>
+    <i class="fas fa-filter"></i><%= t('candidate.cgpa') %>: <input id="cgpa" type="number" placeholder=<%= I18n.t('shared.all.search') %>>
+    <br />
+    <i class="fas fa-filter"></i><%= t('candidate.prof_exp') %>/<%= t('candidate_job.expected_salary') %>:
+    <%= t('shared.all.from') %> <input id="min" type="number" placeholder=<%= I18n.t('shared.all.search') %>>
+    <%= t('shared.all.to') %> <input id="max" type="number" placeholder=<%= I18n.t('shared.all.search') %>>
+    <br />
   </div>
   <table class="table table-hover" id="myTable">
     <thead>
     <tr>
       <th><%= t('candidate.applicant') %></th>
-      <th><%= t('candidate.cgpa') %></th>
       <th><%= t('candidate.uni_name') %></th>
-      <th><%= t('candidate.prof_exp') %></th>
+      <th><%= t('candidate.cgpa') %></th>
       <th><%= t('shared.all.skill') %></th>
+      <th><%= t('candidate.prof_exp') %></th>
       <th><%= t('candidate_job.expected_salary') %></th>
+      <th><%= t('shared.all.actions') %></th>
     </tr>
     </thead>
     <tbody>
     <% @candidate_jobs.each do |candidate_job| %>
       <tr>
         <td><%= candidate_job.candidate.name %></td>
-        <td><%= candidate_job.candidate.cgpa %></td>
         <td><%= candidate_job.candidate.university_name %></td>
-        <td><%= candidate_job.candidate.experience %></td>
+        <td class="cgpa-search"><%= candidate_job.candidate.cgpa %></td>
         <td><%= candidate_job.candidate.skill %></td>
-        <td><%= candidate_job.expected_salary %></td>
+        <td class="filter-column"><%= candidate_job.candidate.experience %></td>
+        <td class="filter-column"><%= candidate_job.expected_salary %></td>
         <td class="actions">
           <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %>
         </td>

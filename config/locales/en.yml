@@ -166,6 +166,24 @@ en:
         deadline: Deadline
         description: Description
         title: Job Title
+      candidate:
+        name: Candidate Name
+        gender: Gender
+        email: Email
+        address: Address
+        contact: Phone/Mobile No.
+        dob: Date of Birth
+        university_name: Name of University
+        degree: Degree
+        major: Major
+        cpga: CGPA
+        passing_year: Passing Year
+        skill: Skills
+        experience: Experience(years)
+        long_term_plan: Long Term Plan
+        personal_interest: Personal Interest
+        keywords: Keywords
+        referrals: Refferals
     placeholders:
       candidate:
         email: userdomain.com

@@ -9,6 +9,4 @@ class PagesController < ApplicationController
       redirect_to new_candidate_path
     end
   end
-
-  def show; end
 end

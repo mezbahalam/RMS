@@ -4,4 +4,8 @@ class Job < ApplicationRecord
 
   scope :sorted_by_deadline, -> { order('deadline ASC') }
   validates :title, :description, presence: true
+
+  def start_time
+    deadline
+  end
 end

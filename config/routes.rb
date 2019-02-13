@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get '/candidate_jobs', controller: :candidate_jobs, action: :index
   get '/candidate_jobs/show/:job_id' => 'candidate_jobs#show', :as => :show_requests
+  get '/jobs/calendars/show', as: 'calendar'
 end

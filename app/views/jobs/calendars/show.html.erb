@@ -1,0 +1,11 @@
+<div class="simple-calendar">
+  <%= month_calendar events: @calendars do |date,dead| %>
+    <%= date.day %>
+    <% dead.each do |line| %>
+      <div class="job-title">
+        <%= line.title %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+

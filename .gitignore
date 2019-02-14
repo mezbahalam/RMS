@@ -25,3 +25,4 @@ public/system/
 spec/examples.txt
 
 .byebug_history
+.DS_Store

@@ -162,28 +162,28 @@ en:
     error_notification:
       default_message: 'Please review the problems below:'
     labels:
+      candidate:
+        address: Address
+        contact: Phone/Mobile No.
+        cpga: CGPA
+        degree: Degree
+        dob: Date of Birth
+        email: Email
+        experience: Experience(years)
+        gender: Gender
+        keywords: Keywords
+        long_term_plan: Long Term Plan
+        major: Major
+        name: Candidate Name
+        passing_year: Passing Year
+        personal_interest: Personal Interest
+        referrals: Refferals
+        skill: Skills
+        university_name: Name of University
       job:
         deadline: Deadline
         description: Description
         title: Job Title
-      candidate:
-        name: Candidate Name
-        gender: Gender
-        email: Email
-        address: Address
-        contact: Phone/Mobile No.
-        dob: Date of Birth
-        university_name: Name of University
-        degree: Degree
-        major: Major
-        cpga: CGPA
-        passing_year: Passing Year
-        skill: Skills
-        experience: Experience(years)
-        long_term_plan: Long Term Plan
-        personal_interest: Personal Interest
-        keywords: Keywords
-        referrals: Refferals
     placeholders:
       candidate:
         email: userdomain.com

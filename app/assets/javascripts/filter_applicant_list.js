@@ -5,9 +5,7 @@ $(document).ready(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
         });
     });
-});
 
-$(document).ready(function() {
     $('#cgpa').on('keyup', function(){
         var minVal = $(this).val();
         $("#myTable tr").filter(function() {
@@ -19,9 +17,8 @@ $(document).ready(function() {
             }
         });
     });
-});
 
-$(document).ready(function() {
+
     $('#min, #max').on('keyup', function(){
         var minVal = $('#min').val();
         var maxVal = $('#max').val();

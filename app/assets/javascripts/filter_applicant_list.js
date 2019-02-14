@@ -10,7 +10,7 @@ $(document).ready(function() {
         var minVal = $(this).val();
         $("#myTable tr").filter(function() {
             var rowVal = $(this).find('.cgpa-search').eq(0).text();
-            if(minVal<=rowVal) {
+            if(minVal<=rowVal && 4>=rowVal) {
                 $(this).toggle(true);
             } else {
                 $(this).toggle(false);
@@ -20,11 +20,30 @@ $(document).ready(function() {
 
 
     $('#min, #max').on('keyup', function(){
-        var minVal = $('#min').val();
-        var maxVal = $('#max').val();
+        var minVal = parseFloat($('#min').val());
+        var maxVal = parseFloat($('#max').val());
         $("#myTable tr").filter(function() {
-            var rowVal = $(this).find('.filter-column').eq(0).text();
-            if(minVal<=rowVal && maxVal>=rowVal) {
+            var rowVal = $(this).find('.filter-column-exp').eq(0).text();
+            if((minVal<=rowVal && maxVal>=rowVal)||
+                (isNaN(minVal)&&maxVal>=rowVal) ||
+                ((minVal<=rowVal&&isNaN(maxVal))) ||
+                (isNaN(minVal)&&isNaN(maxVal))) {
+                $(this).toggle(true);
+            } else {
+                $(this).toggle(false);
+            }
+        });
+    });
+
+    $('#min-salary, #max-salary').on('keyup', function(){
+        var minVal = parseInt($('#min-salary').val());
+        var maxVal = parseInt($('#max-salary').val());
+        $("#myTable tr").filter(function() {
+            var rowVal = $(this).find('.filter-column-salary').eq(0).text();
+            if((minVal<=rowVal && maxVal>=rowVal)||
+                (isNaN(minVal)&&maxVal>=rowVal) ||
+                ((minVal<=rowVal&&isNaN(maxVal))) ||
+                (isNaN(minVal)&&isNaN(maxVal))) {
                 $(this).toggle(true);
             } else {
                 $(this).toggle(false);

@@ -1,7 +1,7 @@
 class CandidateJob < ApplicationRecord
   belongs_to :candidate
   belongs_to :job
-  paginates_per 10
+  paginates_per 50
 
   validates :candidate_id, presence: true, uniqueness: { scope: :job_id }
   validates :job_id, presence: true

@@ -3,7 +3,7 @@ class Candidate < ApplicationRecord
   belongs_to :user
   has_many :candidate_jobs
   has_many :jobs, through: :candidate_jobs
-  paginates_per 10
+  paginates_per 50
 
   enum gender: { male: 0, female: 1 }
   scope :sorted_by_experience, -> { order('experience ASC') }

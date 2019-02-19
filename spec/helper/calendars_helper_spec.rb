@@ -9,7 +9,6 @@ RSpec.describe CalendarsHelper, type: :helper do
         expect(title_color(job_title)).to eq 'junior-engineer'
       end
     end
-
     context 'when job_title is not present' do
       it 'returns default css class name_tag' do
         job_title = 'Account Manager'

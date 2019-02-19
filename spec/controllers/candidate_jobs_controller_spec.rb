@@ -23,7 +23,6 @@ RSpec.describe CandidateJobsController, type: :controller do
       expect(assigns(:jobs)).to match_array [job_1, job_2]
     end
   end
-
   describe 'GET #new' do
     it 'assigns a new application to @application' do
       get :new, params: { candidate_id: candidate_1.id,

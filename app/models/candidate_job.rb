@@ -1,5 +1,7 @@
 class CandidateJob < ApplicationRecord
-  COLORS = { junior_software_engineer: 'junior-engineer', front_end_engineer: 'front-engineer', senior_software_engineer: 'senior-engineer' }
+  COLORS = { junior_software_engineer: 'junior-engineer',
+             front_end_engineer: 'front-engineer',
+             senior_software_engineer: 'senior-engineer' }
   belongs_to :candidate
   belongs_to :job
 
@@ -22,5 +24,4 @@ class CandidateJob < ApplicationRecord
   def title
     Job.find(job_id).title
   end
-
 end

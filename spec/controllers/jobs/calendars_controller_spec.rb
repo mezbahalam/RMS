@@ -27,8 +27,6 @@ RSpec.describe Jobs::CalendarsController, type: :controller do
       end
     end
   end
-
-
   context 'User is applicant' do
     describe 'GET #show as applicant' do
       before do

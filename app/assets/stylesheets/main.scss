@@ -1096,7 +1096,6 @@ table tr td {
   height: 82rem;
 
   a {
-    color: #FFFFFF;
     margin-left: 2rem;
     text-decoration: underline
   }
@@ -1110,15 +1109,14 @@ table tr td {
     }
 
     table {
-      background-color: white !important;
-      width: 90% !important;
+      background-color: #ffffff;
+      width: 90%;
       margin-right: 5%;
       margin-left: 5%;
     }
 
     a {
       font-size: 2rem;
-      color: black;
       margin-left: unset;
       padding-top: 10rem;
     }
@@ -1126,31 +1124,31 @@ table tr td {
 }
 
 .junior-engineer {
-  border: .2rem solid grey;
+  background: #7cc576;
+  border: .2rem;
   border-radius: 5%;
   text-align: center;
-  background: #7cc576;
   width: 100%;
 }
 .front-engineer {
-  border: .2rem solid grey;
+  background: #49cdf2;
+  border: .2rem;
   border-radius: 5%;
   text-align: center;
-  background: #49cdf2;
   width: 100%;
 }
 .senior-engineer {
-  border: .2rem solid grey;
+  background: #a864a8;
+  border: .2rem;
   border-radius: 5%;
   text-align: center;
-  background: #a864a8;
   width: 100%;
 }
 .default-title {
-  border: .2rem solid grey;
+  background: #f26d7d;
+  border: .2rem;
   border-radius: 5%;
   text-align: center;
-  background: #f26d7d;
   width: 100%;
 }
 

@@ -41,7 +41,6 @@ RSpec.describe Jobs::CalendarsController, type: :controller do
       it 'renders show page' do
         expect(response).to render_template :show
       end
-
     end
   end
 end

@@ -3,7 +3,7 @@ $green: rgb(124, 197, 118);
 $red: rgb(242, 109, 125);
 $purple: rgb(168, 100, 168);
 $blue: rgb(73, 205, 242);
-$white: rgb(255,255,255);
+$white: rgb(255, 255, 255);
 *,
 *::before,
 *::after {
@@ -1126,6 +1126,14 @@ table tr td {
   }
 }
 
+.default-title {
+  background-color: $red;
+  border: .2rem;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}
+
 .junior-engineer {
   background-color: $green;
   border: .2rem;
@@ -1133,15 +1141,6 @@ table tr td {
   text-align: center;
   width: 100%;
 }
-
-.front-engineer {
-  background-color: $blue;
-  border: .2rem;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
 .senior-engineer {
   background-color: $purple;
   border: .2rem;
@@ -1150,8 +1149,8 @@ table tr td {
   width: 100%;
 }
 
-.default-title {
-  background-color: $red;
+.front-engineer {
+  background-color: $blue;
   border: .2rem;
   border-radius: 5%;
   text-align: center;

@@ -3,7 +3,7 @@ $green: rgb(124, 197, 118);
 $red: rgb(242, 109, 125);
 $purple: rgb(168, 100, 168);
 $blue: rgb(73, 205, 242);
-
+$white: rgb(255,255,255);
 *,
 *::before,
 *::after {
@@ -1112,7 +1112,7 @@ table tr td {
     }
 
     table {
-      background-color: rgb(255, 255, 255);
+      background-color: $white;
       margin-left: 5%;
       margin-right: 5%;
       width: 90%;

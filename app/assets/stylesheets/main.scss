@@ -1123,14 +1123,15 @@ table tr td {
 }
 
 .junior-engineer {
-  background: rgb(124, 197, 118);
+  background-color: rgb(124, 197, 118);
   border: .2rem;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
+
 .front-engineer {
-  background: rgb(73, 205, 242);
+  background-color: rgb(73, 205, 242);
   border: .2rem;
   border-radius: 5%;
   text-align: center;
@@ -1138,7 +1139,7 @@ table tr td {
 }
 
 .senior-engineer {
-  background: rgb(168, 100, 168);
+  background-color: rgb(168, 100, 168);
   border: .2rem;
   border-radius: 5%;
   text-align: center;
@@ -1146,7 +1147,7 @@ table tr td {
 }
 
 .default-title {
-  background: rgb(242, 109, 125);
+  background-color: rgb(242, 109, 125);
   border: .2rem;
   border-radius: 5%;
   text-align: center;

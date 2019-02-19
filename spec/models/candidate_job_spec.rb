@@ -22,7 +22,6 @@ RSpec.describe CandidateJob, type: :model do
                       deadline: '2018-11-26'.to_date)
   end
 
-
   describe 'job_applied' do
     let!(:candidate_job_one) do
       FactoryBot.create(:candidate_job,

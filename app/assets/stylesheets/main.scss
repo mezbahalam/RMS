@@ -1097,22 +1097,21 @@ table tr td {
 
   a {
     margin-left: 2rem;
-    text-decoration: underline
+    text-decoration: underline;
   }
 
   .simple-calendar {
 
     .calendar-heading {
-      text-align: center;
       font-size: 3rem;
-
+      text-align: center;
     }
 
     table {
-      background-color: #ffffff;
-      width: 90%;
-      margin-right: 5%;
+      background-color: rgb(255, 255, 255);
       margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
     }
 
     a {
@@ -1124,31 +1123,32 @@ table tr td {
 }
 
 .junior-engineer {
-  background: #7cc576;
+  background: rgb(124, 197, 118);
   border: .2rem;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
 .front-engineer {
-  background: #49cdf2;
-  border: .2rem;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-.senior-engineer {
-  background: #a864a8;
-  border: .2rem;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-.default-title {
-  background: #f26d7d;
+  background: rgb(73, 205, 242);
   border: .2rem;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
 
+.senior-engineer {
+  background: rgb(168, 100, 168);
+  border: .2rem;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}
+
+.default-title {
+  background: rgb(242, 109, 125);
+  border: .2rem;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}

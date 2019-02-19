@@ -1084,7 +1084,8 @@ table tr td {
   padding: 6px 12px;
 }
 
-.simple-calendar {
+
+.calendar {
   background: {
     attachment: scroll;
     image: asset-url('page_index.jpeg');
@@ -1094,27 +1095,62 @@ table tr td {
   }
   height: 82rem;
 
-  .calendar-heading {
-    text-align: center;
-    font-size: 3rem;
-  }
-
-  table {
-    background-color: white !important;
-    width: 90% !important;
-    margin-right: 5%;
-    margin-left: 5%;
-  }
-
   a {
-    font-size: 2rem;
+    color: #FFFFFF;
+    margin-left: 2rem;
+    text-decoration: underline
+  }
+
+  .simple-calendar {
+
+    .calendar-heading {
+      text-align: center;
+      font-size: 3rem;
+
+    }
+
+    table {
+      background-color: white !important;
+      width: 90% !important;
+      margin-right: 5%;
+      margin-left: 5%;
+    }
+
+    a {
+      font-size: 2rem;
+      color: black;
+      margin-left: unset;
+      padding-top: 10rem;
+    }
   }
 }
 
-.job-title {
+.junior-engineer {
   border: .2rem solid grey;
-  border-radius: 10%;
+  border-radius: 5%;
   text-align: center;
-  background: #DADADA;
-  width: 10rem;
+  background: #7cc576;
+  width: 100%;
 }
+.front-engineer {
+  border: .2rem solid grey;
+  border-radius: 5%;
+  text-align: center;
+  background: #49cdf2;
+  width: 100%;
+}
+.senior-engineer {
+  border: .2rem solid grey;
+  border-radius: 5%;
+  text-align: center;
+  background: #a864a8;
+  width: 100%;
+}
+.default-title {
+  border: .2rem solid grey;
+  border-radius: 5%;
+  text-align: center;
+  background: #f26d7d;
+  width: 100%;
+}
+

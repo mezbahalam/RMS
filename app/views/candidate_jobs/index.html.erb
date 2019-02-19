@@ -5,7 +5,8 @@
     <% if current_user.candidate %>
     <div class="page_nav">
       <%= link_to t('candidate.view'), candidate_path(@candidate)%>  |
-      <%= link_to t('candidate.edit'), edit_candidate_path(@candidate) %>
+      <%= link_to t('candidate.edit'), edit_candidate_path(@candidate) %>  |
+      <%= link_to t('job.calendar.dead'), calendar_path %>
     </div>
     <% end %>
     <h3><%= t('job.list') %></h3>
@@ -52,3 +53,4 @@
     </table>
   </div>
 <% end %>
+<%= link_to t('job.calendar.dead'), calendar_path %>

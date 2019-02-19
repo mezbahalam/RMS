@@ -51,6 +51,9 @@ en:
     already_apply: Applied Already
     applied: Job Applied
     apply: Apply Now
+    calendar:
+      dead: Calendar
+      view: This will show you a calendar with deadline of all job posts
     date_issued: Date Issued
     deadline: Deadline
     description: Job Description
@@ -70,9 +73,6 @@ en:
     title: Job Title
     view: View Job Posts
     view_desc: This link will show you all job posts (old and new)
-    calendar:
-      dead: Deadline Calendar
-      view: This will show you a calendar with deadline of all job posts
   layouts:
     application:
       copyright: Copyright

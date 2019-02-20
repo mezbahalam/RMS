@@ -39,7 +39,7 @@ RSpec.describe CandidatesController, type: :controller do
       expect(response).to redirect_to sign_in_path
     end
   end
-  
+
   describe 'GET #show' do
     it 'displays the requested candidate to @candidate' do
       get :show, params: { id: candidate_1 }

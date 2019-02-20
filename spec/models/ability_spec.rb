@@ -39,7 +39,7 @@ RSpec.describe Ability, type: :model do
     end
 
     context 'Help Page' do
-      it { is_expected.not_to be_able_to(:show, HelpsController) }
+      it { is_expected.not_to be_able_to(:show, :help) }
     end
   end
 
@@ -87,7 +87,7 @@ RSpec.describe Ability, type: :model do
     end
 
     context 'Help Page' do
-      it { is_expected.to be_able_to(:show, HelpsController) }
+      it { is_expected.to be_able_to(:show, :help) }
     end
   end
 end

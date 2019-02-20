@@ -115,7 +115,6 @@ en:
       female: Female
       file_up: Attachment(s)
       first_name: First Name
-      from: From
       gender: Gender
       hobby: Hobbies
       keyword: Keywords
@@ -131,12 +130,10 @@ en:
       plan: Long Term Plan
       prev: Previous Page
       refer: Referrals
-      search: Search
       search_filter: Use Filters to narrow your search
       show: Show Details
       sign_up_terms: By signing up, I accept the Terms & Privacy policies
       skill: Skills
-      to: To
       user_success: User profile updated successfully
       welcome: Welcome
       years: years old

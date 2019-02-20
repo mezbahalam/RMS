@@ -1,0 +1,31 @@
+<table class="table table-hover" id="myTable"> 
+  <thead> 
+  <tr> 
+    <th><%= t('candidate.applicant') %></th> 
+    <th><%= t('candidate.uni_name') %></th> 
+    <th><%= t('candidate.cgpa') %></th> 
+    <th><%= t('shared.all.skill') %></th> 
+    <th><%= t('candidate.prof_exp') %></th> 
+    <th><%= t('candidate_job.expected_salary') %></th> 
+    <th><%= t('shared.all.actions') %></th> 
+  </tr> 
+  </thead> 
+  <tbody> 
+  <% if @candidate_jobs %>
+    <% @candidate_jobs.each do |candidate_job| %> 
+    <tr> 
+      <td><%= candidate_job.candidate.name %></td> 
+      <td><%= candidate_job.candidate.university_name %></td> 
+      <td class="cgpa-search"><%= candidate_job.candidate.cgpa %></td> 
+      <td><%= candidate_job.candidate.skill %></td> 
+      <td class="filter-column-exp"><%= candidate_job.candidate.experience %></td> 
+      <td class="filter-column-salary"><%= candidate_job.expected_salary %></td> 
+      <td class="actions"> 
+        <%= link_to t('shared.all.show'), candidate_path(candidate_job.candidate) %> 
+      </td> 
+    </tr> 
+    <% end %>
+  <% end %>
+  </tbody> 
+  <%= paginate @candidate_jobs %> 
+</table> 

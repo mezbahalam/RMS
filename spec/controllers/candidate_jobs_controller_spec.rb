@@ -1,8 +1,8 @@
 require 'rails_helper'
 RSpec.describe CandidateJobsController, type: :controller do
   let!(:user) { FactoryBot.create(:user, role: :applicant) }
-  let!(:candidate_1) { FactoryBot.create(:candidate, user_id: user.id) }
-  let!(:job_1) do
+  let!(:first_candidate) { FactoryBot.create(:candidate, user_id: user.id) }
+  let!(:first_job) do
     FactoryBot.create(:job,
                       title: 'junior_software_engineer',
                       description: 'work with rails',
@@ -14,39 +14,70 @@ RSpec.describe CandidateJobsController, type: :controller do
   end
 
   describe 'GET #index' do
-    let!(:job_2) do
+    let!(:second_job) do
       FactoryBot.create(:job, title: 'junior_software_engineer')
     end
 
     it 'populates an array of all jobs' do
       get :index
-      expect(assigns(:jobs)).to match_array [job_1, job_2]
+      expect(assigns(:jobs)).to match_array [first_job, second_job]
+    end
+  end
+
+  describe 'GET #show' do
+    let!(:admin_user) { FactoryBot.create(:user, role: :admin) }
+    let!(:first_user) { FactoryBot.create(:user, role: :applicant) }
+    let!(:another_candidate) { FactoryBot.create(:candidate, user_id: first_user.id) }
+    before do
+      sign_in_as(admin_user)
+    end
+
+    let!(:first_candidate_job) do
+      FactoryBot.create(:candidate_job,
+                        job_id: first_job.id,
+                        candidate_id: first_candidate.id)
+    end
+
+    let!(:second_candidate_job) do
+      FactoryBot.create(:candidate_job,
+                        job_id: first_job.id,
+                        candidate_id: another_candidate.id)
+    end
+
+    it 'populates an array of all applicants for a particular job' do
+      get :show, params: { job_id: first_job.id }
+      expect(assigns(:candidate_jobs)).to match_array [first_candidate_job, second_candidate_job]
+    end
+
+    it 'renders the :show template' do
+      get :show, params: { job_id: first_job.id }
+      expect(response).to render_template :show
     end
   end
 
   describe 'GET #new' do
     it 'assigns a new application to @application' do
-      get :new, params: { candidate_id: candidate_1.id,
-                          job_id: job_1.id }
+      get :new, params: { candidate_id: first_candidate.id,
+                          job_id: first_job.id }
       expect(assigns(:candidate_job)).to be_a_new(CandidateJob)
     end
 
     it 'renders the :new template' do
-      get :new, params: { candidate_id: candidate_1.id,
-                          job_id: job_1.id }
+      get :new, params: { candidate_id: first_candidate.id,
+                          job_id: first_job.id }
       expect(response).to render_template :new
     end
   end
 
   describe 'POST #create' do
-    let!(:user_1) { FactoryBot.create(:user, role: :applicant) }
-    let!(:candidate_2) { FactoryBot.create(:candidate, user_id: user_1.id) }
+    let!(:second_user) { FactoryBot.create(:user, role: :applicant) }
+    let!(:second_candidate) { FactoryBot.create(:candidate, user_id: second_user.id) }
 
     context 'with valid attributes' do
       let(:valid_attributes) do
         FactoryBot.attributes_for(:candidate_job,
-                                  candidate_id: candidate_2.id,
-                                  job_id: job_1.id,
+                                  candidate_id: second_candidate.id,
+                                  job_id: first_job.id,
                                   expected_salary: '50000')
       end
 
@@ -54,16 +85,16 @@ RSpec.describe CandidateJobsController, type: :controller do
         expect do
           post :create,
             params: { candidate_job: valid_attributes,
-                      candidate_id: candidate_2.id,
-                      job_id: job_1.id }
+                      candidate_id: second_candidate.id,
+                      job_id: first_job.id }
         end.to change(CandidateJob, :count).by(1)
         expect(flash[:notice]).to eq('Job Applied')
       end
 
       it 'redirects to candidate_jobs#index' do
         post :create, params: { candidate_job: valid_attributes,
-                                candidate_id: candidate_1.id,
-                                job_id: job_1.id }
+                                candidate_id: first_candidate.id,
+                                job_id: first_job.id }
         expect(response).to redirect_to candidate_jobs_path
       end
     end
@@ -77,16 +108,16 @@ RSpec.describe CandidateJobsController, type: :controller do
       it 'does not save the new candidate in the database' do
         expect do
           post :create, params: { candidate_job: invalid_attributes,
-                                  candidate_id: candidate_2.id,
-                                  job_id: job_1.id }
+                                  candidate_id: second_candidate.id,
+                                  job_id: first_job.id }
         end.not_to change(CandidateJob, :count)
         expect(flash[:error]).to eq("Expected salary can't be blank and Expected salary is not a number")
       end
 
       it 'renders the new template' do
         post :create, params: { candidate_job: invalid_attributes,
-                                candidate_id: candidate_1.id,
-                                job_id: job_1.id }
+                                candidate_id: first_candidate.id,
+                                job_id: first_job.id }
         expect(response).to render_template :new
       end
     end

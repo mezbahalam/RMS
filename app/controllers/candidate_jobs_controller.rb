@@ -9,6 +9,10 @@ class CandidateJobsController < ApplicationController
 
   def show
     @candidate_jobs = @job.candidate_jobs.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.json { render json: @candidate_jobs, people: @candidate_jobs }
+    end
   end
 
   def new; end

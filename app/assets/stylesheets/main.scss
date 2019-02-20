@@ -1104,6 +1104,10 @@ table tr td {
   padding: 6px 12px;
 }
 
+.help-back {
+  padding-top: 2rem;
+}
+
 .calendar {
   background: {
     attachment: scroll;
@@ -1126,24 +1130,20 @@ table tr td {
       text-align: center;
     }
 
-    table {
-      background-color: $white;
-      margin-left: 5%;
-      margin-right: 5%;
-      width: 90%;
-    }
-
     a {
       color: $black;
       font-size: 2rem;
       margin-left: unset;
       padding-top: 10rem;
     }
-  }
-}
 
-.help-back {
-  padding-top: 2rem;
+    table {
+      background-color: $white;
+      margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
+    }
+  }
 }
 
 .default-title {

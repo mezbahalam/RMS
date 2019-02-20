@@ -8,6 +8,7 @@ class Ability
       can :manage, :all
       cannot %i(edit create), Candidate
       cannot :create, CandidateJob
+      cannot :show, :help
     elsif user.applicant?
       can %i(create update show), Candidate, user_id: user.id
       can :read, Job
@@ -16,6 +17,7 @@ class Ability
       can :index, CandidateJob
       can :create, CandidateJob, candidate: user.candidate
       cannot :show, CandidateJob
+      can :show, :help
     end
   end
 end

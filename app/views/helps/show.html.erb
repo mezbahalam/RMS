@@ -1,22 +1,16 @@
-<div class ="candidate new">
-  <br />
-  <%= link_to t('shared.all.back'), pages_path %>
-
-  <div class="help-link">
-    <%= link_to image_tag('help_page_icon.png'), help_path %>
-  </div>
-
+<div class="candidate new">
   <div class="form-group">
+    <div class="help-back"> <%= link_to t('shared.all.back'), pages_path %> </div>
     <div class="container">
-      <h2><%= t('candidate.new') %></h2>
-      <h3><%= t('candidate.info') %></h3>
-      <%= simple_form_for @candidate do |f| %>
+      <h2 class="information-headline"><%= t('candidate.help_page.help') %></h2>
+      <h3><%= t('candidate.help_page.info') %></h3>
+      <%= simple_form_for :help do |f| %>
         <input id='step2' type='checkbox'>
         <input id='step3' type='checkbox'>
         <input id='step4' type='checkbox'>
         <div id="part1" class="form-group">
           <h3><%= t('candidate.basic_info') %></h3>
-            <%= render 'form', f: f %>
+          <%= render 'basic', f: f %>
           <div class="nav_con_btn">
             <div>
               <label for='step2' id="continue-step2" class="continue">
@@ -27,7 +21,7 @@
         </div>
 
         <div id="part2" class="form-group">
-          <h3><%= t('candidate.edu_profile') %></h3>
+          <h3><%= t('candidate.prof_exp') %></h3>
           <%= render 'education', f: f %>
           <div class="nav_btn">
             <label for='step2' id="back-step2" class="back">
@@ -43,7 +37,7 @@
 
         <div id="part3" class="form-group">
           <h3><%= t('candidate.prof_exp') %></h3>
-          <%= render 'experience', f: f %>
+          <%= render 'professional', f: f %>
           <div class="nav_btn">
             <label for='step3' id="back-step3" class="back">
               <div class="btn-back"><%= t('shared.all.prev') %></div>
@@ -58,7 +52,7 @@
 
         <div id="part4" class="form-group">
           <h3><%= t('candidate.additional_info') %></h3>
-          <%= render 'additionalinfo', f: f %>
+          <%= render 'additional', f: f %>
           <div class="nav_back_btn">
             <div>
               <label for='step4' id="back-step4" class="back">
@@ -68,6 +62,6 @@
           </div>
         </div>
       <% end %>
-      </div>
+    </div>
   </div>
 </div>

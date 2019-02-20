@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   before_action :check_if_profile_filled?
-
   def index
     if current_user.admin?
       redirect_to admins_path

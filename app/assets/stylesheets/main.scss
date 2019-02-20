@@ -372,6 +372,9 @@ table tr td {
     display: block;
     height: 34px;
   }
+  .information-headline {
+    text-align: center;
+  }
 
   .container {
     background: $offwhite;
@@ -444,6 +447,13 @@ table tr td {
       height: 4rem;
       margin-left: 10rem;
       width: 15rem;
+    }
+
+    .gender-issue {
+      label {
+        padding-bottom: 1rem;
+        width: 8rem;
+      }
     }
   }
 }
@@ -1056,6 +1066,17 @@ table tr td {
   overflow: hidden;
 }
 
+.help-link {
+  float: right;
+  height: 5rem;
+  margin-right: 5rem;
+  width: 5rem;
+
+  img {
+    width: 100%;
+  }
+}
+
 .tab button {
   background-color: inherit;
   border: none;
@@ -1081,6 +1102,10 @@ table tr td {
   border-top: 0;
   display: none;
   padding: 6px 12px;
+}
+
+.help-back {
+  padding-top: 2rem;
 }
 
 

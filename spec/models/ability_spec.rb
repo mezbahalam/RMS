@@ -37,6 +37,10 @@ RSpec.describe Ability, type: :model do
     context 'Candidate Job' do
       it { is_expected.not_to be_able_to(:create, candidate_job) }
     end
+
+    context 'Help Page' do
+      it { is_expected.not_to be_able_to(:show, :help) }
+    end
   end
 
   describe 'Applicant Abilities' do
@@ -80,6 +84,10 @@ RSpec.describe Ability, type: :model do
       it { is_expected.to be_able_to(:create, candidate_job) }
       it { is_expected.not_to be_able_to(:create, another_candidate_job) }
       it { is_expected.not_to be_able_to(:show, candidate_job) }
+    end
+
+    context 'Help Page' do
+      it { is_expected.to be_able_to(:show, :help) }
     end
   end
 end

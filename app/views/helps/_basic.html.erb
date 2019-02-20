@@ -1,0 +1,9 @@
+<%= f.input :name, label: t('candidate.name'), input_html: { value: t('candidate.help_page.name') }, readonly: true %>
+<div class="gender-issue">
+  <%= f.label :gender %>
+  <%= f.collection_radio_buttons :gender, human_attribute_genders, :first, :second,  checked: human_attribute_genders.first, disabled: true %>
+</div>
+<%= f.input :email, label: t('shared.all.email'), input_html: { value: t('candidate.help_page.email'),readonly: true } %>
+<%= f.input :address, label: t('shared.all.address'), input_html: { value: t('candidate.help_page.address'), readonly: true } %>
+<%= f.input :contact, label: t('shared.all.phone'), input_html: { value: t('candidate.help_page.contact') }, readonly: true %>
+<%= f.input :dob, label: t('shared.all.dob'), input_html: { value: t('candidate.help_page.dob') }, readonly: true %>

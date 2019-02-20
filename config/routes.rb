@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :admins
+  resource  :help, only: %i(show)
 
   get '/candidate_jobs', controller: :candidate_jobs, action: :index
   get '/candidate_jobs/show/:job_id' => 'candidate_jobs#show', :as => :show_requests

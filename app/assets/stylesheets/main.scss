@@ -1108,7 +1108,6 @@ table tr td {
   padding-top: 2rem;
 }
 
-
 .calendar {
   background: {
     attachment: scroll;
@@ -1146,36 +1145,4 @@ table tr td {
       padding-top: 10rem;
     }
   }
-}
-
-.default-title {
-  background-color: $light-red;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.junior-engineer {
-  background-color: $light-green;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.senior-engineer {
-  background-color: $light-purple;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.front-engineer {
-  background-color: $light-blue;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
 }

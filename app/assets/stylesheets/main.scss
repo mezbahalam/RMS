@@ -1,9 +1,4 @@
 $default-fonts: Verdana, Lucida, Arial, Helvetica, sans-serif;
-$green: rgb(124, 197, 118);
-$red: rgb(242, 109, 125);
-$purple: rgb(168, 100, 168);
-$blue: rgb(73, 205, 242);
-$white: rgb(255, 255, 255);
 *,
 *::before,
 *::after {
@@ -1100,6 +1095,7 @@ table tr td {
   height: 82rem;
 
   a {
+    color: $white;
     margin-left: 2rem;
     text-decoration: underline;
   }
@@ -1119,6 +1115,7 @@ table tr td {
     }
 
     a {
+      color: $black;
       font-size: 2rem;
       margin-left: unset;
       padding-top: 10rem;
@@ -1127,31 +1124,29 @@ table tr td {
 }
 
 .default-title {
-  background-color: $red;
-  border: .2rem;
+  background-color: $light-red;
+  border: .2rem solid $black;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
-
 .junior-engineer {
-  background-color: $green;
-  border: .2rem;
+  background-color: $light-green;
+  border: .2rem solid $black;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
 .senior-engineer {
-  background-color: $purple;
-  border: .2rem;
+  background-color: $light-purple;
+  border: .2rem solid $black;
   border-radius: 5%;
   text-align: center;
   width: 100%;
 }
-
 .front-engineer {
-  background-color: $blue;
-  border: .2rem;
+  background-color: $light-blue;
+  border: .2rem solid $black;
   border-radius: 5%;
   text-align: center;
   width: 100%;

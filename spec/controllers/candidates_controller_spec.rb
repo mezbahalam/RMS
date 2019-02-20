@@ -39,6 +39,7 @@ RSpec.describe CandidatesController, type: :controller do
       expect(response).to redirect_to sign_in_path
     end
   end
+  
   describe 'GET #show' do
     it 'displays the requested candidate to @candidate' do
       get :show, params: { id: candidate_1 }
@@ -50,6 +51,7 @@ RSpec.describe CandidatesController, type: :controller do
       expect(response).to render_template :show
     end
   end
+
   describe 'GET #new' do
     it 'assigns a new Candidate to @candidate' do
       get :new

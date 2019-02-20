@@ -1104,44 +1104,7 @@ table tr td {
   padding: 6px 12px;
 }
 
-.help-back {
-  padding-top: 2rem;
-}
-
-.default-title {
-  background-color: $light-red;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.junior-engineer {
-  background-color: $light-green;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.senior-engineer {
-  background-color: $light-purple;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
-.front-engineer {
-  background-color: $light-blue;
-  border: .2rem solid $black;
-  border-radius: 5%;
-  text-align: center;
-  width: 100%;
-}
-
 .calendar {
-  
   background: {
     attachment: scroll;
     image: asset-url('page_index.jpeg');
@@ -1177,4 +1140,40 @@ table tr td {
       padding-top: 10rem;
     }
   }
+}
+
+.help-back {
+  padding-top: 2rem;
+}
+
+.default-title {
+  background-color: $light-red;
+  border: .2rem solid $black;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}
+
+.junior-engineer {
+  background-color: $light-green;
+  border: .2rem solid $black;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}
+
+.senior-engineer {
+  background-color: $light-purple;
+  border: .2rem solid $black;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
+}
+
+.front-engineer {
+  background-color: $light-blue;
+  border: .2rem solid $black;
+  border-radius: 5%;
+  text-align: center;
+  width: 100%;
 }

@@ -1,9 +1,12 @@
 <div class="calendar">
-  <% if current_user.admin? %>
-    <%= link_to t('shared.all.back'), admins_path %>
-  <% else %>
-    <%= link_to t('shared.all.back'), candidate_jobs_path %>
-  <% end %>
+  <div class="help-back">
+    <% if current_user.admin? %>
+      <%= link_to t('shared.all.back'), admins_path %>
+    <% else %>
+      <%= link_to t('shared.all.back'), candidate_jobs_path %>
+    <% end %>
+  </div>
+
   <%= month_calendar events: @calendars do |date,dead| %>
     <%= date.day %>
     <% dead.each do |line| %>

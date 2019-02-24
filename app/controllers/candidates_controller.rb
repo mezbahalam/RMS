@@ -63,7 +63,9 @@ class CandidatesController < ApplicationController
                                       :avatar,
                                       :delete_avatar,
                                       :user_id,
-                                      :language_prof,
+                                      :writing,
+                                      :reading,
+                                      :speaking,
                                       :award_certificate,
                                       :career_objective,
                                       :project_url)

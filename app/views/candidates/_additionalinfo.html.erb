@@ -2,5 +2,11 @@
 <%= f.input :personal_interest, input_html: {rows: 3} %>
 <%= f.input :keywords%>
 <%= f.input :referrals%>
-<%= f.input :language_proficiency %>
+<%= f.label :english_proficiency %>
+<div class="english-language">
+  <%= f.input :reading, collection: %w[high medium low]%>
+  <%= f.input :writing, collection: %w[high medium low]%>
+  <%= f.input :speaking, collection: %w[high medium low]%>
+</div>
+<%= f.input :other_language %>
 <%= f.button :submit, t('candidate.add') %>

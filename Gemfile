@@ -29,6 +29,7 @@ gem 'rails-controller-testing'
 gem 'jquery-rails'
 gem 'wysiwyg-rails'
 gem 'font-awesome-sass'
+gem 'json'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -4,10 +4,10 @@ class Candidate < ApplicationRecord
   has_many :candidate_jobs
   has_many :jobs, through: :candidate_jobs
 
+  store_accessor :english_proficiency, :reading, :writing, :speaking
+
   enum gender: { male: 0, female: 1 }
-  enum language_proficiency: { reading: { low: 0, medium: 1, high: 2 },
-                               writing: { low: 0, medium: 1, high: 2 },
-                               speaking: { low: 0, medium: 1, high: 2 } }
+
   scope :sorted_by_experience, -> { order('experience ASC') }
 
   validates :name, presence: true

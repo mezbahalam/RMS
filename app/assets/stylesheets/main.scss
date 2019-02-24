@@ -1108,3 +1108,12 @@ table tr td {
 .help-back {
   padding-top: 2rem;
 }
+
+.candidate.edit .english-language > .form-group {
+  display: inline-block;
+  width: 27%;
+
+  .form-control {
+    width: 100%;
+  }
+}

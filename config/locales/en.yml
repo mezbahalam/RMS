@@ -165,7 +165,7 @@ en:
       candidate:
         address: Address
         contact: Phone/Mobile No.
-        cpga: CGPA
+        cgpa: CGPA
         degree: Degree
         dob: Date of Birth
         email: Email
@@ -174,12 +174,17 @@ en:
         keywords: Keywords
         long_term_plan: Long Term Plan
         major: Major
-        name: Candidate Name
+        name: Full Name
+        hobbies: Hobbies
         passing_year: Passing Year
         personal_interest: Personal Interest
         referrals: Refferals
         skill: Skills
         university_name: Name of University
+        language_proficiency: Language Proficiency
+        award_certificate: Award and Certificate
+        career_objective: Career Objective
+        project_url: Project URL
       job:
         deadline: Deadline
         description: Description

@@ -1,15 +1,14 @@
 <%= f.error_notification %>
-<%= f.input :name, label: t('candidate.name'), input_html: { value: current_user.set_name } %>
+<%= f.input :name, input_html: { value: current_user.set_name } %>
 <%= f.label :gender %>
 <%= f.collection_radio_buttons :gender, human_attribute_genders,
                                :first,
                                :second,
                                checked: human_attribute_genders.first %>
-<%= f.input :email, placeholder: t('simple_form.placeholders.candidate.email'), label: t('shared.all.email') %>
-<%= f.input :address, label: t('shared.all.address'), input_html: {rows: 3} %>
-<%= f.input :contact, label: t('shared.all.phone') %>
+<%= f.input :email, placeholder: t('simple_form.placeholders.candidate.email')%>
+<%= f.input :address, input_html: {rows: 3} %>
+<%= f.input :contact%>
 <%= f.input :dob,
-            label: t('shared.all.dob'),
             as: :date,
             html5: true,
             :order => [ :day, :month, :year] %>

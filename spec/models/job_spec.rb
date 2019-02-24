@@ -26,8 +26,8 @@ RSpec.describe Job, type: :model do
 
   describe '#start_time' do
     it 'returns deadline from jobs' do
-      job_three = create(:job, deadline: '2019-3-30'.to_date)
-      expect(job_three.start_time).to eq job_three.deadline
+      another_job = create(:job, deadline: '2019-3-30'.to_date)
+      expect(another_job.start_time).to eq another_job.deadline
     end
   end
 end

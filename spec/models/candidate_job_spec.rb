@@ -9,51 +9,51 @@ RSpec.describe CandidateJob, type: :model do
   it { is_expected.to validate_presence_of(:expected_salary) }
   it { is_expected.to validate_numericality_of(:expected_salary) }
 
-  let!(:user1) do
+  let!(:first_user) do
     FactoryBot.create(:user, role: :applicant)
   end
 
-  let!(:candidate_one) do
-    FactoryBot.create(:candidate, user_id: user1.id)
+  let!(:first_candidate) do
+    FactoryBot.create(:candidate, user_id: first_user.id)
   end
 
-  let!(:job_one) do
+  let!(:first_job) do
     FactoryBot.create(:job,
                       deadline: '2018-11-26'.to_date)
   end
 
   describe 'job_applied' do
-    let!(:candidate_job_one) do
+    let!(:first_candidate_job) do
       FactoryBot.create(:candidate_job,
-                        candidate_id: candidate_one.id,
-                        job_id: job_one.id)
+                        candidate_id: first_candidate.id,
+                        job_id: first_job.id)
     end
 
     context 'if already' do
       it 'will return true' do
-        expect(subject.job_applied?(candidate_one, job_one)).to be true
+        expect(subject.job_applied?(first_candidate, first_job)).to be true
       end
     end
   end
 
   describe '#start_time' do
     it 'returns created_at from candidates_job' do
-      candidate_job_two = create(:candidate_job, candidate_id: candidate_one.id, job_id: job_one.id)
-      expect(candidate_job_two.start_time).to eq candidate_job_two.created_at
+      second_candidate_job = create(:candidate_job, candidate_id: first_candidate.id, job_id: first_job.id)
+      expect(second_candidate_job.start_time).to eq second_candidate_job.created_at
     end
   end
 
   describe '#end_time' do
     it 'returns deadline from jobs' do
-      candidate_job_three = create(:candidate_job, candidate_id: candidate_one.id, job_id: job_one.id)
-      expect(candidate_job_three.end_time).to eq job_one.deadline
+      third_candidate_job = create(:candidate_job, candidate_id: first_candidate.id, job_id: first_job.id)
+      expect(third_candidate_job.end_time).to eq first_job.deadline
     end
   end
 
   describe '#title' do
     it 'returns title from jobs' do
-      candidate_job_four = create(:candidate_job, candidate_id: candidate_one.id, job_id: job_one.id)
-      expect(candidate_job_four.title).to eq job_one.title
+      another_candidate_job = create(:candidate_job, candidate_id: first_candidate.id, job_id: first_job.id)
+      expect(another_candidate_job.title).to eq first_job.title
     end
   end
 end

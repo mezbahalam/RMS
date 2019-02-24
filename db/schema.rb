@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_23_042826) do
+ActiveRecord::Schema.define(version: 2019_02_24_043743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,10 @@ ActiveRecord::Schema.define(version: 2018_12_23_042826) do
     t.string "major"
     t.float "cgpa"
     t.string "passing_year"
+    t.text "language_prof"
+    t.text "award_certificate"
+    t.text "career_objective"
+    t.text "project_url"
     t.index ["user_id"], name: "index_candidates_on_user_id"
   end
 

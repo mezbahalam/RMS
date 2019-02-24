@@ -62,7 +62,11 @@ class CandidatesController < ApplicationController
                                       :referrals,
                                       :avatar,
                                       :delete_avatar,
-                                      :user_id)
+                                      :user_id,
+                                      :language_prof,
+                                      :award_certificate,
+                                      :career_objective,
+                                      :project_url)
   end
 
   def check_if_email_confirmed

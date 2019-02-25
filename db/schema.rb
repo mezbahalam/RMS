@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_02_24_043743) do
     t.float "cgpa"
     t.string "passing_year"
     t.json "english_proficiency"
+    t.json "bangla_proficiency"
     t.text "other_language"
     t.text "award_certificate"
     t.text "career_objective"

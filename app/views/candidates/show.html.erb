@@ -83,6 +83,10 @@
             <td><%= @candidate.passing_year %></td>
           </tr>
           <tr>
+            <th><%= t('candidate.award') %></th>
+            <td><%= @candidate.award_certificate %></td>
+          </tr>
+          <tr>
           </tr>
         </table>
       </div>
@@ -101,6 +105,14 @@
           <tr>
             <th><%= t('shared.all.plan') %></th>
             <td><%= @candidate.long_term_plan %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.career') %></th>
+            <td><%= @candidate.career_objective %></td>
+          </tr>
+          <tr>
+            <th><%= t('candidate.project') %></th>
+            <td><%= @candidate.project_url %></td>
           </tr>
           <tr>
             <th><%= t('shared.all.file_up') %></th>
@@ -137,6 +149,31 @@
           <tr>
             <th><%= t('shared.all.refer') %></th>
             <td><%= @candidate.referrals %></td>
+          </tr>
+          <tr>
+            <th> <%= t('candidate.english')%> </th>
+            <td>
+            <div class="english-show">
+              <span> <%= t('candidate.read') %> </span> <%=@candidate.english_reading %>
+              <span> <%= t('candidate.write') %> </span><%=@candidate.english_writing %>
+              <span> <%= t('candidate.speak') %> </span> <%=@candidate.english_speaking %>
+            </div>
+            </td>
+          </tr>
+          <tr>
+          <tr>
+            <th> <%= t('candidate.bangla')%> </th>
+            <td>
+              <div class="english-show">
+                <span> <%= t('candidate.read') %> </span> <%=@candidate.bangla_reading %>
+                <span> <%= t('candidate.write') %> </span><%=@candidate.bangla_writing %>
+                <span> <%= t('candidate.speak') %> </span> <%=@candidate.bangla_speaking %>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th> <%= t('candidate.other') %> </th>
+            <td> <%= @candidate.other_language %> </td>
           </tr>
         </table>
       </div>

@@ -5,15 +5,20 @@ en:
     additional_info: Additional Information
     age: Age
     applicant: Applicant Name
+    award: Award and Certificate
+    bangla: Bangla Language
     basic_info: Basic Information
     candidate_list: Candidate List
+    career: Career Objective
     cgpa: CGPA
     degree: Degree
     details: Candidate Details
     edit: Edit My Profile
     edu_profile: Educational Background
+    english: English Language
     help_page:
       address: House# 111, Road# 9, Block# F, Bashundhara R/A
+      certificate: C Certified Professional Programmer
       cgpa: '2.40'
       contact: "+8801XXXXXXXXX"
       degree: B.Sc in CSE
@@ -22,35 +27,45 @@ en:
       exp: 2
       help: Candidate Info Help Page
       hobby: Travel and sleep
-      info: This is help page to create your profile
       key: Thinker
       major: Data Mining
       name: John Smith
+      objective: To work in an environment where there is an opportunity of self-assessment and selfimprovement in the field of Computer Science and Engineering in both individual and group basis to flourish my capability of bringing benefits for all.
+      other_language: Bengali, French
       pass_year: 2013
       personal_interest: I dont know
       plan: I want become a full stack Backend Developer
+      project: Internet Banking App(Prototype), IGDTUW Database Management Project modelling the University (DBMS)
       refer: Gavin Belson
       skill: |
         Programming Languages: C, C++, Java, Ruby, Python
         Framework: Spring, Boot, JSP
         Database: MySQL, Postgres
       uni: University Of People
+    high: high
     inapproriate_dob: Inappropriate Date of Birth
     info: Fill out the form to create your profile
+    low: low
     major: Major
+    medium: medium
     name: Candidate Name
     new: New Candidate Information
     notice_create: Record of '%{candidate_name}' created successfully!
     notice_delete: Record of '%{candidate_name}' deleted successfully!
     notice_edit: Record of '%{candidate_name}' updated successfully!
+    other: Other Language
     passing_year: Passing Year
     prof_exp: Professional Experience
+    project: Project URL
+    read: Reading
+    speak: Speaking
     uni_name: University Name
     update: Update Candidate Information
     view: View My Profile
     view_candidates: View Applicant List
     view_candidates_desc: This link will show you a list of all the applicants registered into the system
     welcome: Welcome %{candidate_name}
+    write: Writing
   candidate_job:
     application: View Job Applications
     application_desc: This link will show you all the applicants that have applied for the open job applications

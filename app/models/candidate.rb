@@ -4,7 +4,8 @@ class Candidate < ApplicationRecord
   has_many :candidate_jobs
   has_many :jobs, through: :candidate_jobs
 
-  store_accessor :english_proficiency, :reading, :writing, :speaking
+  store_accessor :english_proficiency, :english_reading, :english_writing, :english_speaking
+  store_accessor :bangla_proficiency, :bangla_reading, :bangla_writing, :bangla_speaking
 
   enum gender: { male: 0, female: 1 }
 

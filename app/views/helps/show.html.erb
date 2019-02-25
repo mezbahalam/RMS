@@ -1,9 +1,8 @@
-<div class="candidate new">
+<div class="candidate edit">
   <div class="form-group">
     <div class="help-back"> <%= link_to t('shared.all.back'), pages_path %> </div>
     <div class="container">
       <h2 class="information-headline"><%= t('candidate.help_page.help') %></h2>
-      <h3><%= t('candidate.help_page.info') %></h3>
       <%= simple_form_for :help do |f| %>
         <input id='step2' type='checkbox'>
         <input id='step3' type='checkbox'>

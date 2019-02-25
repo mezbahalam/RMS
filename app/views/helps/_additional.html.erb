@@ -2,5 +2,17 @@
 <%= f.input :personal_interest, label: t('shared.all.personal_int'), input_html: { value: t('candidate.help_page.personal_interest') }, readonly: true%>
 <%= f.input :keywords, label: t('shared.all.keyword'), input_html: { value: t('candidate.help_page.key') }, readonly: true%>
 <%= f.input :referrals, label: t('shared.all.refer'), input_html: { value: t('candidate.help_page.refer') }, readonly: true%>
-<%= f.input :language_proficiency %>
+<%= f.label :english_proficiency %>
+<div class="english-language">
+  <%= f.input :english_reading, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.read'), disable: true %>
+  <%= f.input :english_writing, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.write'), disable: true  %>
+  <%= f.input :english_speaking, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.speak'), disable: true  %>
+</div>
+<%= f.label :bangla_proficiency %>
+<div class="english-language">
+  <%= f.input :bangla_reading, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.read'), disable: true  %>
+  <%= f.input :bangla_writing, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.write'), disable: true  %>
+  <%= f.input :bangla_speaking, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.speak'), disable: true  %>
+</div>
+<%= f.input :other_language, label: t('candidate.other'), input_html: { value: t('candidate.help_page.other_language')}, readonly: true %>
 <%= f.button :submit, disabled: true %>

@@ -1,12 +1,21 @@
 <%= f.input :hobbies, label: t('shared.all.hobby'), input_html: {rows: 3} %>
 <%= f.input :personal_interest, input_html: {rows: 3} %>
-<%= f.input :keywords%>
-<%= f.input :referrals%>
+<%= f.input :keywords %>
+<%= f.input :referrals %>
 <%= f.label :english_proficiency %>
 <div class="english-language">
-  <%= f.input :reading, collection: %w[high medium low]%>
-  <%= f.input :writing, collection: %w[high medium low]%>
-  <%= f.input :speaking, collection: %w[high medium low]%>
+  <%= f.input :english_reading,
+              collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.read') %>
+  <%= f.input :english_writing,
+              collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.write') %>
+  <%= f.input :english_speaking,
+              collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.speak') %>
+</div>
+<%= f.label :bangla_proficiency %>
+<div class="english-language">
+  <%= f.input :bangla_reading, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.read') %>
+  <%= f.input :bangla_writing, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.write') %>
+  <%= f.input :bangla_speaking, collection: [t('candidate.high'), t('candidate.medium'), t('candidate.low')], label: t('candidate.speak') %>
 </div>
 <%= f.input :other_language %>
 <%= f.button :submit, t('candidate.add') %>
